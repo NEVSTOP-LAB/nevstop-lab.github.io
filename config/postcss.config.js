@@ -41,7 +41,7 @@ const purgecss = purgeCSSPlugin({
     "lazyload",
     "lazyloaded",
     "alert-link",
-    "container-fw ",
+    "container-fw",
     "container-lg",
     "container-fluid",
     "offcanvas-backdrop",
