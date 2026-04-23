@@ -91,7 +91,7 @@ jobs:
               });
             }
 
-            imported.sort((a, b) => a.name.localeCompare(b.name, 'zh', { sensitivity: 'base' }));
+            imported.sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
 
             const indexContent = [
               '---',
@@ -117,10 +117,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet --exit-code; then
+          git add content/repo-readmes
+          if git diff --cached --quiet --exit-code; then
             echo "No changes to commit."
             exit 0
           fi
-          git add content/repo-readmes
           git commit -m "chore: sync Chinese READMEs from public repos"
           git push
