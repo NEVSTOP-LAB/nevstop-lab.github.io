@@ -15,7 +15,7 @@ This repository demonstrates how to build a reusable TCP communication layer—C
 
 ## Features
 
-![framework](.doc/CSM-TCP-Router%201.svg)
+![framework](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-TCP-Router-App/HEAD/.doc/CSM-TCP-Router%201.svg)
 
 - Any CSM message that can be sent locally can also be transmitted to the local program over TCP, using CSM synchronous and asynchronous message formats.
 - Based on the JKI-TCP-Server library, it supports multiple TCP clients connecting simultaneously.
@@ -45,7 +45,7 @@ For detailed communication protocol definitions, see [Protocol Design](.doc/Prot
 
 ## Supported Command Sets
 
-![image](.doc/CSM-TCP-Router.drawio.png)
+![image](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-TCP-Router-App/HEAD/.doc/CSM-TCP-Router.drawio.png)
 
 ### 1. CSM Message Command Set
 
@@ -77,7 +77,7 @@ The bundled standard CSM-TCP-Router Client includes additional built-in commands
 - `Switch`: Switch the active module to omit the module name when entering commands; omit the parameter to switch back to the default mode
 - TAB key: Automatically focus on the input dialog box
 
-![CSM-TCP-Router Client Console](.doc/Client.png)
+![CSM-TCP-Router Client Console](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-TCP-Router-App/HEAD/.doc/Client.png)
 
 ## Usage
 

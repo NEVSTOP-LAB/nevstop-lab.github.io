@@ -9,7 +9,7 @@ draft: false
 
 LabVIEW 范例：在 EXE中调用VI
 
-![img](_doc/Snipaste_2024-09-27_22-39-01.png)
+![img](https://raw.githubusercontent.com/NEVSTOP-LAB/LabVIEW-Run-VI-In-Built-EXE/HEAD/_doc/Snipaste_2024-09-27_22-39-01.png)
 
  - 情况1： VI处于开发模式，需要运行 LabVIEW.exe, 使用VI Server运行VI
 

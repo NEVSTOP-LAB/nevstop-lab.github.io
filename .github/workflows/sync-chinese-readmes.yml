@@ -84,6 +84,14 @@ jobs:
                 continue;
               }
 
+              // Replace relative image paths with absolute raw.githubusercontent.com URLs
+              const defaultBranch = repo.default_branch || 'HEAD';
+              const rawBase = `https://raw.githubusercontent.com/${repo.full_name}/${defaultBranch}`;
+              readmeContent = readmeContent.replace(
+                /!\[([^\]]*)\]\((?!https?:\/\/|\/\/)([^)]+)\)/g,
+                (match, alt, src) => `![${alt}](${rawBase}/${src.replace(/^\.\//, '')})`
+              );
+
               const frontMatter = [
                 '---',
                 `title: '${escapeYamlSingleQuoted(repo.name)} README'`,

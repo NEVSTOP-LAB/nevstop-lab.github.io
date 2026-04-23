@@ -7,7 +7,7 @@ draft: false
 > 自动同步来源： [NEVSTOP-LAB/csm-keynotes-collection](https://github.com/NEVSTOP-LAB/csm-keynotes-collection)
 > 导入规则：仅根据 README 是否包含中文判断，正文保持原文。
 
-![csm-links](_doc/CSM%20Links.png)
+![csm-links](https://raw.githubusercontent.com/NEVSTOP-LAB/csm-keynotes-collection/HEAD/_doc/CSM%20Links.png)
 
 **一种全新的开源 LabVIEW 编程架构-可通讯状态机(CSM)架构@NI全联结峰会2024**
 
