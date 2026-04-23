@@ -1,0 +1,50 @@
+---
+title: 'csm-vsc-extension README'
+description: '自动同步自 NEVSTOP-LAB/csm-vsc-extension 的中文 README'
+draft: false
+---
+
+> 自动同步来源： [NEVSTOP-LAB/csm-vsc-extension](https://github.com/NEVSTOP-LAB/csm-vsc-extension)
+> 导入规则：仅根据 README 是否包含中文判断，正文保持原文。
+
+# Communicable State Machine(CSM) VSCode 支持
+
+> 为 CSM 相关文件提供 Visual Studio Code 编辑器支持的插件。
+
+## 项目简介
+
+当前版本扩展聚焦两类文件：
+
+- `.csmlog`：CSM 日志文件（语法高亮 + 悬停提示 + 大纲）
+- `.lvcsm`：CSM 配置文件（基于 INI 语法高亮）
+
+## 安装要求
+
+- Visual Studio Code 1.60.0 或更高版本
+
+## 功能特性
+
+### `.csmlog` 文件支持
+
+- ✅ 事件类型高亮（Error、User Log、Sync/Async Message、State Change 等）
+- ✅ 时间戳与模块名高亮
+- ✅ 参数 `key:` 前缀高亮（粗体 + 斜体 + 下划线）
+- ✅ Hover 悬停提示（事件类型、时间戳、配置键、部分操作符）
+- ✅ Outline 大纲（配置项、Module Created/Destroyed、Logger 系统消息）
+- ✅ 默认编辑器字号配置：`14px`（可通过 `editor.fontSize` 覆盖）
+- ✅ 默认开启 `files.autoGuessEncoding`，降低 GBK/GB2312 文件乱码风险
+
+### `.lvcsm` 文件支持
+
+- ✅ 注册独立语言 `lvcsm`
+- ✅ 语法通过 `source.ini` 复用 INI 高亮规则
+- ✅ 默认开启 `files.autoGuessEncoding`，降低 GBK/GB2312 文件乱码风险
+
+## 问题反馈
+
+如遇到问题请到 [GitHub Issues](https://github.com/nevstop/csm-vsc-extension/issues) 反馈。
+
+## 许可证
+
+本项目遵循 GNU Affero General Public License v3 (AGPL-3.0) 许可证。详见 [LICENSE](LICENSE) 文件。
+
