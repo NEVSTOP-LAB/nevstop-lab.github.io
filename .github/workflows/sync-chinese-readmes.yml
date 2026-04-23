@@ -30,12 +30,11 @@ jobs:
             const absoluteTargetDir = path.join(process.env.GITHUB_WORKSPACE, targetDir);
             const tempTargetDir = `${absoluteTargetDir}.tmp`;
             const backupTargetDir = `${absoluteTargetDir}.bak-${Date.now()}`;
-            const now = new Date().toISOString();
 
             const hasChinese = (text) => /\p{Script=Han}/u.test(text || '');
             const safeFileName = (name) =>
               name.toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '') || 'repo';
-            const escapeTomlString = (input) => String(input || '').replace(/"/g, '\\"');
+            const escapeYamlString = (input) => String(input || '').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
             const escapeMarkdownText = (input) => String(input || '').replace(/([\\`\[\]])/g, '\\$1');
             const collator = Intl.Collator.supportedLocalesOf(['zh-CN']).length
               ? new Intl.Collator('zh-CN', { sensitivity: 'base' })
@@ -59,9 +58,17 @@ jobs:
                 const response = await github.request('GET /repos/{owner}/{repo}/readme', {
                   owner: repo.owner.login,
                   repo: repo.name,
-                  headers: { accept: 'application/vnd.github.raw+json' }
+                  headers: { accept: 'application/vnd.github.v3.raw' }
                 });
-                readmeContent = typeof response.data === 'string' ? response.data : '';
+                if (typeof response.data === 'string') {
+                  readmeContent = response.data;
+                } else if (response.data && typeof response.data.content === 'string') {
+                  readmeContent = response.data.encoding === 'base64'
+                    ? Buffer.from(response.data.content, 'base64').toString('utf8')
+                    : response.data.content;
+                } else {
+                  readmeContent = '';
+                }
               } catch (error) {
                 if (error.status === 404) {
                   continue;
@@ -76,13 +83,13 @@ jobs:
 
               const frontMatter = [
                 '---',
-                `title: "${escapeTomlString(repo.name)} README"`,
-                `description: "自动同步自 ${escapeTomlString(repo.full_name)} 的中文 README"`,
-                `date: ${now}`,
+                `title: "${escapeYamlString(repo.name)} README"`,
+                `description: "自动同步自 ${escapeYamlString(repo.full_name)} 的中文 README"`,
                 'draft: false',
                 '---',
                 '',
                 `> 自动同步来源： [${repo.full_name}](${repo.html_url})`,
+                '> 导入规则：仅根据 README 是否包含中文判断，正文保持原文。',
                 ''
               ].join('\n');
 
