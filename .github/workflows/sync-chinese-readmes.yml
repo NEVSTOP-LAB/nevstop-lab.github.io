@@ -19,7 +19,7 @@ jobs:
         uses: actions/github-script@v7
         env:
           TARGET_DIR: content/repo-readmes
-          ORG: ${{ github.repository_owner }}
+          ORG: NEVSTOP-LAB
         with:
           script: |
             const fs = require('fs');
@@ -34,9 +34,12 @@ jobs:
 
             const hasChinese = (text) => /\p{Script=Han}/u.test(text || '');
             const safeFileName = (name) =>
-              name.toLowerCase().replace(/[^a-z0-9._-]+/g, '-').replace(/^-+|-+$/g, '') || 'repo';
+              name.toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '') || 'repo';
             const escapeTomlString = (input) => String(input || '').replace(/"/g, '\\"');
             const escapeMarkdownText = (input) => String(input || '').replace(/([\\`\[\]])/g, '\\$1');
+            const collator = Intl.Collator.supportedLocalesOf(['zh-CN']).length
+              ? new Intl.Collator('zh-CN', { sensitivity: 'base' })
+              : new Intl.Collator('en', { sensitivity: 'base' });
 
             fs.rmSync(tempTargetDir, { recursive: true, force: true });
             fs.mkdirSync(tempTargetDir, { recursive: true });
@@ -92,7 +95,7 @@ jobs:
               });
             }
 
-            imported.sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
+            imported.sort((a, b) => collator.compare(a.name, b.name));
 
             const indexContent = [
               '---',
@@ -118,7 +121,8 @@ jobs:
               fs.renameSync(tempTargetDir, absoluteTargetDir);
               fs.rmSync(backupTargetDir, { recursive: true, force: true });
             } catch (error) {
-              if (fs.existsSync(backupTargetDir) && !fs.existsSync(absoluteTargetDir)) {
+              if (fs.existsSync(backupTargetDir)) {
+                fs.rmSync(absoluteTargetDir, { recursive: true, force: true });
                 fs.renameSync(backupTargetDir, absoluteTargetDir);
               }
               throw error;
