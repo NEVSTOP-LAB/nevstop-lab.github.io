@@ -85,7 +85,7 @@ jobs:
               }
 
               // Replace relative image paths with absolute raw.githubusercontent.com URLs
-              const defaultBranch = repo.default_branch || 'main';
+              const defaultBranch = repo.default_branch || 'HEAD';
               const rawBase = `https://raw.githubusercontent.com/${repo.full_name}/${defaultBranch}`;
               readmeContent = readmeContent.replace(
                 /!\[([^\]]*)\]\((?!https?:\/\/|\/\/)([^)]+)\)/g,
