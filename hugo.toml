@@ -2,6 +2,93 @@ baseURL = "https://nevstop-lab.github.io/"
 languageCode = "zh-cn"
 title = "NEVSTOP-LAB"
 
+[build]
+  writeStats = true
+
 [module]
   [[module.imports]]
     path = "github.com/thuliteio/doks"
+
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+
+  [[module.mounts]]
+    source = "node_modules/@thulite/doks-core/data"
+    target = "data"
+
+  [[module.mounts]]
+    source = "data"
+    target = "data"
+
+  [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
+
+  [[module.mounts]]
+    source = "node_modules/@thulite/doks-core/layouts"
+    target = "layouts"
+
+  [[module.mounts]]
+    source = "node_modules/@thulite/core/layouts"
+    target = "layouts"
+
+  [[module.mounts]]
+    source = "node_modules/@thulite/seo/layouts"
+    target = "layouts"
+
+  [[module.mounts]]
+    source = "node_modules/@thulite/images/layouts"
+    target = "layouts"
+
+  [[module.mounts]]
+    source = "node_modules/@thulite/inline-svg/layouts"
+    target = "layouts"
+
+  [[module.mounts]]
+    source = "node_modules/@thulite/doks-core/i18n"
+    target = "i18n"
+
+  [[module.mounts]]
+    source = "i18n"
+    target = "i18n"
+
+  [[module.mounts]]
+    source = "node_modules/@thulite/doks-core/archetypes"
+    target = "archetypes"
+
+  [[module.mounts]]
+    source = "archetypes"
+    target = "archetypes"
+
+  [[module.mounts]]
+    source = "node_modules/@thulite/core/assets"
+    target = "assets"
+
+  [[module.mounts]]
+    source = "node_modules/@thulite/doks-core/assets"
+    target = "assets"
+
+  [[module.mounts]]
+    source = "node_modules/@tabler/icons/icons"
+    target = "assets/svgs/tabler-icons"
+
+  [[module.mounts]]
+    source = "node_modules/@thulite/images/assets"
+    target = "assets"
+
+  [[module.mounts]]
+    source = "hugo_stats.json"
+    target = "assets/watching/hugo_stats.json"
+
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+
+  [[module.mounts]]
+    source = "node_modules/@thulite/doks-core/static"
+    target = "static"
+
+  [[module.mounts]]
+    source = "static"
+    target = "static"

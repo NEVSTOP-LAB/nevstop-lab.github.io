@@ -4,7 +4,10 @@
   "description": "该仓库已从 Jekyll 迁移为 Hugo，并使用 Doks 主题。",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "hugo server --disableFastRender --noHTTPCache",
+    "build": "hugo --gc --minify",
+    "preview": "hugo --gc --minify"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +19,10 @@
     "@thulite/inline-svg": "^1.2.2",
     "@thulite/seo": "^2.4.3",
     "thulite": "^2.6.5"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^8.0.0",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.10"
   }
 }

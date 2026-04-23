@@ -4,14 +4,20 @@
 
 ## 本地预览
 
-1. 安装 Hugo Extended（建议最新版）。
-2. 在仓库根目录运行：
+1. 安装 Node.js（建议 24+）与 Hugo Extended（建议最新版）。
+2. 在仓库根目录安装前端依赖：
 
 ```bash
-hugo server
+npm ci
 ```
 
-3. 浏览器打开 `http://localhost:1313`。
+3. 启动本地预览：
+
+```bash
+npm run dev
+```
+
+4. 浏览器打开 `http://localhost:1313`。
 
 ## 目录说明
 
