@@ -91,7 +91,8 @@ jobs:
               fs.writeFileSync(filePath, `${frontMatter}\n${readmeContent}\n`, 'utf8');
               imported.push({
                 name: repo.name,
-                fileName
+                fileName,
+                slug: fileName.replace(/\.md$/, '')
               });
             }
 
@@ -106,7 +107,7 @@ jobs:
               '',
               ...(
                 imported.length
-                  ? imported.map((item) => `- [${escapeMarkdownText(item.name)}](/repo-readmes/${item.fileName.replace(/\.md$/, '')}/)`)
+                  ? imported.map((item) => `- [${escapeMarkdownText(item.name)}](/repo-readmes/${item.slug}/)`)
                   : ['当前没有可导入的中文 README。']
               ),
               ''
