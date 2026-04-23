@@ -29,13 +29,14 @@ jobs:
             const targetDir = process.env.TARGET_DIR;
             const absoluteTargetDir = path.join(process.env.GITHUB_WORKSPACE, targetDir);
             const tempTargetDir = `${absoluteTargetDir}.tmp`;
+            const backupTargetDir = `${absoluteTargetDir}.bak`;
             const now = new Date().toISOString();
 
             const hasChinese = (text) => /\p{Script=Han}/u.test(text || '');
             const safeFileName = (name) =>
               name.toLowerCase().replace(/[^a-z0-9._-]+/g, '-').replace(/^-+|-+$/g, '') || 'repo';
             const escapeTomlString = (input) => String(input || '').replace(/"/g, '\\"');
-            const escapeMarkdownText = (input) => String(input || '').replace(/([\\`*_\[\]{}()#+.!|>\-])/g, '\\$1');
+            const escapeMarkdownText = (input) => String(input || '').replace(/([\\`\[\]])/g, '\\$1');
 
             fs.rmSync(tempTargetDir, { recursive: true, force: true });
             fs.mkdirSync(tempTargetDir, { recursive: true });
@@ -109,8 +110,19 @@ jobs:
             ].join('\n');
 
             fs.writeFileSync(path.join(tempTargetDir, '_index.md'), indexContent, 'utf8');
-            fs.rmSync(absoluteTargetDir, { recursive: true, force: true });
-            fs.renameSync(tempTargetDir, absoluteTargetDir);
+            fs.rmSync(backupTargetDir, { recursive: true, force: true });
+            if (fs.existsSync(absoluteTargetDir)) {
+              fs.renameSync(absoluteTargetDir, backupTargetDir);
+            }
+            try {
+              fs.renameSync(tempTargetDir, absoluteTargetDir);
+              fs.rmSync(backupTargetDir, { recursive: true, force: true });
+            } catch (error) {
+              if (fs.existsSync(backupTargetDir) && !fs.existsSync(absoluteTargetDir)) {
+                fs.renameSync(backupTargetDir, absoluteTargetDir);
+              }
+              throw error;
+            }
             core.info(`Imported ${imported.length} Chinese README file(s).`);
 
       - name: Commit changes
