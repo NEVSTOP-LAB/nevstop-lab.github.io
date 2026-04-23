@@ -30,7 +30,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
+
+      - name: Install Node dependencies
+        run: npm ci
 
       - name: Setup Go
         uses: actions/setup-go@v5
