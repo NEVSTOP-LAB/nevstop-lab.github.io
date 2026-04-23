@@ -1,0 +1,153 @@
+name: Sync Chinese READMEs
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync Chinese READMEs from public repos
+        uses: actions/github-script@v7
+        env:
+          TARGET_DIR: content/repo-readmes
+          ORG: NEVSTOP-LAB
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            const org = process.env.ORG;
+            const targetDir = process.env.TARGET_DIR;
+            const absoluteTargetDir = path.join(process.env.GITHUB_WORKSPACE, targetDir);
+            const tempTargetDir = `${absoluteTargetDir}.tmp`;
+            const backupTargetDir = `${absoluteTargetDir}.bak-${Date.now()}`;
+
+            const hasChinese = (text) => /\p{Script=Han}/u.test(text || '');
+            const safeFileName = (name) =>
+              name.toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '') || 'repo';
+            const escapeYamlSingleQuoted = (input) =>
+              String(input || '')
+                .replace(/\r?\n/g, ' ')
+                .replace(/'/g, "''");
+            const escapeMarkdownText = (input) => String(input || '').replace(/([\\`\[\]])/g, '\\$1');
+            const collator = Intl.Collator.supportedLocalesOf(['zh-CN']).length
+              ? new Intl.Collator('zh-CN', { sensitivity: 'base' })
+              : new Intl.Collator('en', { sensitivity: 'base' });
+
+            fs.rmSync(tempTargetDir, { recursive: true, force: true });
+            fs.mkdirSync(tempTargetDir, { recursive: true });
+
+            const repos = await github.paginate('GET /orgs/{org}/repos', {
+              org,
+              type: 'public',
+              per_page: 100
+            });
+
+            const activeRepos = repos.filter((repo) => !repo.archived);
+            const imported = [];
+
+            for (const repo of activeRepos) {
+              let readmeContent = '';
+              try {
+                const response = await github.request('GET /repos/{owner}/{repo}/readme', {
+                  owner: repo.owner.login,
+                  repo: repo.name,
+                  headers: { accept: 'application/vnd.github.raw' }
+                });
+                if (typeof response.data === 'string') {
+                  readmeContent = response.data;
+                } else if (response.data && typeof response.data.content === 'string') {
+                  readmeContent = response.data.encoding === 'base64'
+                    ? Buffer.from(response.data.content, 'base64').toString('utf8')
+                    : response.data.content;
+                } else {
+                  readmeContent = '';
+                }
+              } catch (error) {
+                if (error.status === 404) {
+                  continue;
+                }
+                core.warning(`Failed to fetch README for ${repo.full_name}: ${error.message}`);
+                continue;
+              }
+
+              if (!hasChinese(readmeContent)) {
+                continue;
+              }
+
+              const frontMatter = [
+                '---',
+                `title: '${escapeYamlSingleQuoted(repo.name)} README'`,
+                `description: '自动同步自 ${escapeYamlSingleQuoted(repo.full_name)} 的中文 README'`,
+                'draft: false',
+                '---',
+                '',
+                `> 自动同步来源： [${repo.full_name}](${repo.html_url})`,
+                '> 导入规则：仅根据 README 是否包含中文判断，正文保持原文。',
+                ''
+              ].join('\n');
+
+              const fileName = `${safeFileName(repo.name)}-${repo.id}.md`;
+              const filePath = path.join(tempTargetDir, fileName);
+              fs.writeFileSync(filePath, `${frontMatter}\n${readmeContent}\n`, 'utf8');
+              imported.push({
+                name: repo.name,
+                fileName,
+                slug: fileName.replace(/\.md$/, '')
+              });
+            }
+
+            imported.sort((a, b) => collator.compare(a.name, b.name));
+
+            const indexContent = [
+              '---',
+              'title: "Repo READMEs"',
+              'description: "组织内 public 仓库中文 README 自动导入列表"',
+              'draft: false',
+              '---',
+              '',
+              ...(
+                imported.length
+                  ? imported.map((item) => `- [${escapeMarkdownText(item.name)}](/repo-readmes/${item.slug}/)`)
+                  : ['当前没有可导入的中文 README。']
+              ),
+              ''
+            ].join('\n');
+
+            fs.writeFileSync(path.join(tempTargetDir, '_index.md'), indexContent, 'utf8');
+            fs.rmSync(backupTargetDir, { recursive: true, force: true });
+            if (fs.existsSync(absoluteTargetDir)) {
+              fs.renameSync(absoluteTargetDir, backupTargetDir);
+            }
+            try {
+              fs.renameSync(tempTargetDir, absoluteTargetDir);
+              fs.rmSync(backupTargetDir, { recursive: true, force: true });
+            } catch (error) {
+              if (fs.existsSync(backupTargetDir)) {
+                fs.rmSync(absoluteTargetDir, { recursive: true, force: true });
+                fs.renameSync(backupTargetDir, absoluteTargetDir);
+              }
+              throw error;
+            }
+            core.info(`Imported ${imported.length} Chinese README file(s).`);
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/repo-readmes
+          if git diff --cached --quiet --exit-code; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: sync Chinese READMEs from public repos"
+          git push
