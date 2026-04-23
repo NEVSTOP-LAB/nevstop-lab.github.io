@@ -35,7 +35,7 @@ jobs:
             const safeFileName = (name) =>
               name.toLowerCase().replace(/[^a-z0-9._-]+/g, '-').replace(/^-+|-+$/g, '') || 'repo';
             const escapeTomlString = (input) => String(input || '').replace(/"/g, '\\"');
-            const escapeMarkdownText = (input) => String(input || '').replace(/([\\`*_[\]{}()#+.!|>\-])/g, '\\$1');
+            const escapeMarkdownText = (input) => String(input || '').replace(/([\\`*_\[\]{}()#+.!|>\-])/g, '\\$1');
 
             fs.rmSync(tempTargetDir, { recursive: true, force: true });
             fs.mkdirSync(tempTargetDir, { recursive: true });
@@ -102,7 +102,7 @@ jobs:
               '',
               ...(
                 imported.length
-                  ? imported.map((item) => `- [${escapeMarkdownText(item.name)}](/repo-readmes/${item.fileName.slice(0, -3)}/)`)
+                  ? imported.map((item) => `- [${escapeMarkdownText(item.name)}](/repo-readmes/${item.fileName.replace(/\.md$/, '')}/)`)
                   : ['当前没有可导入的中文 README。']
               ),
               ''
