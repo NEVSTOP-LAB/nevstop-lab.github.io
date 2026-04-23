@@ -34,7 +34,10 @@ jobs:
             const hasChinese = (text) => /\p{Script=Han}/u.test(text || '');
             const safeFileName = (name) =>
               name.toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '') || 'repo';
-            const escapeYamlString = (input) => String(input || '').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+            const escapeYamlSingleQuoted = (input) =>
+              String(input || '')
+                .replace(/\r?\n/g, ' ')
+                .replace(/'/g, "''");
             const escapeMarkdownText = (input) => String(input || '').replace(/([\\`\[\]])/g, '\\$1');
             const collator = Intl.Collator.supportedLocalesOf(['zh-CN']).length
               ? new Intl.Collator('zh-CN', { sensitivity: 'base' })
@@ -58,7 +61,7 @@ jobs:
                 const response = await github.request('GET /repos/{owner}/{repo}/readme', {
                   owner: repo.owner.login,
                   repo: repo.name,
-                  headers: { accept: 'application/vnd.github.v3.raw' }
+                  headers: { accept: 'application/vnd.github.raw' }
                 });
                 if (typeof response.data === 'string') {
                   readmeContent = response.data;
@@ -83,8 +86,8 @@ jobs:
 
               const frontMatter = [
                 '---',
-                `title: "${escapeYamlString(repo.name)} README"`,
-                `description: "自动同步自 ${escapeYamlString(repo.full_name)} 的中文 README"`,
+                `title: '${escapeYamlSingleQuoted(repo.name)} README'`,
+                `description: '自动同步自 ${escapeYamlSingleQuoted(repo.full_name)} 的中文 README'`,
                 'draft: false',
                 '---',
                 '',
