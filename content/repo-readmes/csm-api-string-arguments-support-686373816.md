@@ -20,7 +20,7 @@ This library extends the [CSM](https://github.com/NEVSTOP-LAB/Communicable-State
 
 It also includes two templates with built-in `Data: Get Configuration`, `Data: Set Configuration`, and `Data: Get Internal Data` states — a ready-to-use starting point for CSM modules that need to read and write data in the `>> internal data >>` shift register.
 
-![example](.github/doc.png)
+![example](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support/HEAD/.github/doc.png)
 
 ## Supported Data Types
 

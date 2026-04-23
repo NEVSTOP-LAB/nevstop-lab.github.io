@@ -16,7 +16,7 @@ draft: false
 >
 > 界面需要设计的通用，根据协议编写界面，而不是传输的内容。 以 LabVEIW OI 为例：
 >
-> ![image](截图.png)
+> ![image](https://raw.githubusercontent.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo/HEAD/截图.png)
 >
 > 参考：
 > - [使用TestStand用户界面消息（UI消息）](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000x3tWCAQ&l=en-US)
@@ -34,8 +34,8 @@ draft: false
 >
 > 隐藏 Pre-loading Modules 对话框
 >
-> ![image](.doc/微信图片_20241122161207.png)
+> ![image](https://raw.githubusercontent.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo/HEAD/.doc/微信图片_20241122161207.png)
 >
 > 参考：
 >
->![image](.doc/5c6daf099df3d344cb5ed74bbc936c3.png)
+>![image](https://raw.githubusercontent.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo/HEAD/.doc/5c6daf099df3d344cb5ed74bbc936c3.png)

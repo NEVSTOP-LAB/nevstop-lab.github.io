@@ -20,7 +20,7 @@ draft: false
 - 支持续传，程序再次启动后会继续未完成任务
 - 可通过继承拓展其他协议，如 webDAV 等
 
-![CSM FileSync Module](_doc/CSM%20FileSync%20Module.png)
+![CSM FileSync Module](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-ModSets-FileSync/HEAD/_doc/CSM%20FileSync%20Module.png)
 
 ### 开发环境
 

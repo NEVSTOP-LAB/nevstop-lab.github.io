@@ -25,7 +25,7 @@ Install this library via VIPM. Once installed, the library functions are availab
 
 The architecture of the CSM INI-Static-Variable-Support library is illustrated below:
 
-![Design](.github/csm-ini-variable-cache-design.svg)
+![Design](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-INI-Static-Variable-Support/HEAD/.github/csm-ini-variable-cache-design.svg)
 
 Key features include:
 
@@ -64,13 +64,13 @@ Adds `${section.variable:defaultValue}` syntax support to CSM, enabling direct u
 > - The `section` parameter is optional. When omitted, the default section `SectionName=LabVIEW` is used.
 > - The default value is also optional; an empty string (`""`) is used when not specified.
 
-![Example](.github/1.png)
+![Example](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-INI-Static-Variable-Support/HEAD/.github/1.png)
 
 ### Prototype-Based Configuration Loading
 
 Load configurations by providing a prototype structure — either from an entire section or a specific key.
 
-![Example](.github/2.png)
+![Example](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-INI-Static-Variable-Support/HEAD/.github/2.png)
 
 ### Fixed CSM API Parameters
 
@@ -80,13 +80,13 @@ Binds CSM API parameters with a defined priority hierarchy: **CSM API parameters
 - If no parameters are passed, configuration file values are used.
 - If no configuration file values exist, the default constants are applied.
 
-![Example](.github/3.png)
+![Example](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-INI-Static-Variable-Support/HEAD/.github/3.png)
 
 ### Multi-File Configuration System
 
 Use the multi-file loading capability to implement a distributed configuration system.
 
-![Example](.github/4.png)
+![Example](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-INI-Static-Variable-Support/HEAD/.github/4.png)
 
 ### Referencing Configuration Files with [__include]
 
@@ -96,7 +96,7 @@ The `[__include]` section lets you reference other configuration files, supporti
 >
 > - Avoid circular dependencies, which can cause infinite loops. The library tracks loaded files and skips any file that has already been loaded.
 
-![image](.github/6.png)
+![image](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-INI-Static-Variable-Support/HEAD/.github/6.png)
 
 ### Nested Variables
 
@@ -144,4 +144,4 @@ Using this configuration:
 
 For more detailed examples, refer to the sample project.
 
-![image](.github/7.png)
+![image](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-INI-Static-Variable-Support/HEAD/.github/7.png)

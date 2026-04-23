@@ -11,7 +11,7 @@ draft: false
 
 Example
 
-![example](.github/Login-Window1.png)
+![example](https://raw.githubusercontent.com/NEVSTOP-LAB/NEVSTOP-LoginWindow/HEAD/.github/Login-Window1.png)
 
 用法
 

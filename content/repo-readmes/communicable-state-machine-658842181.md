@@ -20,11 +20,11 @@ Communicable State Machine (CSM) is a LabVIEW application framework built on JKI
 - Learn more about JKI State Machine (JKISM): <http://jki.net/state-machine/>
 - Learn more about NEVSTOP-LAB: <https://github.com/NEVSTOP-LAB>
 
-![image](.doc/_img/csm-intro.png)
+![image](https://raw.githubusercontent.com/NEVSTOP-LAB/Communicable-State-Machine/HEAD/.doc/_img/csm-intro.png)
 
 _**CSM API Palette**_
 
-![image](.doc/_img/CSM%20Palette.png)
+![image](https://raw.githubusercontent.com/NEVSTOP-LAB/Communicable-State-Machine/HEAD/.doc/_img/CSM%20Palette.png)
 
 **Template Description:**  
 [English](src/help/NEVSTOP/Communicable%20State%20Machine(CSM)/Template%20Description(EN).md) | [中文](src/help/NEVSTOP/Communicable%20State%20Machine(CSM)/Template%20Description(zh-cn).md)
