@@ -28,15 +28,17 @@ jobs:
             const org = process.env.ORG;
             const targetDir = process.env.TARGET_DIR;
             const absoluteTargetDir = path.join(process.env.GITHUB_WORKSPACE, targetDir);
+            const tempTargetDir = `${absoluteTargetDir}.tmp`;
             const now = new Date().toISOString();
 
-            const hasChinese = (text) => /[\u3400-\u9FFF]/.test(text || '');
+            const hasChinese = (text) => /\p{Script=Han}/u.test(text || '');
             const safeFileName = (name) =>
               name.toLowerCase().replace(/[^a-z0-9._-]+/g, '-').replace(/^-+|-+$/g, '') || 'repo';
             const escapeTomlString = (input) => String(input || '').replace(/"/g, '\\"');
+            const escapeMarkdownText = (input) => String(input || '').replace(/([\\`*_[\]{}()#+\-.!|>])/g, '\\$1');
 
-            fs.rmSync(absoluteTargetDir, { recursive: true, force: true });
-            fs.mkdirSync(absoluteTargetDir, { recursive: true });
+            fs.rmSync(tempTargetDir, { recursive: true, force: true });
+            fs.mkdirSync(tempTargetDir, { recursive: true });
 
             const repos = await github.paginate('GET /orgs/{org}/repos', {
               org,
@@ -81,7 +83,7 @@ jobs:
               ].join('\n');
 
               const fileName = `${safeFileName(repo.name)}.md`;
-              const filePath = path.join(absoluteTargetDir, fileName);
+              const filePath = path.join(tempTargetDir, fileName);
               fs.writeFileSync(filePath, `${frontMatter}\n${readmeContent}\n`, 'utf8');
               imported.push({
                 name: repo.name,
@@ -89,7 +91,7 @@ jobs:
               });
             }
 
-            imported.sort((a, b) => a.name.localeCompare(b.name, 'zh-Hans-CN'));
+            imported.sort((a, b) => a.name.localeCompare(b.name, 'zh', { sensitivity: 'base' }));
 
             const indexContent = [
               '---',
@@ -100,13 +102,15 @@ jobs:
               '',
               ...(
                 imported.length
-                  ? imported.map((item) => `- [${item.name}](/repo-readmes/${item.fileName.replace(/\.md$/, '')}/)`)
+                  ? imported.map((item) => `- [${escapeMarkdownText(item.name)}](/repo-readmes/${item.fileName.replace(/\.md$/, '')}/)`)
                   : ['当前没有可导入的中文 README。']
               ),
               ''
             ].join('\n');
 
-            fs.writeFileSync(path.join(absoluteTargetDir, '_index.md'), indexContent, 'utf8');
+            fs.writeFileSync(path.join(tempTargetDir, '_index.md'), indexContent, 'utf8');
+            fs.rmSync(absoluteTargetDir, { recursive: true, force: true });
+            fs.renameSync(tempTargetDir, absoluteTargetDir);
             core.info(`Imported ${imported.length} Chinese README file(s).`);
 
       - name: Commit changes
