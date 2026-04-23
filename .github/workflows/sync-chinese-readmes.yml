@@ -1,0 +1,122 @@
+name: Sync Chinese READMEs
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync Chinese READMEs from public repos
+        uses: actions/github-script@v7
+        env:
+          TARGET_DIR: content/repo-readmes
+          ORG: ${{ github.repository_owner }}
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            const org = process.env.ORG;
+            const targetDir = process.env.TARGET_DIR;
+            const absoluteTargetDir = path.join(process.env.GITHUB_WORKSPACE, targetDir);
+            const now = new Date().toISOString();
+
+            const hasChinese = (text) => /[\u3400-\u9FFF]/.test(text || '');
+            const safeFileName = (name) =>
+              name.toLowerCase().replace(/[^a-z0-9._-]+/g, '-').replace(/^-+|-+$/g, '') || 'repo';
+            const escapeTomlString = (input) => String(input || '').replace(/"/g, '\\"');
+
+            fs.rmSync(absoluteTargetDir, { recursive: true, force: true });
+            fs.mkdirSync(absoluteTargetDir, { recursive: true });
+
+            const repos = await github.paginate('GET /orgs/{org}/repos', {
+              org,
+              type: 'public',
+              per_page: 100
+            });
+
+            const activeRepos = repos.filter((repo) => !repo.archived);
+            const imported = [];
+
+            for (const repo of activeRepos) {
+              let readmeContent = '';
+              try {
+                const response = await github.request('GET /repos/{owner}/{repo}/readme', {
+                  owner: repo.owner.login,
+                  repo: repo.name,
+                  headers: { accept: 'application/vnd.github.raw+json' }
+                });
+                readmeContent = typeof response.data === 'string' ? response.data : '';
+              } catch (error) {
+                if (error.status === 404) {
+                  continue;
+                }
+                core.warning(`Failed to fetch README for ${repo.full_name}: ${error.message}`);
+                continue;
+              }
+
+              if (!hasChinese(readmeContent)) {
+                continue;
+              }
+
+              const frontMatter = [
+                '---',
+                `title: "${escapeTomlString(repo.name)} README"`,
+                `description: "自动同步自 ${escapeTomlString(repo.full_name)} 的中文 README"`,
+                `date: ${now}`,
+                'draft: false',
+                '---',
+                '',
+                `> 自动同步来源： [${repo.full_name}](${repo.html_url})`,
+                ''
+              ].join('\n');
+
+              const fileName = `${safeFileName(repo.name)}.md`;
+              const filePath = path.join(absoluteTargetDir, fileName);
+              fs.writeFileSync(filePath, `${frontMatter}\n${readmeContent}\n`, 'utf8');
+              imported.push({
+                name: repo.name,
+                fileName
+              });
+            }
+
+            imported.sort((a, b) => a.name.localeCompare(b.name, 'zh-Hans-CN'));
+
+            const indexContent = [
+              '---',
+              'title: "Repo READMEs"',
+              'description: "组织内 public 仓库中文 README 自动导入列表"',
+              'draft: false',
+              '---',
+              '',
+              ...(
+                imported.length
+                  ? imported.map((item) => `- [${item.name}](/repo-readmes/${item.fileName.replace(/\.md$/, '')}/)`)
+                  : ['当前没有可导入的中文 README。']
+              ),
+              ''
+            ].join('\n');
+
+            fs.writeFileSync(path.join(absoluteTargetDir, '_index.md'), indexContent, 'utf8');
+            core.info(`Imported ${imported.length} Chinese README file(s).`);
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet --exit-code; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git add content/repo-readmes
+          git commit -m "chore: sync Chinese READMEs from public repos"
+          git push
