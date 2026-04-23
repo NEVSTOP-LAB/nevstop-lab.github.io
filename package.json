@@ -1,0 +1,20 @@
+{
+  "name": "nevstop-lab.github.io",
+  "version": "1.0.0",
+  "description": "该仓库已从 Jekyll 迁移为 Hugo，并使用 Doks 主题。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tabler/icons": "^3.41.1",
+    "@thulite/doks-core": "^1.9.3",
+    "@thulite/images": "^3.3.4",
+    "@thulite/inline-svg": "^1.2.2",
+    "@thulite/seo": "^2.4.3",
+    "thulite": "^2.6.5"
+  }
+}
