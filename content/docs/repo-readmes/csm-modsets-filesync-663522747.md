@@ -5,7 +5,7 @@ draft: false
 ---
 
 > 自动同步来源： [NEVSTOP-LAB/CSM-ModSets-FileSync](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync)
-> 导入规则：仅根据 README 是否包含中文判断，正文保持原文。
+> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
 
 # CSM-FileSync
 
@@ -20,7 +20,7 @@ draft: false
 - 支持续传，程序再次启动后会继续未完成任务
 - 可通过继承拓展其他协议，如 webDAV 等
 
-![CSM FileSync Module](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-ModSets-FileSync/HEAD/_doc/CSM%20FileSync%20Module.png)
+![CSM FileSync Module](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-ModSets-FileSync/main/_doc/CSM%20FileSync%20Module.png)
 
 ### 开发环境
 

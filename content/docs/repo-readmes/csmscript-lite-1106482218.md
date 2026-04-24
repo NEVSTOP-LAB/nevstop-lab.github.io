@@ -5,7 +5,7 @@ draft: false
 ---
 
 > 自动同步来源： [NEVSTOP-LAB/CSMScript-Lite](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
-> 导入规则：仅根据 README 是否包含中文判断，正文保持原文。
+> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
 
 # CSMScript-Lite
 
@@ -23,7 +23,7 @@ CSMScript-Lite 是一款基于 [可通信状态机（CSM）](https://github.com/
   - **[App](src/_docs/App.md)**：示例应用程序，展示如何使用 CSMScript 库执行脚本。
 - **实例工程** — 展示如何将 CSMScript-Lite 与其他 CSM 模块结合，实现脚本驱动的自动化测试。
 
-![CSMScriptApp](https://raw.githubusercontent.com/NEVSTOP-LAB/CSMScript-Lite/HEAD/.github/csmscript-lite.gif)
+![CSMScriptApp](https://raw.githubusercontent.com/NEVSTOP-LAB/CSMScript-Lite/main/.github/csmscript-lite.gif)
 
 ## 依赖
 

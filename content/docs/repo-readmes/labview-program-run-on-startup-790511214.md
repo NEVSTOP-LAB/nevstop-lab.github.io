@@ -5,7 +5,7 @@ draft: false
 ---
 
 > 自动同步来源： [NEVSTOP-LAB/LabVIEW-Program-run-on-startup](https://github.com/NEVSTOP-LAB/LabVIEW-Program-run-on-startup)
-> 导入规则：仅根据 README 是否包含中文判断，正文保持原文。
+> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
 
 # LabVIEW-Program-run-on-startup
 LabVIEW范例：如何让程序在系统启动时自启动
@@ -41,7 +41,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce
 
 2. [Pass Command Line Arguments to a LabVIEW Executable](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000YHdICAW&l=en-US)
 
-![image](https://raw.githubusercontent.com/NEVSTOP-LAB/LabVIEW-Program-run-on-startup/HEAD/.doc/Snipaste_2024-04-23_10-38-19.png)
+![image](https://raw.githubusercontent.com/NEVSTOP-LAB/LabVIEW-Program-run-on-startup/main/.doc/Snipaste_2024-04-23_10-38-19.png)
 
 
 ## How-To
@@ -55,16 +55,16 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce
 > [!TIP]
 > 此VI已包含在 [NEVSTOP-Programming-Palette](https://github.com/NEVSTOP-LAB/NEVSTOP-Programming-Palette) 4月Rleases 的 application Palette中，直接生成的reg 文件是 UTF-16 LE 编码.
 
-![image](https://raw.githubusercontent.com/NEVSTOP-LAB/LabVIEW-Program-run-on-startup/HEAD/.doc/Snipaste_2024-04-23_11-40-06.png)
+![image](https://raw.githubusercontent.com/NEVSTOP-LAB/LabVIEW-Program-run-on-startup/main/.doc/Snipaste_2024-04-23_11-40-06.png)
 
 
 2. 合适的地方调用，范例中，在 EXE 启动后，每次都创建一次，保证 exe 路径发生变化后，注册表信息也能及时更新
 
-![image](https://raw.githubusercontent.com/NEVSTOP-LAB/LabVIEW-Program-run-on-startup/HEAD/.doc/Snipaste_2024-04-23_11-42-07.png)
+![image](https://raw.githubusercontent.com/NEVSTOP-LAB/LabVIEW-Program-run-on-startup/main/.doc/Snipaste_2024-04-23_11-42-07.png)
 
 3. 按照 [Pass Command Line Arguments to a LabVIEW Executable](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000YHdICAW&l=en-US) 配置编译 exe
 
 4. 运行 exe后， 双击 reg 文件， 将自启动信息导入注册表，重启系统后，程序会自启动, 可以在任务管理器中查看到启动项。
 
-![image](https://raw.githubusercontent.com/NEVSTOP-LAB/LabVIEW-Program-run-on-startup/HEAD/.doc/Snipaste_2024-04-25_10-50-17.png)
+![image](https://raw.githubusercontent.com/NEVSTOP-LAB/LabVIEW-Program-run-on-startup/main/.doc/Snipaste_2024-04-25_10-50-17.png)
 

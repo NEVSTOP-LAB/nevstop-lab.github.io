@@ -5,7 +5,7 @@ draft: false
 ---
 
 > 自动同步来源： [NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo](https://github.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo)
-> 导入规则：仅根据 README 是否包含中文判断，正文保持原文。
+> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
 
 > ## UIMessage
 >
@@ -16,7 +16,7 @@ draft: false
 >
 > 界面需要设计的通用，根据协议编写界面，而不是传输的内容。 以 LabVEIW OI 为例：
 >
-> ![image](https://raw.githubusercontent.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo/HEAD/截图.png)
+> ![image](https://raw.githubusercontent.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo/main/截图.png)
 >
 > 参考：
 > - [使用TestStand用户界面消息（UI消息）](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000x3tWCAQ&l=en-US)
@@ -34,8 +34,8 @@ draft: false
 >
 > 隐藏 Pre-loading Modules 对话框
 >
-> ![image](https://raw.githubusercontent.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo/HEAD/.doc/微信图片_20241122161207.png)
+> ![image](https://raw.githubusercontent.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo/main/.doc/微信图片_20241122161207.png)
 >
 > 参考：
 >
->![image](https://raw.githubusercontent.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo/HEAD/.doc/5c6daf099df3d344cb5ed74bbc936c3.png)
+>![image](https://raw.githubusercontent.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo/main/.doc/5c6daf099df3d344cb5ed74bbc936c3.png)

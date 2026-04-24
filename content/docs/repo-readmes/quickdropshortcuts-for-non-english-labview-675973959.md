@@ -5,7 +5,7 @@ draft: false
 ---
 
 > 自动同步来源： [NEVSTOP-LAB/QuickDropShortcuts-For-Non-English-LabVIEW](https://github.com/NEVSTOP-LAB/QuickDropShortcuts-For-Non-English-LabVIEW)
-> 导入规则：仅根据 README 是否包含中文判断，正文保持原文。
+> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
 
 替换 LabVIEW INI 中的 `QuickDropDiagramShortcuts` 为以下内容，从而让 Quick Drop 可以使用英文搜索对应的 LabVIEW 原生函数节点.
 

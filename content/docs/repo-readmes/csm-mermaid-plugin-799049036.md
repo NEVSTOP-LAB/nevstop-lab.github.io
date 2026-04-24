@@ -5,7 +5,7 @@ draft: false
 ---
 
 > 自动同步来源： [NEVSTOP-LAB/CSM-Mermaid-Plugin](https://github.com/NEVSTOP-LAB/CSM-Mermaid-Plugin)
-> 导入规则：仅根据 README 是否包含中文判断，正文保持原文。
+> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
 
 # CSM-Mermaid-Plugin
 
@@ -25,10 +25,10 @@ draft: false
 
 以 [CSM-Continuous-Meausrement-and-Logging](https://github.com/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging) 运行状态(Status)和接口(API)之间的订阅关系为例：
 
-![状态(Status)和接口(API)之间的订阅关系.table](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-Mermaid-Plugin/HEAD/.doc/1.png)
+![状态(Status)和接口(API)之间的订阅关系.table](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-Mermaid-Plugin/main/.doc/1.png)
 
-![状态(Status)和接口(API)之间的订阅关系.mermaid](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-Mermaid-Plugin/HEAD/.doc/2.png)
+![状态(Status)和接口(API)之间的订阅关系.mermaid](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-Mermaid-Plugin/main/.doc/2.png)
 
 ### CSM 的接口信息
 
-![image](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-Mermaid-Plugin/HEAD/.doc/4.png)
+![image](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-Mermaid-Plugin/main/.doc/4.png)

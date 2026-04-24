@@ -5,7 +5,7 @@ draft: false
 ---
 
 > 自动同步来源： [NEVSTOP-LAB/nevstop-lab.github.io](https://github.com/NEVSTOP-LAB/nevstop-lab.github.io)
-> 导入规则：仅根据 README 是否包含中文判断，正文保持原文。
+> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
 
 # nevstop-lab.github.io
 
@@ -13,14 +13,20 @@ draft: false
 
 ## 本地预览
 
-1. 安装 Hugo Extended（建议最新版）。
-2. 在仓库根目录运行：
+1. 安装 Node.js（建议 24+）与 Hugo Extended（建议最新版）。
+2. 在仓库根目录安装前端依赖：
 
 ```bash
-hugo server
+npm ci
 ```
 
-3. 浏览器打开 `http://localhost:1313`。
+3. 启动本地预览：
+
+```bash
+npm run dev
+```
+
+4. 浏览器打开 `http://localhost:1313`。
 
 ## 目录说明
 
@@ -31,3 +37,4 @@ hugo server
 ## 发布
 
 推送到 `main` 分支后，GitHub Actions 会自动构建并发布到 GitHub Pages。
+

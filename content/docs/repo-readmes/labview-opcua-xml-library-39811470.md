@@ -5,7 +5,7 @@ draft: false
 ---
 
 > 自动同步来源： [NEVSTOP-LAB/LabVIEW-OPCUA-XML-Library](https://github.com/NEVSTOP-LAB/LabVIEW-OPCUA-XML-Library)
-> 导入规则：仅根据 README 是否包含中文判断，正文保持原文。
+> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
 
 # LabVIEW OPCUA XML Library
 
