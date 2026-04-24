@@ -18,8 +18,10 @@ jobs:
       - name: Sync Chinese READMEs from public repos
         uses: actions/github-script@v7
         env:
-          TARGET_DIR: content/repo-readmes
+          TARGET_DIR: content/docs/repo-readmes
+          DOCS_DIR: content/docs
           ORG: NEVSTOP-LAB
+          MIN_CHINESE_CHARS: "50"
         with:
           script: |
             const fs = require('fs');
@@ -27,11 +29,15 @@ jobs:
 
             const org = process.env.ORG;
             const targetDir = process.env.TARGET_DIR;
+            const docsDir = process.env.DOCS_DIR;
+            const minChineseChars = parseInt(process.env.MIN_CHINESE_CHARS, 10);
             const absoluteTargetDir = path.join(process.env.GITHUB_WORKSPACE, targetDir);
+            const absoluteDocsDir = path.join(process.env.GITHUB_WORKSPACE, docsDir);
             const tempTargetDir = `${absoluteTargetDir}.tmp`;
             const backupTargetDir = `${absoluteTargetDir}.bak-${Date.now()}`;
 
-            const hasChinese = (text) => /\p{Script=Han}/u.test(text || '');
+            const countChinese = (text) => (text.match(/\p{Script=Han}/gu) || []).length;
+            const hasChinese = (text) => countChinese(text || '') >= minChineseChars;
             const safeFileName = (name) =>
               name.toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '') || 'repo';
             const escapeYamlSingleQuoted = (input) =>
@@ -80,7 +86,9 @@ jobs:
                 continue;
               }
 
-              if (!hasChinese(readmeContent)) {
+              const chineseCount = countChinese(readmeContent);
+              if (chineseCount < minChineseChars) {
+                core.info(`Skipping ${repo.full_name}: only ${chineseCount} Chinese character(s) (minimum: ${minChineseChars})`);
                 continue;
               }
 
@@ -100,7 +108,7 @@ jobs:
                 '---',
                 '',
                 `> 自动同步来源： [${repo.full_name}](${repo.html_url})`,
-                '> 导入规则：仅根据 README 是否包含中文判断，正文保持原文。',
+                `> 导入规则：README 包含不少于 ${minChineseChars} 个中文字符时导入，正文保持原文。`,
                 ''
               ].join('\n');
 
@@ -125,7 +133,7 @@ jobs:
               '',
               ...(
                 imported.length
-                  ? imported.map((item) => `- [${escapeMarkdownText(item.name)}](/repo-readmes/${item.slug}/)`)
+                  ? imported.map((item) => `- [${escapeMarkdownText(item.name)}](/docs/repo-readmes/${item.slug}/)`)
                   : ['当前没有可导入的中文 README。']
               ),
               ''
@@ -146,16 +154,42 @@ jobs:
               }
               throw error;
             }
+
+            // Ensure content/docs/_index.md exists for Hugo to recognize the section
+            const docsIndexPath = path.join(absoluteDocsDir, '_index.md');
+            if (!fs.existsSync(docsIndexPath)) {
+              const docsIndex = [
+                '---',
+                'title: "Docs"',
+                'description: "NEVSTOP-LAB 文档"',
+                'draft: false',
+                '---',
+                ''
+              ].join('\n');
+              fs.writeFileSync(docsIndexPath, docsIndex, 'utf8');
+              core.info('Created content/docs/_index.md');
+            }
+
             core.info(`Imported ${imported.length} Chinese README file(s).`);
 
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add content/repo-readmes
+
+          # Stage new content/docs directory
+          git add content/docs/
+
+          # Remove old repo-readmes location if it still exists in the index
+          # (migration from content/repo-readmes -> content/docs/repo-readmes; safe to remove once migrated)
+          if git ls-files --error-unmatch content/repo-readmes/ > /dev/null 2>&1; then
+            git rm -r --cached content/repo-readmes/
+          fi
+
           if git diff --cached --quiet --exit-code; then
             echo "No changes to commit."
             exit 0
           fi
+
           git commit -m "chore: sync Chinese READMEs from public repos"
           git push
