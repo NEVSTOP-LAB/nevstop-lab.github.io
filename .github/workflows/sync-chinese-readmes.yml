@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   sync:
@@ -173,9 +172,7 @@ jobs:
 
             core.info(`Imported ${imported.length} Chinese README file(s).`);
 
-      - name: Create PR with changes
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -194,19 +191,5 @@ jobs:
             exit 0
           fi
 
-          BRANCH="auto/sync-chinese-readmes-$(date +%Y%m%d-%H%M%S)"
-          git checkout -b "$BRANCH"
           git commit -m "chore: sync Chinese READMEs from public repos"
-          git push origin "$BRANCH"
-
-          gh pr create \
-            --base main \
-            --head "$BRANCH" \
-            --title "chore: sync Chinese READMEs from public repos" \
-            --body "自动同步组织内 public 仓库的中文 README。
-
-          **变更内容：**
-          - 更新 \`content/docs/repo-readmes\` 中的中文 README 文件（原路径 \`content/repo-readmes\` 已迁移）
-          - 中文判断逻辑更新：README 包含不少于 50 个中文字符时才导入，避免将仅含中文链接的英文 README 误判为中文仓库
-
-          > 本 PR 由 GitHub Actions 自动创建。"
+          git push
