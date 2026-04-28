@@ -1,6 +1,6 @@
 # nevstop-lab.github.io
 
-该仓库已从 Jekyll 迁移为 Hugo，并使用 Doks 主题。
+该仓库使用 Hugo 构建，并采用 Doks 主题。
 
 ## 本地预览
 
