@@ -8,6 +8,7 @@ draft: false
 - [CSM-Mermaid-Plugin](/docs/repo-readmes/csm-mermaid-plugin-799049036/)
 - [CSM-ModSets-FileSync](/docs/repo-readmes/csm-modsets-filesync-663522747/)
 - [CSM-Module-Repo-Template](/docs/repo-readmes/csm-module-repo-template-1186905932/)
+- [CSM-QA-Robot](/docs/repo-readmes/csm-qa-robot-1205839648/)
 - [csm-vsc-extension](/docs/repo-readmes/csm-vsc-extension-1218048005/)
 - [CSM-Wiki](/docs/repo-readmes/csm-wiki-736571177/)
 - [CSMScript-Lite](/docs/repo-readmes/csmscript-lite-1106482218/)
@@ -23,4 +24,3 @@ draft: false
 - [Push-Files-to-Repo](/docs/repo-readmes/push-files-to-repo-1195328988/)
 - [QuickDropShortcuts-For-Non-English-LabVIEW](/docs/repo-readmes/quickdropshortcuts-for-non-english-labview-675973959/)
 - [TestStand-User-Interface-Messages-Demo](/docs/repo-readmes/teststand-user-interface-messages-demo-833893192/)
-- [Zhihu-CSM-Reply-Robot](/docs/repo-readmes/zhihu-csm-reply-robot-1205839648/)
