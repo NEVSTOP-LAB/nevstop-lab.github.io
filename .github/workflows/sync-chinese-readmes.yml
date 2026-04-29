@@ -194,9 +194,14 @@ jobs:
                 ''
               ].join('\n');
 
+              const cleanedReadmeContent = readmeContent.replace(
+                /^(?:>\s*)?自动同步来源[^\n]*\r?\n(?:>\s*)?导入规则[^\n]*(?:\r?\n(?:>\s*)?)*(?:\r?\n)*/u,
+                ''
+              );
+
               const fileName = `${slug}.md`;
               const filePath = path.join(tempTargetDir, fileName);
-              fs.writeFileSync(filePath, `${frontMatter}\n${readmeContent}\n`, 'utf8');
+              fs.writeFileSync(filePath, `${frontMatter}\n${cleanedReadmeContent}\n`, 'utf8');
               imported.push({
                 name: repo.name,
                 description,
