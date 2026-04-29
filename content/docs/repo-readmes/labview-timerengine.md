@@ -1,8 +1,25 @@
 ---
-title: 'LabVIEW-TimerEngine README'
-description: '自动同步自 NEVSTOP-LAB/LabVIEW-TimerEngine 的中文 README'
+title: 'LabVIEW-TimerEngine'
+linkTitle: 'LabVIEW-TimerEngine'
+description: '使用 UserEvent 实现的 Timer 功能。后台使用一个 Timed Loop 进行定时，到达指定时间后，使用 UserEvent 通知订阅 Timer 的模块。'
+weight: -3
 draft: false
+repo_name: 'NEVSTOP-LAB/LabVIEW-TimerEngine'
+repo_url: 'https://github.com/NEVSTOP-LAB/LabVIEW-TimerEngine'
+repo_language: 'LabVIEW'
+repo_stars: 3
+repo_group: 'labview-libs'
+topics: ['labview-library', 'vipm']
 ---
+
+> **NEVSTOP-LAB/LabVIEW-TimerEngine** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-TimerEngine) · 语言：`LabVIEW` · ⭐ 3
+>
+> 使用 UserEvent 实现的 Timer 功能。后台使用一个 Timed Loop 进行定时，到达指定时间后，使用 UserEvent 通知订阅 Timer 的模块。
+>
+> 主题：`labview-library` · `vipm`
+
+---
+
 
 > 自动同步来源： [NEVSTOP-LAB/LabVIEW-TimerEngine](https://github.com/NEVSTOP-LAB/LabVIEW-TimerEngine)
 > 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
@@ -47,4 +64,5 @@ draft: false
 ## Dependencies
 
 1. OpenG Array Library
+
 

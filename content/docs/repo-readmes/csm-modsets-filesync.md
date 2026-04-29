@@ -1,8 +1,25 @@
 ---
-title: 'CSM-ModSets-FileSync README'
-description: '自动同步自 NEVSTOP-LAB/CSM-ModSets-FileSync 的中文 README'
+title: 'CSM-ModSets-FileSync'
+linkTitle: 'CSM-ModSets-FileSync'
+description: '基于 CSM 的文件同步模块'
+weight: -4
 draft: false
+repo_name: 'NEVSTOP-LAB/CSM-ModSets-FileSync'
+repo_url: 'https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync'
+repo_language: 'LabVIEW'
+repo_stars: 4
+repo_group: 'csm-apps'
+topics: ['csm-modsets', 'labview', 'labview-csm']
 ---
+
+> **NEVSTOP-LAB/CSM-ModSets-FileSync** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync) · 语言：`LabVIEW` · ⭐ 4
+>
+> 基于 CSM 的文件同步模块
+>
+> 主题：`csm-modsets` · `labview` · `labview-csm`
+
+---
+
 
 > 自动同步来源： [NEVSTOP-LAB/CSM-ModSets-FileSync](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync)
 > 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
@@ -77,5 +94,6 @@ git submodule update --init
 - 直接下载源码可以自由修改和定制功能
 - 确保您的开发环境满足项目的依赖要求（见上文开发环境部分）
 - 如需贡献代码，建议使用 git 克隆仓库而非直接下载
+
 
 

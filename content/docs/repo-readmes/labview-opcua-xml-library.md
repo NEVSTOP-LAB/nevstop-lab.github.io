@@ -1,8 +1,25 @@
 ---
-title: 'LabVIEW-OPCUA-XML-Library README'
-description: '自动同步自 NEVSTOP-LAB/LabVIEW-OPCUA-XML-Library 的中文 README'
+title: 'LabVIEW-OPCUA-XML-Library'
+linkTitle: 'LabVIEW-OPCUA-XML-Library'
+description: 'Use a XML configuration file to create the NI OPCUA Server.'
+weight: -10
 draft: false
+repo_name: 'NEVSTOP-LAB/LabVIEW-OPCUA-XML-Library'
+repo_url: 'https://github.com/NEVSTOP-LAB/LabVIEW-OPCUA-XML-Library'
+repo_language: 'LabVIEW'
+repo_stars: 10
+repo_group: 'labview-libs'
+topics: ['labview', 'opcua', 'vip', 'vipm', 'xml']
 ---
+
+> **NEVSTOP-LAB/LabVIEW-OPCUA-XML-Library** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-OPCUA-XML-Library) · 语言：`LabVIEW` · ⭐ 10
+>
+> Use a XML configuration file to create the NI OPCUA Server.  
+>
+> 主题：`labview` · `opcua` · `vip` · `vipm` · `xml`
+
+---
+
 
 > 自动同步来源： [NEVSTOP-LAB/LabVIEW-OPCUA-XML-Library](https://github.com/NEVSTOP-LAB/LabVIEW-OPCUA-XML-Library)
 > 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
@@ -75,6 +92,7 @@ xml 文件的设计，请参照样本xml进行修改。简单的说明如下：
 
 常在 LabVIEW 2017 中发现。与DNS 有关，在 HOST 文件中定义 IP 与 cRIO/PXI 等OPCUA Server 宿主机HostName 关联关系，可以解决。    
 ![opc_ua](https://user-images.githubusercontent.com/8196752/67999386-12f7c600-fc97-11e9-80e2-9b2f061ff3c2.PNG)
+
 
 
 

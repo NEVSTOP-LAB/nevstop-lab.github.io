@@ -1,5 +1,5 @@
 ---
-title: "Blog"
-description: "NEVSTOP-LAB 博客"
+title: "博客"
+description: "NEVSTOP-LAB 团队的实践笔记、设计思考与经验分享。"
 draft: false
 ---

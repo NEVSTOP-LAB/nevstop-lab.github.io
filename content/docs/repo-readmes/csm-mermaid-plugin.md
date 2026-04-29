@@ -1,8 +1,25 @@
 ---
-title: 'CSM-Mermaid-Plugin README'
-description: '自动同步自 NEVSTOP-LAB/CSM-Mermaid-Plugin 的中文 README'
+title: 'CSM-Mermaid-Plugin'
+linkTitle: 'CSM-Mermaid-Plugin'
+description: 'Mermaid Tool Plugin for CSM'
+weight: -4
 draft: false
+repo_name: 'NEVSTOP-LAB/CSM-Mermaid-Plugin'
+repo_url: 'https://github.com/NEVSTOP-LAB/CSM-Mermaid-Plugin'
+repo_language: 'LabVIEW'
+repo_stars: 4
+repo_group: 'csm-core'
+topics: ['labview', 'labview-csm', 'mermaid']
 ---
+
+> **NEVSTOP-LAB/CSM-Mermaid-Plugin** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-Mermaid-Plugin) · 语言：`LabVIEW` · ⭐ 4
+>
+> Mermaid Tool Plugin for CSM
+>
+> 主题：`labview` · `labview-csm` · `mermaid`
+
+---
+
 
 > 自动同步来源： [NEVSTOP-LAB/CSM-Mermaid-Plugin](https://github.com/NEVSTOP-LAB/CSM-Mermaid-Plugin)
 > 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
@@ -32,3 +49,4 @@ draft: false
 ### CSM 的接口信息
 
 ![image](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-Mermaid-Plugin/main/.doc/4.png)
+

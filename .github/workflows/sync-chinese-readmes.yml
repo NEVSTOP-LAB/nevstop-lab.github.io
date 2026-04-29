@@ -37,7 +37,6 @@ jobs:
             const backupTargetDir = `${absoluteTargetDir}.bak-${Date.now()}`;
 
             const countChinese = (text) => (text.match(/\p{Script=Han}/gu) || []).length;
-            const hasChinese = (text) => countChinese(text || '') >= minChineseChars;
             const safeFileName = (name) =>
               name.toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '') || 'repo';
             const escapeYamlSingleQuoted = (input) =>
@@ -48,6 +47,60 @@ jobs:
             const collator = Intl.Collator.supportedLocalesOf(['zh-CN']).length
               ? new Intl.Collator('zh-CN', { sensitivity: 'base' })
               : new Intl.Collator('en', { sensitivity: 'base' });
+
+            // Topic-based grouping. Order matters: first matching group wins.
+            const groups = [
+              {
+                key: 'csm-apps',
+                title: 'CSM 应用与示例',
+                description: '基于 CSM 的应用范例、复用模块（csm-modsets）与示例工程。',
+                match: (repo) => (repo.topics || []).some((t) => ['lv-csm-app', 'csm-modsets'].includes(t)),
+              },
+              {
+                key: 'csm-core',
+                title: 'CSM 核心框架与工具',
+                description: 'CSM Framework 本体、官方扩展、IDE / 编辑器插件，以及 CSM 相关的资料集合。',
+                match: (repo) => /^(communicable-state-machine|csm[-_])/i.test(repo.name)
+                  || (repo.topics || []).some((t) => ['communicable-state-machine', 'labview-csm'].includes(t)),
+              },
+              {
+                key: 'labview-libs',
+                title: 'LabVIEW 库与工具',
+                description: '通用 LabVIEW 库、UI 控件与工具型 VI Package。',
+                match: (repo) => (repo.topics || []).some((t) => ['labview-library', 'labview-xcontrol', 'vipm', 'vip', 'utilites', 'environments', 'quickdrop'].includes(t))
+                  || /^labview-/i.test(repo.name),
+              },
+              {
+                key: 'lvcicd',
+                title: 'lvCICD 与自动化',
+                description: 'LabVIEW 持续集成相关的 GitHub Actions / VIPM 工具。',
+                match: (repo) => (repo.topics || []).some((t) => ['cicd', 'lvcicd', 'github-actions'].includes(t)),
+              },
+              {
+                key: 'ai-tools',
+                title: 'AI 与跨平台工具',
+                description: '与 AI、跨仓库同步、Python / C# 等相关的工具型仓库。',
+                match: (repo) => (repo.topics || []).some((t) => ['ai', 'python'].includes(t)),
+              },
+              {
+                key: 'examples',
+                title: '示例与演示',
+                description: 'LabVIEW / TestStand 等的独立示例项目。',
+                match: (repo) => (repo.topics || []).includes('example'),
+              },
+            ];
+            const otherGroup = {
+              key: 'other',
+              title: '其他',
+              description: '尚未归类的仓库。',
+            };
+
+            const classify = (repo) => {
+              for (const g of groups) {
+                if (g.match(repo)) return g.key;
+              }
+              return otherGroup.key;
+            };
 
             fs.rmSync(tempTargetDir, { recursive: true, force: true });
             fs.mkdirSync(tempTargetDir, { recursive: true });
@@ -60,6 +113,7 @@ jobs:
 
             const activeRepos = repos.filter((repo) => !repo.archived);
             const imported = [];
+            const usedSlugs = new Set();
 
             for (const repo of activeRepos) {
               let readmeContent = '';
@@ -100,44 +154,103 @@ jobs:
                 (match, alt, src) => `![${alt}](${rawBase}/${src.replace(/^\.\//, '')})`
               );
 
+              // Build a clean, collision-free slug. Prefer the bare repo name; on
+              // collision, append the numeric repo id as a suffix.
+              let slug = safeFileName(repo.name);
+              if (usedSlugs.has(slug)) {
+                slug = `${slug}-${repo.id}`;
+              }
+              usedSlugs.add(slug);
+
+              const description = (repo.description || '').trim()
+                || `${repo.name} 仓库的中文 README（自动同步）。`;
+              const topics = repo.topics || [];
+              const groupKey = classify(repo);
+
+              // Use stargazer count as weight (higher stars -> smaller weight -> earlier).
+              // Negative ensures most-starred repos appear first when Hugo sorts ascending.
+              const weight = -1 * (repo.stargazers_count || 0);
+
               const frontMatter = [
                 '---',
-                `title: '${escapeYamlSingleQuoted(repo.name)} README'`,
-                `description: '自动同步自 ${escapeYamlSingleQuoted(repo.full_name)} 的中文 README'`,
+                `title: '${escapeYamlSingleQuoted(repo.name)}'`,
+                `linkTitle: '${escapeYamlSingleQuoted(repo.name)}'`,
+                `description: '${escapeYamlSingleQuoted(description)}'`,
+                `weight: ${weight}`,
                 'draft: false',
+                `repo_name: '${escapeYamlSingleQuoted(repo.full_name)}'`,
+                `repo_url: '${escapeYamlSingleQuoted(repo.html_url)}'`,
+                `repo_language: '${escapeYamlSingleQuoted(repo.language || '')}'`,
+                `repo_stars: ${repo.stargazers_count || 0}`,
+                `repo_group: '${escapeYamlSingleQuoted(groupKey)}'`,
+                ...(topics.length ? [`topics: [${topics.map((t) => `'${escapeYamlSingleQuoted(t)}'`).join(', ')}]`] : []),
                 '---',
                 '',
-                `> 自动同步来源： [${repo.full_name}](${repo.html_url})`,
-                `> 导入规则：README 包含不少于 ${minChineseChars} 个中文字符时导入，正文保持原文。`,
+                `> **${escapeMarkdownText(repo.full_name)}** · 来源：[GitHub](${repo.html_url})${repo.language ? ' · 语言：`' + repo.language + '`' : ''} · ⭐ ${repo.stargazers_count || 0}`,
+                ...(repo.description ? ['>', `> ${escapeMarkdownText(repo.description)}`] : []),
+                ...(topics.length ? ['>', `> 主题：${topics.map((t) => '`' + t + '`').join(' · ')}`] : []),
+                '',
+                '---',
                 ''
               ].join('\n');
 
-              const fileName = `${safeFileName(repo.name)}-${repo.id}.md`;
+              const fileName = `${slug}.md`;
               const filePath = path.join(tempTargetDir, fileName);
               fs.writeFileSync(filePath, `${frontMatter}\n${readmeContent}\n`, 'utf8');
               imported.push({
                 name: repo.name,
-                fileName,
-                slug: fileName.replace(/\.md$/, '')
+                description,
+                slug,
+                stars: repo.stargazers_count || 0,
+                language: repo.language || '',
+                url: repo.html_url,
+                group: groupKey,
+                topics,
               });
             }
 
-            imported.sort((a, b) => collator.compare(a.name, b.name));
+            imported.sort((a, b) => (b.stars - a.stars) || collator.compare(a.name, b.name));
 
-            const indexContent = [
+            // Build a grouped index page.
+            const allGroups = [...groups, otherGroup];
+            const grouped = new Map(allGroups.map((g) => [g.key, []]));
+            for (const item of imported) {
+              grouped.get(item.group).push(item);
+            }
+
+            const indexLines = [
               '---',
-              'title: "Repo READMEs"',
-              'description: "组织内 public 仓库中文 README 自动导入列表"',
+              'title: "仓库 README"',
+              'description: "组织内 public 仓库的中文 README 自动导入列表，按主题分组浏览。"',
               'draft: false',
               '---',
               '',
-              ...(
-                imported.length
-                  ? imported.map((item) => `- [${escapeMarkdownText(item.name)}](/docs/repo-readmes/${item.slug}/)`)
-                  : ['当前没有可导入的中文 README。']
-              ),
-              ''
-            ].join('\n');
+              `自动同步自 [NEVSTOP-LAB 组织](https://github.com/${org}) 内 public 仓库的中文 README，`,
+              `当 README 中包含不少于 ${minChineseChars} 个中文字符时被收录。当前共收录 **${imported.length}** 个仓库，按主题分组如下：`,
+              '',
+            ];
+            if (imported.length === 0) {
+              indexLines.push('当前没有可导入的中文 README。');
+            } else {
+              for (const g of allGroups) {
+                const items = grouped.get(g.key);
+                if (!items.length) continue;
+                indexLines.push(`## ${g.title}`);
+                indexLines.push('');
+                indexLines.push(g.description);
+                indexLines.push('');
+                for (const item of items) {
+                  const meta = [];
+                  if (item.language) meta.push('`' + item.language + '`');
+                  meta.push(`⭐ ${item.stars}`);
+                  meta.push(`[GitHub](${item.url})`);
+                  indexLines.push(`- [**${escapeMarkdownText(item.name)}**](/docs/repo-readmes/${item.slug}/) — ${escapeMarkdownText(item.description)}`);
+                  indexLines.push(`  <br/><sub>${meta.join(' · ')}</sub>`);
+                }
+                indexLines.push('');
+              }
+            }
+            const indexContent = indexLines.join('\n') + '\n';
 
             fs.writeFileSync(path.join(tempTargetDir, '_index.md'), indexContent, 'utf8');
             fs.rmSync(backupTargetDir, { recursive: true, force: true });
@@ -160,8 +273,8 @@ jobs:
             if (!fs.existsSync(docsIndexPath)) {
               const docsIndex = [
                 '---',
-                'title: "Docs"',
-                'description: "NEVSTOP-LAB 文档"',
+                'title: "文档"',
+                'description: "NEVSTOP-LAB 站点文档入口"',
                 'draft: false',
                 '---',
                 ''

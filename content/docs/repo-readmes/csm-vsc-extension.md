@@ -1,8 +1,22 @@
 ---
-title: 'csm-vsc-extension README'
-description: '自动同步自 NEVSTOP-LAB/csm-vsc-extension 的中文 README'
+title: 'csm-vsc-extension'
+linkTitle: 'csm-vsc-extension'
+description: '为 CSM 相关文件提供 Visual Studio Code 编辑器支持的插件'
+weight: 0
 draft: false
+repo_name: 'NEVSTOP-LAB/csm-vsc-extension'
+repo_url: 'https://github.com/NEVSTOP-LAB/csm-vsc-extension'
+repo_language: 'TypeScript'
+repo_stars: 0
+repo_group: 'csm-core'
 ---
+
+> **NEVSTOP-LAB/csm-vsc-extension** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/csm-vsc-extension) · 语言：`TypeScript` · ⭐ 0
+>
+> 为 CSM 相关文件提供 Visual Studio Code 编辑器支持的插件
+
+---
+
 
 > 自动同步来源： [NEVSTOP-LAB/csm-vsc-extension](https://github.com/NEVSTOP-LAB/csm-vsc-extension)
 > 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
@@ -48,4 +62,5 @@ draft: false
 ## 许可证
 
 本项目遵循 GNU Affero General Public License v3 (AGPL-3.0) 许可证。详见 [LICENSE](LICENSE) 文件。
+
 

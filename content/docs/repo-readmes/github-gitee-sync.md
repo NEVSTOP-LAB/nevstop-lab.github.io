@@ -1,8 +1,25 @@
 ---
-title: 'GitHub-Gitee-Sync README'
-description: '自动同步自 NEVSTOP-LAB/GitHub-Gitee-Sync 的中文 README'
+title: 'GitHub-Gitee-Sync'
+linkTitle: 'GitHub-Gitee-Sync'
+description: 'Sync All the Repos(public/private) between Github and Gitee.'
+weight: -2
 draft: false
+repo_name: 'NEVSTOP-LAB/GitHub-Gitee-Sync'
+repo_url: 'https://github.com/NEVSTOP-LAB/GitHub-Gitee-Sync'
+repo_language: 'Python'
+repo_stars: 2
+repo_group: 'lvcicd'
+topics: ['ai', 'docker', 'github-actions', 'python']
 ---
+
+> **NEVSTOP-LAB/GitHub-Gitee-Sync** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/GitHub-Gitee-Sync) · 语言：`Python` · ⭐ 2
+>
+> Sync All the Repos(public/private) between Github and Gitee.
+>
+> 主题：`ai` · `docker` · `github-actions` · `python`
+
+---
+
 
 > 自动同步来源： [NEVSTOP-LAB/GitHub-Gitee-Sync](https://github.com/NEVSTOP-LAB/GitHub-Gitee-Sync)
 > 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
@@ -295,4 +312,5 @@ python sync.py \
 ## License
 
 [MIT](LICENSE)
+
 

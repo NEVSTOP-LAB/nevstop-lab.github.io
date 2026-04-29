@@ -1,8 +1,25 @@
 ---
-title: 'LabVIEW-MassData-Smart-Ptr README'
-description: '自动同步自 NEVSTOP-LAB/LabVIEW-MassData-Smart-Ptr 的中文 README'
+title: 'LabVIEW-MassData-Smart-Ptr'
+linkTitle: 'LabVIEW-MassData-Smart-Ptr'
+description: 'LabVIEW MassData Smart Pointer Library for Large Memory Requirement/High Speed DAQ Scenario'
+weight: -4
 draft: false
+repo_name: 'NEVSTOP-LAB/LabVIEW-MassData-Smart-Ptr'
+repo_url: 'https://github.com/NEVSTOP-LAB/LabVIEW-MassData-Smart-Ptr'
+repo_language: 'LabVIEW'
+repo_stars: 4
+repo_group: 'labview-libs'
+topics: ['framework', 'labview-library', 'vipm']
 ---
+
+> **NEVSTOP-LAB/LabVIEW-MassData-Smart-Ptr** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-MassData-Smart-Ptr) · 语言：`LabVIEW` · ⭐ 4
+>
+> LabVIEW MassData Smart Pointer Library for Large Memory Requirement/High Speed DAQ Scenario
+>
+> 主题：`framework` · `labview-library` · `vipm`
+
+---
+
 
 > 自动同步来源： [NEVSTOP-LAB/LabVIEW-MassData-Smart-Ptr](https://github.com/NEVSTOP-LAB/LabVIEW-MassData-Smart-Ptr)
 > 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
@@ -32,4 +49,5 @@ draft: false
 
 后面板逻辑：    
 ![image](https://user-images.githubusercontent.com/8196752/120073829-932d1a00-c0cc-11eb-8779-8229187e1c61.png)
+
 
