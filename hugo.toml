@@ -1,9 +1,69 @@
 baseURL = "https://nevstop-lab.github.io/"
 languageCode = "zh-cn"
 title = "NEVSTOP-LAB"
+defaultContentLanguage = "zh-cn"
+disableLanguages = ["en", "de", "nl", "fr", "es"]
 
 [build]
   writeStats = true
+
+[params]
+  description = "NEVSTOP-LAB 是围绕可通讯状态机框架（CSM）和 AI，提供 LabVIEW / Python / C# 自动化测试方案的开源组织。"
+
+[params.doks]
+  sectionFooter = false
+  backgroundDots = false
+
+[[menu.main]]
+  name = "首页"
+  url = "/"
+  weight = 10
+
+[[menu.main]]
+  name = "组织介绍"
+  url = "/about/"
+  weight = 20
+
+[[menu.main]]
+  name = "文档"
+  url = "/docs/"
+  weight = 30
+
+[[menu.main]]
+  name = "仓库 README"
+  url = "/docs/repo-readmes/"
+  weight = 40
+
+[[menu.main]]
+  name = "博客"
+  url = "/blog/"
+  weight = 50
+
+[[menu.main]]
+  name = "Discussion"
+  url = "https://github.com/orgs/NEVSTOP-LAB/discussions"
+  weight = 60
+  [menu.main.params]
+    external = true
+
+[[menu.main]]
+  name = "GitHub 组织"
+  url = "https://github.com/NEVSTOP-LAB"
+  weight = 70
+  [menu.main.params]
+    external = true
+
+[[menu.social]]
+  name = "GitHub"
+  pre = "github"
+  url = "https://github.com/NEVSTOP-LAB"
+  weight = 10
+
+[[menu.social]]
+  name = "知乎"
+  pre = "external-link"
+  url = "https://www.zhihu.com/column/c_1681072169147342848"
+  weight = 20
 
 [module]
   [[module.imports]]

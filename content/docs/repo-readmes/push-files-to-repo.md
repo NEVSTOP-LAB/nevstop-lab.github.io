@@ -1,8 +1,25 @@
 ---
-title: 'Push-Files-to-Repo README'
-description: '自动同步自 NEVSTOP-LAB/Push-Files-to-Repo 的中文 README'
+title: 'Push-Files-to-Repo'
+linkTitle: 'Push-Files-to-Repo'
+description: '一个通过 Pull Request 将文件或文件夹从一个仓库推送到另一个仓库的 GitHub Action'
+weight: 0
 draft: false
+repo_name: 'NEVSTOP-LAB/Push-Files-to-Repo'
+repo_url: 'https://github.com/NEVSTOP-LAB/Push-Files-to-Repo'
+repo_language: 'Shell'
+repo_stars: 0
+repo_group: 'lvcicd'
+topics: ['ai', 'github-actions', 'python']
 ---
+
+> **NEVSTOP-LAB/Push-Files-to-Repo** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/Push-Files-to-Repo) · 语言：`Shell` · ⭐ 0
+>
+> 一个通过 Pull Request 将文件或文件夹从一个仓库推送到另一个仓库的 GitHub Action
+>
+> 主题：`ai` · `github-actions` · `python`
+
+---
+
 
 > 自动同步来源： [NEVSTOP-LAB/Push-Files-to-Repo](https://github.com/NEVSTOP-LAB/Push-Files-to-Repo)
 > 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
@@ -204,3 +221,4 @@ jobs:
 ## 许可证
 
 MIT
+

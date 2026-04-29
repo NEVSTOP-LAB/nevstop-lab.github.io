@@ -1,8 +1,25 @@
 ---
-title: 'LabVIEW-TagDB README'
-description: '自动同步自 NEVSTOP-LAB/LabVIEW-TagDB 的中文 README'
+title: 'LabVIEW-TagDB'
+linkTitle: 'LabVIEW-TagDB'
+description: 'Tag Data Container for LabVIEW'
+weight: -2
 draft: false
+repo_name: 'NEVSTOP-LAB/LabVIEW-TagDB'
+repo_url: 'https://github.com/NEVSTOP-LAB/LabVIEW-TagDB'
+repo_language: 'LabVIEW'
+repo_stars: 2
+repo_group: 'labview-libs'
+topics: ['labview-library', 'tagdb']
 ---
+
+> **NEVSTOP-LAB/LabVIEW-TagDB** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-TagDB) · 语言：`LabVIEW` · ⭐ 2
+>
+> Tag Data Container for LabVIEW
+>
+> 主题：`labview-library` · `tagdb`
+
+---
+
 
 > 自动同步来源： [NEVSTOP-LAB/LabVIEW-TagDB](https://github.com/NEVSTOP-LAB/LabVIEW-TagDB)
 > 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
@@ -152,6 +169,7 @@ NEVSTOP TagDB 是专为 LabVIEW 环境设计的高级数据管理库，提供配
 3. 提交更改
 4. 推送到分支
 5. 提交 Pull Request
+
 
 
 

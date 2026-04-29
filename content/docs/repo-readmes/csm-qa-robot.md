@@ -1,8 +1,22 @@
 ---
-title: 'CSM-QA-Robot README'
-description: '自动同步自 NEVSTOP-LAB/CSM-QA-Robot 的中文 README'
+title: 'CSM-QA-Robot'
+linkTitle: 'CSM-QA-Robot'
+description: 'CSM 问题回复机器人'
+weight: 0
 draft: false
+repo_name: 'NEVSTOP-LAB/CSM-QA-Robot'
+repo_url: 'https://github.com/NEVSTOP-LAB/CSM-QA-Robot'
+repo_language: 'Python'
+repo_stars: 0
+repo_group: 'csm-core'
 ---
+
+> **NEVSTOP-LAB/CSM-QA-Robot** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-QA-Robot) · 语言：`Python` · ⭐ 0
+>
+> CSM 问题回复机器人
+
+---
+
 
 > 自动同步来源： [NEVSTOP-LAB/CSM-QA-Robot](https://github.com/NEVSTOP-LAB/CSM-QA-Robot)
 > 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
@@ -194,4 +208,5 @@ python -m pytest tests/ -v
 ## License
 
 MIT
+
 

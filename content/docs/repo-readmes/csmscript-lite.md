@@ -1,8 +1,25 @@
 ---
-title: 'CSMScript-Lite README'
-description: '自动同步自 NEVSTOP-LAB/CSMScript-Lite 的中文 README'
+title: 'CSMScript-Lite'
+linkTitle: 'CSMScript-Lite'
+description: 'CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本'
+weight: -17
 draft: false
+repo_name: 'NEVSTOP-LAB/CSMScript-Lite'
+repo_url: 'https://github.com/NEVSTOP-LAB/CSMScript-Lite'
+repo_language: 'LabVIEW'
+repo_stars: 17
+repo_group: 'csm-apps'
+topics: ['csm-modsets', 'labview-csm', 'lv-csm-app']
 ---
+
+> **NEVSTOP-LAB/CSMScript-Lite** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite) · 语言：`LabVIEW` · ⭐ 17
+>
+> CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本
+>
+> 主题：`csm-modsets` · `labview-csm` · `lv-csm-app`
+
+---
+
 
 > 自动同步来源： [NEVSTOP-LAB/CSMScript-Lite](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
 > 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
@@ -123,4 +140,5 @@ close -@ ai
 
 > [!NOTE]
 > 锚点名称中的 `<>` 符号可省略，`GOTO >> cleanup` 与 `GOTO >> <cleanup>` 效果相同。
+
 

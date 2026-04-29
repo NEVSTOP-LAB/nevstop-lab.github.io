@@ -1,8 +1,25 @@
 ---
-title: 'LabVIEW-GlobalStop-Library README'
-description: '自动同步自 NEVSTOP-LAB/LabVIEW-GlobalStop-Library 的中文 README'
+title: 'LabVIEW-GlobalStop-Library'
+linkTitle: 'LabVIEW-GlobalStop-Library'
+description: 'Simple stop mechanism for parallel loops in LabVIEW'
+weight: -14
 draft: false
+repo_name: 'NEVSTOP-LAB/LabVIEW-GlobalStop-Library'
+repo_url: 'https://github.com/NEVSTOP-LAB/LabVIEW-GlobalStop-Library'
+repo_language: 'LabVIEW'
+repo_stars: 14
+repo_group: 'labview-libs'
+topics: ['framework', 'labview-library', 'vipm']
 ---
+
+> **NEVSTOP-LAB/LabVIEW-GlobalStop-Library** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-GlobalStop-Library) · 语言：`LabVIEW` · ⭐ 14
+>
+> Simple stop mechanism for parallel loops in LabVIEW
+>
+> 主题：`framework` · `labview-library` · `vipm`
+
+---
+
 
 > 自动同步来源： [NEVSTOP-LAB/LabVIEW-GlobalStop-Library](https://github.com/NEVSTOP-LAB/LabVIEW-GlobalStop-Library)
 > 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
@@ -55,4 +72,5 @@ draft: false
 
 - LabVIEW 2014
 - VIPM 2020.3
+
 

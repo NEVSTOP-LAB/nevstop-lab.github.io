@@ -1,8 +1,25 @@
 ---
-title: 'LabVIEW-UI-XCtl README'
-description: '自动同步自 NEVSTOP-LAB/LabVIEW-UI-XCtl 的中文 README'
+title: 'LabVIEW-UI-XCtl'
+linkTitle: 'LabVIEW-UI-XCtl'
+description: 'LabVIEW XControls for UI'
+weight: -39
 draft: false
+repo_name: 'NEVSTOP-LAB/LabVIEW-UI-XCtl'
+repo_url: 'https://github.com/NEVSTOP-LAB/LabVIEW-UI-XCtl'
+repo_language: 'LabVIEW'
+repo_stars: 39
+repo_group: 'labview-libs'
+topics: ['labview-xcontrol', 'ui']
 ---
+
+> **NEVSTOP-LAB/LabVIEW-UI-XCtl** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-UI-XCtl) · 语言：`LabVIEW` · ⭐ 39
+>
+> LabVIEW XControls for UI
+>
+> 主题：`labview-xcontrol` · `ui`
+
+---
+
 
 > 自动同步来源： [NEVSTOP-LAB/LabVIEW-UI-XCtl](https://github.com/NEVSTOP-LAB/LabVIEW-UI-XCtl)
 > 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
@@ -39,4 +56,5 @@ LabVIEW X-Controls 列表
 
 1.	部分XControl 依赖OpenG
 2.	开发环境 LabVIEW 2014，高版本可以直接拷贝至开发目录使用。
+
 

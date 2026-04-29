@@ -1,8 +1,25 @@
 ---
-title: 'CSM-Wiki README'
-description: '自动同步自 NEVSTOP-LAB/CSM-Wiki 的中文 README'
+title: 'CSM-Wiki'
+linkTitle: 'CSM-Wiki'
+description: 'Wiki website for Communicable State Machine(CSM). Link here:'
+weight: -9
 draft: false
+repo_name: 'NEVSTOP-LAB/CSM-Wiki'
+repo_url: 'https://github.com/NEVSTOP-LAB/CSM-Wiki'
+repo_language: 'SCSS'
+repo_stars: 9
+repo_group: 'csm-core'
+topics: ['framework', 'jekyll', 'labview', 'labview-csm', 'wiki']
 ---
+
+> **NEVSTOP-LAB/CSM-Wiki** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-Wiki) · 语言：`SCSS` · ⭐ 9
+>
+> Wiki website for Communicable State Machine(CSM). Link here:
+>
+> 主题：`framework` · `jekyll` · `labview` · `labview-csm` · `wiki`
+
+---
+
 
 > 自动同步来源： [NEVSTOP-LAB/CSM-Wiki](https://github.com/NEVSTOP-LAB/CSM-Wiki)
 > 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
@@ -26,4 +43,5 @@ _**本仓库使用了以下的开源项目或服务**_：
 ---
 
 想要贡献内容？请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
 

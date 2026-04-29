@@ -1,8 +1,23 @@
 ---
-title: 'TestStand-User-Interface-Messages-Demo README'
-description: '自动同步自 NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo 的中文 README'
+title: 'TestStand-User-Interface-Messages-Demo'
+linkTitle: 'TestStand-User-Interface-Messages-Demo'
+description: 'TestStand-User-Interface-Messages-Demo 仓库的中文 README（自动同步）。'
+weight: -1
 draft: false
+repo_name: 'NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo'
+repo_url: 'https://github.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo'
+repo_language: 'LabVIEW'
+repo_stars: 1
+repo_group: 'examples'
+topics: ['example', 'labview', 'teststand']
 ---
+
+> **NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo) · 语言：`LabVIEW` · ⭐ 1
+>
+> 主题：`example` · `labview` · `teststand`
+
+---
+
 
 > 自动同步来源： [NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo](https://github.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo)
 > 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
@@ -39,3 +54,4 @@ draft: false
 > 参考：
 >
 >![image](https://raw.githubusercontent.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo/main/.doc/5c6daf099df3d344cb5ed74bbc936c3.png)
+
