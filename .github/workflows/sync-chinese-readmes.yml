@@ -67,7 +67,7 @@ jobs:
                 key: 'labview-libs',
                 title: 'LabVIEW 库与工具',
                 description: '通用 LabVIEW 库、UI 控件与工具型 VI Package。',
-                match: (repo) => (repo.topics || []).some((t) => ['labview-library', 'labview-xcontrol', 'vipm', 'vip', 'utilites', 'environments', 'quickdrop'].includes(t))
+                match: (repo) => (repo.topics || []).some((t) => ['labview-library', 'labview-xcontrol', 'vipm', 'vip', 'utilities', 'utilites', 'environments', 'quickdrop'].includes(t))
                   || /^labview-/i.test(repo.name),
               },
               {
