@@ -26,11 +26,14 @@ $site-content-max-width: 1320px;
 // 默认 col-lg-9 / col-lg-10 / col-xl-8 在我们的内容容器里显得太窄。
 // 大屏下把这几种列统一拉到 ~91% / ~83% 宽度，并加上同一个 max-width，
 // 让所有页面主区域视觉宽度一致。
+//
+// 注意：选择器都要求 `> .container.p-0 >` 这一层中间容器（仅 baseof 在
+// `IsNode` 且非 mainSections 时插入），并且都要求 `col-md-12` 起手，避免
+// 命中首页 hero 等使用裸 `col-lg-9 col-xl-8` 的列。
 @media (min-width: 992px) {
-    .wrap > .content .row > .col-md-12.col-lg-10.col-xl-8,
-    .wrap > .content .row > .col-md-12.col-lg-10,
-    .wrap > .content .row > .col-md-12.col-lg-9,
-    .wrap > .content .row > .col-lg-9 {
+    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-10.col-xl-8,
+    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-10,
+    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-9 {
         flex: 0 0 auto;
         width: 91.66666667%; // col-lg-11
         max-width: 1180px;
@@ -39,10 +42,9 @@ $site-content-max-width: 1320px;
 }
 
 @media (min-width: 1200px) {
-    .wrap > .content .row > .col-md-12.col-lg-10.col-xl-8,
-    .wrap > .content .row > .col-md-12.col-lg-10,
-    .wrap > .content .row > .col-md-12.col-lg-9,
-    .wrap > .content .row > .col-lg-9 {
+    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-10.col-xl-8,
+    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-10,
+    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-9 {
         width: 83.33333333%; // col-xl-10
         max-width: 1180px;
     }
