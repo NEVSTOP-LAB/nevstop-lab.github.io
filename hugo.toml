@@ -7,12 +7,32 @@ disableLanguages = ["en", "de", "nl", "fr", "es"]
 [build]
   writeStats = true
 
+# 站点输出格式：首页额外输出 searchIndex（FlexSearch 索引），生成 /search-index.json
+[outputs]
+  home = ["HTML", "RSS", "searchIndex"]
+
+[outputFormats.searchIndex]
+  mediaType = "application/json"
+  baseName = "search-index"
+  isPlainText = true
+  notAlternative = true
+
 [params]
   description = "NEVSTOP-LAB 是围绕可通讯状态机框架（CSM）和 AI，提供 LabVIEW / Python / C# 自动化测试方案的开源组织。"
 
 [params.doks]
   sectionFooter = false
   backgroundDots = false
+
+  # FlexSearch（站内搜索）
+  flexSearch = true
+  searchExclKinds = []
+  searchExclTypes = []
+  showSearch = []
+  indexSummary = false
+  showDate = false
+  showSummary = true
+  searchLimit = 99
 
 [[menu.main]]
   name = "首页"
