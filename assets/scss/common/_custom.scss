@@ -58,10 +58,16 @@ $site-content-max-width: 1320px;
         align-items: center;
     }
 
+    // 注意：Doks header 给 #searchToggleDesktop 加了 `d-lg-block`，在大屏下
+    // 由 Bootstrap 的工具类强制 `display: block !important`，会覆盖下面的
+    // `display: inline-flex`，导致按钮里的搜索 SVG 被推到左上角，与右侧
+    // 颜色模式 / GitHub / 知乎 等图标看上去不在同一基线上。
+    // 这里用 `!important` 把 display 抢回 inline-flex，让搜索图标居中，
+    // 视觉上和右侧其它图标对齐。
     .navbar #searchToggleDesktop,
     .navbar #buttonColorMode,
     .navbar #socialMenu .social-link {
-        display: inline-flex;
+        display: inline-flex !important;
         align-items: center;
         justify-content: center;
         width: 38px;
