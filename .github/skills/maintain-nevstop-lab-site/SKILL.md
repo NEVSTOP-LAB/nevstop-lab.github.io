@@ -31,7 +31,7 @@ description: 维护 NEVSTOP-LAB 组织官网（Hugo + Doks，仓库 NEVSTOP-LAB/
 | 仓库 | `NEVSTOP-LAB/nevstop-lab.github.io` |
 | 部署 | GitHub Pages，URL `https://nevstop-lab.github.io/` |
 | 构建 | `.github/workflows/hugo.yml`，push 到 `main` 自动部署 |
-| 技术栈 | Hugo Extended + Doks 主题（`@thulite/doks-core`，Hugo Module 形式） |
+| 技术栈 | Hugo Extended + Doks（Hugo Module：`github.com/thuliteio/doks`，在 `hugo.toml` 中 import；npm 依赖：`@thulite/doks-core` 等 `@thulite/*` 包，通过 `[module] mounts` 从 `node_modules` 提供 `layouts/assets/i18n/...`，二者缺一不可） |
 | 语言 | 仅 `zh-cn`，`hugo.toml` 用 `disableLanguages` 关掉其他语言 |
 | 内容来源 | ① 手写：`content/_index.md`、`content/about/_index.md`、`content/docs/_index.md`、`content/blog/`<br>② 自动：`content/docs/repo-readmes/`，每天 02:00 UTC 由 `.github/workflows/sync-chinese-readmes.yml` 全量重建 |
 | 自定义模板 | `layouts/home.html`（首页）、`layouts/list.html`（去掉 docs 自动 card-list）、`assets/scss/common/_custom.scss`（自定义样式） |
@@ -109,7 +109,7 @@ description: 维护 NEVSTOP-LAB 组织官网（Hugo + Doks，仓库 NEVSTOP-LAB/
 
 ```bash
 npm ci
-npx hugo --gc --minify
+hugo --gc --minify
 ```
 
 - 必须看到 `Total in NNNms` 且无 `ERROR`。
@@ -117,7 +117,7 @@ npx hugo --gc --minify
   - 在自动同步文件里写了 `tags:` 而不是 `topics:` → 触发 `term.html` 找不到 `contributors`
   - 自定义 layout 里 partial 路径写错
   - `_custom.scss` 里语法错
-- 仅做 markdown / 文档变更可以省略 build，但只要碰到 `hugo.toml` / `layouts/` / `assets/scss/` / `content/` 中任意一处就必须 build。
+- **默认每次改动后都必须执行上述 build**（与硬约束 #9 一致）。**唯一例外**：本次改动严格限定为仓库说明类文档（`README.md`、`AGENTS.md`、`.github/skills/**`、`LICENSE` 之类），且**完全没有触碰** `hugo.toml` / `layouts/` / `assets/` / `content/` / `data/` / `i18n/` / `static/` / `.github/workflows/` —— 这种情况下可以省略 build，但必须在 PR 的 `### 验证` 一节里明确写明「未运行构建：仅文档变更」。其余任何场景都不得跳过 build。
 
 ### Step 5 — Commit & PR
 
@@ -143,7 +143,7 @@ npx hugo --gc --minify
 - [ ] **不要改** `content/docs/repo-readmes/` 下任何文件。
 - [ ] 内容来源以 `NEVSTOP-LAB/.github/profile/README.md` 为准。
 - [ ] 新增博客：在 `content/blog/` 下新建 `<slug>.md`，front matter 至少包含 `title` / `description` / `date` / `draft: false`。
-- [ ] 跑 `npx hugo --gc --minify` 确认无 `error building site`。
+- [ ] 跑 `hugo --gc --minify` 确认无 `error building site`。
 
 ### Pattern B — 「调整首页 / 导航 / 卡片 / 样式」
 
@@ -155,7 +155,7 @@ npx hugo --gc --minify
 - [ ] 自定义样式集中放 `assets/scss/common/_custom.scss`，**不要**在 inline style 里堆 CSS。
 - [ ] 新菜单项要同时加 `[[menu.main]]`（`hugo.toml`）和 `layouts/home.html` 的导航卡，保持闭环。
 - [ ] 外链菜单项需要 `[menu.main.params] external = true`。
-- [ ] 跑 `npx hugo --gc --minify` 后，自查首页关键 class 是否生成（可 grep `public/index.html`）。
+- [ ] 跑 `hugo --gc --minify` 后，自查首页关键 class 是否生成（可 grep `public/index.html`）。
 
 ### Pattern C — 「修改自动同步逻辑」
 
@@ -182,7 +182,7 @@ npx hugo --gc --minify
   - 缺 npm 依赖 / `hugo_stats.json` mount → 检查 `hugo.toml` 的 `[module] mounts` 与 `package.json`（PR #3）
   - 同步生成的 README 写了 `tags:` → 改回 `topics:`
   - render-image partial 在相对路径上 crash → 确认同步逻辑改写了相对图片路径（PR #4）
-- [ ] 修完后本地 `npm ci && npx hugo --gc --minify` 必须通过。
+- [ ] 修完后本地 `npm ci && hugo --gc --minify` 必须通过。
 - [ ] PR 描述里贴出失败日志关键行 + 修复点。
 
 ### Pattern E — 「新增功能区 / 子页 / 数据展示」
@@ -193,7 +193,7 @@ npx hugo --gc --minify
 - [ ] 新增 section：在 `content/<section>/_index.md` 建好 front matter。
 - [ ] 新增页面要决定是否进 `menu.main` —— 凡是用户需要直接到达的，必须进菜单 + 首页导航卡（导航闭环原则）。
 - [ ] 想把同步生成的 `repo_*` 字段渲染出来，在 `layouts/` 里覆写对应模板（参考 `layouts/home.html` 的写法），不要去动 `node_modules` 里的 Doks 主题。
-- [ ] 跑 `npx hugo --gc --minify`，确认页面真正生成在 `public/` 下。
+- [ ] 跑 `hugo --gc --minify`，确认页面真正生成在 `public/` 下。
 
 ---
 
@@ -204,7 +204,7 @@ npx hugo --gc --minify
 - [ ] 任何新文件 / 新菜单是否同时进了 `menu.main` + 首页导航卡？
 - [ ] 自定义 `col-*` 是否按 16 列累加？
 - [ ] 同步生成的 front matter 用的是 `topics:` 而不是 `tags:`？
-- [ ] `npm ci && npx hugo --gc --minify` 通过、无 `error building site`？
+- [ ] `npm ci && hugo --gc --minify` 通过、无 `error building site`？
 - [ ] commit message 简洁、描述「做了什么」而不是「为什么」？
 - [ ] 调用 `create_pull_request` 创建了 PR，title/description 清晰？
 
@@ -214,4 +214,4 @@ npx hugo --gc --minify
 
 如果只能传一段话给下一个接手这个站点的 LLM，把下面这段贴给它：
 
-> 你正在维护 NEVSTOP-LAB 的 Hugo + Doks 站点 (`NEVSTOP-LAB/nevstop-lab.github.io`)。**先用 `skill: maintain-nevstop-lab-site` 调起本 skill，再阅读 `AGENTS.md`**，然后才动代码。硬约束摘要：① 站点主题是 NEVSTOP-LAB 组织（CSM + AI + LabVIEW），不要宣传 Doks；② 主菜单 + 首页导航卡必须闭环（首页/组织介绍/文档/仓库 README/博客/讨论/GitHub）；③ `content/docs/repo-readmes/` 由 workflow 全量生成，禁止手工编辑，要改改 `.github/workflows/sync-chinese-readmes.yml`；④ 自动同步 front matter 用 `topics:` 而非 `tags:`，否则 Doks `term.html` 构建失败；⑤ 自定义 `col-*` 按 16 列网格累加；⑥ 改完跑 `npm ci && npx hugo --gc --minify` 确认无 `error building site`；⑦ 完成后调用 `create_pull_request` 自动开 PR。
+> 你正在维护 NEVSTOP-LAB 的 Hugo + Doks 站点 (`NEVSTOP-LAB/nevstop-lab.github.io`)。**先用 `skill: maintain-nevstop-lab-site` 调起本 skill，再阅读 `AGENTS.md`**，然后才动代码。硬约束摘要：① 站点主题是 NEVSTOP-LAB 组织（CSM + AI + LabVIEW），不要宣传 Doks；② 主菜单 + 首页导航卡必须闭环（首页/组织介绍/文档/仓库 README/博客/讨论/GitHub）；③ `content/docs/repo-readmes/` 由 workflow 全量生成，禁止手工编辑，要改改 `.github/workflows/sync-chinese-readmes.yml`；④ 自动同步 front matter 用 `topics:` 而非 `tags:`，否则 Doks `term.html` 构建失败；⑤ 自定义 `col-*` 按 16 列网格累加；⑥ 改完跑 `npm ci && hugo --gc --minify` 确认无 `error building site`；⑦ 完成后调用 `create_pull_request` 自动开 PR。
