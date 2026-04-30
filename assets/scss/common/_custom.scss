@@ -348,6 +348,97 @@ section.section a.btn-link {
     }
 }
 
+// --- 文档 list 页（/docs/、/docs/repo-readmes/ 等）正文样式微调 -------------
+// 自定义的 layouts/list.html 已经移除了底部冗长的 card-list；
+// 这里再把正文中的列表与 h2 调整得更有段落感、更克制。
+.docs-list-article {
+    .docs-list-header {
+        margin-bottom: 1.75rem;
+
+        h1 {
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .lead {
+            color: var(--bs-secondary-color, #555);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+    }
+
+    // h2 段落感：上方留白 + 下方细分隔线，与正文清晰分隔
+    .docs-list-content {
+        h2 {
+            position: relative;
+            margin-top: 2.75rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.005em;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        // h2 紧跟的简短说明段（每个分组的导语），给一点呼吸
+        h2 + p {
+            color: var(--bs-secondary-color, #6c757d);
+            margin-bottom: 1rem;
+        }
+
+        // 去掉列表左侧圆点，改用克制的左侧细线 + 缩进，
+        // 既消除"圆点突兀"的感觉，又让条目之间仍然有清晰的分隔。
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        ul > li {
+            position: relative;
+            padding: 0.35rem 0 0.35rem 0.85rem;
+            margin-bottom: 0.15rem;
+            line-height: 1.65;
+            border-left: 2px solid rgba(13, 110, 253, 0.12);
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        ul > li:hover {
+            border-left-color: rgba(13, 110, 253, 0.55);
+        }
+
+        // 嵌套列表沿用同样规则，但视觉更轻
+        ul ul {
+            margin-top: 0.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        ul ul > li {
+            border-left-color: rgba(0, 0, 0, 0.06);
+        }
+    }
+}
+
+[data-bs-theme="dark"] .docs-list-article .docs-list-content {
+    h2 {
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+
+    ul > li {
+        border-left-color: rgba(99, 156, 255, 0.18);
+    }
+
+    ul > li:hover {
+        border-left-color: rgba(99, 156, 255, 0.55);
+    }
+
+    ul ul > li {
+        border-left-color: rgba(255, 255, 255, 0.08);
+    }
+}
+
 [data-bs-theme="dark"] .site-footer {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.05) 100%);
     border-top-color: rgba(255, 255, 255, 0.08);
