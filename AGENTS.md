@@ -1,6 +1,11 @@
 # AGENTS.md — NEVSTOP-LAB 站点维护提示词
 
 > 这份文件为后续维护本站点的 LLM / 协作 Agent 提供约定与上下文。修改任何 Agent 自动化逻辑时，请先阅读本文件。
+>
+> **🛠 推荐工作流**：本仓库已把"如何维护本站点 + 自动开 PR"的完整操作手册沉淀为 skill
+> [`.github/skills/maintain-nevstop-lab-site/SKILL.md`](./.github/skills/maintain-nevstop-lab-site/SKILL.md)。
+> 支持 skill 调用的 LLM（如 GitHub Copilot Coding Agent）应**先**调用 `skill: maintain-nevstop-lab-site`，
+> **再**阅读本文件并开始改动。
 
 ## 站点定位
 
