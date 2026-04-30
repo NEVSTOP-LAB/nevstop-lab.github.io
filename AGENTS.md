@@ -34,6 +34,7 @@
    - `topics`：仓库 GitHub topics（**不要**叫 `tags`）
 6. **图片处理**：自动同步时把相对路径图片改写成 `https://raw.githubusercontent.com/<full_name>/<default_branch>/...`，不要让相对路径图片出现在站点中。
 7. **构建验证**：任何改动后都执行 `npm ci && hugo --gc --minify`。出现 `error building site` 必须修复；`WARN Description too short` 仅是 SEO 提示，可忽略。
+8. **Bootstrap 网格列数**：Doks 把 Bootstrap 配置成 **16 列网格**（不是默认的 12 列）。也就是说 `.col-12 = 75%`、`.col-md-6 = 37.5%`、`.col-lg-4 = 25%`、`.col-16 = 100%`。在 footer / 卡片等自定义布局里写 `col-*` 时，每行宽度必须按 16 累加，否则会出现"右侧留 25% 空白、内容看似不居中"的问题。
 
 ## 常用文件指引
 

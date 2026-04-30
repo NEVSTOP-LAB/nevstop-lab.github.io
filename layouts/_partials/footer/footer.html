@@ -2,7 +2,7 @@
   <div class="container-{{ site.Params.doks.containerBreakpoint | default "lg" }}">
     <div class="row gy-4">
       <!-- Brand / 简介 -->
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-16 col-lg-5">
         <a class="footer-brand" href="{{ relLangURL "" }}">{{ .Site.Title }}</a>
         <p class="footer-tagline">{{ site.Params.description | default "围绕 CSM 框架与 AI，提供 LabVIEW / Python / C# 自动化测试方案的开源组织。" }}</p>
         {{ if .Site.Menus.social }}
@@ -15,7 +15,7 @@
       </div>
 
       <!-- 站点导航 -->
-      <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
+      <div class="col-8 col-md-5 col-lg-3 offset-lg-1">
         <h3 class="footer-heading">站点导航</h3>
         <ul class="footer-links">
           <li><a href="/">首页</a></li>
@@ -27,7 +27,7 @@
       </div>
 
       <!-- 生态资源 -->
-      <div class="col-6 col-md-3 col-lg-2">
+      <div class="col-8 col-md-5 col-lg-3">
         <h3 class="footer-heading">CSM 生态</h3>
         <ul class="footer-links">
           <li><a href="https://github.com/NEVSTOP-LAB/Communicable-State-Machine" target="_blank" rel="noopener">CSM 核心</a></li>
@@ -38,7 +38,7 @@
       </div>
 
       <!-- 社区与外部 -->
-      <div class="col-12 col-md-6 col-lg-3">
+      <div class="col-16 col-md-6 col-lg-4">
         <h3 class="footer-heading">社区与交流</h3>
         <ul class="footer-links">
           <li><a href="https://github.com/orgs/NEVSTOP-LAB/discussions" target="_blank" rel="noopener">GitHub Discussion</a></li>
@@ -50,10 +50,10 @@
 
     <div class="site-footer-bottom">
       <div class="row align-items-center gy-2">
-        <div class="col-md-6 text-center text-md-start">
+        <div class="col-md-8 text-center text-md-start">
           © {{ now.Format "2006" }} NEVSTOP-LAB. {{ with site.Params.footer }}{{ . | safeHTML }}{{ else }}保留所有权利。{{ end }}
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
           <div class="site-footer-meta">
             {{ if .Site.Menus.footer -}}
               {{ range .Site.Menus.footer -}}
