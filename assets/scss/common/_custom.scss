@@ -29,27 +29,52 @@
     }
 }
 
-// --- 导航栏：右侧社交图标的尺寸与间距 ---------------------------------------
-.navbar #socialMenu .social-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.4rem;
-    border-radius: 0.5rem;
-    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-
-    .icon {
-        width: 22px;
-        height: 22px;
+// --- 导航栏：右侧操作区（搜索 / 主题 / 社交）整体对齐 -----------------------
+// 让 search、color-mode、社交图标在大屏下垂直居中、尺寸/间距一致，
+// 避免出现"右上角图标对不齐"的视觉问题。
+@include media-breakpoint-up(lg) {
+    .navbar .offcanvas .offcanvas-body.d-flex {
+        align-items: center;
     }
 
-    &:hover {
+    .navbar #searchToggleDesktop,
+    .navbar #buttonColorMode,
+    .navbar #socialMenu .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        margin: 0 0.125rem;
+        border-radius: 0.5rem;
+        transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+        .icon {
+            width: 22px;
+            height: 22px;
+        }
+    }
+
+    .navbar #searchToggleDesktop:hover,
+    .navbar #buttonColorMode:hover,
+    .navbar #socialMenu .social-link:hover {
         background-color: rgba(13, 110, 253, 0.08);
         color: var(--bs-primary);
         transform: translateY(-1px);
     }
+
+    .navbar #socialMenu {
+        align-items: center;
+    }
+
+    .navbar #socialMenu .nav-item {
+        margin-left: 0;
+    }
 }
 
+[data-bs-theme="dark"] .navbar #searchToggleDesktop:hover,
+[data-bs-theme="dark"] .navbar #buttonColorMode:hover,
 [data-bs-theme="dark"] .navbar #socialMenu .social-link:hover {
     background-color: rgba(255, 255, 255, 0.08);
 }
@@ -113,21 +138,21 @@ section.section.bg-light {
 }
 
 // --- 首页 lead / 标题节奏 ---------------------------------------------------
-.section.container-fluid h1.mb-3 {
+.section-home-hero h1.mb-3 {
     letter-spacing: -0.01em;
     font-weight: 700;
     color: var(--bs-body-color);
 }
 
 @supports (-webkit-background-clip: text) or (background-clip: text) {
-    .section.container-fluid h1.mb-3 {
+    .section-home-hero h1.mb-3 {
         background: linear-gradient(90deg, #0d6efd 0%, #6610f2 100%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
     }
 }
-.section.container-fluid p.lead {
+.section-home-hero p.lead {
     color: var(--bs-secondary-color, #555);
     font-size: 1.15rem;
     line-height: 1.75;
@@ -157,5 +182,149 @@ section.section a.btn-link {
 
     &:hover {
         color: var(--bs-primary);
+    }
+}
+
+// --- 首页 hero 与下方各 section 宽度统一 -------------------------------------
+// baseof 把 `main` 包在 .wrap.container-lg 内，prefooter 区域的 .container 在 wrap 之外，
+// 因此 hero 的内部 .container 会比 prefooter 多一层水平 padding，让两者宽度看起来不同。
+// 在大屏下抹掉 hero 那层多余的 padding，让 hero 和下方 section 视觉宽度对齐。
+@include media-breakpoint-up(lg) {
+    .wrap.container-lg .section-home-hero.container {
+        padding-left: 0;
+        padding-right: 0;
+        max-width: 100%;
+    }
+}
+
+// --- 站点 footer：多列 + 版权底栏 ------------------------------------------
+.site-footer {
+    background: linear-gradient(180deg, #f6f8fc 0%, #eef1f7 100%);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    color: var(--bs-body-color);
+    padding-top: 3rem;
+
+    h3.footer-heading {
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--bs-secondary-color, #555);
+        margin-bottom: 1rem;
+    }
+
+    .footer-brand {
+        font-size: 1.15rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, #0d6efd 0%, #6610f2 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 0.75rem;
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    .footer-tagline {
+        color: var(--bs-secondary-color, #6c757d);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+    }
+
+    ul.footer-links {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+
+        li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        a {
+            color: var(--bs-body-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: var(--bs-primary);
+            }
+        }
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-top: 0.25rem;
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 0.5rem;
+            background-color: rgba(13, 110, 253, 0.06);
+            color: var(--bs-body-color);
+            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+            .icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            &:hover {
+                background-color: rgba(13, 110, 253, 0.14);
+                color: var(--bs-primary);
+                transform: translateY(-1px);
+            }
+        }
+    }
+
+    .site-footer-bottom {
+        margin-top: 2.5rem;
+        padding: 1.25rem 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+        font-size: 0.875rem;
+        color: var(--bs-secondary-color, #6c757d);
+
+        a {
+            color: inherit;
+            text-decoration: none;
+
+            &:hover {
+                color: var(--bs-primary);
+            }
+        }
+
+        .site-footer-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.25rem;
+            justify-content: flex-start;
+
+            @include media-breakpoint-up(md) {
+                justify-content: flex-end;
+            }
+        }
+    }
+}
+
+[data-bs-theme="dark"] .site-footer {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-top-color: rgba(255, 255, 255, 0.08);
+
+    .footer-social a {
+        background-color: rgba(255, 255, 255, 0.05);
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+    }
+
+    .site-footer-bottom {
+        border-top-color: rgba(255, 255, 255, 0.08);
     }
 }
