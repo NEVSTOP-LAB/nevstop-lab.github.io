@@ -18,10 +18,6 @@ topics: ['example', 'labview', 'teststand']
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo](https://github.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 > ## UIMessage
 >
 > 通常通过 UIMessage 处理实时的运行状态和实时信息。
@@ -54,4 +50,3 @@ topics: ['example', 'labview', 'teststand']
 > 参考：
 >
 >![image](https://raw.githubusercontent.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo/main/.doc/5c6daf099df3d344cb5ed74bbc936c3.png)
-

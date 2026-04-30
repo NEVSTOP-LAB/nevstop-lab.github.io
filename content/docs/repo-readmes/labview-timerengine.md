@@ -20,10 +20,6 @@ topics: ['labview-library', 'vipm']
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/LabVIEW-TimerEngine](https://github.com/NEVSTOP-LAB/LabVIEW-TimerEngine)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 # LabVIEW-TimerEngine
 
 [![Check_Broken_VIs](https://github.com/NEVSTOP-LAB/LabVIEW-TimerEngine/actions/workflows/Check_Broken_VIs.yml/badge.svg)](https://github.com/NEVSTOP-LAB/LabVIEW-TimerEngine/actions/workflows/Check_Broken_VIs.yml)
@@ -64,5 +60,4 @@ topics: ['labview-library', 'vipm']
 ## Dependencies
 
 1. OpenG Array Library
-
 

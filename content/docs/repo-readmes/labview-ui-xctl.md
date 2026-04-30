@@ -20,10 +20,6 @@ topics: ['labview-xcontrol', 'ui']
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/LabVIEW-UI-XCtl](https://github.com/NEVSTOP-LAB/LabVIEW-UI-XCtl)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 LabVIEW X-Controls 列表
 -----------------
 
@@ -56,5 +52,4 @@ LabVIEW X-Controls 列表
 
 1.	部分XControl 依赖OpenG
 2.	开发环境 LabVIEW 2014，高版本可以直接拷贝至开发目录使用。
-
 

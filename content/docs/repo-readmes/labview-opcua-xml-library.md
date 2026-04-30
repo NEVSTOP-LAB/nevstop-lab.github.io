@@ -20,10 +20,6 @@ topics: ['labview', 'opcua', 'vip', 'vipm', 'xml']
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/LabVIEW-OPCUA-XML-Library](https://github.com/NEVSTOP-LAB/LabVIEW-OPCUA-XML-Library)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 # LabVIEW OPCUA XML Library
 
 Use a XML configuration file to create the NI OPCUA Server.     
@@ -92,7 +88,6 @@ xml 文件的设计，请参照样本xml进行修改。简单的说明如下：
 
 常在 LabVIEW 2017 中发现。与DNS 有关，在 HOST 文件中定义 IP 与 cRIO/PXI 等OPCUA Server 宿主机HostName 关联关系，可以解决。    
 ![opc_ua](https://user-images.githubusercontent.com/8196752/67999386-12f7c600-fc97-11e9-80e2-9b2f061ff3c2.PNG)
-
 
 
 

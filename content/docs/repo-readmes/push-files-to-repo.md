@@ -20,10 +20,6 @@ topics: ['ai', 'github-actions', 'python']
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/Push-Files-to-Repo](https://github.com/NEVSTOP-LAB/Push-Files-to-Repo)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 # Push-Files-to-Repo
 
 一个通过 **Pull Request** 将文件或文件夹从一个仓库推送到另一个仓库的 GitHub Action。
@@ -221,4 +217,3 @@ jobs:
 ## 许可证
 
 MIT
-

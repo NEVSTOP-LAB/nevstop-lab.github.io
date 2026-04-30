@@ -17,10 +17,6 @@ repo_group: 'csm-core'
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/CSM-Module-Repo-Template](https://github.com/NEVSTOP-LAB/CSM-Module-Repo-Template)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 # CSM-Module-Repo-Template
 
 基于 [CSM（可通信状态机）](https://nevstop-lab.github.io/CSM-Wiki/) 框架的模块仓库模板，用于参考如何编写 CSM 模块接口文档并完成模块开发。
@@ -61,5 +57,4 @@ CSM 消息接口只支持字符串参数，复杂数据需编码：
 3. 按模板说明替换占位符，填写接口文档。
 
 更多详情请参阅 [CSM Wiki](https://nevstop-lab.github.io/CSM-Wiki/)。
-
 

@@ -20,10 +20,6 @@ topics: ['framework', 'labview-library', 'vipm']
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/LabVIEW-GlobalStop-Library](https://github.com/NEVSTOP-LAB/LabVIEW-GlobalStop-Library)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 # LabVIEW GlobalStop Library
 
 [中文](./README.md) | [English](./README(en).md)
@@ -72,5 +68,4 @@ topics: ['framework', 'labview-library', 'vipm']
 
 - LabVIEW 2014
 - VIPM 2020.3
-
 

@@ -20,10 +20,6 @@ topics: ['labview-library', 'tagdb']
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/LabVIEW-TagDB](https://github.com/NEVSTOP-LAB/LabVIEW-TagDB)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 # NEVSTOP TagDB Library
 
 [English](./README(en).md) | [中文](./README.md)
@@ -169,7 +165,6 @@ NEVSTOP TagDB 是专为 LabVIEW 环境设计的高级数据管理库，提供配
 3. 提交更改
 4. 推送到分支
 5. 提交 Pull Request
-
 
 
 

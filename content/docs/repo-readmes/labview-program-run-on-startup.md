@@ -20,10 +20,6 @@ topics: ['example', 'labview']
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/LabVIEW-Program-run-on-startup](https://github.com/NEVSTOP-LAB/LabVIEW-Program-run-on-startup)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 # LabVIEW-Program-run-on-startup
 LabVIEW范例：如何让程序在系统启动时自启动
 
@@ -84,5 +80,4 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce
 4. 运行 exe后， 双击 reg 文件， 将自启动信息导入注册表，重启系统后，程序会自启动, 可以在任务管理器中查看到启动项。
 
 ![image](https://raw.githubusercontent.com/NEVSTOP-LAB/LabVIEW-Program-run-on-startup/main/.doc/Snipaste_2024-04-25_10-50-17.png)
-
 

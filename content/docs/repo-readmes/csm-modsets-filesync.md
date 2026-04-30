@@ -20,10 +20,6 @@ topics: ['csm-modsets', 'labview', 'labview-csm']
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/CSM-ModSets-FileSync](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 # CSM-FileSync
 
 ## 模块功能及设计
@@ -94,6 +90,5 @@ git submodule update --init
 - 直接下载源码可以自由修改和定制功能
 - 确保您的开发环境满足项目的依赖要求（见上文开发环境部分）
 - 如需贡献代码，建议使用 git 克隆仓库而非直接下载
-
 
 

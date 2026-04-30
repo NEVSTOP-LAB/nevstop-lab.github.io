@@ -20,10 +20,6 @@ topics: ['ai', 'docker', 'github-actions', 'python']
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/GitHub-Gitee-Sync](https://github.com/NEVSTOP-LAB/GitHub-Gitee-Sync)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 # GitHub-Gitee-Sync
 
 Sync All the Repos(public/private) between [GitHub](https://github.com/) and [Gitee](https://gitee.com/).
@@ -312,5 +308,4 @@ python sync.py \
 ## License
 
 [MIT](LICENSE)
-
 

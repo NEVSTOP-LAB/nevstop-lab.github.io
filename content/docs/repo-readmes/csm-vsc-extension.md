@@ -17,10 +17,6 @@ repo_group: 'csm-core'
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/csm-vsc-extension](https://github.com/NEVSTOP-LAB/csm-vsc-extension)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 # Communicable State Machine(CSM) VSCode 支持
 
 > 为 CSM 相关文件提供 Visual Studio Code 编辑器支持的插件。
@@ -62,5 +58,4 @@ repo_group: 'csm-core'
 ## 许可证
 
 本项目遵循 GNU Affero General Public License v3 (AGPL-3.0) 许可证。详见 [LICENSE](LICENSE) 文件。
-
 

@@ -20,10 +20,6 @@ topics: ['framework', 'jekyll', 'labview', 'labview-csm', 'wiki']
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/CSM-Wiki](https://github.com/NEVSTOP-LAB/CSM-Wiki)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 可通信状态机（CSM）是一个基于JKI状态机（JKISM）的LabVIEW应用框架。本仓库用于存储CSM的文档和示例代码。
 
 - [可通讯状态机(CSM)框架源码](https://github.com/NEVSTOP-LAB/Communicable-State-Machine)
@@ -43,5 +39,4 @@ _**本仓库使用了以下的开源项目或服务**_：
 ---
 
 想要贡献内容？请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。
-
 

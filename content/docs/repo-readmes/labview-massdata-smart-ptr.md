@@ -20,10 +20,6 @@ topics: ['framework', 'labview-library', 'vipm']
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/LabVIEW-MassData-Smart-Ptr](https://github.com/NEVSTOP-LAB/LabVIEW-MassData-Smart-Ptr)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 # LabVIEW-MassData-Smart-Ptr
 
 [![Check_Broken_VIs](https://github.com/NEVSTOP-LAB/LabVIEW-MassData-Smart-Ptr/actions/workflows/Check_Broken_VIs.yml/badge.svg)](https://github.com/NEVSTOP-LAB/LabVIEW-MassData-Smart-Ptr/actions/workflows/Check_Broken_VIs.yml)
@@ -49,5 +45,4 @@ topics: ['framework', 'labview-library', 'vipm']
 
 后面板逻辑：    
 ![image](https://user-images.githubusercontent.com/8196752/120073829-932d1a00-c0cc-11eb-8779-8229187e1c61.png)
-
 

@@ -17,10 +17,6 @@ repo_group: 'csm-core'
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/CSM-QA-Robot](https://github.com/NEVSTOP-LAB/CSM-QA-Robot)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 # CSM-QA-Robot
 
 > 通用 RAG 问答 Python 库 —— 基于 CSM Wiki / LabVIEW 知识库，封装 LLM 调用与向量检索，对外仅暴露一个简洁的 `CSM_QA` 类。
@@ -124,8 +120,8 @@ qa = CSM_QA(
 
 ```python
 qa = CSM_QA.from_env()
-# 兼容旧变量：LLM_API_KEY / LLM_MODEL / LLM_BASE_URL
-# 新变量：CSM_QA_API_KEY / CSM_QA_PROVIDER / CSM_QA_MODEL / CSM_QA_BASE_URL
+# 识别的环境变量（统一以 LLM_* 前缀，无别名）：
+# LLM_API_KEY / LLM_PROVIDER / LLM_MODEL / LLM_BASE_URL
 ```
 
 ---
@@ -208,5 +204,4 @@ python -m pytest tests/ -v
 ## License
 
 MIT
-
 

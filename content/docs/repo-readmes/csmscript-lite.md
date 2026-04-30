@@ -20,10 +20,6 @@ topics: ['csm-modsets', 'labview-csm', 'lv-csm-app']
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/CSMScript-Lite](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 # CSMScript-Lite
 
 [English](./README(us-en).md) | [中文](./README.md)
@@ -140,5 +136,4 @@ close -@ ai
 
 > [!NOTE]
 > 锚点名称中的 `<>` 符号可省略，`GOTO >> cleanup` 与 `GOTO >> <cleanup>` 效果相同。
-
 

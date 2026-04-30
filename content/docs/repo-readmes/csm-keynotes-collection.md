@@ -20,10 +20,6 @@ topics: ['labview-csm', 'pdf', 'slides']
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/csm-keynotes-collection](https://github.com/NEVSTOP-LAB/csm-keynotes-collection)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 ![csm-links](https://raw.githubusercontent.com/NEVSTOP-LAB/csm-keynotes-collection/main/_doc/CSM%20Links.png)
 
 **一种全新的开源 LabVIEW 编程架构-可通讯状态机(CSM)架构@NI全联结峰会2024**
@@ -54,5 +50,4 @@ topics: ['labview-csm', 'pdf', 'slides']
 > - pdf: [可通讯状态机(CSM)架构框架优势实例分析.pdf](./可通讯状态机(CSM)架构框架优势实例分析@wibinar/可通讯状态机(CSM)架构框架优势实例分析.pdf)
 > - pdf: [Q&A记录](./可通讯状态机(CSM)架构框架优势实例分析@wibinar/可通讯状态机(CSM)架构框架优势实例分析%20Q&A.pdf)
 >
-
 

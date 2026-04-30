@@ -20,10 +20,6 @@ topics: ['labview', 'labview-csm', 'mermaid']
 
 ---
 
-
-> 自动同步来源： [NEVSTOP-LAB/CSM-Mermaid-Plugin](https://github.com/NEVSTOP-LAB/CSM-Mermaid-Plugin)
-> 导入规则：README 包含不少于 50 个中文字符时导入，正文保持原文。
-
 # CSM-Mermaid-Plugin
 
 > [!WARNING]
@@ -49,4 +45,3 @@ topics: ['labview', 'labview-csm', 'mermaid']
 ### CSM 的接口信息
 
 ![image](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-Mermaid-Plugin/main/.doc/4.png)
-
