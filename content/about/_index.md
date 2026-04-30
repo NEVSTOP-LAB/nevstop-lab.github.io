@@ -18,12 +18,13 @@ CSM Framework 的目标是成长为一个 **多语言支持的测试系统基础
 - **LabVIEW 插件**：[CSM-Mermaid-Plugin](https://github.com/NEVSTOP-LAB/CSM-Mermaid-Plugin)
 - **复用模块**：GitHub Topic [`csm-modsets`](https://github.com/search?q=topic%3Acsm-modsets&type=repositories)
 - **应用案例**：[DAQ-Application](https://github.com/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging) ｜ [TCP-Application](https://github.com/NEVSTOP-LAB/CSM-TCP-Router-App) ｜ [WebServer-Application](https://github.com/NEVSTOP-LAB/G-Web-Development-with-CSM)
+- **CSM 知乎专栏**：[CSM 专栏](https://www.zhihu.com/column/c_1681072169147342848) —— 聚焦 CSM 框架的设计、实践与文章
 
 ## 社区与交流
 
 促进社区的分享与交流，形成良好的社区氛围，推动 CSM 生态的持续发展：
 
-- [知乎专栏](https://www.zhihu.com/column/c_1681072169147342848) —— 信息发布的窗口
+- [NEVSTOP-LAB 知乎专栏](https://www.zhihu.com/column/c_1770421455375126528) —— 组织信息发布的窗口
 - [NEVSTOP-LAB Organization](https://github.com/NEVSTOP-LAB) —— 组织具有开发能力的核心成员开发
 - [GitHub Discussion](https://github.com/orgs/NEVSTOP-LAB/discussions) —— 关于 LabVIEW / CSM / 项目设计的问答与讨论平台
 
