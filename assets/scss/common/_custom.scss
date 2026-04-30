@@ -3,27 +3,48 @@
 // 目标：拓宽内容区、克制有设计感的美化（卡片/导航/段落节奏）
 // =============================================================================
 
-// --- 内容区拓宽 -------------------------------------------------------------
+// --- 内容区宽度统一 ---------------------------------------------------------
 // docs single 页面（fluid + toc 模式下使用 .container-fw）
 .container-fw {
     max-width: 1440px;
 }
 
-// docs / 列表页（list.html 默认 col-md-12 col-lg-10 col-xl-8）显得太窄，
-// 在大屏下加宽一档；移动端不变。
+// 站点统一的主内容区最大宽度。
+// 用于 list/section 页面外层 .container.p-0、footer，以及单页主区域，
+// 确保 /docs/、/about/、/blog/、文档详情、博客详情等所有模板视觉宽度一致。
+$site-content-max-width: 1320px;
+
+// 非 mainSections 的 list/section 页面，在 baseof 中被包了一层 Bootstrap
+// 默认 .container（max-width 在 xxl 下才到 1320px），导致 lg/xl 视口下比
+// docs 详情页窄一截。这里把这层容器拉到与 docs 详情页一致的宽度。
+.wrap.container-fluid > .content > .container.p-0 {
+    max-width: $site-content-max-width;
+    margin-inline: auto;
+}
+
+// list.html / blog list / about 等模板内部都用 .row > .col-* 控制内容列宽，
+// 默认 col-lg-9 / col-lg-10 / col-xl-8 在我们的内容容器里显得太窄。
+// 大屏下把这几种列统一拉到 ~91% / ~83% 宽度，并加上同一个 max-width，
+// 让所有页面主区域视觉宽度一致。
+//
+// 注意：选择器都要求 `> .container.p-0 >` 这一层中间容器（仅 baseof 在
+// `IsNode` 且非 mainSections 时插入），并且都要求 `col-md-12` 起手，避免
+// 命中首页 hero 等使用裸 `col-lg-9 col-xl-8` 的列。
 @media (min-width: 992px) {
-    .docs .row > .col-md-12.col-lg-10.col-xl-8,
-    .blog .row > .col-md-12.col-lg-10.col-xl-8 {
+    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-10.col-xl-8,
+    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-10,
+    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-9 {
         flex: 0 0 auto;
         width: 91.66666667%; // col-lg-11
-        max-width: 1100px;
+        max-width: 1180px;
         margin-inline: auto;
     }
 }
 
 @media (min-width: 1200px) {
-    .docs .row > .col-md-12.col-lg-10.col-xl-8,
-    .blog .row > .col-md-12.col-lg-10.col-xl-8 {
+    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-10.col-xl-8,
+    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-10,
+    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-9 {
         width: 83.33333333%; // col-xl-10
         max-width: 1180px;
     }
@@ -186,10 +207,11 @@ section.section a.btn-link {
 }
 
 // --- 首页 hero 与下方各 section 宽度统一 -------------------------------------
-// baseof 把 `main` 包在 .wrap.container-lg 内，prefooter 区域的 .container 在 wrap 之外，
+// baseof 把 `main` 包在 .wrap.container-fluid 内，prefooter 区域的 .container 在 wrap 之外，
 // 因此 hero 的内部 .container 会比 prefooter 多一层水平 padding，让两者宽度看起来不同。
 // 在大屏下抹掉 hero 那层多余的 padding，让 hero 和下方 section 视觉宽度对齐。
 @include media-breakpoint-up(lg) {
+    .wrap.container-fluid .section-home-hero.container,
     .wrap.container-lg .section-home-hero.container {
         padding-left: 0;
         padding-right: 0;
@@ -203,6 +225,20 @@ section.section a.btn-link {
     border-top: 1px solid rgba(0, 0, 0, 0.06);
     color: var(--bs-body-color);
     padding-top: 3rem;
+
+    // footer 在 fluid 容器下默认会占满整个视口宽度并左对齐，
+    // 这里把内层容器限制到与主内容区一致的最大宽度并水平居中，
+    // 让 footer 与上方主区域对齐。
+    > .container,
+    > .container-fluid,
+    > .container-sm,
+    > .container-md,
+    > .container-lg,
+    > .container-xl,
+    > .container-xxl {
+        max-width: $site-content-max-width;
+        margin-inline: auto;
+    }
 
     h3.footer-heading {
         font-size: 0.85rem;
