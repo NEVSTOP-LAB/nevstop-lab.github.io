@@ -35,7 +35,7 @@ description: 维护 NEVSTOP-LAB 组织官网（Hugo + Doks，仓库 NEVSTOP-LAB/
 | 语言 | 仅 `zh-cn`，`hugo.toml` 用 `disableLanguages` 关掉其他语言 |
 | 内容来源 | ① 手写：`content/_index.md`、`content/about/_index.md`、`content/docs/_index.md`、`content/blog/`<br>② 自动：`content/docs/repo-readmes/`，每天 02:00 UTC 由 `.github/workflows/sync-chinese-readmes.yml` 全量重建 |
 | 自定义模板 | `layouts/home.html`（首页）、`layouts/list.html`（去掉 docs 自动 card-list）、`assets/scss/common/_custom.scss`（自定义样式） |
-| 数据源真理 | 组织主页 `NEVSTOP-LAB/.github/profile/README.md`，三段式：CSM Framework / 社区 / AI-Wiki |
+| 数据源依据 | 组织主页 `NEVSTOP-LAB/.github/profile/README.md`（权威来源），三段式：CSM Framework / 社区 / AI-Wiki |
 
 ### 1.1 关键文件
 
@@ -98,6 +98,8 @@ description: 维护 NEVSTOP-LAB 组织官网（Hugo + Doks，仓库 NEVSTOP-LAB/
 ### Step 2 — Plan before edit
 
 调用 `report_progress` 把改动写成 checklist（即使只是一个文件也要）。在第一次 `edit` / `create` 之前必须至少调用一次。
+
+> 注：`report_progress` / `edit` / `create` / `create_pull_request` 这些是 **GitHub Copilot Coding Agent**（即托管在 GitHub Actions 中的本仓库自动化代理）提供的内置工具。如果你是其他 LLM 客户端（Claude Desktop、Cursor 等），请用本地等价能力替代：把"提交到分支并开 PR"理解为执行 `git commit && git push` 后再用 `gh pr create` / GitHub MCP 的 `create_pull_request` 工具。
 
 ### Step 3 — Make minimal, surgical edits
 
@@ -174,7 +176,7 @@ npx hugo --gc --minify
 适用于：CI 里 `hugo` 报错、GitHub Pages 没更新（参考 PR #1 / #3 / #4）。
 
 清单：
-- [ ] 用 GitHub MCP 的 `list_workflow_runs` + `get_job_logs` 拿到失败日志，**不要靠猜**。
+- [ ] 用 GitHub MCP（Model Context Protocol，GitHub 官方提供的 MCP 服务器，暴露 `list_workflow_runs` / `get_job_logs` 等工具）拿到失败日志，**不要靠猜**。如果你的 LLM 客户端没有接入 GitHub MCP，可以直接用 `gh run list` / `gh run view --log-failed` CLI 命令替代。
 - [ ] 常见根因：
   - 缺 Hugo Module 元数据 → 检查 `go.mod` 有 `github.com/thuliteio/doks` 依赖（PR #1）
   - 缺 npm 依赖 / `hugo_stats.json` mount → 检查 `hugo.toml` 的 `[module] mounts` 与 `package.json`（PR #3）
