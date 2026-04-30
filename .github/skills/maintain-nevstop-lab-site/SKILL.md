@@ -1,24 +1,39 @@
 ---
 name: maintain-nevstop-lab-site
-description: 维护 NEVSTOP-LAB 组织官网（Hugo + Doks，仓库 NEVSTOP-LAB/nevstop-lab.github.io）。当用户需要更新首页 / 组织介绍 / 文档 / 博客内容、调整导航或样式、修改自动同步组织 README 的工作流、修复 Hugo 构建失败、或新增页面时使用本 skill。会按既定硬约束完成改动、本地构建验证，并自动创建 PR。
+description: 维护 NEVSTOP-LAB 组织官网（Hugo + Doks，仓库 NEVSTOP-LAB/nevstop-lab.github.io）的**内容同步与更新**。核心任务是让站点内容与组织源头（`NEVSTOP-LAB/.github` 的 profile README、组织内各 public 仓库的中文 README、新发布的项目 / 博客 / 公告）保持同步：回写组织介绍、对齐 CSM 生态分组、调整 README 自动同步 workflow、补齐过时段落、新增博客/文档页。仅当内容更新连带需要时，才处理布局 / 样式 / 构建失败等次要事项。
 ---
 
 # Skill: maintain-nevstop-lab-site
 
 > 本 skill 把 PR #1–#13 与 `AGENTS.md` 中沉淀的全部经验固化为一份可执行的操作手册。
+> **核心定位：把站点当作组织内容的"镜像与索引"，主任务是保持内容与组织最新状态同步**，而不是做样式微调。
 > **入站第一步永远是：阅读仓库根目录的 `AGENTS.md`，再开始改代码。**
 
 ---
 
 ## 0. 何时使用本 skill
 
-当用户的请求落在以下任一类时，立刻使用本 skill：
+本 skill 服务于"让站点内容与组织最新状态对齐"。按优先级匹配触发场景：
 
-- 「更新 / 修改 / 美化 NEVSTOP-LAB 网站」「调整首页 / 导航 / footer / 卡片」
-- 「同步组织里某个仓库的 README 不对 / 缺失 / 分组错」「改自动同步逻辑」
-- 「新增一个文档页 / 博客文章 / about 子页」
-- 「Hugo / Doks 构建失败」「GitHub Pages 部署没更新」
-- 「站点内容已经过时，对照 NEVSTOP-LAB/.github 的 profile 重新对齐」
+**🟢 主场景 — 内容同步 / 更新（本 skill 的核心目的）**
+
+- 「站点内容已经过时，对照 `NEVSTOP-LAB/.github` 的 profile README 重新对齐」
+- 「同步组织里某个仓库的 README 不对 / 缺失 / 分组错」「让仓库 README 列表反映最新的 stars / description / 新增项目」
+- 「组织新增 / 下线了某个仓库 / 项目，把它纳入（或从）站点 CSM 生态分组（去掉）」
+- 「首页 lead / 组织介绍 / docs 入口 / 博客文案需要按最新组织动态更新」
+- 「新增一篇博客、公告、release notes」
+- 「修改 README 自动同步 workflow（分组关键字、front matter 字段、过滤规则）以更准确地反映组织现状」
+
+**🟡 次场景 — 仅当内容变更连带需要时才处理**
+
+- 调整导航 / 首页卡片 / footer 排版（通常是因为新增了一类内容入口需要进闭环）
+- 修复 Hugo / Doks 构建失败（通常是因为同步出来的 front matter 触发主题模板冲突）
+- 新增一个文档 section / about 子页
+
+**❌ 不在范围内**
+
+- 纯粹「美化样式」「换主题色」「调字体」这类与内容同步无关的视觉改动 —— 不主动做，除非用户明确要求。
+- 重构未触碰的页面、清理未提及的代码。
 
 如果请求只是问问题（例如「这个站怎么部署的？」），先回答，不要动代码。
 
@@ -35,7 +50,21 @@ description: 维护 NEVSTOP-LAB 组织官网（Hugo + Doks，仓库 NEVSTOP-LAB/
 | 语言 | 仅 `zh-cn`，`hugo.toml` 用 `disableLanguages` 关掉其他语言 |
 | 内容来源 | ① 手写：`content/_index.md`、`content/about/_index.md`、`content/docs/_index.md`、`content/blog/`<br>② 自动：`content/docs/repo-readmes/`，每天 02:00 UTC 由 `.github/workflows/sync-chinese-readmes.yml` 全量重建 |
 | 自定义模板 | `layouts/home.html`（首页）、`layouts/list.html`（去掉 docs 自动 card-list）、`assets/scss/common/_custom.scss`（自定义样式） |
-| 数据源依据 | 组织主页 `NEVSTOP-LAB/.github/profile/README.md`（权威来源），三段式：CSM Framework / 社区 / AI-Wiki |
+| 数据源依据 | 组织主页 `NEVSTOP-LAB/.github/profile/README.md`（**权威来源**，三段式：CSM Framework / 社区 / AI-Wiki）<br>组织内 public 仓库的中文 README（由同步 workflow 拉取） |
+
+### 1.0 内容同步的"权威来源"清单（Source of Truth）
+
+> 任何「内容是否过时」的判断都以下列来源为准。改站点内容前先比对一遍。
+
+| 站点位置 | 权威来源 | 同步方式 |
+|----------|----------|----------|
+| `content/_index.md` 首页 lead / CTA | `NEVSTOP-LAB/.github/profile/README.md` 的开篇段落 | **手动**（读源后回写） |
+| `content/about/_index.md` 组织介绍 | 同上，三段式（CSM / 社区 / AI-Wiki）必须对齐 | **手动**（读源后回写） |
+| `layouts/home.html` 中 CSM 生态分组卡（核心 / 工具 / 应用） | 组织内 public 仓库列表 + `topics` + 当前活跃度 | **半手动**（看仓库列表后调整 home.html 中硬编码的卡片清单） |
+| `content/docs/repo-readmes/*.md` | 各 public 仓库的中文 README（`README_zh*.md` / `README.zh*.md`，回退到 `README.md`） | **自动**，每天 02:00 UTC 由 `sync-chinese-readmes.yml` 全量重建 |
+| `content/docs/repo-readmes/_index.md` 分组索引 | 仓库 metadata（name / description / language / stars / topics） | **自动**，同上 workflow |
+| `content/blog/` | 用户/团队提供的新内容 | **手动** |
+| `menu.main` 外链（CSM-Wiki / Discussion / 知乎 / GitHub Org） | 组织实际维护的外部链接 | **手动**（链接变了才动） |
 
 ### 1.1 关键文件
 
@@ -88,12 +117,14 @@ description: 维护 NEVSTOP-LAB 组织官网（Hugo + Doks，仓库 NEVSTOP-LAB/
 
 ## 3. 标准工作流
 
-### Step 1 — Read first
+### Step 1 — Read first（先比对内容源头）
 
 1. 打开并完整阅读 `AGENTS.md`。
 2. 打开 `hugo.toml`，看一眼当前 `menu.main` 与 `params`。
-3. 用户提到「内容过时」时，去对照
-   <https://github.com/NEVSTOP-LAB/.github/blob/main/profile/README.md>，找出三段式（CSM / 社区 / AI-Wiki）里需要回写的更新。
+3. **核心一步：拉取权威来源做 diff**（这是本 skill 的主任务）：
+   - 首页 / 组织介绍类改动 → 抓 <https://github.com/NEVSTOP-LAB/.github/blob/main/profile/README.md>，逐段比对当前 `content/_index.md` / `content/about/_index.md`，列出"需要回写的更新点"。
+   - 仓库 README 列表类改动 → 列一遍 NEVSTOP-LAB 组织下 public 仓库（`gh repo list NEVSTOP-LAB --visibility public --no-archived` 或 GitHub MCP `search_repositories`），对照 `content/docs/repo-readmes/` 当前条目，找出新增 / 下线 / 重命名 / topics 变化。
+   - 写一份 diff 概要进 PR description 的 `### 改动` 一节，让 reviewer 一眼看出"内容同步了什么"。
 
 ### Step 2 — Plan before edit
 
@@ -132,48 +163,40 @@ hugo --gc --minify
 
 ## 4. 任务模式手册（Task Patterns）
 
-下面把历史 PR 归纳成 5 类。匹配到哪一类，就照着对应清单做。
+下面把历史 PR 归纳成 5 类，**按本 skill 的核心目的（内容同步）排序**：A、B 是主任务，C、D、E 通常只在 A/B 引发副作用时才会触发。匹配到哪一类，就照着对应清单做。
 
-### Pattern A — 「更新文字内容」（首页 lead / about / docs 入口 / 博客）
+### Pattern A — 「内容同步：手写内容回写」🟢 主任务
 
-适用于：组织介绍过时、首页文案更新、新增博客文章。
+适用于：组织 profile README 更新了 / 首页 lead / about 段落 / docs 入口文案过时 / 新增博客或公告。
 
 清单：
+- [ ] **第一步：先去拉一遍权威来源**：`NEVSTOP-LAB/.github/profile/README.md`（首页 + about 必看）；新博客则以用户提供的素材为准。
+- [ ] 列出权威来源相对于站点当前内容的 **diff 要点**（新增了什么模块、改了什么链接、删了哪个项目），改动 PR 描述里要复述这份 diff。
 - [ ] 只改 `content/_index.md` / `content/about/_index.md` / `content/docs/_index.md` / `content/blog/<slug>.md`。
-- [ ] **不要改** `content/docs/repo-readmes/` 下任何文件。
-- [ ] 内容来源以 `NEVSTOP-LAB/.github/profile/README.md` 为准。
+- [ ] **不要改** `content/docs/repo-readmes/` 下任何文件（自动生成区，见 Pattern B）。
+- [ ] 三段式（CSM Framework / 社区 / AI-Wiki）的标题与段落顺序保持与 profile README 一致，方便后续比对。
 - [ ] 新增博客：在 `content/blog/` 下新建 `<slug>.md`，front matter 至少包含 `title` / `description` / `date` / `draft: false`。
+- [ ] 如果回写后导航需要新增入口（例如新增了一个外部资源），跳到 Pattern E。
 - [ ] 跑 `hugo --gc --minify` 确认无 `error building site`。
 
-### Pattern B — 「调整首页 / 导航 / 卡片 / 样式」
+### Pattern B — 「内容同步：调整自动同步 workflow」🟢 主任务
 
-适用于：导航卡新增/重排、CSM 生态分组卡更新、footer 列对不齐、列表页太挤等（参考 PR #9 / #10 / #11 / #12 / #13）。
-
-清单：
-- [ ] 修改 `layouts/home.html` 时保留五大区块结构（标题 + CTA + 导航卡 + 生态卡 + 最新博客）。
-- [ ] 任何 `col-*` 写法都按 **16 列网格** 计算，每行总和必须 = 16。
-- [ ] 自定义样式集中放 `assets/scss/common/_custom.scss`，**不要**在 inline style 里堆 CSS。
-- [ ] 新菜单项要同时加 `[[menu.main]]`（`hugo.toml`）和 `layouts/home.html` 的导航卡，保持闭环。
-- [ ] 外链菜单项需要 `[menu.main.params] external = true`。
-- [ ] 跑 `hugo --gc --minify` 后，自查首页关键 class 是否生成（可 grep `public/index.html`）。
-
-### Pattern C — 「修改自动同步逻辑」
-
-适用于：分组关键字调整、front matter 字段增删、过滤规则变更、图片处理 bug。
+适用于：组织新增 / 下线 / 重命名了仓库 → 分组关键字需要更新；想往 README 列表里多展示一个 metadata 字段；图片在某些仓库渲染失败；同步出来的 README 排序 / 分组不准确。
 
 清单：
 - [ ] 只改 `.github/workflows/sync-chinese-readmes.yml`，**禁止**直接编辑 `content/docs/repo-readmes/*.md`（下次同步会被覆盖）。
 - [ ] 改动前先在 `AGENTS.md` 追加新约定（硬规则）。
 - [ ] 新分组写入 `groups` 数组，注意 **first match wins**，更窄的规则要排前面。
 - [ ] 所有写入 front matter 的字段都要走 `escapeYamlSingleQuoted`，否则带引号 / 换行会炸 YAML。
-- [ ] **永远不要把仓库 topics 输出成 `tags:`**，必须是 `topics:`。
+- [ ] **永远不要把仓库 topics 输出成 `tags:`**，必须是 `topics:`（否则触发 Doks `term.html` 模板要求 `contributors` 而构建失败）。
 - [ ] 全量重建语义不能破坏：脚本是先写 `*.tmp` → 备份旧目录 → 原子 rename → 失败回滚。改动时不要绕开这个流程。
-- [ ] 改完后**手动触发一次** `Sync Chinese READMEs`（`workflow_dispatch`）让用户验证，或在 PR 描述里提示用户去触发。
+- [ ] 改完后**手动触发一次** `Sync Chinese READMEs`（`workflow_dispatch`）让用户验证；或在 PR 描述里提示用户去触发。
 - [ ] 不需要本地跑 `hugo`（生成结果会在下一次定时任务后入库），但要保证脚本本身 lint 通过、YAML 合法。
+- [ ] 如果同步逻辑变化会让首页 CSM 生态卡的硬编码项目清单失准，连带按 Pattern D 调整 `layouts/home.html`。
 
-### Pattern D — 「修复 Hugo / Doks 构建失败」
+### Pattern C — 「修复 Hugo / Doks 构建失败」🟡 支持任务
 
-适用于：CI 里 `hugo` 报错、GitHub Pages 没更新（参考 PR #1 / #3 / #4）。
+适用于：CI 里 `hugo` 报错 / GitHub Pages 没更新（参考 PR #1 / #3 / #4）。通常是 Pattern A/B 的副作用，独立出现的频率很低。
 
 清单：
 - [ ] 用 GitHub MCP（Model Context Protocol，GitHub 官方提供的 MCP 服务器，暴露 `list_workflow_runs` / `get_job_logs` 等工具）拿到失败日志，**不要靠猜**。如果你的 LLM 客户端没有接入 GitHub MCP，可以直接用 `gh run list` / `gh run view --log-failed` CLI 命令替代。
@@ -185,9 +208,21 @@ hugo --gc --minify
 - [ ] 修完后本地 `npm ci && hugo --gc --minify` 必须通过。
 - [ ] PR 描述里贴出失败日志关键行 + 修复点。
 
-### Pattern E — 「新增功能区 / 子页 / 数据展示」
+### Pattern D — 「调整首页 / 导航 / 卡片 / 样式」🟡 支持任务
 
-适用于：新增 `/about/<sub>/`、文档新增一个 section、想把同步元数据展示到模板上等。
+适用于：内容更新带出的"入口需要进闭环 / 卡片清单要重排" —— **不是为了美化而美化**。参考 PR #9 / #10 / #11 / #12 / #13。如果用户没有提到内容变化，先反问是否真的需要改样式。
+
+清单：
+- [ ] 修改 `layouts/home.html` 时保留五大区块结构（标题 + CTA + 导航卡 + 生态卡 + 最新博客）。
+- [ ] 任何 `col-*` 写法都按 **16 列网格** 计算，每行总和必须 = 16。
+- [ ] 自定义样式集中放 `assets/scss/common/_custom.scss`，**不要**在 inline style 里堆 CSS。
+- [ ] 新菜单项要同时加 `[[menu.main]]`（`hugo.toml`）和 `layouts/home.html` 的导航卡，保持闭环。
+- [ ] 外链菜单项需要 `[menu.main.params] external = true`。
+- [ ] 跑 `hugo --gc --minify` 后，自查首页关键 class 是否生成（可 grep `public/index.html`）。
+
+### Pattern E — 「新增功能区 / 子页 / 数据展示」🟡 支持任务
+
+适用于：内容同步过程中确实需要新开一个 section（例如新增 `/about/<sub>/`、文档新增一个分类），或想把同步 workflow 写出的 `repo_*` 元数据展示到模板上。
 
 清单：
 - [ ] 新增 section：在 `content/<section>/_index.md` 建好 front matter。
@@ -200,11 +235,12 @@ hugo --gc --minify
 ## 5. 自检清单（在创建 PR 前过一遍）
 
 - [ ] 读过 `AGENTS.md` 了吗？
+- [ ] **本次改动是否对齐了"权威来源"**（profile README / 组织仓库列表 / 用户提供的素材）？PR description 里有列出 diff 概要吗？
 - [ ] 改动是否落在 `content/docs/repo-readmes/` 这个**禁区**？如果是，是不是改成了改 workflow？
 - [ ] 任何新文件 / 新菜单是否同时进了 `menu.main` + 首页导航卡？
 - [ ] 自定义 `col-*` 是否按 16 列累加？
 - [ ] 同步生成的 front matter 用的是 `topics:` 而不是 `tags:`？
-- [ ] `npm ci && hugo --gc --minify` 通过、无 `error building site`？
+- [ ] `npm ci && hugo --gc --minify` 通过、无 `error building site`？（仅文档变更例外，见 Step 4）
 - [ ] commit message 简洁、描述「做了什么」而不是「为什么」？
 - [ ] 调用 `create_pull_request` 创建了 PR，title/description 清晰？
 
@@ -214,4 +250,4 @@ hugo --gc --minify
 
 如果只能传一段话给下一个接手这个站点的 LLM，把下面这段贴给它：
 
-> 你正在维护 NEVSTOP-LAB 的 Hugo + Doks 站点 (`NEVSTOP-LAB/nevstop-lab.github.io`)。**先用 `skill: maintain-nevstop-lab-site` 调起本 skill，再阅读 `AGENTS.md`**，然后才动代码。硬约束摘要：① 站点主题是 NEVSTOP-LAB 组织（CSM + AI + LabVIEW），不要宣传 Doks；② 主菜单 + 首页导航卡必须闭环（首页/组织介绍/文档/仓库 README/博客/讨论/GitHub）；③ `content/docs/repo-readmes/` 由 workflow 全量生成，禁止手工编辑，要改改 `.github/workflows/sync-chinese-readmes.yml`；④ 自动同步 front matter 用 `topics:` 而非 `tags:`，否则 Doks `term.html` 构建失败；⑤ 自定义 `col-*` 按 16 列网格累加；⑥ 改完跑 `npm ci && hugo --gc --minify` 确认无 `error building site`；⑦ 完成后调用 `create_pull_request` 自动开 PR。
+> 你正在维护 NEVSTOP-LAB 的 Hugo + Doks 站点 (`NEVSTOP-LAB/nevstop-lab.github.io`)，**核心任务是让站点内容与组织最新状态保持同步**（profile README、组织 public 仓库列表、新博客 / 公告），不是做样式美化。**先用 `skill: maintain-nevstop-lab-site` 调起本 skill，再阅读 `AGENTS.md`**，然后才动代码。标准动作：① 先抓权威来源（`NEVSTOP-LAB/.github/profile/README.md` + 组织仓库列表）做 diff，列出要回写的更新点；② 手写内容只改 `content/_index.md` / `content/about/_index.md` / `content/docs/_index.md` / `content/blog/`；③ `content/docs/repo-readmes/` 由 `.github/workflows/sync-chinese-readmes.yml` 全量生成，要改改 workflow 而不是改生成结果；④ 自动同步 front matter 用 `topics:` 而非 `tags:`，否则 Doks `term.html` 构建失败；⑤ 主菜单 + 首页导航卡必须闭环；⑥ 自定义 `col-*` 按 16 列网格累加；⑦ 改完跑 `npm ci && hugo --gc --minify` 确认无 `error building site`；⑧ 完成后调用 `create_pull_request` 自动开 PR，description 里复述"对齐了源头的哪些更新"。
