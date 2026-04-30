@@ -1,0 +1,161 @@
+// =============================================================================
+// NEVSTOP-LAB 站点定制样式
+// 目标：拓宽内容区、克制有设计感的美化（卡片/导航/段落节奏）
+// =============================================================================
+
+// --- 内容区拓宽 -------------------------------------------------------------
+// docs single 页面（fluid + toc 模式下使用 .container-fw）
+.container-fw {
+    max-width: 1440px;
+}
+
+// docs / 列表页（list.html 默认 col-md-12 col-lg-10 col-xl-8）显得太窄，
+// 在大屏下加宽一档；移动端不变。
+@media (min-width: 992px) {
+    .docs .row > .col-md-12.col-lg-10.col-xl-8,
+    .blog .row > .col-md-12.col-lg-10.col-xl-8 {
+        flex: 0 0 auto;
+        width: 91.66666667%; // col-lg-11
+        max-width: 1100px;
+        margin-inline: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .docs .row > .col-md-12.col-lg-10.col-xl-8,
+    .blog .row > .col-md-12.col-lg-10.col-xl-8 {
+        width: 83.33333333%; // col-xl-10
+        max-width: 1180px;
+    }
+}
+
+// --- 导航栏：右侧社交图标的尺寸与间距 ---------------------------------------
+.navbar #socialMenu .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+    .icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    &:hover {
+        background-color: rgba(13, 110, 253, 0.08);
+        color: var(--bs-primary);
+        transform: translateY(-1px);
+    }
+}
+
+[data-bs-theme="dark"] .navbar #socialMenu .social-link:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+// --- 卡片悬浮提升 -----------------------------------------------------------
+// 仅作用于首页 / 列表 / 文档卡片，避免影响 search-result 等内嵌卡片
+section.section .card.shadow-sm,
+section.section .card.h-100 {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    border-radius: 0.75rem;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 3px;
+        background: linear-gradient(90deg, #0d6efd 0%, #6610f2 50%, #6f42c1 100%);
+        opacity: 0;
+        transition: opacity 0.25s ease;
+    }
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 30px -12px rgba(13, 110, 253, 0.18), 0 4px 10px rgba(0, 0, 0, 0.04) !important;
+        border-color: rgba(13, 110, 253, 0.18);
+
+        &::before {
+            opacity: 1;
+        }
+    }
+
+    .card-title {
+        font-weight: 600;
+        margin-bottom: 0.6rem;
+    }
+}
+
+[data-bs-theme="dark"] section.section .card.shadow-sm,
+[data-bs-theme="dark"] section.section .card.h-100 {
+    border-color: rgba(255, 255, 255, 0.08);
+
+    &:hover {
+        box-shadow: 0 14px 30px -12px rgba(99, 156, 255, 0.25), 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+        border-color: rgba(99, 156, 255, 0.3);
+    }
+}
+
+// --- bg-light 节奏：换成更柔和的渐变背景 ------------------------------------
+section.section.bg-light {
+    background: linear-gradient(180deg, #fbfbfd 0%, #f4f6fb 100%) !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+[data-bs-theme="dark"] section.section.bg-light {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.04) 100%) !important;
+    border-top-color: rgba(255, 255, 255, 0.05);
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+// --- 首页 lead / 标题节奏 ---------------------------------------------------
+.section.container-fluid h1.mb-3 {
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    color: var(--bs-body-color);
+}
+
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+    .section.container-fluid h1.mb-3 {
+        background: linear-gradient(90deg, #0d6efd 0%, #6610f2 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+}
+.section.container-fluid p.lead {
+    color: var(--bs-secondary-color, #555);
+    font-size: 1.15rem;
+    line-height: 1.75;
+}
+
+// --- 链接文字（如分组卡片中的链接列表）淡入下划线 ---------------------------
+section.section .card .list-unstyled a {
+    color: inherit;
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0 1px;
+    transition: background-size 0.25s ease, color 0.2s ease;
+
+    &:hover {
+        color: var(--bs-primary);
+        background-size: 100% 1px;
+    }
+}
+
+// --- "查看 / 阅读全文" CTA 链接的微动效 ------------------------------------
+section.section .card a.stretched-link,
+section.section a.btn-link {
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: var(--bs-primary);
+    }
+}
