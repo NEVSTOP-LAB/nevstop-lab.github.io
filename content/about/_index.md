@@ -32,9 +32,11 @@ CSM Framework 的目标是成长为一个 **多语言支持的测试系统基础
 > AI 协助自动收集并更新 CSM 相关信息 → [CSM-Wiki Website](https://nevstop-lab.github.io/CSM-Wiki/)
 
 - [施工中] 由 AI 负责整理和更新 CSM 相关文档，确保信息的及时性和准确性。仓库：[CSM-Wiki Repo](https://github.com/NEVSTOP-LAB/CSM-Wiki)
-- [施工中] 在 [Discussion](https://github.com/orgs/NEVSTOP-LAB/discussions) 中提出的问题，会得到 CSM-AI-Robot 的回复
+- [Discussion 的 Q&A 分组](https://github.com/orgs/NEVSTOP-LAB/discussions/categories/q-a) 中提出的问题，会得到 CSM-AI-Robot 的回复（基于 `deepseek-v4-pro`）
 
 ## 按主题浏览仓库
+
+下列 GitHub Topic 数量来自 `NEVSTOP-LAB/.github` 组织主页，按仓库数从多到少排列；点击即可在 GitHub 上查看带该 topic 的全部 public 仓库：
 
 [`labview`](https://github.com/search?q=topic:labview%20org:NEVSTOP-LAB%20is:public&type=Repositories)
 · [`labview-csm`](https://github.com/search?q=topic:labview-csm%20org:NEVSTOP-LAB%20is:public&type=Repositories)
@@ -47,5 +49,20 @@ CSM Framework 的目标是成长为一个 **多语言支持的测试系统基础
 · [`jkism`](https://github.com/search?q=topic:jkism%20org:NEVSTOP-LAB%20is:public&type=Repositories)
 · [`application`](https://github.com/search?q=topic:application%20org:NEVSTOP-LAB%20is:public&type=Repositories)
 · [`csm-modsets`](https://github.com/search?q=topic:csm-modsets%20org:NEVSTOP-LAB%20is:public&type=Repositories)
+· [`environments`](https://github.com/search?q=topic:environments%20org:NEVSTOP-LAB%20is:public&type=Repositories)
+· [`lv-csm-app`](https://github.com/search?q=topic:lv-csm-app%20org:NEVSTOP-LAB%20is:public&type=Repositories)
+· [`ui`](https://github.com/search?q=topic:ui%20org:NEVSTOP-LAB%20is:public&type=Repositories)
+· [`vip`](https://github.com/search?q=topic:vip%20org:NEVSTOP-LAB%20is:public&type=Repositories)
+· [`ai`](https://github.com/search?q=topic:ai%20org:NEVSTOP-LAB%20is:public&type=Repositories)
+· [`python`](https://github.com/search?q=topic:python%20org:NEVSTOP-LAB%20is:public&type=Repositories)
+· [`base-function`](https://github.com/search?q=topic:base-function%20org:NEVSTOP-LAB%20is:public&type=Repositories)
+· [`exe`](https://github.com/search?q=topic:exe%20org:NEVSTOP-LAB%20is:public&type=Repositories)
+· [`github-actions`](https://github.com/search?q=topic:github-actions%20org:NEVSTOP-LAB%20is:public&type=Repositories)
+· [`labview-xcontrol`](https://github.com/search?q=topic:labview-xcontrol%20org:NEVSTOP-LAB%20is:public&type=Repositories)
+· [`national-instruments`](https://github.com/search?q=topic:national-instruments%20org:NEVSTOP-LAB%20is:public&type=Repositories)
+· [`quickdrop`](https://github.com/search?q=topic:quickdrop%20org:NEVSTOP-LAB%20is:public&type=Repositories)
+· [`tagdb`](https://github.com/search?q=topic:tagdb%20org:NEVSTOP-LAB%20is:public&type=Repositories)
+· [`transformer`](https://github.com/search?q=topic:transformer%20org:NEVSTOP-LAB%20is:public&type=Repositories)
+· [`utilites`](https://github.com/search?q=topic:utilites%20org:NEVSTOP-LAB%20is:public&type=Repositories)
 
 或在站内浏览自动同步的 [仓库 README 列表](/docs/repo-readmes/)，按主题分组查看。
