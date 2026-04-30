@@ -1,0 +1,60 @@
+[404_text]
+other = "你访问的页面不存在或已被移动。"
+
+[404_title]
+other = "页面未找到 :("
+
+[browse]
+other = "浏览"
+
+[chapter_next]
+other = "下一篇"
+
+[chapter_previous]
+other = "上一篇"
+
+[edit_page]
+other = "在 GitHub 上编辑此页"
+
+[get_started]
+other = "开始上手"
+
+[home]
+other = "首页"
+
+[in]
+other = "于"
+
+[by]
+other = "作者"
+
+[last_updated]
+other = "最后更新"
+
+[minute]
+one = "分钟"
+other = "分钟"
+
+[on_this_page]
+other = "本页目录"
+
+[reading_time]
+other = "预计阅读时间"
+
+[search_loading]
+other = "正在加载搜索索引…"
+
+[search_no_recent]
+other = "暂无最近搜索"
+
+[search_no_results]
+other = "无结果"
+
+[search_placeholder]
+other = "搜索"
+
+[search_title]
+other = "搜索"
+
+[video_unsupported]
+other = "你的浏览器不支持嵌入视频，但你可以 <a href=\"{{ .RelPermalink }}\">下载它</a> 然后用喜欢的播放器观看。"
