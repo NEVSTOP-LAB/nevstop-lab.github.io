@@ -1,0 +1,24 @@
+{{/*
+  覆盖 Doks 主题默认的 list.html。
+
+  原始模板会在页面底部自动渲染一个 `.card-list`，把当前 section 下的所有
+  RegularPages 全部以卡片形式罗列出来。这在 /docs/、/docs/repo-readmes/
+  这类页面上会产生一长串卡片（20+ 个仓库），既冗长又与正文中已经按主题
+  分组好的入口重复。
+
+  我们这里只渲染标题 + 正文，让 `_index.md` 自身的手写内容（含分组、说明
+  与跳转链接）来承担导航职责，保持页面简洁。
+*/}}
+{{ define "main" }}
+<div class="row justify-content-center">
+  <div class="col-md-12 col-lg-10 col-xl-8">
+    <article class="docs-list-article">
+      <header class="docs-list-header">
+        <h1>{{ if eq .CurrentSection .FirstSection }}{{ .Section | humanize }}{{ else }}{{ .Title }}{{ end }}</h1>
+        {{ with .Params.description }}<p class="lead">{{ . }}</p>{{ end }}
+      </header>
+      {{ with .Content }}<div class="docs-list-content">{{ . }}</div>{{ end }}
+    </article>
+  </div>
+</div>
+{{ end }}
