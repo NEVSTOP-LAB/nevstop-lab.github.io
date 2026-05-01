@@ -1,23 +1,26 @@
 ---
-title: 'CSM-QA-Robot'
-linkTitle: 'CSM-QA-Robot'
-description: 'CSM 问题回复机器人'
+title: 'CSM-LLM-QA'
+linkTitle: 'CSM-LLM-QA'
+description: '通过 LLM+RAG 实现回复CSM相关问题的基础设施'
 weight: 0
 draft: false
-repo_name: 'NEVSTOP-LAB/CSM-QA-Robot'
-repo_url: 'https://github.com/NEVSTOP-LAB/CSM-QA-Robot'
+repo_name: 'NEVSTOP-LAB/CSM-LLM-QA'
+repo_url: 'https://github.com/NEVSTOP-LAB/CSM-LLM-QA'
 repo_language: 'Python'
 repo_stars: 0
 repo_group: 'csm-core'
+topics: ['llm', 'python', 'rag']
 ---
 
-> **NEVSTOP-LAB/CSM-QA-Robot** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-QA-Robot) · 语言：`Python` · ⭐ 0
+> **NEVSTOP-LAB/CSM-LLM-QA** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-LLM-QA) · 语言：`Python` · ⭐ 0
 >
-> CSM 问题回复机器人
+> 通过 LLM+RAG 实现回复CSM相关问题的基础设施
+>
+> 主题：`llm` · `python` · `rag`
 
 ---
 
-# CSM-QA-Robot
+# CSM-LLM-QA
 
 > 通用 RAG 问答 Python 库 —— 基于 CSM Wiki / LabVIEW 知识库，封装 LLM 调用与向量检索，对外仅暴露一个简洁的 `CSM_QA` 类。
 
@@ -80,7 +83,7 @@ CSM_QA(
     model=None,                             # None → 取 provider 默认
     base_url=None,                          # None → 取 provider 默认
     temperature=0.5,
-    max_tokens=512,
+    max_tokens=2048,
     max_retries=3,
     request_timeout=60.0,
 
@@ -90,10 +93,11 @@ CSM_QA(
     embedding_model="BAAI/bge-small-zh-v1.5",
     embedding_api_key=None,
     embedding_base_url=None,
-    top_k=3,
+    top_k=6,
     similarity_threshold=0.72,
 
     system_prompt=None,                     # None → 内置 CSM/LabVIEW prompt
+    wiki_base_url="https://github.com/NEVSTOP-LAB/CSM-Wiki/blob/main",  # 关键信息回答时的链接前缀
     auto_sync_wiki=True,                    # 首次运行若向量库为空，自动同步
 )
 ```
@@ -183,7 +187,6 @@ qa = CSM_QA(api_key="sk", system_prompt="You are a helpful general-purpose assis
 │   ├── basic_usage.py
 │   └── multi_turn.py
 ├── tests/                  # 单元测试
-├── docs/                   # 调研与设计文档（仅参考，非运行时依赖）
 ├── pyproject.toml
 └── requirements.txt
 ```
