@@ -9,11 +9,14 @@ repo_url: 'https://github.com/NEVSTOP-LAB/csm-vsc-extension'
 repo_language: 'TypeScript'
 repo_stars: 0
 repo_group: 'csm-core'
+topics: ['labview-csm', 'typescript', 'vscode']
 ---
 
 > **NEVSTOP-LAB/csm-vsc-extension** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/csm-vsc-extension) · 语言：`TypeScript` · ⭐ 0
 >
 > 为 CSM 相关文件提供 Visual Studio Code 编辑器支持的插件
+>
+> 主题：`labview-csm` · `typescript` · `vscode`
 
 ---
 

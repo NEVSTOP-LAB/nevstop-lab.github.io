@@ -63,6 +63,13 @@ LabVIEW 持续集成相关的 GitHub Actions / VIPM 工具。
 - [**Push-Files-to-Repo**](/docs/repo-readmes/push-files-to-repo/) — 一个通过 Pull Request 将文件或文件夹从一个仓库推送到另一个仓库的 GitHub Action
   <br/><sub>`Shell` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/Push-Files-to-Repo)</sub>
 
+## AI 与跨平台工具
+
+与 AI、跨仓库同步、Python / C# 等相关的工具型仓库。
+
+- [**.github**](/docs/repo-readmes/github/) — The /profile/README.md will appear on the nevstop-lab organization's profile.
+  <br/><sub>`Python` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/.github)</sub>
+
 ## 示例与演示
 
 LabVIEW / TestStand 等的独立示例项目。
@@ -74,8 +81,6 @@ LabVIEW / TestStand 等的独立示例项目。
 
 尚未归类的仓库。
 
-- [**.github**](/docs/repo-readmes/github/) — The /profile/README.md will appear on the nevstop-lab organization's profile.
-  <br/><sub>`Python` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/.github)</sub>
 - [**nevstop-lab.github.io**](/docs/repo-readmes/nevstop-lab-github-io/) — nevstop-lab.github.io website
   <br/><sub>`HTML` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/nevstop-lab.github.io)</sub>
 

@@ -9,14 +9,14 @@ repo_url: 'https://github.com/NEVSTOP-LAB/CSM-LLM-QA'
 repo_language: 'Python'
 repo_stars: 0
 repo_group: 'csm-core'
-topics: ['llm', 'python', 'rag']
+topics: ['labview-csm', 'llm', 'python', 'rag']
 ---
 
 > **NEVSTOP-LAB/CSM-LLM-QA** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-LLM-QA) · 语言：`Python` · ⭐ 0
 >
 > 通过 LLM+RAG 实现回复CSM相关问题的基础设施
 >
-> 主题：`llm` · `python` · `rag`
+> 主题：`labview-csm` · `llm` · `python` · `rag`
 
 ---
 

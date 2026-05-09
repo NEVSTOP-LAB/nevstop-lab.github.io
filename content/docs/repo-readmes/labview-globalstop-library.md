@@ -9,14 +9,14 @@ repo_url: 'https://github.com/NEVSTOP-LAB/LabVIEW-GlobalStop-Library'
 repo_language: 'LabVIEW'
 repo_stars: 14
 repo_group: 'labview-libs'
-topics: ['framework', 'labview-library', 'vipm']
+topics: ['framework', 'labview', 'labview-library', 'vipm']
 ---
 
 > **NEVSTOP-LAB/LabVIEW-GlobalStop-Library** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-GlobalStop-Library) · 语言：`LabVIEW` · ⭐ 14
 >
 > Simple stop mechanism for parallel loops in LabVIEW
 >
-> 主题：`framework` · `labview-library` · `vipm`
+> 主题：`framework` · `labview` · `labview-library` · `vipm`
 
 ---
 

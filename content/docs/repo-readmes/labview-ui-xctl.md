@@ -9,14 +9,14 @@ repo_url: 'https://github.com/NEVSTOP-LAB/LabVIEW-UI-XCtl'
 repo_language: 'LabVIEW'
 repo_stars: 39
 repo_group: 'labview-libs'
-topics: ['labview-xcontrol', 'ui']
+topics: ['labview', 'labview-xcontrol', 'ui']
 ---
 
 > **NEVSTOP-LAB/LabVIEW-UI-XCtl** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-UI-XCtl) · 语言：`LabVIEW` · ⭐ 39
 >
 > LabVIEW XControls for UI
 >
-> 主题：`labview-xcontrol` · `ui`
+> 主题：`labview` · `labview-xcontrol` · `ui`
 
 ---
 

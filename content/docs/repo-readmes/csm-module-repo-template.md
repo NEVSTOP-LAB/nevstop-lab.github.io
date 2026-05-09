@@ -9,11 +9,14 @@ repo_url: 'https://github.com/NEVSTOP-LAB/CSM-Module-Repo-Template'
 repo_language: ''
 repo_stars: 0
 repo_group: 'csm-core'
+topics: ['labview-csm']
 ---
 
 > **NEVSTOP-LAB/CSM-Module-Repo-Template** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-Module-Repo-Template) · ⭐ 0
 >
 > 基于 CSM（可通信状态机） 框架的模块仓库模板
+>
+> 主题：`labview-csm`
 
 ---
 

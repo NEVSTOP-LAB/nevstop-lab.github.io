@@ -8,15 +8,15 @@ repo_name: 'NEVSTOP-LAB/.github'
 repo_url: 'https://github.com/NEVSTOP-LAB/.github'
 repo_language: 'Python'
 repo_stars: 0
-repo_group: 'other'
-topics: ['documentation']
+repo_group: 'ai-tools'
+topics: ['documentation', 'javascript', 'python']
 ---
 
 > **NEVSTOP-LAB/.github** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/.github) · 语言：`Python` · ⭐ 0
 >
 > The /profile/README.md will appear on the nevstop-lab organization's profile.
 >
-> 主题：`documentation`
+> 主题：`documentation` · `javascript` · `python`
 
 ---
 

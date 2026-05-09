@@ -9,14 +9,14 @@ repo_url: 'https://github.com/NEVSTOP-LAB/CSM-Wiki'
 repo_language: 'SCSS'
 repo_stars: 9
 repo_group: 'csm-core'
-topics: ['framework', 'jekyll', 'labview', 'labview-csm', 'wiki']
+topics: ['framework', 'html', 'javascript', 'jekyll', 'labview', 'labview-csm', 'scss', 'shell', 'wiki']
 ---
 
 > **NEVSTOP-LAB/CSM-Wiki** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-Wiki) · 语言：`SCSS` · ⭐ 9
 >
 > Wiki website for Communicable State Machine(CSM). Link here:
 >
-> 主题：`framework` · `jekyll` · `labview` · `labview-csm` · `wiki`
+> 主题：`framework` · `html` · `javascript` · `jekyll` · `labview` · `labview-csm` · `scss` · `shell` · `wiki`
 
 ---
 

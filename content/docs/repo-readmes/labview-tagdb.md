@@ -9,14 +9,14 @@ repo_url: 'https://github.com/NEVSTOP-LAB/LabVIEW-TagDB'
 repo_language: 'LabVIEW'
 repo_stars: 2
 repo_group: 'labview-libs'
-topics: ['labview-library', 'tagdb']
+topics: ['labview', 'labview-library', 'tagdb']
 ---
 
 > **NEVSTOP-LAB/LabVIEW-TagDB** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-TagDB) · 语言：`LabVIEW` · ⭐ 2
 >
 > Tag Data Container for LabVIEW
 >
-> 主题：`labview-library` · `tagdb`
+> 主题：`labview` · `labview-library` · `tagdb`
 
 ---
 

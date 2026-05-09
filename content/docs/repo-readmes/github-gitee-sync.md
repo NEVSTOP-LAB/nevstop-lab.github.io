@@ -9,14 +9,14 @@ repo_url: 'https://github.com/NEVSTOP-LAB/GitHub-Gitee-Sync'
 repo_language: 'Python'
 repo_stars: 2
 repo_group: 'lvcicd'
-topics: ['ai', 'docker', 'github-actions', 'python']
+topics: ['ai', 'docker', 'gitee', 'github-actions', 'python']
 ---
 
 > **NEVSTOP-LAB/GitHub-Gitee-Sync** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/GitHub-Gitee-Sync) · 语言：`Python` · ⭐ 2
 >
 > Sync All the Repos(public/private) between Github and Gitee.
 >
-> 主题：`ai` · `docker` · `github-actions` · `python`
+> 主题：`ai` · `docker` · `gitee` · `github-actions` · `python`
 
 ---
 

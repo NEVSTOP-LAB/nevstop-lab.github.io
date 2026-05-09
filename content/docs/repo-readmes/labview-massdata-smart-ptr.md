@@ -9,14 +9,14 @@ repo_url: 'https://github.com/NEVSTOP-LAB/LabVIEW-MassData-Smart-Ptr'
 repo_language: 'LabVIEW'
 repo_stars: 4
 repo_group: 'labview-libs'
-topics: ['framework', 'labview-library', 'vipm']
+topics: ['daq', 'framework', 'labview', 'labview-library', 'vipm']
 ---
 
 > **NEVSTOP-LAB/LabVIEW-MassData-Smart-Ptr** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-MassData-Smart-Ptr) · 语言：`LabVIEW` · ⭐ 4
 >
 > LabVIEW MassData Smart Pointer Library for Large Memory Requirement/High Speed DAQ Scenario
 >
-> 主题：`framework` · `labview-library` · `vipm`
+> 主题：`daq` · `framework` · `labview` · `labview-library` · `vipm`
 
 ---
 

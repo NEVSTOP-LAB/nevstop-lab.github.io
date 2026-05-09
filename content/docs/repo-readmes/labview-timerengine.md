@@ -9,14 +9,14 @@ repo_url: 'https://github.com/NEVSTOP-LAB/LabVIEW-TimerEngine'
 repo_language: 'LabVIEW'
 repo_stars: 3
 repo_group: 'labview-libs'
-topics: ['labview-library', 'vipm']
+topics: ['labview', 'labview-library', 'vipm']
 ---
 
 > **NEVSTOP-LAB/LabVIEW-TimerEngine** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-TimerEngine) · 语言：`LabVIEW` · ⭐ 3
 >
 > 使用 UserEvent 实现的 Timer 功能。后台使用一个 Timed Loop 进行定时，到达指定时间后，使用 UserEvent 通知订阅 Timer 的模块。
 >
-> 主题：`labview-library` · `vipm`
+> 主题：`labview` · `labview-library` · `vipm`
 
 ---
 
