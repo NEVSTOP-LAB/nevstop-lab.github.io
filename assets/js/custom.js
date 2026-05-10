@@ -89,7 +89,7 @@ function loadTranslate() {
       if (window.translate) {
         resolve(window.translate);
       } else {
-        reject(new Error('translate.js loaded without exposing window.translate'));
+        reject(new Error('translate.js loaded without exposing window.translate. Verify CDN availability or script loading conflicts.'));
       }
     };
     script.onerror = reject;
@@ -108,7 +108,7 @@ async function applyLanguage(languageKey) {
   if (languageKey === defaultLanguage && !window.translate) return;
 
   const translate = await loadTranslate();
-  await Promise.resolve(translate.changeLanguage(language.code));
+  await translate.changeLanguage(language.code);
 }
 
 function createLanguageSwitcher() {
