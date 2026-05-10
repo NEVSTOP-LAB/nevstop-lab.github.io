@@ -10,20 +10,34 @@ const languages = {
     code: sourceLanguage,
     documentLanguage: 'zh-CN',
     label: '简体中文',
-    shortLabel: '中',
   },
   en: {
     code: 'english',
     documentLanguage: 'en',
     label: 'English',
-    shortLabel: 'EN',
   },
 };
 
 let translateLoader;
 
+function readStoredLanguage() {
+  try {
+    return window.localStorage.getItem(languageStorageKey);
+  } catch {
+    return null;
+  }
+}
+
+function writeStoredLanguage(languageKey) {
+  try {
+    window.localStorage.setItem(languageStorageKey, languageKey);
+  } catch {
+    // localStorage may be unavailable in strict privacy contexts.
+  }
+}
+
 function getStoredLanguage() {
-  const value = window.localStorage.getItem(languageStorageKey);
+  const value = readStoredLanguage();
   return Object.prototype.hasOwnProperty.call(languages, value) ? value : 'zh';
 }
 
@@ -44,8 +58,8 @@ function configureTranslate() {
   const { translate } = window;
   if (!translate) return;
 
-  translate.language.setLocal(sourceLanguage);
-  translate.service.use('client.edge');
+  translate.language?.setLocal(sourceLanguage);
+  translate.service?.use('client.edge');
 
   if (translate.ignore?.class) {
     translate.ignore.class.push('notranslate');
@@ -56,7 +70,7 @@ function configureTranslate() {
     translate.selectLanguageTag.languages = `${sourceLanguage},english`;
   }
 
-  translate.listener.start();
+  translate.listener?.start();
 }
 
 function loadTranslate() {
@@ -71,7 +85,11 @@ function loadTranslate() {
     script.referrerPolicy = 'no-referrer';
     script.onload = () => {
       configureTranslate();
-      resolve(window.translate);
+      if (window.translate) {
+        resolve(window.translate);
+      } else {
+        reject(new Error('translate.js loaded without exposing window.translate'));
+      }
     };
     script.onerror = reject;
     document.head.appendChild(script);
@@ -82,7 +100,7 @@ function loadTranslate() {
 
 async function applyLanguage(languageKey) {
   const language = languages[languageKey] || languages.zh;
-  window.localStorage.setItem(languageStorageKey, languageKey);
+  writeStoredLanguage(languageKey);
   document.documentElement.lang = language.documentLanguage;
   setSwitcherState(languageKey);
 
@@ -127,7 +145,7 @@ function createLanguageSwitcher() {
   setSwitcherState(preferredLanguage);
   if (preferredLanguage !== 'zh') {
     applyLanguage(preferredLanguage).catch(() => {
-      window.localStorage.setItem(languageStorageKey, 'zh');
+      writeStoredLanguage('zh');
       setSwitcherState('zh');
     });
   }
