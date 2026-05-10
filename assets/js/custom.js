@@ -93,7 +93,9 @@ function loadTranslate() {
         reject(new Error('translate.js loaded without exposing window.translate. Verify CDN availability or script loading conflicts.'));
       }
     };
-    script.onerror = reject;
+    script.onerror = () => {
+      reject(new Error('Failed to load translate.js from CDN. Check network connectivity and CDN availability.'));
+    };
     document.head.appendChild(script);
   });
 
@@ -146,7 +148,12 @@ function createLanguageSwitcher() {
 
   const colorModeButton = navBody.querySelector('#buttonColorMode');
   const socialMenu = navBody.querySelector('#socialMenu');
-  navBody.insertBefore(switcher, colorModeButton || socialMenu || null);
+  const referenceNode = colorModeButton || socialMenu;
+  if (referenceNode) {
+    navBody.insertBefore(switcher, referenceNode);
+  } else {
+    navBody.appendChild(switcher);
+  }
 
   const preferredLanguage = getStoredLanguage();
   setSwitcherState(preferredLanguage);
