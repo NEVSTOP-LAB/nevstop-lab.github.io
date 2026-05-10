@@ -59,6 +59,7 @@ function configureTranslate() {
   const { translate } = window;
   if (!translate) return;
 
+  // translate.js uses setLocal for the source language.
   translate.language?.setLocal(sourceLanguage);
   translate.service?.use('client.edge');
 
@@ -108,7 +109,11 @@ async function applyLanguage(languageKey) {
   if (languageKey === defaultLanguage && !window.translate) return;
 
   const translate = await loadTranslate();
-  await translate.changeLanguage(language.code);
+  try {
+    await translate.changeLanguage(language.code);
+  } catch (error) {
+    throw new Error(`Failed to execute translate.changeLanguage for ${languageKey}: ${error?.message || error}`);
+  }
 }
 
 function createLanguageSwitcher() {
