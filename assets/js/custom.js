@@ -4,6 +4,7 @@ const languageSwitcherId = 'siteLanguageSwitcher';
 const languageStorageKey = 'nevstop-lab:language';
 const translateScriptSrc = 'https://cdn.staticfile.net/translate.js/3.18.66/translate.js';
 const sourceLanguage = 'chinese_simplified';
+const defaultLanguage = 'zh';
 
 const languages = {
   zh: {
@@ -38,7 +39,7 @@ function writeStoredLanguage(languageKey) {
 
 function getStoredLanguage() {
   const value = readStoredLanguage();
-  return Object.prototype.hasOwnProperty.call(languages, value) ? value : 'zh';
+  return Object.prototype.hasOwnProperty.call(languages, value) ? value : defaultLanguage;
 }
 
 function setSwitcherState(languageKey) {
@@ -99,15 +100,15 @@ function loadTranslate() {
 }
 
 async function applyLanguage(languageKey) {
-  const language = languages[languageKey] || languages.zh;
+  const language = languages[languageKey] || languages[defaultLanguage];
   writeStoredLanguage(languageKey);
   document.documentElement.lang = language.documentLanguage;
   setSwitcherState(languageKey);
 
-  if (languageKey === 'zh' && !window.translate) return;
+  if (languageKey === defaultLanguage && !window.translate) return;
 
   const translate = await loadTranslate();
-  translate.changeLanguage(language.code);
+  await Promise.resolve(translate.changeLanguage(language.code));
 }
 
 function createLanguageSwitcher() {
@@ -121,10 +122,10 @@ function createLanguageSwitcher() {
   switcher.innerHTML = `
     <button class="btn btn-link nav-link dropdown-toggle site-language-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="切换语言">
       <span class="site-language-icon" aria-hidden="true">文</span>
-      <span data-language-current>${languages.zh.label}</span>
+      <span data-language-current>${languages[defaultLanguage].label}</span>
     </button>
     <ul class="dropdown-menu dropdown-menu-lg-end shadow rounded border-0">
-      <li><button class="dropdown-item site-language-option" type="button" data-site-language="zh">${languages.zh.label}</button></li>
+      <li><button class="dropdown-item site-language-option" type="button" data-site-language="${defaultLanguage}">${languages[defaultLanguage].label}</button></li>
       <li><button class="dropdown-item site-language-option" type="button" data-site-language="en">${languages.en.label}</button></li>
     </ul>
   `;
@@ -144,11 +145,11 @@ function createLanguageSwitcher() {
 
   const preferredLanguage = getStoredLanguage();
   setSwitcherState(preferredLanguage);
-  if (preferredLanguage !== 'zh') {
+  if (preferredLanguage !== defaultLanguage) {
     applyLanguage(preferredLanguage).catch((error) => {
       console.warn('Failed to restore site language preference.', error);
-      writeStoredLanguage('zh');
-      setSwitcherState('zh');
+      writeStoredLanguage(defaultLanguage);
+      setSwitcherState(defaultLanguage);
     });
   }
 }
