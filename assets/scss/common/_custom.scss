@@ -66,11 +66,12 @@ $site-content-max-width: 1320px;
     // 视觉上和右侧其它图标对齐。
     .navbar #searchToggleDesktop,
     .navbar #buttonColorMode,
-    .navbar #socialMenu .social-link {
+    .navbar #socialMenu .social-link,
+    .navbar .site-language-toggle {
         display: inline-flex !important;
         align-items: center;
         justify-content: center;
-        width: 38px;
+        min-width: 38px;
         height: 38px;
         padding: 0;
         margin: 0 0.125rem;
@@ -85,7 +86,8 @@ $site-content-max-width: 1320px;
 
     .navbar #searchToggleDesktop:hover,
     .navbar #buttonColorMode:hover,
-    .navbar #socialMenu .social-link:hover {
+    .navbar #socialMenu .social-link:hover,
+    .navbar .site-language-toggle:hover {
         background-color: rgba(13, 110, 253, 0.08);
         color: var(--bs-primary);
         transform: translateY(-1px);
@@ -102,7 +104,54 @@ $site-content-max-width: 1320px;
 
 [data-bs-theme="dark"] .navbar #searchToggleDesktop:hover,
 [data-bs-theme="dark"] .navbar #buttonColorMode:hover,
-[data-bs-theme="dark"] .navbar #socialMenu .social-link:hover {
+[data-bs-theme="dark"] .navbar #socialMenu .social-link:hover,
+[data-bs-theme="dark"] .navbar .site-language-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.site-language-switcher {
+    .site-language-toggle {
+        gap: 0.35rem;
+        color: var(--bs-body-color);
+        text-decoration: none;
+
+        &::after {
+            margin-left: 0.1rem;
+        }
+    }
+
+    .site-language-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.35rem;
+        height: 1.35rem;
+        border-radius: 999px;
+        background-color: rgba(13, 110, 253, 0.08);
+        color: var(--bs-primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .dropdown-menu {
+        min-width: 8.5rem;
+    }
+
+    .site-language-option {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &.active::after {
+            content: "✓";
+            color: var(--bs-primary);
+            font-weight: 700;
+        }
+    }
+}
+
+[data-bs-theme="dark"] .site-language-switcher .site-language-icon {
     background-color: rgba(255, 255, 255, 0.08);
 }
 
