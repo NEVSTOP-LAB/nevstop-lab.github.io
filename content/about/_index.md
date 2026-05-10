@@ -43,7 +43,7 @@ CSM Framework 的目标是成长为一个 **多语言支持的测试系统基础
 
 ## 按主题浏览仓库
 
-下列 GitHub Topic 按仓库数从多到少排列（数量来自最新 profile README）；点击即可在 GitHub 上查看带该 topic 的全部 public 仓库：
+下列 GitHub Topic 按仓库数从多到少排列（数量来自 `NEVSTOP-LAB/.github` profile README，组织更新 README 时同步更新此页）；点击即可在 GitHub 上查看带该 topic 的全部 public 仓库：
 
 [`labview(64)`](https://github.com/search?q=topic:labview%20org:NEVSTOP-LAB%20is:public&type=Repositories)
 · [`labview-csm(21)`](https://github.com/search?q=topic:labview-csm%20org:NEVSTOP-LAB%20is:public&type=Repositories)

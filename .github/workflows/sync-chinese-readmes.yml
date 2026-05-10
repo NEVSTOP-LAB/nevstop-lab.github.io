@@ -111,7 +111,9 @@ jobs:
               per_page: 100
             });
 
-            // Exclude archived repos and meta/infrastructure repos that are not real projects
+            // Exclude archived repos and meta/infrastructure repos that are not real projects.
+            // META_REPOS lists repos by lowercased name. Update this set in AGENTS.md and here
+            // when new infrastructure repos are added to the organization.
             const META_REPOS = new Set(['.github', `${org.toLowerCase()}.github.io`]);
             const activeRepos = repos.filter(
               (repo) => !repo.archived && !META_REPOS.has(repo.name.toLowerCase())
