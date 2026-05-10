@@ -132,7 +132,8 @@ function createLanguageSwitcher() {
   switcher.addEventListener('click', (event) => {
     const option = event.target.closest('[data-site-language]');
     if (!option) return;
-    applyLanguage(option.dataset.siteLanguage).catch(() => {
+    applyLanguage(option.dataset.siteLanguage).catch((error) => {
+      console.warn('Failed to switch site language.', error);
       setSwitcherState(getStoredLanguage());
     });
   });
@@ -144,7 +145,8 @@ function createLanguageSwitcher() {
   const preferredLanguage = getStoredLanguage();
   setSwitcherState(preferredLanguage);
   if (preferredLanguage !== 'zh') {
-    applyLanguage(preferredLanguage).catch(() => {
+    applyLanguage(preferredLanguage).catch((error) => {
+      console.warn('Failed to restore site language preference.', error);
       writeStoredLanguage('zh');
       setSwitcherState('zh');
     });
