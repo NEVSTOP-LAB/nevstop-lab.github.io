@@ -111,7 +111,11 @@ jobs:
               per_page: 100
             });
 
-            const activeRepos = repos.filter((repo) => !repo.archived);
+            // Exclude archived repos and meta/infrastructure repos that are not real projects
+            const META_REPOS = new Set(['.github', `${org.toLowerCase()}.github.io`]);
+            const activeRepos = repos.filter(
+              (repo) => !repo.archived && !META_REPOS.has(repo.name.toLowerCase())
+            );
             const imported = [];
             const usedSlugs = new Set();
 
