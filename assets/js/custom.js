@@ -86,7 +86,7 @@ function configureTranslate() {
   const ignoreClass = translate.ignore?.class;
   if (Array.isArray(ignoreClass)) {
     if (!ignoreClass.includes('notranslate')) ignoreClass.push('notranslate');
-  } else if (Array.isArray(ignoreClass?.data)) {
+  } else if (ignoreClass?.data && Array.isArray(ignoreClass.data)) {
     if (!ignoreClass.data.includes('notranslate')) ignoreClass.data.push('notranslate');
   } else if (typeof ignoreClass?.add === 'function') {
     ignoreClass.add('notranslate');
