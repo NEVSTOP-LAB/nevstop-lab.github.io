@@ -81,7 +81,7 @@ function configureTranslate() {
 
   // translate.js uses setLocal for the source language.
   translate.language?.setLocal(sourceLanguage);
-  translate.service?.use('client.edge');
+  translate.service?.use('giteeai');
 
   const ignoreClass = translate.ignore?.class;
   if (Array.isArray(ignoreClass)) {
@@ -149,6 +149,20 @@ function getTranslateScriptSrc() {
   return translateScriptSrc;
 }
 
+function flashLanguageFeedback(message) {
+  const el = document.getElementById(languageSwitcherId);
+  if (!el) return;
+  const current = el.querySelector('[data-language-current]');
+  if (!current) return;
+  const original = current.textContent;
+  current.textContent = message;
+  current.style.color = 'var(--bs-danger, #dc3545)';
+  setTimeout(() => {
+    current.textContent = original;
+    current.style.color = '';
+  }, 3000);
+}
+
 async function applyLanguage(languageKey) {
   const normalizedLanguageKey = normalizeLanguageKey(languageKey);
   const language = languages[normalizedLanguageKey];
@@ -157,10 +171,11 @@ async function applyLanguage(languageKey) {
     return setLanguageState(normalizedLanguageKey);
   }
 
-  const translate = await loadTranslate();
   try {
+    const translate = await loadTranslate();
     await translate.changeLanguage(language.code);
   } catch (error) {
+    flashLanguageFeedback('翻译失败');
     throw new Error(`Failed to execute translate.changeLanguage for ${normalizedLanguageKey}: ${error?.message || error}`);
   }
 
