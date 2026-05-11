@@ -83,8 +83,13 @@ function configureTranslate() {
   translate.language?.setLocal(sourceLanguage);
   translate.service?.use('client.edge');
 
-  if (translate.ignore?.class) {
-    translate.ignore.class.push('notranslate');
+  const ignoreClass = translate.ignore?.class;
+  if (Array.isArray(ignoreClass)) {
+    if (!ignoreClass.includes('notranslate')) ignoreClass.push('notranslate');
+  } else if (ignoreClass?.data && Array.isArray(ignoreClass.data)) {
+    if (!ignoreClass.data.includes('notranslate')) ignoreClass.data.push('notranslate');
+  } else if (typeof ignoreClass?.add === 'function') {
+    ignoreClass.add('notranslate');
   }
 
   if (translate.selectLanguageTag) {
@@ -107,7 +112,14 @@ function loadTranslate() {
     script.crossOrigin = 'anonymous';
     script.referrerPolicy = 'no-referrer';
     script.onload = () => {
-      configureTranslate();
+      try {
+        configureTranslate();
+      } catch (error) {
+        script.remove();
+        translateLoader = undefined;
+        reject(new Error(`Failed to configure translate.js: ${error?.message || error}`));
+        return;
+      }
       if (window.translate) {
         resolve(window.translate);
       } else {
