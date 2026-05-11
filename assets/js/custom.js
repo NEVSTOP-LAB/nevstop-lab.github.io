@@ -2,6 +2,7 @@
 
 const languageSwitcherId = 'siteLanguageSwitcher';
 const languageStorageKey = 'nevstop-lab:language';
+// Resolved relative to the built /js/app*.js bundle; static/vendor is emitted beside /js.
 const translateScriptPath = '../vendor/translate/translate.min.js';
 const sourceLanguage = 'chinese_simplified';
 const defaultLanguage = 'zh';
@@ -96,6 +97,7 @@ function configureTranslate() {
 
 function loadTranslate() {
   if (window.translate) return Promise.resolve(window.translate);
+  // Concurrent callers share the in-flight load; failures clear it so a later click can retry.
   if (translateLoader) return translateLoader;
 
   translateLoader = new Promise((resolve, reject) => {
