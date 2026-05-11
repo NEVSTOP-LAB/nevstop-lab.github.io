@@ -2,7 +2,7 @@
 
 const languageSwitcherId = 'siteLanguageSwitcher';
 const languageStorageKey = 'nevstop-lab:language';
-const translateScriptSrc = '/vendor/translate/translate.min.js';
+const translateScriptPath = '../vendor/translate/translate.min.js';
 const sourceLanguage = 'chinese_simplified';
 const defaultLanguage = 'zh';
 const languageSwitcherLabel = '切换语言 / Switch language';
@@ -21,6 +21,7 @@ const languages = {
 };
 
 let translateLoader;
+let translateScriptSrc;
 
 function readStoredLanguage() {
   try {
@@ -43,6 +44,9 @@ function getStoredLanguage() {
   return normalizeLanguageKey(value);
 }
 
+/**
+ * Returns a supported language key, falling back to the source language for invalid values.
+ */
 function normalizeLanguageKey(languageKey) {
   return Object.prototype.hasOwnProperty.call(languages, languageKey) ? languageKey : defaultLanguage;
 }
@@ -96,7 +100,7 @@ function loadTranslate() {
 
   translateLoader = new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = translateScriptSrc;
+    script.src = getTranslateScriptSrc();
     script.async = true;
     script.crossOrigin = 'anonymous';
     script.referrerPolicy = 'no-referrer';
@@ -112,12 +116,23 @@ function loadTranslate() {
     script.onerror = () => {
       script.remove();
       translateLoader = undefined;
-      reject(new Error('Failed to load local translate.js. Verify /vendor/translate/translate.min.js is published correctly.'));
+      reject(new Error('Failed to load local translate.js. Verify that /vendor/translate/translate.min.js is accessible and properly deployed.'));
     };
     document.head.appendChild(script);
   });
 
   return translateLoader;
+}
+
+function getTranslateScriptSrc() {
+  if (translateScriptSrc) return translateScriptSrc;
+
+  const scriptElement = document.currentScript || document.querySelector('script[src*="/js/"]');
+  translateScriptSrc = scriptElement?.src
+    ? new URL(translateScriptPath, scriptElement.src).toString()
+    : new URL('/vendor/translate/translate.min.js', window.location.origin).toString();
+
+  return translateScriptSrc;
 }
 
 async function applyLanguage(languageKey) {
