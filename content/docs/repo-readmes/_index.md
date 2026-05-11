@@ -5,7 +5,7 @@ draft: false
 ---
 
 自动同步自 [NEVSTOP-LAB 组织](https://github.com/NEVSTOP-LAB) 内 public 仓库的中文 README，
-当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **21** 个仓库，按主题分组如下：
+当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **19** 个仓库，按主题分组如下：
 
 ## CSM 应用与示例
 
@@ -63,24 +63,10 @@ LabVIEW 持续集成相关的 GitHub Actions / VIPM 工具。
 - [**Push-Files-to-Repo**](/docs/repo-readmes/push-files-to-repo/) — 一个通过 Pull Request 将文件或文件夹从一个仓库推送到另一个仓库的 GitHub Action
   <br/><sub>`Shell` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/Push-Files-to-Repo)</sub>
 
-## AI 与跨平台工具
-
-与 AI、跨仓库同步、Python / C# 等相关的工具型仓库。
-
-- [**.github**](/docs/repo-readmes/github/) — The /profile/README.md will appear on the nevstop-lab organization's profile.
-  <br/><sub>`Python` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/.github)</sub>
-
 ## 示例与演示
 
 LabVIEW / TestStand 等的独立示例项目。
 
 - [**TestStand-User-Interface-Messages-Demo**](/docs/repo-readmes/teststand-user-interface-messages-demo/) — TestStand-User-Interface-Messages-Demo 仓库的中文 README（自动同步）。
   <br/><sub>`LabVIEW` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo)</sub>
-
-## 其他
-
-尚未归类的仓库。
-
-- [**nevstop-lab.github.io**](/docs/repo-readmes/nevstop-lab-github-io/) — nevstop-lab.github.io website
-  <br/><sub>`HTML` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/nevstop-lab.github.io)</sub>
 
