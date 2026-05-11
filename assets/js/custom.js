@@ -115,6 +115,7 @@ function loadTranslate() {
       try {
         configureTranslate();
       } catch (error) {
+        script.remove();
         translateLoader = undefined;
         reject(new Error(`Failed to configure translate.js: ${error?.message || error}`));
         return;

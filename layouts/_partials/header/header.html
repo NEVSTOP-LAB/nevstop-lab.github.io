@@ -129,11 +129,11 @@
 
         <!-- Language switcher (translate.js; JS in custom.js handles the actual switching) -->
         <div id="siteLanguageSwitcher" class="dropdown site-language-switcher notranslate mt-3 mt-lg-0 me-lg-2" translate="no">
-          <button class="btn btn-link nav-link dropdown-toggle site-language-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="切换语言 / Switch language">
+          <button id="siteLanguageSwitcherToggle" class="btn btn-link nav-link dropdown-toggle site-language-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="切换语言 / Switch language">
             <span class="site-language-icon" aria-hidden="true">文</span>
             <span data-language-current>简体中文</span>
           </button>
-          <ul class="dropdown-menu shadow rounded border-0">
+          <ul class="dropdown-menu shadow rounded border-0" aria-labelledby="siteLanguageSwitcherToggle">
             <li><button class="dropdown-item site-language-option" type="button" data-site-language="zh">简体中文</button></li>
             <li><button class="dropdown-item site-language-option" type="button" data-site-language="en">English</button></li>
           </ul>
