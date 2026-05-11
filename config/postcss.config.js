@@ -55,6 +55,10 @@ const purgecss = purgeCSSPlugin({
     "not-content",
     "copy",
     "btn-copy",
+    // Language switcher classes injected via Hugo template; safelist as extra guard
+    // so PurgeCSS never strips them even if the static analysis misses them.
+    /^site-language/,
+    "notranslate",
   ],
 });
 

@@ -155,24 +155,9 @@ async function applyLanguage(languageKey) {
   return setLanguageState(normalizedLanguageKey);
 }
 
-function createLanguageSwitcher() {
-  const navBody = document.querySelector('#offcanvasNavMain .offcanvas-body');
-  if (!navBody || document.getElementById(languageSwitcherId)) return;
-
-  const switcher = document.createElement('div');
-  switcher.id = languageSwitcherId;
-  switcher.className = 'dropdown site-language-switcher notranslate mt-3 mt-lg-0 ms-lg-2';
-  switcher.setAttribute('translate', 'no');
-  switcher.innerHTML = `
-    <button class="btn btn-link nav-link dropdown-toggle site-language-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="${languageSwitcherLabel}">
-      <span class="site-language-icon" aria-hidden="true">文</span>
-      <span data-language-current>${languages[defaultLanguage].label}</span>
-    </button>
-    <ul class="dropdown-menu dropdown-menu-lg-end shadow rounded border-0">
-      <li><button class="dropdown-item site-language-option" type="button" data-site-language="${defaultLanguage}">${languages[defaultLanguage].label}</button></li>
-      <li><button class="dropdown-item site-language-option" type="button" data-site-language="en">${languages.en.label}</button></li>
-    </ul>
-  `;
+function initLanguageSwitcher() {
+  const switcher = document.getElementById(languageSwitcherId);
+  if (!switcher) return;
 
   switcher.addEventListener('click', (event) => {
     const option = event.target.closest('[data-site-language]');
@@ -184,15 +169,6 @@ function createLanguageSwitcher() {
     });
   });
 
-  const colorModeButton = navBody.querySelector('#buttonColorMode');
-  const socialMenu = navBody.querySelector('#socialMenu');
-  const referenceNode = colorModeButton || socialMenu;
-  if (referenceNode) {
-    navBody.insertBefore(switcher, referenceNode);
-  } else {
-    navBody.appendChild(switcher);
-  }
-
   const preferredLanguage = getStoredLanguage();
   setSwitcherState(preferredLanguage);
   if (preferredLanguage !== defaultLanguage) {
@@ -203,4 +179,8 @@ function createLanguageSwitcher() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', createLanguageSwitcher);
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLanguageSwitcher);
+} else {
+  initLanguageSwitcher();
+}
