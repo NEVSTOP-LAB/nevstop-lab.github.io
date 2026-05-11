@@ -81,6 +81,33 @@ disableLanguages = ["en", "de", "nl", "fr", "es"]
 [module]
   [[module.imports]]
     path = "github.com/thuliteio/doks"
+    [[module.imports.mounts]]
+      source = "content/404.md"
+      target = "content/404.md"
+    [[module.imports.mounts]]
+      source = "content/privacy.md"
+      target = "content/privacy.md"
+    [[module.imports.mounts]]
+      source = "content/categories"
+      target = "content/categories"
+    [[module.imports.mounts]]
+      source = "content/contributors"
+      target = "content/contributors"
+    [[module.imports.mounts]]
+      source = "content/docs"
+      target = "content/docs"
+    [[module.imports.mounts]]
+      source = "content/tags"
+      target = "content/tags"
+    [[module.imports.mounts]]
+      source = "layouts"
+      target = "layouts"
+    [[module.imports.mounts]]
+      source = "assets"
+      target = "assets"
+    [[module.imports.mounts]]
+      source = "static"
+      target = "static"
 
   [[module.mounts]]
     source = "content"
