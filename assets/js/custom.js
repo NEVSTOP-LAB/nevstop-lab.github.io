@@ -2,9 +2,10 @@
 
 const languageSwitcherId = 'siteLanguageSwitcher';
 const languageStorageKey = 'nevstop-lab:language';
-const translateScriptSrc = 'https://cdn.staticfile.net/translate.js/3.18.66/translate.js';
+const translateScriptSrc = '/vendor/translate/translate.min.js';
 const sourceLanguage = 'chinese_simplified';
 const defaultLanguage = 'zh';
+const languageSwitcherLabel = '切换语言 / Switch language';
 
 const languages = {
   zh: {
@@ -39,17 +40,31 @@ function writeStoredLanguage(languageKey) {
 
 function getStoredLanguage() {
   const value = readStoredLanguage();
-  return Object.prototype.hasOwnProperty.call(languages, value) ? value : defaultLanguage;
+  return normalizeLanguageKey(value);
+}
+
+function normalizeLanguageKey(languageKey) {
+  return Object.prototype.hasOwnProperty.call(languages, languageKey) ? languageKey : defaultLanguage;
+}
+
+function setLanguageState(languageKey) {
+  const normalizedLanguageKey = normalizeLanguageKey(languageKey);
+  writeStoredLanguage(normalizedLanguageKey);
+  document.documentElement.lang = languages[normalizedLanguageKey].documentLanguage;
+  setSwitcherState(normalizedLanguageKey);
+  return normalizedLanguageKey;
 }
 
 function setSwitcherState(languageKey) {
+  const normalizedLanguageKey = normalizeLanguageKey(languageKey);
   const switcher = document.getElementById(languageSwitcherId);
   if (!switcher) return;
 
-  switcher.querySelector('[data-language-current]').textContent = languages[languageKey].label;
+  switcher.querySelector('[data-language-current]').textContent = languages[normalizedLanguageKey].label;
+  switcher.querySelector('.site-language-toggle')?.setAttribute('aria-label', languageSwitcherLabel);
 
   switcher.querySelectorAll('[data-site-language]').forEach((item) => {
-    const isActive = item.dataset.siteLanguage === languageKey;
+    const isActive = item.dataset.siteLanguage === normalizedLanguageKey;
     item.classList.toggle('active', isActive);
     item.setAttribute('aria-current', isActive ? 'true' : 'false');
   });
@@ -90,11 +105,14 @@ function loadTranslate() {
       if (window.translate) {
         resolve(window.translate);
       } else {
-        reject(new Error('translate.js loaded without exposing window.translate. Verify CDN availability or script loading conflicts.'));
+        translateLoader = undefined;
+        reject(new Error('translate.js loaded without exposing window.translate. Verify local script publishing or script loading conflicts.'));
       }
     };
     script.onerror = () => {
-      reject(new Error('Failed to load translate.js from CDN. Check network connectivity and CDN availability.'));
+      script.remove();
+      translateLoader = undefined;
+      reject(new Error('Failed to load local translate.js. Verify /vendor/translate/translate.min.js is published correctly.'));
     };
     document.head.appendChild(script);
   });
@@ -103,19 +121,21 @@ function loadTranslate() {
 }
 
 async function applyLanguage(languageKey) {
-  const language = languages[languageKey] || languages[defaultLanguage];
-  writeStoredLanguage(languageKey);
-  document.documentElement.lang = language.documentLanguage;
-  setSwitcherState(languageKey);
+  const normalizedLanguageKey = normalizeLanguageKey(languageKey);
+  const language = languages[normalizedLanguageKey];
 
-  if (languageKey === defaultLanguage && !window.translate) return;
+  if (normalizedLanguageKey === defaultLanguage && !window.translate) {
+    return setLanguageState(normalizedLanguageKey);
+  }
 
   const translate = await loadTranslate();
   try {
     await translate.changeLanguage(language.code);
   } catch (error) {
-    throw new Error(`Failed to execute translate.changeLanguage for ${languageKey}: ${error?.message || error}`);
+    throw new Error(`Failed to execute translate.changeLanguage for ${normalizedLanguageKey}: ${error?.message || error}`);
   }
+
+  return setLanguageState(normalizedLanguageKey);
 }
 
 function createLanguageSwitcher() {
@@ -127,7 +147,7 @@ function createLanguageSwitcher() {
   switcher.className = 'dropdown site-language-switcher notranslate mt-3 mt-lg-0 ms-lg-2';
   switcher.setAttribute('translate', 'no');
   switcher.innerHTML = `
-    <button class="btn btn-link nav-link dropdown-toggle site-language-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="切换语言">
+    <button class="btn btn-link nav-link dropdown-toggle site-language-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="${languageSwitcherLabel}">
       <span class="site-language-icon" aria-hidden="true">文</span>
       <span data-language-current>${languages[defaultLanguage].label}</span>
     </button>
@@ -140,9 +160,10 @@ function createLanguageSwitcher() {
   switcher.addEventListener('click', (event) => {
     const option = event.target.closest('[data-site-language]');
     if (!option) return;
+    const previousLanguage = getStoredLanguage();
     applyLanguage(option.dataset.siteLanguage).catch((error) => {
       console.warn('Failed to switch site language.', error);
-      setSwitcherState(getStoredLanguage());
+      setLanguageState(previousLanguage);
     });
   });
 
@@ -160,8 +181,7 @@ function createLanguageSwitcher() {
   if (preferredLanguage !== defaultLanguage) {
     applyLanguage(preferredLanguage).catch((error) => {
       console.warn('Failed to restore site language preference.', error);
-      writeStoredLanguage(defaultLanguage);
-      setSwitcherState(defaultLanguage);
+      setLanguageState(defaultLanguage);
     });
   }
 }
