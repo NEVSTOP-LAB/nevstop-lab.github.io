@@ -27,7 +27,7 @@
     {{ partial "sidebar/docs-toc-desktop.html" . }}
   </nav>
   {{ end -}}
-  <div class="col-md-12 col-lg-9{{ if ne .Params.toc false }} col-xl-9{{ else }} col-xl-12{{ end }}">
+  <div class="col-md-12 col-lg-9{{ if ne .Params.toc false }} col-xl-10{{ else }} col-xl-13{{ end }}">
     {{ if ne .Params.toc false -}}
     <nav class="toc-mobile toc-mobile-sticky d-xl-none" aria-label="Quaternary navigation">
       {{ partial "sidebar/docs-toc-mobile.html" . }}
