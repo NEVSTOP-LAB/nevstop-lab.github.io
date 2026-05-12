@@ -93,6 +93,8 @@ html, htm, pdf, xml, xsl, txt, md
 
 ## 插件信息
 
+![Open in Integrated Browser 插件图标](plugin-icon.png)
+
 **🌐 Open in Integrated Browser**
 [![GitHub](https://img.shields.io/badge/GitHub-vsc--open--in--integrated--browser-blue)](https://github.com/NEVSTOP-LAB/vsc-open-in-integrated-browser)
 [![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/NEVSTOP-LAB.open-in-integrated-browser?label=Marketplace)](https://marketplace.visualstudio.com/items?itemName=NEVSTOP-LAB.open-in-integrated-browser)
