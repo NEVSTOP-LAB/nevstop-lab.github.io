@@ -33,7 +33,8 @@ $site-content-max-width: 1320px;
 @media (min-width: 992px) {
     .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-10.col-xl-8,
     .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-10,
-    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-9 {
+    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-9,
+    .wrap > .content > .container.p-0 > .row > .col-lg-9 {
         flex: 0 0 auto;
         width: 91.66666667%; // col-lg-11
         max-width: 1180px;
@@ -44,7 +45,8 @@ $site-content-max-width: 1320px;
 @media (min-width: 1200px) {
     .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-10.col-xl-8,
     .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-10,
-    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-9 {
+    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-9,
+    .wrap > .content > .container.p-0 > .row > .col-lg-9 {
         width: 83.33333333%; // col-xl-10
         max-width: 1180px;
     }
