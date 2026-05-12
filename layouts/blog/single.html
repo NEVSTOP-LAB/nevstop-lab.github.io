@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article>
 <div class="row justify-content-center">
-  <div class="col-md-12 col-lg-10">
+  <div class="col-md-12 col-lg-10 col-xl-10">
     <div class="blog-header">
       <h1>{{ .Title }}</h1>
       {{ partial "main/blog-meta.html" . }}
@@ -25,11 +25,11 @@
   </div>
   <div class="row justify-content-center">
   {{ if ne .Params.toc false -}}
-  <nav class="docs-toc{{ if ne site.Params.doks.navbarSticky true }} docs-toc-top{{ end }}{{ if site.Params.doks.headerBar }} docs-toc-offset{{ end }} d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+  <nav class="docs-toc blog-single-toc{{ if ne site.Params.doks.navbarSticky true }} docs-toc-top{{ end }}{{ if site.Params.doks.headerBar }} docs-toc-offset{{ end }} d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
     {{ partial "sidebar/docs-toc-desktop.html" . }}
   </nav>
   {{ end -}}
-  <div class="col-md-12 col-lg-9{{ if ne .Params.toc false }} col-xl-9{{ else }} col-xl-12{{ end }}">
+  <div class="col-md-12 col-lg-10 col-xl-10">
     {{ if ne .Params.toc false -}}
     <nav class="toc-mobile toc-mobile-sticky d-xl-none" aria-label="Quaternary navigation">
       {{ partial "sidebar/docs-toc-mobile.html" . }}
