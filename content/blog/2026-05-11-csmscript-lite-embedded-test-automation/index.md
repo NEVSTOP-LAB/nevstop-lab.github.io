@@ -4,7 +4,7 @@ description: "面向嵌入式软件测试场景，介绍基于 CSM 与 CSMScript
 date: 2026-05-11T16:00:00+08:00
 draft: false
 contributors:
-  - "nevstop-lab"
+  - "nevstop"
 ---
 
 > 本文整理自知乎回答，并按站点文档风格进行结构化排版。

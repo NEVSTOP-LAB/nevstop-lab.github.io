@@ -17,6 +17,9 @@ disableLanguages = ["en", "de", "nl", "fr", "es"]
   isPlainText = true
   notAlternative = true
 
+[taxonomies]
+  contributors = "contributors"
+
 [params]
   description = "NEVSTOP-LAB 是围绕可通讯状态机框架（CSM）和 AI，提供 LabVIEW / Python / C# 自动化测试方案的开源组织。"
 
@@ -153,6 +156,7 @@ disableLanguages = ["en", "de", "nl", "fr", "es"]
   [[module.mounts]]
     source = "hugo_stats.json"
     target = "assets/watching/hugo_stats.json"
+    disableWatch = true
 
   [[module.mounts]]
     source = "assets"

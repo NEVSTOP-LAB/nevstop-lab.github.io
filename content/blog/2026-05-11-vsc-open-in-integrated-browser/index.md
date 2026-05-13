@@ -4,7 +4,7 @@ description: "试用 HTML 写文档碰到了预览麻烦，插件市场没有趁
 date: 2026-05-11T19:00:00+08:00
 draft: false
 contributors:
-  - "nevstop-lab"
+  - "nevstop"
 ---
 
 > 本文整理自知乎专栏原文，并按站点文档风格进行结构化排版。
