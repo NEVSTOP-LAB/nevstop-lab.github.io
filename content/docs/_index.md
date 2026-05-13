@@ -2,6 +2,32 @@
 title: "文档"
 description: "NEVSTOP-LAB 站点文档入口，整理组织内仓库 README、社区资源与 CSM 生态导航。"
 draft: false
+cascade:
+  - target:
+      path: /docs/guides
+    build:
+      render: "never"
+      list: "never"
+  - target:
+      path: /docs/guides/**
+    build:
+      render: "never"
+      list: "never"
+  - target:
+      path: /docs/reference
+    build:
+      render: "never"
+      list: "never"
+  - target:
+      path: /docs/reference/**
+    build:
+      render: "never"
+      list: "never"
+  - target:
+      path: /docs/resources
+    build:
+      render: "never"
+      list: "never"
 ---
 
 NEVSTOP-LAB 站点的文档区域。当前提供以下内容：
