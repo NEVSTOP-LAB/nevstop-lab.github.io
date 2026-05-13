@@ -6,30 +6,19 @@
       <h1>{{ .Title }}</h1>
       {{ partial "main/blog-meta.html" . }}
     </div>
-  </div>
-  {{ if site.Params.doks.imageSingle -}}
-    {{- $images := .Resources.ByType "image" -}}
-    {{- $featured := $images.GetMatch "*feature*" -}}
-    {{- if not $featured }}{{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}{{ end -}}
-    {{- if $featured -}}
-      <div class="col-12 col-md-12">
+    {{ if site.Params.doks.imageSingle -}}
+      {{- $images := .Resources.ByType "image" -}}
+      {{- $featured := $images.GetMatch "*feature*" -}}
+      {{- if not $featured }}{{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}{{ end -}}
+      {{- if $featured -}}
         {{ partial "picture" (dict
         "page" .
         "src" $featured
         "alt" .Title
         "class" "img-post-single rounded-0"
         )}}
-      </div>
+      {{ end -}}
     {{ end -}}
-  {{ end -}}
-  </div>
-  <div class="row justify-content-center">
-  {{ if ne .Params.toc false -}}
-  <nav class="docs-toc blog-single-toc{{ if ne site.Params.doks.navbarSticky true }} docs-toc-top{{ end }}{{ if site.Params.doks.headerBar }} docs-toc-offset{{ end }} d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
-    {{ partial "sidebar/docs-toc-desktop.html" . }}
-  </nav>
-  {{ end -}}
-  <div class="col-md-12 col-lg-10 col-xl-10">
     {{ if ne .Params.toc false -}}
     <nav class="toc-mobile toc-mobile-sticky d-xl-none" aria-label="Quaternary navigation">
       {{ partial "sidebar/docs-toc-mobile.html" . }}
@@ -45,6 +34,11 @@
     </div>
     {{ end -}}
   </div>
+  {{ if ne .Params.toc false -}}
+  <nav class="docs-toc blog-single-toc{{ if ne site.Params.doks.navbarSticky true }} docs-toc-top{{ end }}{{ if site.Params.doks.headerBar }} docs-toc-offset{{ end }} d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+    {{ partial "sidebar/docs-toc-desktop.html" . }}
+  </nav>
+  {{ end -}}
 </div>
 </article>
 {{ end }}
