@@ -1,7 +1,8 @@
 {{ define "main" }}
-<article>
+<div class="blog-single-wrap">
+<div class="blog-single-main">
 <div class="row justify-content-center">
-  <div class="col-md-12 col-lg-10 col-xl-10">
+  <div class="col-md-12 col-lg-9">
     <div class="blog-header">
       <h1>{{ .Title }}</h1>
       {{ partial "main/blog-meta.html" . }}
@@ -34,13 +35,14 @@
     </div>
     {{ end -}}
   </div>
-  {{ if ne .Params.toc false -}}
-  <nav class="docs-toc blog-single-toc{{ if ne site.Params.doks.navbarSticky true }} docs-toc-top{{ end }}{{ if site.Params.doks.headerBar }} docs-toc-offset{{ end }} d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
-    {{ partial "sidebar/docs-toc-desktop.html" . }}
-  </nav>
-  {{ end -}}
 </div>
-</article>
+</div>{{/* end .blog-single-main */}}
+{{ if ne .Params.toc false -}}
+<nav class="docs-toc blog-single-toc{{ if ne site.Params.doks.navbarSticky true }} docs-toc-top{{ end }}{{ if site.Params.doks.headerBar }} docs-toc-offset{{ end }} d-none d-xl-block" aria-label="Secondary navigation">
+  {{ partial "sidebar/docs-toc-desktop.html" . }}
+</nav>
+{{ end -}}
+</div>{{/* end .blog-single-wrap */}}
 {{ end }}
 
 {{ define "sidebar-footer" }}

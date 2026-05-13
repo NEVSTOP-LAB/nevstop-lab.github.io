@@ -27,14 +27,15 @@ $site-content-max-width: 1320px;
 // 大屏下把这几种列统一拉到 ~91% / ~83% 宽度，并加上同一个 max-width，
 // 让所有页面主区域视觉宽度一致。
 //
-// 注意：选择器都要求 `> .container.p-0 >` 这一层中间容器（仅 baseof 在
-// `IsNode` 且非 mainSections 时插入），并且都要求 `col-md-12` 起手，避免
-// 命中首页 hero 等使用裸 `col-lg-9 col-xl-8` 的列。
+// 注意：选择器在 `.container.p-0` 与 `.row` 之间使用后代组合符（空格），
+// 以兼容 blog 单篇（.container.p-0 > .blog-single-wrap > .blog-single-main > .row）
+// 和 list/about 等页面（.container.p-0 > .row）两种路径。
+// 同时都要求 `col-md-12` 起手，避免命中首页 hero 等裸 `col-lg-9` 列。
 @media (min-width: 992px) {
-    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-10.col-xl-8,
-    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-10,
-    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-9,
-    .wrap > .content > .container.p-0 > .row > .col-lg-9 {
+    .wrap > .content > .container.p-0 .row > .col-md-12.col-lg-10.col-xl-8,
+    .wrap > .content > .container.p-0 .row > .col-md-12.col-lg-10,
+    .wrap > .content > .container.p-0 .row > .col-md-12.col-lg-9,
+    .wrap > .content > .container.p-0 .row > .col-lg-9 {
         flex: 0 0 auto;
         width: 91.66666667%; // col-lg-11
         max-width: 1180px;
@@ -43,10 +44,10 @@ $site-content-max-width: 1320px;
 }
 
 @media (min-width: 1200px) {
-    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-10.col-xl-8,
-    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-10,
-    .wrap > .content > .container.p-0 > .row > .col-md-12.col-lg-9,
-    .wrap > .content > .container.p-0 > .row > .col-lg-9 {
+    .wrap > .content > .container.p-0 .row > .col-md-12.col-lg-10.col-xl-8,
+    .wrap > .content > .container.p-0 .row > .col-md-12.col-lg-10,
+    .wrap > .content > .container.p-0 .row > .col-md-12.col-lg-9,
+    .wrap > .content > .container.p-0 .row > .col-lg-9 {
         width: 83.33333333%; // col-xl-10
         max-width: 1180px;
     }
@@ -523,10 +524,37 @@ section.section a.btn-link {
     }
 }
 
-// --- 博客详情页：正文与标题等宽，TOC 右移 --------------------------------------
+// --- 博客单篇：宽度与 blog list 一致，TOC 悬浮在内容右侧 --------------------
+// .blog-single-wrap 是博客单篇的 flex 外层容器，包含：
+//   - .blog-single-main：Bootstrap row 所在的全宽区域（100% container 宽度）
+//     内部 col-lg-9 命中 _custom.scss 宽度规则 → 1140px，与 blog list 一致。
+//   - .blog-single-toc：粘性 TOC，定位于 .blog-single-main 右侧，
+//     在 xl+ 视口显示。视口较窄时（<1880px）TOC 可能超出容器边界，
+//     但宽屏（1920px）下完美对齐。
+// 为防止窄视口出现水平滚动条，给博客单篇页面的 body 加 overflow-x: clip。
+// clip 不会创建新的 scroll container（不同于 hidden），不影响 position:sticky。
+body.blog.single {
+    overflow-x: clip;
+}
+
 @include media-breakpoint-up(xl) {
+    .blog-single-wrap {
+        display: flex;
+        align-items: flex-start;
+        overflow: visible;
+    }
+
+    .blog-single-main {
+        flex: none;
+        width: 100%;
+        min-width: 0;
+    }
+
     .blog-single-toc {
+        flex: none;
+        width: 256px;
         margin-left: 1.5rem;
+        align-self: flex-start;
     }
 }
 
