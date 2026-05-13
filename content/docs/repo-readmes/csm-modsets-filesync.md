@@ -9,14 +9,14 @@ repo_url: 'https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync'
 repo_language: 'LabVIEW'
 repo_stars: 4
 repo_group: 'csm-apps'
-topics: ['csm-modsets', 'labview', 'labview-csm']
+topics: ['csm-modsets', 'labview-csm']
 ---
 
 > **NEVSTOP-LAB/CSM-ModSets-FileSync** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync) · 语言：`LabVIEW` · ⭐ 4
 >
 > 基于 CSM 的文件同步模块
 >
-> 主题：`csm-modsets` · `labview` · `labview-csm`
+> 主题：`csm-modsets` · `labview-csm`
 
 ---
 
@@ -40,8 +40,6 @@ topics: ['csm-modsets', 'labview', 'labview-csm']
 - 开发版本： LabVIEW 2020
 - VIPM 依赖：
   - CSM Framework v2026Q1 或以后版本
-  - NEVTOP-Programming-Palette
-  - MGI
 
 ## 模块接口文档
 
