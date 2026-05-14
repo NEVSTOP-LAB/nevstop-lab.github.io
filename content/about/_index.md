@@ -1,6 +1,6 @@
 ---
 title: "关于 NEVSTOP-LAB"
-description: "NEVSTOP-LAB 围绕可通讯状态机框架（CSM）与 AI，提供 LabVIEW / Python / C# 自动化测试方案。本页介绍 CSM 生态、社区与 AI-Wiki 三条主线。"
+description: "NEVSTOP-LAB 围绕 CSM、自动化测试与 AI 开展开源协作，本页概览 CSM 生态、社区入口和 AI-Wiki 资料整理机制。"
 draft: false
 ---
 

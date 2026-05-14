@@ -1,7 +1,7 @@
 ---
 title: 'GitHub-Gitee-Sync'
 linkTitle: 'GitHub-Gitee-Sync'
-description: 'Sync All the Repos(public/private) between Github and Gitee.'
+description: 'GitHub-Gitee-Sync 中文 README：Sync All the Repos(public/private) between Github and Gitee。Python · lvCICD 与自动化。'
 weight: -2
 draft: false
 repo_name: 'NEVSTOP-LAB/GitHub-Gitee-Sync'
@@ -308,4 +308,7 @@ python sync.py \
 ## License
 
 [MIT](LICENSE)
+
+
+
 

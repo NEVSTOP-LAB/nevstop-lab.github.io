@@ -1,7 +1,7 @@
 ---
 title: 'CSM-Module-Repo-Template'
 linkTitle: 'CSM-Module-Repo-Template'
-description: '基于 CSM（可通信状态机） 框架的模块仓库模板'
+description: 'CSM-Module-Repo-Template 中文 README：基于 CSM（可通信状态机） 框架的模块仓库模板。CSM 核心框架与工具。'
 weight: 0
 draft: false
 repo_name: 'NEVSTOP-LAB/CSM-Module-Repo-Template'
@@ -70,4 +70,7 @@ CSM 消息接口只支持字符串参数，复杂数据需编码：
 ## 许可
 
 本模板采用 Apache License 2.0 发布；版权归属见 [`NOTICE`](./NOTICE)。
+
+
+
 

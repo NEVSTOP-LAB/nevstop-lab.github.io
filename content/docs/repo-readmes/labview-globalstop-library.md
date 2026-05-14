@@ -1,7 +1,7 @@
 ---
 title: 'LabVIEW-GlobalStop-Library'
 linkTitle: 'LabVIEW-GlobalStop-Library'
-description: 'Simple stop mechanism for parallel loops in LabVIEW'
+description: 'LabVIEW-GlobalStop-Library 中文 README：Simple stop mechanism for parallel loops in LabVIEW。LabVIEW · LabVIEW 库与工具。'
 weight: -14
 draft: false
 repo_name: 'NEVSTOP-LAB/LabVIEW-GlobalStop-Library'
@@ -61,4 +61,7 @@ topics: ['framework', 'labview', 'labview-library', 'vipm']
 ## 开发环境
 
 - LabVIEW 2017
+
+
+
 

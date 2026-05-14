@@ -1,7 +1,7 @@
 ---
 title: 'CSMScript-Lite'
 linkTitle: 'CSMScript-Lite'
-description: 'CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本'
+description: 'CSMScript-Lite 中文 README：CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本。LabVIEW · CSM 应用与...'
 weight: -18
 draft: false
 repo_name: 'NEVSTOP-LAB/CSMScript-Lite'
@@ -136,4 +136,7 @@ close -@ ai
 
 > [!NOTE]
 > 锚点名称中的 `<>` 符号可省略，`GOTO >> cleanup` 与 `GOTO >> <cleanup>` 效果相同。
+
+
+
 

@@ -1,6 +1,6 @@
 ---
 title: "文档"
-description: "NEVSTOP-LAB 站点文档入口，整理组织内仓库 README、社区资源与 CSM 生态导航。"
+description: "NEVSTOP-LAB 文档入口，汇总仓库 README、CSM 生态导航、社区资源与站内博客索引，便于按主题快速定位资料。"
 draft: false
 cascade:
   - target:

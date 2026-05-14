@@ -1,6 +1,6 @@
 ---
 title: "仓库 README"
-description: "组织内 public 仓库的中文 README 自动导入列表，按主题分组浏览。"
+description: "NEVSTOP-LAB public 仓库中文 README 的自动同步索引，按 CSM 应用、核心框架、LabVIEW 工具与示例等主题分组浏览。"
 draft: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 'CSM-ModSets-FileSync'
 linkTitle: 'CSM-ModSets-FileSync'
-description: '基于 CSM 的文件同步模块'
+description: 'CSM-ModSets-FileSync 中文 README：基于 CSM 的文件同步模块。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。'
 weight: -4
 draft: false
 repo_name: 'NEVSTOP-LAB/CSM-ModSets-FileSync'
@@ -88,5 +88,8 @@ git submodule update --init
 - 直接下载源码可以自由修改和定制功能
 - 确保您的开发环境满足项目的依赖要求（见上文开发环境部分）
 - 如需贡献代码，建议使用 git 克隆仓库而非直接下载
+
+
+
 
 

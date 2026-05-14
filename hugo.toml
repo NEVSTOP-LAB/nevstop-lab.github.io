@@ -7,6 +7,9 @@ disableLanguages = ["en", "de", "nl", "fr", "es"]
 [build]
   writeStats = true
 
+[markup.goldmark.renderer]
+  unsafe = true
+
 # 站点输出格式：首页额外输出 searchIndex（FlexSearch 索引），生成 /search-index.json
 [outputs]
   home = ["HTML", "RSS", "searchIndex"]

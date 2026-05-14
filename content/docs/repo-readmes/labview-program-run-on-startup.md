@@ -1,7 +1,7 @@
 ---
 title: 'LabVIEW-Program-run-on-startup'
 linkTitle: 'LabVIEW-Program-run-on-startup'
-description: 'LabVIEW范例：如何让程序在系统启动时自启动'
+description: 'LabVIEW-Program-run-on-startup 中文 README：LabVIEW范例：如何让程序在系统启动时自启动。LabVIEW · LabVIEW 库与工具。'
 weight: -1
 draft: false
 repo_name: 'NEVSTOP-LAB/LabVIEW-Program-run-on-startup'
@@ -80,4 +80,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce
 4. 运行 exe后， 双击 reg 文件， 将自启动信息导入注册表，重启系统后，程序会自启动, 可以在任务管理器中查看到启动项。
 
 ![image](https://raw.githubusercontent.com/NEVSTOP-LAB/LabVIEW-Program-run-on-startup/main/.doc/Snipaste_2024-04-25_10-50-17.png)
+
+
+
 

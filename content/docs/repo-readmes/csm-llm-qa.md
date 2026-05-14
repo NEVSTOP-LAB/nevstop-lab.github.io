@@ -1,7 +1,7 @@
 ---
 title: 'CSM-LLM-QA'
 linkTitle: 'CSM-LLM-QA'
-description: '通过 LLM+RAG 实现回复CSM相关问题的基础设施'
+description: 'CSM-LLM-QA 中文 README：通过 LLM+RAG 实现回复CSM相关问题的基础设施。Python · CSM 核心框架与工具。'
 weight: 0
 draft: false
 repo_name: 'NEVSTOP-LAB/CSM-LLM-QA'
@@ -186,4 +186,7 @@ qa = CSM_QA(api_key="sk", system_prompt="You are a helpful general-purpose assis
 ## License
 
 MIT
+
+
+
 

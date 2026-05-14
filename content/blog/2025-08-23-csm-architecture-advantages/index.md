@@ -1,6 +1,6 @@
 ---
 title: "可通讯状态机(CSM)架构框架优势实例分析"
-description: "通过一个 DAQ 实例分析 CSM 在架构设计、模块复用与团队协作中的优势。"
+description: "通过 DAQ 场景对比 CSM 与 DQMH，说明 CSM 在模块复用、团队协作、远程扩展和长期维护中的架构优势。"
 date: 2025-08-23T22:44:00+08:00
 draft: false
 contributors:
@@ -8,7 +8,7 @@ contributors:
 ---
 
 > 本文整理自知乎专栏原文，并将图片等资源本地化以便站内稳定访问。
-> 原文链接：https://zhuanlan.zhihu.com/p/1942689627426264231
+> [原文链接](https://zhuanlan.zhihu.com/p/1942689627426264231)
 
 在 2025 年 7 月 23 日的 Webinar 中，我们通过一个具体的 DAQ 实例，深入讲解了其背后的设计思路与实现方法，对比分析了 CSM 与 DQMH 的差异，并着重说明了 CSM 在团队协作与模块复用方面的显著优势。本文是对该次 Webinar 的简要介绍。如需查看完整 PPT，可在以下地址下载：
 

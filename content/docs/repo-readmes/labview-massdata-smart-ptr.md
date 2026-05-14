@@ -1,7 +1,7 @@
 ---
 title: 'LabVIEW-MassData-Smart-Ptr'
 linkTitle: 'LabVIEW-MassData-Smart-Ptr'
-description: 'LabVIEW MassData Smart Pointer Library for Large Memory Requirement/High Speed DAQ Scenario'
+description: 'LabVIEW-MassData-Smart-Ptr 中文 README：LabVIEW MassData Smart Pointer Library for Large Memory Requirement/High Speed DAQ Scenario。LabVIEW · LabVIEW...'
 weight: -4
 draft: false
 repo_name: 'NEVSTOP-LAB/LabVIEW-MassData-Smart-Ptr'
@@ -45,4 +45,7 @@ topics: ['daq', 'framework', 'labview', 'labview-library', 'vipm']
 
 后面板逻辑：    
 ![image](https://user-images.githubusercontent.com/8196752/120073829-932d1a00-c0cc-11eb-8779-8229187e1c61.png)
+
+
+
 

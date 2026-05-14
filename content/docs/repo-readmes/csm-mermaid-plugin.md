@@ -1,7 +1,7 @@
 ---
 title: 'CSM-Mermaid-Plugin'
 linkTitle: 'CSM-Mermaid-Plugin'
-description: 'Mermaid Tool Plugin for CSM'
+description: 'CSM-Mermaid-Plugin 中文 README：Mermaid Tool Plugin for CSM。LabVIEW · CSM 核心框架与工具。收录项目简介、使用方式与相关资源。'
 weight: -4
 draft: false
 repo_name: 'NEVSTOP-LAB/CSM-Mermaid-Plugin'
@@ -45,3 +45,6 @@ topics: ['html', 'labview', 'labview-csm', 'mermaid', 'plugin']
 ### CSM 的接口信息
 
 ![image](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-Mermaid-Plugin/main/.doc/4.png)
+
+
+

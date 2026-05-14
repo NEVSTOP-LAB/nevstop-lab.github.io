@@ -1,7 +1,7 @@
 ---
 title: 'LabVIEW-OPCUA-XML-Library'
 linkTitle: 'LabVIEW-OPCUA-XML-Library'
-description: 'Use a XML configuration file to create the NI OPCUA Server.'
+description: 'LabVIEW-OPCUA-XML-Library 中文 README：Use a XML configuration file to create the NI OPCUA Server。LabVIEW · LabVIEW 库与工具。'
 weight: -10
 draft: false
 repo_name: 'NEVSTOP-LAB/LabVIEW-OPCUA-XML-Library'
@@ -88,6 +88,9 @@ xml 文件的设计，请参照样本xml进行修改。简单的说明如下：
 
 常在 LabVIEW 2017 中发现。与DNS 有关，在 HOST 文件中定义 IP 与 cRIO/PXI 等OPCUA Server 宿主机HostName 关联关系，可以解决。    
 ![opc_ua](https://user-images.githubusercontent.com/8196752/67999386-12f7c600-fc97-11e9-80e2-9b2f061ff3c2.PNG)
+
+
+
 
 
 

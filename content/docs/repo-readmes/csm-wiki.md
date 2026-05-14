@@ -1,7 +1,7 @@
 ---
 title: 'CSM-Wiki'
 linkTitle: 'CSM-Wiki'
-description: 'Wiki website for Communicable State Machine(CSM). Link here:'
+description: 'CSM-Wiki 中文 README：Wiki website for Communicable State Machine(CSM). Link here。SCSS · CSM 核心框架与工具。'
 weight: -9
 draft: false
 repo_name: 'NEVSTOP-LAB/CSM-Wiki'
@@ -85,4 +85,7 @@ _**本仓库使用了以下的开源项目或服务**_：
 - `source_branch`（可选）：源分支，默认为 `main`
 - `source_path`（必填）：源仓库中要同步的目录路径（相对路径，不以 `/` 开头）
 - `dest_path`（可选）：同步到本仓库的目标路径，省略时默认为 `.ref/<reponame>`
+
+
+
 

@@ -1,7 +1,7 @@
 ---
 title: 'TestStand-User-Interface-Messages-Demo'
 linkTitle: 'TestStand-User-Interface-Messages-Demo'
-description: 'TestStand-User-Interface-Messages-Demo 仓库的中文 README（自动同步）。'
+description: 'TestStand-User-Interface-Messages-Demo 中文 README：## UIMessage。LabVIEW · 示例与演示。收录项目简介、使用方式与相关资源。'
 weight: -1
 draft: false
 repo_name: 'NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo'
@@ -50,3 +50,6 @@ topics: ['example', 'labview', 'teststand']
 > 参考：
 >
 >![image](https://raw.githubusercontent.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo/main/.doc/5c6daf099df3d344cb5ed74bbc936c3.png)
+
+
+

@@ -1,7 +1,7 @@
 ---
 title: 'labview-vi-props-skill'
 linkTitle: 'labview-vi-props-skill'
-description: '读取 LabVIEW VI 属性的 Skill'
+description: 'labview-vi-props-skill 中文 README：读取 LabVIEW VI 属性的 Skill。Python · LabVIEW 库与工具。收录项目简介、使用方式与相关资源。'
 weight: 0
 draft: false
 repo_name: 'NEVSTOP-LAB/labview-vi-props-skill'
@@ -77,4 +77,7 @@ python scripts/vi_props.py read_description --verbose "C:\path\to\test.vi"
 	在本机的 64 位 Python 环境下，`2025` 默认命中 x64。
 
 更多设计细节、Python API 和 worker 行为说明见 [`SKILL.md`](./SKILL.md)。
+
+
+
 

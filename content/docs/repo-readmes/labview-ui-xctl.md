@@ -1,7 +1,7 @@
 ---
 title: 'LabVIEW-UI-XCtl'
 linkTitle: 'LabVIEW-UI-XCtl'
-description: 'LabVIEW XControls for UI'
+description: 'LabVIEW-UI-XCtl 中文 README：LabVIEW XControls for UI。LabVIEW · LabVIEW 库与工具。收录项目简介、使用方式与相关资源。'
 weight: -39
 draft: false
 repo_name: 'NEVSTOP-LAB/LabVIEW-UI-XCtl'
@@ -52,4 +52,7 @@ LabVIEW X-Controls 列表
 
 1.	部分XControl 依赖OpenG
 2.	开发环境 LabVIEW 2014，高版本可以直接拷贝至开发目录使用。
+
+
+
 

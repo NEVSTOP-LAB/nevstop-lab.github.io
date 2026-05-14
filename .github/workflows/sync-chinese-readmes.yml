@@ -44,6 +44,16 @@ jobs:
                 .replace(/\r?\n/g, ' ')
                 .replace(/'/g, "''");
             const escapeMarkdownText = (input) => String(input || '').replace(/([\\`\[\]])/g, '\\$1');
+            const trimSummaryPunctuation = (input) => String(input || '').trim().replace(/[。.!?；;:：,，、]+$/u, '');
+            const utf8Length = (input) => Buffer.byteLength(String(input || ''), 'utf8');
+            const trimToUtf8Bytes = (input, maxBytes) => {
+              let output = '';
+              for (const ch of Array.from(String(input || ''))) {
+                if (utf8Length(output + ch) > maxBytes) break;
+                output += ch;
+              }
+              return output.replace(/[；,，、\s]+$/u, '');
+            };
             const collator = Intl.Collator.supportedLocalesOf(['zh-CN']).length
               ? new Intl.Collator('zh-CN', { sensitivity: 'base' })
               : new Intl.Collator('en', { sensitivity: 'base' });
@@ -100,6 +110,27 @@ jobs:
                 if (g.match(repo)) return g.key;
               }
               return otherGroup.key;
+            };
+
+            const buildSeoDescription = (repo, groupTitle) => {
+              const baseDescription = trimSummaryPunctuation(repo.description || '');
+              if (!baseDescription) {
+                return `${repo.name} 中文 README 自动同步页，收录项目简介、使用方式与相关资源。`;
+              }
+
+              if (utf8Length(baseDescription) >= 110 && utf8Length(baseDescription) <= 160) {
+                return `${baseDescription}。`;
+              }
+
+              const meta = [repo.language || '', groupTitle || ''].filter(Boolean).join(' · ');
+              let description = `${repo.name} 中文 README：${baseDescription}。${meta ? `${meta}。` : ''}`;
+              if (utf8Length(description) < 110) {
+                description += '收录项目简介、使用方式与相关资源。';
+              }
+              if (utf8Length(description) > 160) {
+                description = `${trimToUtf8Bytes(description, 157)}...`;
+              }
+              return description;
             };
 
             fs.rmSync(tempTargetDir, { recursive: true, force: true });
@@ -168,10 +199,10 @@ jobs:
               }
               usedSlugs.add(slug);
 
-              const description = (repo.description || '').trim()
-                || `${repo.name} 仓库的中文 README（自动同步）。`;
               const topics = repo.topics || [];
               const groupKey = classify(repo);
+              const groupTitle = (groups.find((g) => g.key === groupKey) || otherGroup).title;
+              const description = buildSeoDescription(repo, groupTitle);
 
               // Use stargazer count as weight (higher stars -> smaller weight -> earlier).
               // Negative ensures most-starred repos appear first when Hugo sorts ascending.
@@ -232,7 +263,7 @@ jobs:
             const indexLines = [
               '---',
               'title: "仓库 README"',
-              'description: "组织内 public 仓库的中文 README 自动导入列表，按主题分组浏览。"',
+              'description: "NEVSTOP-LAB public 仓库中文 README 的自动同步索引，按 CSM 应用、核心框架、LabVIEW 工具与示例等主题分组浏览。"',
               'draft: false',
               '---',
               '',
@@ -256,7 +287,7 @@ jobs:
                   meta.push(`⭐ ${item.stars}`);
                   meta.push(`[GitHub](${item.url})`);
                   indexLines.push(`- [**${escapeMarkdownText(item.name)}**](/docs/repo-readmes/${item.slug}/) — ${escapeMarkdownText(item.description)}`);
-                  indexLines.push(`  <br/><sub>${meta.join(' · ')}</sub>`);
+                  indexLines.push(`  ${meta.join(' · ')}`);
                 }
                 indexLines.push('');
               }
@@ -285,7 +316,7 @@ jobs:
               const docsIndex = [
                 '---',
                 'title: "文档"',
-                'description: "NEVSTOP-LAB 站点文档入口"',
+                'description: "NEVSTOP-LAB 文档入口，汇总仓库 README、生态导航、社区资源与站内博客索引。"',
                 'draft: false',
                 '---',
                 ''

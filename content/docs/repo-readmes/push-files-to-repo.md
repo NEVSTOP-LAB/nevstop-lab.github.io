@@ -1,7 +1,7 @@
 ---
 title: 'Push-Files-to-Repo'
 linkTitle: 'Push-Files-to-Repo'
-description: '一个通过 Pull Request 将文件或文件夹从一个仓库推送到另一个仓库的 GitHub Action'
+description: 'Push-Files-to-Repo 中文 README：一个通过 Pull Request 将文件或文件夹从一个仓库推送到另一个仓库的 GitHub Action。Shell · lvCICD...'
 weight: 0
 draft: false
 repo_name: 'NEVSTOP-LAB/Push-Files-to-Repo'
@@ -217,3 +217,6 @@ jobs:
 ## 许可证
 
 MIT
+
+
+

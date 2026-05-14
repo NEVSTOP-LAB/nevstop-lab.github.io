@@ -1,7 +1,7 @@
 ---
 title: 'csm-keynotes-collection'
 linkTitle: 'csm-keynotes-collection'
-description: 'Public CSM Keynotes Collection | 公开的 CSM 讲演资料集合'
+description: 'csm-keynotes-collection 中文 README：Public CSM Keynotes Collection | 公开的 CSM 讲演资料集合。CSM 核心框架与工具。'
 weight: -2
 draft: false
 repo_name: 'NEVSTOP-LAB/csm-keynotes-collection'
@@ -50,4 +50,7 @@ topics: ['labview-csm', 'pdf', 'slides']
 > - pdf: [可通讯状态机(CSM)架构框架优势实例分析.pdf](./可通讯状态机(CSM)架构框架优势实例分析@wibinar/可通讯状态机(CSM)架构框架优势实例分析.pdf)
 > - pdf: [Q&A记录](./可通讯状态机(CSM)架构框架优势实例分析@wibinar/可通讯状态机(CSM)架构框架优势实例分析%20Q&A.pdf)
 >
+
+
+
 

@@ -1,7 +1,7 @@
 ---
 title: 'LabVIEW-TagDB'
 linkTitle: 'LabVIEW-TagDB'
-description: 'Tag Data Container for LabVIEW'
+description: 'LabVIEW-TagDB 中文 README：Tag Data Container for LabVIEW。LabVIEW · LabVIEW 库与工具。收录项目简介、使用方式与相关资源。'
 weight: -2
 draft: false
 repo_name: 'NEVSTOP-LAB/LabVIEW-TagDB'
@@ -165,6 +165,9 @@ NEVSTOP TagDB 是专为 LabVIEW 环境设计的高级数据管理库，提供配
 3. 提交更改
 4. 推送到分支
 5. 提交 Pull Request
+
+
+
 
 
 
