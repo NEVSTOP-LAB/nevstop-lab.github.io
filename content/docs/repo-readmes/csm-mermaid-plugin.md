@@ -45,6 +45,3 @@ topics: ['html', 'labview', 'labview-csm', 'mermaid', 'plugin']
 ### CSM 的接口信息
 
 ![image](https://raw.githubusercontent.com/NEVSTOP-LAB/CSM-Mermaid-Plugin/main/.doc/4.png)
-
-
-

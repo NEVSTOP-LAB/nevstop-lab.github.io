@@ -62,6 +62,3 @@ topics: ['framework', 'labview', 'labview-library', 'vipm']
 
 - LabVIEW 2017
 
-
-
-

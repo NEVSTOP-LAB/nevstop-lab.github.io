@@ -78,6 +78,3 @@ python scripts/vi_props.py read_description --verbose "C:\path\to\test.vi"
 
 更多设计细节、Python API 和 worker 行为说明见 [`SKILL.md`](./SKILL.md)。
 
-
-
-

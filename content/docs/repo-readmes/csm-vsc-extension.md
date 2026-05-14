@@ -62,6 +62,3 @@ topics: ['labview-csm', 'typescript', 'vscode']
 
 本项目遵循 GNU Affero General Public License v3 (AGPL-3.0) 许可证。详见 [LICENSE](LICENSE) 文件。
 
-
-
-

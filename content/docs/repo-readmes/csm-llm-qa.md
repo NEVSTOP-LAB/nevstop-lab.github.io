@@ -187,6 +187,3 @@ qa = CSM_QA(api_key="sk", system_prompt="You are a helpful general-purpose assis
 
 MIT
 
-
-
-

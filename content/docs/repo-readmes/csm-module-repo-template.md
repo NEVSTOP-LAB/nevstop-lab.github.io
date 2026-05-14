@@ -71,6 +71,3 @@ CSM 消息接口只支持字符串参数，复杂数据需编码：
 
 本模板采用 Apache License 2.0 发布；版权归属见 [`NOTICE`](./NOTICE)。
 
-
-
-

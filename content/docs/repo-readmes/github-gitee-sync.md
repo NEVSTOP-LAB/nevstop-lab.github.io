@@ -309,6 +309,3 @@ python sync.py \
 
 [MIT](LICENSE)
 
-
-
-

@@ -81,6 +81,3 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce
 
 ![image](https://raw.githubusercontent.com/NEVSTOP-LAB/LabVIEW-Program-run-on-startup/main/.doc/Snipaste_2024-04-25_10-50-17.png)
 
-
-
-

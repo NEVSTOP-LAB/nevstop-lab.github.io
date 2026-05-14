@@ -46,6 +46,3 @@ topics: ['daq', 'framework', 'labview', 'labview-library', 'vipm']
 后面板逻辑：    
 ![image](https://user-images.githubusercontent.com/8196752/120073829-932d1a00-c0cc-11eb-8779-8229187e1c61.png)
 
-
-
-
