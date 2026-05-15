@@ -12,9 +12,10 @@
 - 仓库：`NEVSTOP-LAB/nevstop-lab.github.io`，部署到 GitHub Pages（[https://nevstop-lab.github.io/](https://nevstop-lab.github.io/)）。
 - 技术栈：**Hugo Extended** + **Doks 主题**（`@thulite/doks-core`）。
 - 语言：仅启用 `zh-cn`，其它语言在 `hugo.toml` 中通过 `disableLanguages` 关闭。
-- 内容来源有两类：
+- 内容来源有三类：
   1. **手写内容**：`content/_index.md`（首页）、`content/about/_index.md`（组织介绍）、`content/docs/_index.md`、`content/blog/`。
   2. **自动同步**：`content/docs/repo-readmes/` —— 由 `.github/workflows/sync-chinese-readmes.yml` 每天 02:00 (UTC) 从 NEVSTOP-LAB 组织内 public 仓库抓取中文 README。
+  3. **自动同步**：`content/docs/csm-modsets.md` —— 由 `.github/workflows/sync-chinese-readmes.yml` 每天 02:00 (UTC) 从 `NEVSTOP-LAB/.github` 的 `csm-modsets.md` 抓取。
 
 ## 设计原则（请始终遵守）
 
@@ -40,8 +41,9 @@
    - `content/docs/repo-readmes/_index.md` 优先输出纯 Markdown 列表；若同步进来的 README 自身包含 raw HTML，可通过 Hugo 渲染配置统一放行，不要逐个手工清洗生成结果
 6. **图片处理**：自动同步时把相对路径图片改写成 `https://raw.githubusercontent.com/<full_name>/<default_branch>/...`，不要让相对路径图片出现在站点中。
 7. **元仓库过滤**：sync-chinese-readmes.yml 会从收录列表中排除以下元/基础设施仓库（`META_REPOS`），这些仓库不是真实项目，不应出现在 repo-readmes 中：`.github`、`nevstop-lab.github.io`。若组织新增基础设施仓库，需在此处和 workflow 的 `META_REPOS` 集合里同步登记。
-8. **构建验证**：任何改动后都执行 `npm ci && hugo --gc --minify`。出现 `error building site` 必须修复；若 warning 由站内手写页或同步逻辑直接引入，应优先修正，不要长期依赖“可忽略”放着不管。
-9. **Bootstrap 网格列数**：Doks 把 Bootstrap 配置成 **16 列网格**（不是默认的 12 列）。也就是说 `.col-12 = 75%`、`.col-md-6 = 37.5%`、`.col-lg-4 = 25%`、`.col-16 = 100%`。在 footer / 卡片等自定义布局里写 `col-*` 时，每行宽度必须按 16 累加，否则会出现"右侧留 25% 空白、内容看似不居中"的问题。
+8. **CSM Modsets 页面维护**：`content/docs/csm-modsets.md` 是每日自动同步页，内容源是 `https://github.com/NEVSTOP-LAB/.github/blob/main/csm-modsets.md`。不要手工长期维护正文；如需调整展示格式，应改同步 workflow 与该页面模板/前言，而不是在同步后手改正文。
+9. **构建验证**：任何改动后都执行 `npm ci && hugo --gc --minify`。出现 `error building site` 必须修复；若 warning 由站内手写页或同步逻辑直接引入，应优先修正，不要长期依赖“可忽略”放着不管。
+10. **Bootstrap 网格列数**：Doks 把 Bootstrap 配置成 **16 列网格**（不是默认的 12 列）。也就是说 `.col-12 = 75%`、`.col-md-6 = 37.5%`、`.col-lg-4 = 25%`、`.col-16 = 100%`。在 footer / 卡片等自定义布局里写 `col-*` 时，每行宽度必须按 16 累加，否则会出现"右侧留 25% 空白、内容看似不居中"的问题。
 
 ## 常用文件指引
 
@@ -52,6 +54,7 @@
 | `content/_index.md` | 首页 front matter 与 `lead` 文案 |
 | `content/about/_index.md` | 组织介绍页（镜像 `.github/profile/README.md` 的三段式结构） |
 | `content/docs/_index.md` | 文档入口页 |
+| `content/docs/csm-modsets.md` | CSM Modsets 列表页（每日从 `.github/csm-modsets.md` 同步） |
 | `content/docs/repo-readmes/` | 自动同步生成的仓库 README（不要手工编辑这里的文件） |
 | `.github/workflows/sync-chinese-readmes.yml` | 每日同步逻辑；改动后请用本文件的"设计原则"自检 |
 | `.github/workflows/hugo.yml` | 构建 + 部署到 GitHub Pages |
@@ -66,6 +69,7 @@
 > 2. 主菜单必须覆盖：首页 / 组织介绍 / 文档 / 仓库 README / 博客 / Discussion / GitHub 组织；首页同时提供导航卡片复述这些入口。
 > 3. 首页内容必须丰富，至少包含：组织 lead + CTA、站点导航卡片、CSM 生态分组（核心 / 工具 / 应用）、最新博客；参考 `NEVSTOP-LAB/.github` 仓库的 `profile/README.md`。
 > 4. `content/docs/repo-readmes/` 由 `.github/workflows/sync-chinese-readmes.yml` 自动生成，**不要手工编辑**该目录下文件；如需修改输出格式，改 workflow 而不是改生成结果。
-> 5. 自动同步生成的 readme 文件：title 用纯仓库名（不加 `README` 后缀）；slug 用纯仓库名（仅冲突时追加 `-{id}`）；front matter 用 `topics:` 而非 `tags:`（避免触发 Doks taxonomy 模板的 `contributors` 检查导致构建失败）；按主题分组生成索引页（CSM 应用 / CSM 核心 / LabVIEW 库与工具 / lvCICD / AI 与跨平台工具 / 示例 / 其他）。
-> 6. 修改后执行 `npm ci && hugo --gc --minify`，确保 `error building site` 不出现。
-> 7. 任何对自动同步逻辑的扩展，都先在 `AGENTS.md` 中追加约定，再实现，避免下一个 Agent 再次走弯路。
+> 5. `content/docs/csm-modsets.md` 同样由 `.github/workflows/sync-chinese-readmes.yml` 每日从 `NEVSTOP-LAB/.github/csm-modsets.md` 同步；后续维护要持续检查该页面是否仍在同步与可访问。
+> 6. 自动同步生成的 readme 文件：title 用纯仓库名（不加 `README` 后缀）；slug 用纯仓库名（仅冲突时追加 `-{id}`）；front matter 用 `topics:` 而非 `tags:`（避免触发 Doks taxonomy 模板的 `contributors` 检查导致构建失败）；按主题分组生成索引页（CSM 应用 / CSM 核心 / LabVIEW 库与工具 / lvCICD / AI 与跨平台工具 / 示例 / 其他）。
+> 7. 修改后执行 `npm ci && hugo --gc --minify`，确保 `error building site` 不出现。
+> 8. 任何对自动同步逻辑的扩展，都先在 `AGENTS.md` 中追加约定，再实现，避免下一个 Agent 再次走弯路。

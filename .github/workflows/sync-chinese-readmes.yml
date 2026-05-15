@@ -22,6 +22,10 @@ jobs:
           DOCS_DIR: content/docs
           ORG: NEVSTOP-LAB
           MIN_CHINESE_CHARS: "50"
+          CSM_MODSETS_SOURCE_OWNER: NEVSTOP-LAB
+          CSM_MODSETS_SOURCE_REPO: .github
+          CSM_MODSETS_SOURCE_PATH: csm-modsets.md
+          CSM_MODSETS_TARGET_FILE: csm-modsets.md
         with:
           script: |
             const fs = require('fs');
@@ -31,8 +35,13 @@ jobs:
             const targetDir = process.env.TARGET_DIR;
             const docsDir = process.env.DOCS_DIR;
             const minChineseChars = parseInt(process.env.MIN_CHINESE_CHARS, 10);
+            const csmModsetsSourceOwner = process.env.CSM_MODSETS_SOURCE_OWNER;
+            const csmModsetsSourceRepo = process.env.CSM_MODSETS_SOURCE_REPO;
+            const csmModsetsSourcePath = process.env.CSM_MODSETS_SOURCE_PATH;
+            const csmModsetsTargetFile = process.env.CSM_MODSETS_TARGET_FILE;
             const absoluteTargetDir = path.join(process.env.GITHUB_WORKSPACE, targetDir);
             const absoluteDocsDir = path.join(process.env.GITHUB_WORKSPACE, docsDir);
+            const csmModsetsTargetPath = path.join(absoluteDocsDir, csmModsetsTargetFile);
             const tempTargetDir = `${absoluteTargetDir}.tmp`;
             const backupTargetDir = `${absoluteTargetDir}.bak-${Date.now()}`;
 
@@ -57,6 +66,21 @@ jobs:
             const collator = Intl.Collator.supportedLocalesOf(['zh-CN']).length
               ? new Intl.Collator('zh-CN', { sensitivity: 'base' })
               : new Intl.Collator('en', { sensitivity: 'base' });
+            const fetchRawFile = async (owner, repo, filePath) => {
+              const response = await github.request('GET /repos/{owner}/{repo}/contents/{path}', {
+                owner,
+                repo,
+                path: filePath,
+                headers: { accept: 'application/vnd.github.raw' },
+              });
+              if (typeof response.data === 'string') return response.data;
+              if (response.data && typeof response.data.content === 'string') {
+                return response.data.encoding === 'base64'
+                  ? Buffer.from(response.data.content, 'base64').toString('utf8')
+                  : response.data.content;
+              }
+              return '';
+            };
 
             // Topic-based grouping. Order matters: first matching group wins.
             const groups = [
@@ -324,6 +348,32 @@ jobs:
               fs.writeFileSync(docsIndexPath, docsIndex, 'utf8');
               core.info('Created content/docs/_index.md');
             }
+
+            const csmModsetsRaw = await fetchRawFile(
+              csmModsetsSourceOwner,
+              csmModsetsSourceRepo,
+              csmModsetsSourcePath
+            );
+            const csmModsetsContent = String(csmModsetsRaw || '').replace(/^\uFEFF/, '').trim();
+            if (!csmModsetsContent) {
+              throw new Error(`Fetched empty content from ${csmModsetsSourceOwner}/${csmModsetsSourceRepo}/${csmModsetsSourcePath}`);
+            }
+            const csmModsetsPage = [
+              '---',
+              "title: 'CSM Modsets 列表'",
+              "description: '自动同步 NEVSTOP-LAB/.github 仓库中的 csm-modsets 清单，汇总所有公开 csm-modsets 主题仓库并每日更新。'",
+              'draft: false',
+              'weight: 45',
+              '---',
+              '',
+              '> 本页面由工作流每日自动同步，源文件：[`NEVSTOP-LAB/.github/csm-modsets.md`](https://github.com/NEVSTOP-LAB/.github/blob/main/csm-modsets.md)。',
+              '> 如需修正列表内容，请优先修改上游源文件。',
+              '',
+              csmModsetsContent,
+              '',
+            ].join('\n');
+            fs.writeFileSync(csmModsetsTargetPath, csmModsetsPage, 'utf8');
+            core.info(`Synced ${docsDir}/${csmModsetsTargetFile} from ${csmModsetsSourceOwner}/${csmModsetsSourceRepo}/${csmModsetsSourcePath}`);
 
             core.info(`Imported ${imported.length} Chinese README file(s).`);
 
