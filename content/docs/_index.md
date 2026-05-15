@@ -35,6 +35,7 @@ NEVSTOP-LAB 站点的文档区域。当前提供以下内容：
 ## 站内资料
 
 - [仓库 README 列表](/docs/repo-readmes/) —— 自动同步组织内 public 仓库的中文 README，按主题分组浏览。
+- [CSM Modsets 列表](/docs/csm-modsets/) —— 自动同步 `NEVSTOP-LAB/.github` 的 `csm-modsets.md`，每日更新 CSM 复用模块仓库清单。
 - [博客](/blog/) —— 团队的实践笔记与经验分享。
 - [关于 NEVSTOP-LAB](/about/) —— CSM 生态、社区与 AI-Wiki 机制总览。
 

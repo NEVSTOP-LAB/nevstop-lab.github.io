@@ -48,7 +48,7 @@ description: 维护 NEVSTOP-LAB 组织官网（Hugo + Doks，仓库 NEVSTOP-LAB/
 | 构建 | `.github/workflows/hugo.yml`，push 到 `main` 自动部署 |
 | 技术栈 | Hugo Extended + Doks（Hugo Module：`github.com/thuliteio/doks`，在 `hugo.toml` 中 import；npm 依赖：`@thulite/doks-core` 等 `@thulite/*` 包，通过 `[module] mounts` 从 `node_modules` 提供 `layouts/assets/i18n/...`，二者缺一不可） |
 | 语言 | 仅 `zh-cn`，`hugo.toml` 用 `disableLanguages` 关掉其他语言 |
-| 内容来源 | ① 手写：`content/_index.md`、`content/about/_index.md`、`content/docs/_index.md`、`content/blog/`<br>② 自动：`content/docs/repo-readmes/`，每天 02:00 UTC 由 `.github/workflows/sync-chinese-readmes.yml` 全量重建 |
+| 内容来源 | ① 手写：`content/_index.md`、`content/about/_index.md`、`content/docs/_index.md`、`content/blog/`<br>② 自动：`content/docs/repo-readmes/`，每天 02:00 UTC 由 `.github/workflows/sync-chinese-readmes.yml` 全量重建<br>③ 自动：`content/docs/csm-modsets.md`，每天 02:00 UTC 由 `.github/workflows/sync-chinese-readmes.yml` 从 `NEVSTOP-LAB/.github/csm-modsets.md` 同步 |
 | 自定义模板 | `layouts/home.html`（首页）、`layouts/list.html`（去掉 docs 自动 card-list）、`assets/scss/common/_custom.scss`（自定义样式） |
 | 数据源依据 | 组织主页 `NEVSTOP-LAB/.github/profile/README.md`（**权威来源**，三段式：CSM Framework / 社区 / AI-Wiki）<br>组织内 public 仓库的中文 README（由同步 workflow 拉取） |
 
@@ -63,6 +63,7 @@ description: 维护 NEVSTOP-LAB 组织官网（Hugo + Doks，仓库 NEVSTOP-LAB/
 | `layouts/home.html` 中 CSM 生态分组卡（核心 / 工具 / 应用） | 组织内 public 仓库列表 + `topics` + 当前活跃度 | **半手动**（看仓库列表后调整 home.html 中硬编码的卡片清单） |
 | `content/docs/repo-readmes/*.md` | 各 public 仓库的中文 README（`README_zh*.md` / `README.zh*.md`，回退到 `README.md`） | **自动**，每天 02:00 UTC 由 `sync-chinese-readmes.yml` 全量重建 |
 | `content/docs/repo-readmes/_index.md` 分组索引 | 仓库 metadata（name / description / language / stars / topics） | **自动**，同上 workflow |
+| `content/docs/csm-modsets.md` | `NEVSTOP-LAB/.github/csm-modsets.md` | **自动**，每天 02:00 UTC 由 `sync-chinese-readmes.yml` 覆盖更新 |
 | `content/blog/` | 用户/团队提供的新内容 | **手动** |
 | `menu.main` 外链（CSM-Wiki / Discussion / 知乎 / GitHub Org） | 组织实际维护的外部链接 | **手动**（链接变了才动） |
 
@@ -77,6 +78,7 @@ description: 维护 NEVSTOP-LAB 组织官网（Hugo + Doks，仓库 NEVSTOP-LAB/
 | `content/_index.md` | 首页 lead/front matter |
 | `content/about/_index.md` | 组织介绍，镜像 `NEVSTOP-LAB/.github/profile/README.md` |
 | `content/docs/_index.md` | 文档入口 |
+| `content/docs/csm-modsets.md` | CSM Modsets 仓库列表页（自动同步） |
 | `content/docs/repo-readmes/` | **自动生成**目录，**禁止手工编辑** |
 | `.github/workflows/sync-chinese-readmes.yml` | 每日同步逻辑（要改输出格式就改这个，不要改生成结果） |
 | `.github/workflows/hugo.yml` | 构建 + 部署 |
@@ -108,10 +110,11 @@ description: 维护 NEVSTOP-LAB 组织官网（Hugo + Doks，仓库 NEVSTOP-LAB/
    `csm-apps` / `csm-core` / `labview-libs` / `lvcicd` / `ai-tools` / `examples` / `other`
    分组逻辑见 `sync-chinese-readmes.yml` 的 `groups` 数组。
 7. **图片重写**：同步时把相对路径图片改写成 `https://raw.githubusercontent.com/<full_name>/<default_branch>/<src>`。**不要让相对路径图片漏到站点里**（PR #4 修了相关 crash）。
-8. **Bootstrap 是 16 列网格（不是 12）。** Doks 把 Bootstrap 改成了 16 列。`col-12 = 75%`、`col-md-6 = 37.5%`、`col-lg-4 = 25%`、`col-16 = 100%`。写自定义布局（首页卡片、footer 等）时每行宽度必须按 16 累加，否则会出现"右侧留 25% 空白"的对不齐（PR #10、#11、#12 反复栽过）。
-9. **每次改动后必须本地构建验证**：`npm ci && hugo --gc --minify`，绝不允许 `error building site`。`WARN Description too short` 是 SEO 提示，可忽略。
-10. **任何对自动同步逻辑的扩展，必须先在 `AGENTS.md` 追加约定**，再写实现，避免下一个 LLM 再走一遍弯路。
-11. **不要新增多语言** —— `disableLanguages` 关掉了 en/de/nl/fr/es，开启会让构建从 47 页膨胀到 4×47 页且全是空白。
+8. **CSM Modsets 页面要持续维护**：`content/docs/csm-modsets.md` 是自动同步页，源头固定为 `NEVSTOP-LAB/.github/csm-modsets.md`，后续任何站点维护都要检查该页面入口与同步是否正常。
+9. **Bootstrap 是 16 列网格（不是 12）。** Doks 把 Bootstrap 改成了 16 列。`col-12 = 75%`、`col-md-6 = 37.5%`、`col-lg-4 = 25%`、`col-16 = 100%`。写自定义布局（首页卡片、footer 等）时每行宽度必须按 16 累加，否则会出现"右侧留 25% 空白"的对不齐（PR #10、#11、#12 反复栽过）。
+10. **每次改动后必须本地构建验证**：`npm ci && hugo --gc --minify`，绝不允许 `error building site`。`WARN Description too short` 是 SEO 提示，可忽略。
+11. **任何对自动同步逻辑的扩展，必须先在 `AGENTS.md` 追加约定**，再写实现，避免下一个 LLM 再走一遍弯路。
+12. **不要新增多语言** —— `disableLanguages` 关掉了 en/de/nl/fr/es，开启会让构建从 47 页膨胀到 4×47 页且全是空白。
 
 ---
 
@@ -181,10 +184,11 @@ hugo --gc --minify
 
 ### Pattern B — 「内容同步：调整自动同步 workflow」🟢 主任务
 
-适用于：组织新增 / 下线 / 重命名了仓库 → 分组关键字需要更新；想往 README 列表里多展示一个 metadata 字段；图片在某些仓库渲染失败；同步出来的 README 排序 / 分组不准确。
+适用于：组织新增 / 下线 / 重命名了仓库 → 分组关键字需要更新；想往 README 列表里多展示一个 metadata 字段；图片在某些仓库渲染失败；同步出来的 README 排序 / 分组不准确；或 `csm-modsets` 页面同步规则需调整。
 
 清单：
 - [ ] 只改 `.github/workflows/sync-chinese-readmes.yml`，**禁止**直接编辑 `content/docs/repo-readmes/*.md`（下次同步会被覆盖）。
+- [ ] `content/docs/csm-modsets.md` 也是自动同步页；需要改内容时改 workflow 或源仓库 `.github/csm-modsets.md`，不要在站点仓库手工长期维护正文。
 - [ ] 改动前先在 `AGENTS.md` 追加新约定（硬规则）。
 - [ ] 新分组写入 `groups` 数组，注意 **first match wins**，更窄的规则要排前面。
 - [ ] 所有写入 front matter 的字段都要走 `escapeYamlSingleQuoted`，否则带引号 / 换行会炸 YAML。
@@ -250,4 +254,4 @@ hugo --gc --minify
 
 如果只能传一段话给下一个接手这个站点的 LLM，把下面这段贴给它：
 
-> 你正在维护 NEVSTOP-LAB 的 Hugo + Doks 站点 (`NEVSTOP-LAB/nevstop-lab.github.io`)，**核心任务是让站点内容与组织最新状态保持同步**（profile README、组织 public 仓库列表、新博客 / 公告），不是做样式美化。**先用 `skill: maintain-nevstop-lab-site` 调起本 skill，再阅读 `AGENTS.md`**，然后才动代码。标准动作：① 先抓权威来源（`NEVSTOP-LAB/.github/profile/README.md` + 组织仓库列表）做 diff，列出要回写的更新点；② 手写内容只改 `content/_index.md` / `content/about/_index.md` / `content/docs/_index.md` / `content/blog/`；③ `content/docs/repo-readmes/` 由 `.github/workflows/sync-chinese-readmes.yml` 全量生成，要改改 workflow 而不是改生成结果；④ 自动同步 front matter 用 `topics:` 而非 `tags:`，否则 Doks `term.html` 构建失败；⑤ 主菜单 + 首页导航卡必须闭环；⑥ 自定义 `col-*` 按 16 列网格累加；⑦ 改完跑 `npm ci && hugo --gc --minify` 确认无 `error building site`；⑧ 完成后调用 `create_pull_request` 自动开 PR，description 里复述"对齐了源头的哪些更新"。
+> 你正在维护 NEVSTOP-LAB 的 Hugo + Doks 站点 (`NEVSTOP-LAB/nevstop-lab.github.io`)，**核心任务是让站点内容与组织最新状态保持同步**（profile README、组织 public 仓库列表、新博客 / 公告、`csm-modsets` 页面），不是做样式美化。**先用 `skill: maintain-nevstop-lab-site` 调起本 skill，再阅读 `AGENTS.md`**，然后才动代码。标准动作：① 先抓权威来源（`NEVSTOP-LAB/.github/profile/README.md` + 组织仓库列表 + `NEVSTOP-LAB/.github/csm-modsets.md`）做 diff，列出要回写的更新点；② 手写内容只改 `content/_index.md` / `content/about/_index.md` / `content/docs/_index.md` / `content/blog/`；③ `content/docs/repo-readmes/` 与 `content/docs/csm-modsets.md` 由 `.github/workflows/sync-chinese-readmes.yml` 自动同步，要改改 workflow 或上游源文件而不是改生成结果；④ 自动同步 front matter 用 `topics:` 而非 `tags:`，否则 Doks `term.html` 构建失败；⑤ 主菜单 + 首页导航卡必须闭环；⑥ 自定义 `col-*` 按 16 列网格累加；⑦ 改完跑 `npm ci && hugo --gc --minify` 确认无 `error building site`；⑧ 完成后调用 `create_pull_request` 自动开 PR，description 里复述"对齐了源头的哪些更新"。
