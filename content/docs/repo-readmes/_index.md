@@ -69,8 +69,8 @@ LabVIEW 持续集成相关的 GitHub Actions / VIPM 工具。
 
 与 AI、跨仓库同步、Python / C# 等相关的工具型仓库。
 
-- [**vsc-labview-vi-support**](/docs/repo-readmes/vsc-labview-vi-support/) — vsc-labview-vi-support 中文 README：LabVIEW VI VSCode Support。Python · AI 与跨平台工具。收录项目简介、使用方式与相关资源。
-  `Python` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/vsc-labview-vi-support)
+- [**vsc-labview-vi-support**](/docs/repo-readmes/vsc-labview-vi-support/) — vsc-labview-vi-support 中文 README：LabVIEW VI VSCode Support。VBScript · AI 与跨平台工具。收录项目简介、使用方式与相关资源。
+  `VBScript` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/vsc-labview-vi-support)
 
 ## 示例与演示
 
