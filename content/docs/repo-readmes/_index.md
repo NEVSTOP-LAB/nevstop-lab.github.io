@@ -12,7 +12,7 @@ draft: false
 基于 CSM 的应用范例、复用模块（csm-modsets）与示例工程。
 
 - [**CSMScript-Lite**](/docs/repo-readmes/csmscript-lite/) — CSMScript-Lite 中文 README：CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本。LabVIEW · CSM 应用与...
-  `LabVIEW` · ⭐ 18 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
+  `LabVIEW` · ⭐ 19 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
 - [**CSM-ModSets-FileSync**](/docs/repo-readmes/csm-modsets-filesync/) — CSM-ModSets-FileSync 中文 README：基于 CSM 的文件同步模块。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
   `LabVIEW` · ⭐ 4 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync)
 
