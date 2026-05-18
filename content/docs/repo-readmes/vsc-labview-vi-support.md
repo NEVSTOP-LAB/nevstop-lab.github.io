@@ -1,18 +1,18 @@
 ---
 title: 'vsc-labview-vi-support'
 linkTitle: 'vsc-labview-vi-support'
-description: 'vsc-labview-vi-support 中文 README：LabVIEW VI VSCode Support。VBScript · AI 与跨平台工具。收录项目简介、使用方式与相关资源。'
+description: 'vsc-labview-vi-support 中文 README：LabVIEW VI VSCode Support。TypeScript · AI 与跨平台工具。收录项目简介、使用方式与相关资源。'
 weight: 0
 draft: false
 repo_name: 'NEVSTOP-LAB/vsc-labview-vi-support'
 repo_url: 'https://github.com/NEVSTOP-LAB/vsc-labview-vi-support'
-repo_language: 'VBScript'
+repo_language: 'TypeScript'
 repo_stars: 0
 repo_group: 'ai-tools'
 topics: ['ai', 'labview', 'skills', 'vscode']
 ---
 
-> **NEVSTOP-LAB/vsc-labview-vi-support** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/vsc-labview-vi-support) · 语言：`VBScript` · ⭐ 0
+> **NEVSTOP-LAB/vsc-labview-vi-support** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/vsc-labview-vi-support) · 语言：`TypeScript` · ⭐ 0
 >
 > LabVIEW VI VSCode Support
 >
@@ -43,6 +43,7 @@ topics: ['ai', 'labview', 'skills', 'vscode']
 | [.doc/README.md](.doc/README.md) | 完整使用说明（安装、功能、配置、常见问题） |
 | [.doc/CONTRIBUTING.md](.doc/CONTRIBUTING.md) | 开发者贡献指南（搭建环境、代码规范、测试、发布） |
 | [.doc/architecture.md](.doc/architecture.md) | 架构说明（模块设计、数据流、缓存机制） |
+| [.doc/vi-server-backup-plan.html](.doc/vi-server-backup-plan.html) | “VI Server 替代 COM”调研结论与备份实施建议 |
 | [.doc/CHANGELOG.md](.doc/CHANGELOG.md) | 文档变更记录 |
 
 ## 快速开始
