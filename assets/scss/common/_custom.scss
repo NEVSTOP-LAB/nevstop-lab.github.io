@@ -185,6 +185,27 @@ $site-content-max-width: 1320px;
     background-color: rgba(255, 255, 255, 0.12);
 }
 
+// --- 语言切换器：翻译进行中 spinner ------------------------------------------
+@keyframes site-lang-spin {
+    to { transform: rotate(360deg); }
+}
+
+.site-language-spinner {
+    display: none;
+    width: 0.875rem;
+    height: 0.875rem;
+    border: 1.5px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: site-lang-spin 0.65s linear infinite;
+    flex-shrink: 0;
+    opacity: 0.7;
+}
+
+.site-language-switcher[aria-busy="true"] .site-language-spinner {
+    display: inline-block;
+}
+
 // --- 卡片悬浮提升 -----------------------------------------------------------
 // 仅作用于首页 / 列表 / 文档卡片，避免影响 search-result 等内嵌卡片
 section.section .card.shadow-sm,

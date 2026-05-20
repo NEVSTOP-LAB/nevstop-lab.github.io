@@ -163,6 +163,16 @@ function flashLanguageFeedback(message) {
   }, 3000);
 }
 
+function setTranslationBusy(busy) {
+  const switcher = document.getElementById(languageSwitcherId);
+  if (!switcher) return;
+  if (busy) {
+    switcher.setAttribute('aria-busy', 'true');
+  } else {
+    switcher.removeAttribute('aria-busy');
+  }
+}
+
 async function applyLanguage(languageKey) {
   const normalizedLanguageKey = normalizeLanguageKey(languageKey);
   const language = languages[normalizedLanguageKey];
@@ -171,12 +181,15 @@ async function applyLanguage(languageKey) {
     return setLanguageState(normalizedLanguageKey);
   }
 
+  setTranslationBusy(true);
   try {
     const translate = await loadTranslate();
     await translate.changeLanguage(language.code);
   } catch (error) {
     flashLanguageFeedback('翻译失败');
     throw new Error(`Failed to execute translate.changeLanguage for ${normalizedLanguageKey}: ${error?.message || error}`);
+  } finally {
+    setTranslationBusy(false);
   }
 
   return setLanguageState(normalizedLanguageKey);
