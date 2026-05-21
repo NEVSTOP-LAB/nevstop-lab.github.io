@@ -285,24 +285,9 @@ function closeLanguageSwitcherMenu() {
   document.querySelector('#siteLanguageSwitcher .dropdown-menu')?.classList.remove('show');
 }
 
-function keepLanguageSwitcherMenuOpen() {
-  const toggle = document.getElementById('siteLanguageSwitcherToggle');
-  if (!toggle) return;
-
-  const dropdown = window.bootstrap?.Dropdown?.getOrCreateInstance?.(toggle);
-  if (dropdown) {
-    dropdown.show();
-    return;
-  }
-
-  toggle.setAttribute('aria-expanded', 'true');
-  document.querySelector('#siteLanguageSwitcher .dropdown-menu')?.classList.add('show');
-}
-
-async function applyLanguage(languageKey, options = {}) {
+async function applyLanguage(languageKey) {
   const normalizedLanguageKey = normalizeLanguageKey(languageKey);
   const language = languages[normalizedLanguageKey];
-  const { showMenuProcessing = false } = options;
 
   if (normalizedLanguageKey === defaultLanguage) {
     if (!window.translate) {
@@ -314,13 +299,6 @@ async function applyLanguage(languageKey, options = {}) {
   setSwitcherState(normalizedLanguageKey);
   pendingLanguageKey = normalizedLanguageKey;
   setTranslationBusy(true);
-  if (showMenuProcessing) {
-    window.requestAnimationFrame(() => {
-      if (pendingLanguageKey === normalizedLanguageKey) {
-        keepLanguageSwitcherMenuOpen();
-      }
-    });
-  }
   const busyStartedAt = window.performance?.now?.() || Date.now();
   try {
     await loadTranslate();
@@ -350,10 +328,8 @@ function initLanguageSwitcher() {
     event.preventDefault();
     event.stopPropagation();
     const previousLanguage = getStoredLanguage();
-    applyLanguage(option.dataset.siteLanguage, { showMenuProcessing: true })
-      .then(() => {
-        closeLanguageSwitcherMenu();
-      })
+    closeLanguageSwitcherMenu();
+    applyLanguage(option.dataset.siteLanguage)
       .catch((error) => {
         console.warn('Failed to switch site language.', error);
         if (previousLanguage === defaultLanguage) {
