@@ -128,6 +128,7 @@ $site-content-max-width: 1320px;
         border-radius: 999px;
         background-color: rgba(13, 110, 253, 0.04);
         color: var(--bs-body-color);
+        white-space: nowrap;
         text-decoration: none;
         transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 
@@ -162,12 +163,33 @@ $site-content-max-width: 1320px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 0.5rem;
 
         &.active::after {
             content: "✓";
             color: var(--bs-primary);
             font-weight: 700;
         }
+
+        &.is-processing {
+            cursor: wait;
+        }
+    }
+
+    .site-language-option-processing {
+        display: none;
+        align-items: center;
+        gap: 0.3rem;
+        color: var(--bs-primary);
+        font-size: 0.72rem;
+        font-weight: 600;
+        line-height: 1;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .site-language-option.is-processing .site-language-option-processing {
+        display: inline-flex;
     }
 }
 
@@ -185,25 +207,48 @@ $site-content-max-width: 1320px;
     background-color: rgba(255, 255, 255, 0.12);
 }
 
+[data-bs-theme="dark"] .site-language-switcher .site-language-option-processing {
+    color: rgba(255, 255, 255, 0.92);
+}
+
 // --- 语言切换器：翻译进行中 spinner ------------------------------------------
 @keyframes site-lang-spin {
     to { transform: rotate(360deg); }
 }
 
-.site-language-spinner {
+.site-language-processing {
     display: none;
-    width: 0.875rem;
-    height: 0.875rem;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.125rem 0.4rem;
+    border-radius: 999px;
+    background-color: rgba(13, 110, 253, 0.1);
+    color: var(--bs-primary);
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.site-language-spinner {
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
     border: 1.5px solid currentColor;
     border-right-color: transparent;
     border-radius: 50%;
     animation: site-lang-spin 0.65s linear infinite;
-    flex-shrink: 0;
     opacity: 0.7;
 }
 
-.site-language-switcher[aria-busy="true"] .site-language-spinner {
-    display: inline-block;
+.site-language-switcher[aria-busy="true"] .site-language-processing {
+    display: inline-flex;
+}
+
+[data-bs-theme="dark"] .site-language-switcher .site-language-processing {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.92);
 }
 
 // --- 卡片悬浮提升 -----------------------------------------------------------

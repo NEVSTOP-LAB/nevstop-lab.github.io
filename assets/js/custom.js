@@ -7,6 +7,8 @@ const translateScriptPath = '../vendor/translate/translate.min.js';
 const sourceLanguage = 'chinese_simplified';
 const defaultLanguage = 'zh';
 const languageSwitcherLabel = '切换语言 / Switch language';
+const minimumTranslationIndicatorMs = 600;
+const translationCompletionTimeoutMs = 20000;
 
 const languages = {
   zh: {
@@ -23,12 +25,26 @@ const languages = {
 
 let translateLoader;
 let translateScriptSrc;
+let pendingLanguageKey;
 
 function readStoredLanguage() {
   try {
     return window.localStorage.getItem(languageStorageKey);
   } catch {
     return null;
+  }
+}
+
+function waitFor(ms) {
+  return new Promise((resolve) => {
+    window.setTimeout(resolve, ms);
+  });
+}
+
+function removeHook(list, hook) {
+  const index = list.indexOf(hook);
+  if (index !== -1) {
+    list.splice(index, 1);
   }
 }
 
@@ -65,7 +81,11 @@ function setSwitcherState(languageKey) {
   const switcher = document.getElementById(languageSwitcherId);
   if (!switcher) return;
 
-  switcher.querySelector('[data-language-current]').textContent = languages[normalizedLanguageKey].label;
+  const current = switcher.querySelector('[data-language-current]');
+  if (current) {
+    current.textContent = languages[normalizedLanguageKey].label;
+    current.style.color = '';
+  }
   switcher.querySelector('.site-language-toggle')?.setAttribute('aria-label', languageSwitcherLabel);
 
   switcher.querySelectorAll('[data-site-language]').forEach((item) => {
@@ -81,7 +101,8 @@ function configureTranslate() {
 
   // translate.js uses setLocal for the source language.
   translate.language?.setLocal(sourceLanguage);
-  translate.service?.use('giteeai');
+  // The bundled giteeai channel is unreliable on localhost previews; Edge is more stable here.
+  translate.service?.use('client.edge');
 
   const ignoreClass = translate.ignore?.class;
   if (Array.isArray(ignoreClass)) {
@@ -98,6 +119,66 @@ function configureTranslate() {
   }
 
   translate.listener?.start();
+}
+
+function waitForTranslationRender(targetCode) {
+  const { translate } = window;
+  if (!translate?.lifecycle?.execute) {
+    return Promise.reject(new Error('translate.js lifecycle hooks unavailable.'));
+  }
+
+  return new Promise((resolve, reject) => {
+    let executionUuid;
+    let failureMessage;
+
+    const cleanup = () => {
+      window.clearTimeout(timeoutId);
+      removeHook(translate.lifecycle.execute.start, startHook);
+      removeHook(translate.lifecycle.execute.translateNetworkAfter, networkAfterHook);
+      removeHook(translate.lifecycle.execute.renderFinish, renderFinishHook);
+    };
+
+    const startHook = (event) => {
+      if (event?.to === targetCode && !executionUuid) {
+        executionUuid = event.uuid;
+      }
+    };
+
+    const networkAfterHook = (event) => {
+      if (event?.to !== targetCode) return;
+      if (executionUuid && event.uuid !== executionUuid) return;
+      if (event.result !== 1 && !failureMessage) {
+        failureMessage = event.info || `Translation request failed for ${event.from} -> ${event.to}.`;
+      }
+    };
+
+    const renderFinishHook = (uuid, to) => {
+      if (to !== targetCode) return;
+      if (executionUuid && uuid !== executionUuid) return;
+      cleanup();
+      if (failureMessage) {
+        reject(new Error(failureMessage));
+        return;
+      }
+      resolve();
+    };
+
+    const timeoutId = window.setTimeout(() => {
+      cleanup();
+      reject(new Error(`Timed out waiting for translation render for ${targetCode}.`));
+    }, translationCompletionTimeoutMs);
+
+    translate.lifecycle.execute.start.push(startHook);
+    translate.lifecycle.execute.translateNetworkAfter.push(networkAfterHook);
+    translate.lifecycle.execute.renderFinish.push(renderFinishHook);
+
+    try {
+      translate.changeLanguage(targetCode);
+    } catch (error) {
+      cleanup();
+      reject(error);
+    }
+  });
 }
 
 function loadTranslate() {
@@ -158,7 +239,9 @@ function flashLanguageFeedback(message) {
   current.textContent = message;
   current.style.color = 'var(--bs-danger, #dc3545)';
   setTimeout(() => {
-    current.textContent = original;
+    if (current.textContent === message) {
+      current.textContent = original;
+    }
     current.style.color = '';
   }, 3000);
 }
@@ -166,6 +249,12 @@ function flashLanguageFeedback(message) {
 function setTranslationBusy(busy) {
   const switcher = document.getElementById(languageSwitcherId);
   if (!switcher) return;
+  switcher.querySelectorAll('[data-site-language]').forEach((item) => {
+    item.disabled = busy;
+    const isPending = busy && item.dataset.siteLanguage === pendingLanguageKey;
+    item.classList.toggle('is-processing', isPending);
+    item.setAttribute('aria-busy', isPending ? 'true' : 'false');
+  });
   if (busy) {
     switcher.setAttribute('aria-busy', 'true');
   } else {
@@ -173,22 +262,78 @@ function setTranslationBusy(busy) {
   }
 }
 
-async function applyLanguage(languageKey) {
-  const normalizedLanguageKey = normalizeLanguageKey(languageKey);
-  const language = languages[normalizedLanguageKey];
+function restoreSourceLanguage() {
+  try {
+    window.translate?.changeLanguage(sourceLanguage);
+  } catch {
+    // Ignore restore failures and keep the original label state.
+  }
+  return setLanguageState(defaultLanguage);
+}
 
-  if (normalizedLanguageKey === defaultLanguage && !window.translate) {
-    return setLanguageState(normalizedLanguageKey);
+function closeLanguageSwitcherMenu() {
+  const toggle = document.getElementById('siteLanguageSwitcherToggle');
+  if (!toggle) return;
+
+  const dropdown = window.bootstrap?.Dropdown?.getOrCreateInstance?.(toggle);
+  if (dropdown) {
+    dropdown.hide();
+    return;
   }
 
+  toggle.setAttribute('aria-expanded', 'false');
+  document.querySelector('#siteLanguageSwitcher .dropdown-menu')?.classList.remove('show');
+}
+
+function keepLanguageSwitcherMenuOpen() {
+  const toggle = document.getElementById('siteLanguageSwitcherToggle');
+  if (!toggle) return;
+
+  const dropdown = window.bootstrap?.Dropdown?.getOrCreateInstance?.(toggle);
+  if (dropdown) {
+    dropdown.show();
+    return;
+  }
+
+  toggle.setAttribute('aria-expanded', 'true');
+  document.querySelector('#siteLanguageSwitcher .dropdown-menu')?.classList.add('show');
+}
+
+async function applyLanguage(languageKey, options = {}) {
+  const normalizedLanguageKey = normalizeLanguageKey(languageKey);
+  const language = languages[normalizedLanguageKey];
+  const { showMenuProcessing = false } = options;
+
+  if (normalizedLanguageKey === defaultLanguage) {
+    if (!window.translate) {
+      return setLanguageState(normalizedLanguageKey);
+    }
+    return restoreSourceLanguage();
+  }
+
+  setSwitcherState(normalizedLanguageKey);
+  pendingLanguageKey = normalizedLanguageKey;
   setTranslationBusy(true);
+  if (showMenuProcessing) {
+    window.requestAnimationFrame(() => {
+      if (pendingLanguageKey === normalizedLanguageKey) {
+        keepLanguageSwitcherMenuOpen();
+      }
+    });
+  }
+  const busyStartedAt = window.performance?.now?.() || Date.now();
   try {
-    const translate = await loadTranslate();
-    await translate.changeLanguage(language.code);
+    await loadTranslate();
+    await waitForTranslationRender(language.code);
   } catch (error) {
     flashLanguageFeedback('翻译失败');
     throw new Error(`Failed to execute translate.changeLanguage for ${normalizedLanguageKey}: ${error?.message || error}`);
   } finally {
+    const busyElapsedMs = (window.performance?.now?.() || Date.now()) - busyStartedAt;
+    if (busyElapsedMs < minimumTranslationIndicatorMs) {
+      await waitFor(minimumTranslationIndicatorMs - busyElapsedMs);
+    }
+    pendingLanguageKey = undefined;
     setTranslationBusy(false);
   }
 
@@ -202,11 +347,21 @@ function initLanguageSwitcher() {
   switcher.addEventListener('click', (event) => {
     const option = event.target.closest('[data-site-language]');
     if (!option) return;
+    event.preventDefault();
+    event.stopPropagation();
     const previousLanguage = getStoredLanguage();
-    applyLanguage(option.dataset.siteLanguage).catch((error) => {
-      console.warn('Failed to switch site language.', error);
-      setLanguageState(previousLanguage);
-    });
+    applyLanguage(option.dataset.siteLanguage, { showMenuProcessing: true })
+      .then(() => {
+        closeLanguageSwitcherMenu();
+      })
+      .catch((error) => {
+        console.warn('Failed to switch site language.', error);
+        if (previousLanguage === defaultLanguage) {
+          restoreSourceLanguage();
+        } else {
+          setLanguageState(previousLanguage);
+        }
+      });
   });
 
   const preferredLanguage = getStoredLanguage();
