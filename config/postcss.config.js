@@ -29,6 +29,7 @@ const purgecss = purgeCSSPlugin({
   ],
   safelist: [
     "active",
+    "is-processing",
     "btn-clipboard",
     "clipboard",
     "disabled",
