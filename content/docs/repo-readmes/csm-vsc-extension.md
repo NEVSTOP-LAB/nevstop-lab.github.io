@@ -37,6 +37,8 @@ topics: ['labview-csm', 'typescript', 'vscode']
 
 ## 功能特性
 
+- ✅ 本地化：支持根据 VS Code 显示语言在中文 / English 间切换
+
 ### `.csmlog` 文件支持
 
 - ✅ 事件类型高亮（Error、User Log、Sync/Async Message、State Change 等）
@@ -53,10 +55,32 @@ topics: ['labview-csm', 'typescript', 'vscode']
 - ✅ Outline 大纲（INI 节 `[section]` 作为大纲条目）
 - ✅ 默认开启 `files.autoGuessEncoding`，降低 GBK/GB2312 文件乱码风险
 
+### CSM 模块管理
+
+侧边栏 `CSM Modules` 视图，用于浏览、搜索和管理 CSM 模块仓库：
+
+- ✅ 浏览 GitHub 上满足 `topic:csm-modsets` 的公开模块及当前账号可访问的私有模块
+- ✅ 卡片式列表，支持内联 README 预览
+- ✅ 支持按名称、owner、topic、分支等关键字搜索过滤，以及多维度排序
+- ✅ 支持 `submodule` / `copy` 两种方式将模块引入本地仓库
+- ✅ 支持批量选择与批量应用
+- ✅ 本地 YAML 配置文件（`csm/csm-modules.yaml`）记录已应用模块，支持自定义目录
+- ✅ 模块列表与 README 自动缓存，后台按时效刷新
+
+> 详细功能说明参见 [docs/module-management.md](docs/module-management.md)
+
+### 扩展设置
+
+- `csmModules.defaultModuleRoot`：默认值 `csm`，用于新仓库首次初始化时的默认模块根目录
+- `csmModules.cache.ttlMinutes`：默认值 `60`，控制模块列表缓存自动刷新的时间窗口（分钟）
+
 ## 文件图标主题
 
-- 扩展内置文件图标主题 **CSM File Icons**，为 `.csmlog` 与 `.lvcsm` 提供专用图标。
-- 可在 VS Code 中通过 `首选项 → 文件图标主题`（或命令面板执行 `Preferences: File Icon Theme`）选择 **CSM File Icons** 启用。
+扩展内置文件图标主题 **CSM File Icons**，为 `.csmlog` 与 `.lvcsm` 提供专用图标。可在 VS Code 中通过 `首选项 → 文件图标主题`（或命令面板执行 `Preferences: File Icon Theme`）选择 **CSM File Icons** 启用。
+
+## 开发贡献
+
+请参阅 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## 问题反馈
 
