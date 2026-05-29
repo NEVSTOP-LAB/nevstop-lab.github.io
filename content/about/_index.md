@@ -32,7 +32,7 @@ CSM Framework 的目标是成长为一个 **多语言支持的测试系统基础
 
 - [NEVSTOP-LAB 知乎专栏](https://www.zhihu.com/column/c_1770421455375126528) —— 组织信息发布的窗口
 - [NEVSTOP-LAB Organization](https://github.com/NEVSTOP-LAB) —— 组织具有开发能力的核心成员开发
-- [GitHub Discussion](https://github.com/orgs/NEVSTOP-LAB/discussions) —— 关于 LabVIEW / CSM / 项目设计的问答与讨论平台
+- [GitHub Discussion](https://github.com/orgs/NEVSTOP-LAB/discussions?discussions_q=) —— 关于 LabVIEW / CSM / 项目设计的问答与讨论平台
 
 ## AI-Wiki 机制
 
