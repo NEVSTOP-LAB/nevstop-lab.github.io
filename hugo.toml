@@ -61,6 +61,13 @@ disableLanguages = ["en", "de", "nl", "fr", "es"]
   weight = 40
 
 [[menu.main]]
+  name = "CSM-Wiki"
+  url = "https://nevstop-lab.github.io/CSM-Wiki/"
+  weight = 45
+  [menu.main.params]
+    external = true
+
+[[menu.main]]
   name = "博客"
   url = "/blog/"
   weight = 50
