@@ -67,7 +67,7 @@ disableLanguages = ["en", "de", "nl", "fr", "es"]
 
 [[menu.main]]
   name = "社区讨论"
-  url = "https://github.com/orgs/NEVSTOP-LAB/discussions"
+  url = "https://github.com/orgs/NEVSTOP-LAB/discussions?discussions_q="
   weight = 60
   [menu.main.params]
     external = true
