@@ -5,14 +5,14 @@ draft: false
 ---
 
 自动同步自 [NEVSTOP-LAB 组织](https://github.com/NEVSTOP-LAB) 内 public 仓库的中文 README，
-当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **21** 个仓库，按主题分组如下：
+当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **22** 个仓库，按主题分组如下：
 
 ## CSM 应用与示例
 
 基于 CSM 的应用范例、复用模块（csm-modsets）与示例工程。
 
 - [**CSMScript-Lite**](/docs/repo-readmes/csmscript-lite/) — CSMScript-Lite 中文 README：CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本。LabVIEW · CSM 应用与...
-  `LabVIEW` · ⭐ 20 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
+  `LabVIEW` · ⭐ 21 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
 - [**CSM-ModSets-FileSync**](/docs/repo-readmes/csm-modsets-filesync/) — CSM-ModSets-FileSync 中文 README：基于 CSM 的文件同步模块。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
   `LabVIEW` · ⭐ 4 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync)
 - [**CSM-Module-Repo-Template**](/docs/repo-readmes/csm-module-repo-template/) — CSM-Module-Repo-Template 中文 README：基于 CSM（可通信状态机） 框架的模块仓库模板。CSM 应用与示例。
@@ -62,6 +62,8 @@ LabVIEW 持续集成相关的 GitHub Actions / VIPM 工具。
 
 - [**GitHub-Gitee-Sync**](/docs/repo-readmes/github-gitee-sync/) — GitHub-Gitee-Sync 中文 README：Sync All the Repos(public/private) between Github and Gitee。Python · lvCICD 与自动化。
   `Python` · ⭐ 2 · [GitHub](https://github.com/NEVSTOP-LAB/GitHub-Gitee-Sync)
+- [**OrgRepoKanban**](/docs/repo-readmes/orgrepokanban/) — OrgRepoKanban 中文 README：管理组织中仓库权限。TypeScript · lvCICD 与自动化。收录项目简介、使用方式与相关资源。
+  `TypeScript` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/OrgRepoKanban)
 - [**Push-Files-to-Repo**](/docs/repo-readmes/push-files-to-repo/) — Push-Files-to-Repo 中文 README：一个通过 Pull Request 将文件或文件夹从一个仓库推送到另一个仓库的 GitHub Action。Shell · lvCICD...
   `Shell` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/Push-Files-to-Repo)
 
