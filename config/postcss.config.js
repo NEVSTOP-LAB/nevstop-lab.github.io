@@ -13,6 +13,7 @@ const purgecss = purgeCSSPlugin({
     return [...(els.tags || []), ...(els.classes || []), ...(els.ids || [])];
   },
   dynamicAttributes: [
+    "aria-busy",
     "aria-expanded",
     "data-bs-popper",
     "data-bs-target",
