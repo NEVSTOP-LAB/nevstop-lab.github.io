@@ -16,10 +16,45 @@ const languages = {
     documentLanguage: 'zh-CN',
     label: '简体中文',
   },
+  'zh-tw': {
+    code: 'chinese_traditional',
+    documentLanguage: 'zh-TW',
+    label: '繁體中文',
+  },
   en: {
     code: 'english',
     documentLanguage: 'en',
     label: 'English',
+  },
+  ja: {
+    code: 'japanese',
+    documentLanguage: 'ja',
+    label: '日本語',
+  },
+  ko: {
+    code: 'korean',
+    documentLanguage: 'ko',
+    label: '한국어',
+  },
+  fr: {
+    code: 'french',
+    documentLanguage: 'fr',
+    label: 'Français',
+  },
+  de: {
+    code: 'german',
+    documentLanguage: 'de',
+    label: 'Deutsch',
+  },
+  es: {
+    code: 'spanish',
+    documentLanguage: 'es',
+    label: 'Español',
+  },
+  ru: {
+    code: 'russian',
+    documentLanguage: 'ru',
+    label: 'Русский',
   },
 };
 
@@ -115,7 +150,7 @@ function configureTranslate() {
 
   if (translate.selectLanguageTag) {
     translate.selectLanguageTag.show = false;
-    translate.selectLanguageTag.languages = `${sourceLanguage},english`;
+    translate.selectLanguageTag.languages = `${sourceLanguage},chinese_traditional,english,japanese,korean,french,german,spanish,russian`;
   }
 
   translate.listener?.start();
