@@ -16,11 +16,6 @@ const languages = {
     documentLanguage: 'zh-CN',
     label: '简体中文',
   },
-  'zh-tw': {
-    code: 'chinese_traditional',
-    documentLanguage: 'zh-TW',
-    label: '繁體中文',
-  },
   en: {
     code: 'english',
     documentLanguage: 'en',
@@ -150,7 +145,7 @@ function configureTranslate() {
 
   if (translate.selectLanguageTag) {
     translate.selectLanguageTag.show = false;
-    translate.selectLanguageTag.languages = `${sourceLanguage},chinese_traditional,english,japanese,korean,french,german,spanish,russian`;
+    translate.selectLanguageTag.languages = `${sourceLanguage},english,japanese,korean,french,german,spanish,russian`;
   }
 
   translate.listener?.start();
@@ -182,7 +177,8 @@ function waitForTranslationRender(targetCode) {
     const networkAfterHook = (event) => {
       if (event?.to !== targetCode) return;
       if (executionUuid && event.uuid !== executionUuid) return;
-      if (event.result !== 1 && !failureMessage) {
+      // translate.js may emit non-numeric or positive statuses for completed requests; only <= 0 is treated as explicit failure.
+      if (typeof event?.result === 'number' && event.result <= 0 && !failureMessage) {
         failureMessage = event.info || `Translation request failed for ${event.from} -> ${event.to}.`;
       }
     };
