@@ -1,0 +1,78 @@
+{{- /* Custom sidebar for docs/repo-readmes: groups repos by repo_group with clickable headers. */}}
+{{- $currentPage := .currentPage }}
+{{- $sectionPages := .sectionPages }}
+
+{{- $groupDefs := slice
+  (dict "key" "csm-apps"    "title" "CSM 应用与示例"        "desc" "基于 CSM 的应用范例、复用模块与示例工程")
+  (dict "key" "csm-core"    "title" "CSM 核心框架与工具"    "desc" "CSM Framework 本体、扩展、IDE 插件与资料集合")
+  (dict "key" "labview-libs" "title" "LabVIEW 库与工具"      "desc" "通用 LabVIEW 库、UI 控件与工具型 VI Package")
+  (dict "key" "lvcicd"      "title" "lvCICD 与自动化"       "desc" "LabVIEW 持续集成相关的 GitHub Actions / VIPM 工具")
+  (dict "key" "ai-tools"    "title" "AI 与跨平台工具"       "desc" "与 AI、跨仓库同步、Python / C# 等相关的工具型仓库")
+  (dict "key" "examples"    "title" "示例与演示"             "desc" "LabVIEW / TestStand 等的独立示例项目")
+  (dict "key" "other"       "title" "其他"                   "desc" "尚未归类的仓库")
+}}
+
+{{- /* Group pages */}}
+{{- $grouped := dict }}
+{{- $usedGroups := slice }}
+{{- range $sectionPages }}
+  {{- $g := .Params.repo_group | default "other" }}
+  {{- $existing := index $grouped $g | default slice }}
+  {{- $grouped = merge $grouped (dict $g ($existing | append .)) }}
+  {{- if not (in $usedGroups $g) }}
+    {{- $usedGroups = $usedGroups | append $g }}
+  {{- end }}
+{{- end }}
+
+{{- /* Sort pages within each group by weight (higher stars first = lower weight) */}}
+{{- $sortedGrouped := dict }}
+{{- range $g, $pages := $grouped }}
+  {{- $sortedGrouped = merge $sortedGrouped (dict $g (sort $pages "Params.weight")) }}
+{{- end }}
+
+<nav class="section-nav docs-links" aria-label="文档导航">
+  <ul class="list-unstyled">
+    {{- /* Doc quick links */}}
+    <li class="mb-3">
+      <a class="sidebar-group-header d-block fw-semibold text-muted small text-uppercase text-decoration-none"
+         href="{{ ($currentPage.Site.GetPage "/docs").RelPermalink }}">📋 文档</a>
+      <ul class="list-unstyled list-nested ms-2 mt-1">
+        {{- $csmModsets := $currentPage.Site.GetPage "/docs/csm-modsets" }}
+        <li{{ if $currentPage.Eq $csmModsets }} class="active"{{ end }}>
+          <a href="{{ $csmModsets.RelPermalink }}"{{ if $currentPage.Eq $csmModsets }} aria-current="page"{{ end }}>📋 CSM Modsets 列表</a>
+        </li>
+      </ul>
+    </li>
+    {{- /* Divider */}}
+    <li><hr class="dropdown-divider my-2"></li>
+    {{- /* Repo groups */}}
+    {{- range $groupDefs }}
+      {{- $gk := .key }}
+      {{- if in $usedGroups $gk }}
+        {{- $groupPages := index $sortedGrouped $gk | default slice }}
+        {{- $isActive := false }}
+        {{- range $groupPages }}
+          {{- if $currentPage.Eq . }}{{ $isActive = true }}{{ end }}
+        {{- end }}
+        <li class="mb-3">
+          {{- /* Clickable group header — links to anchor on the index page */}}
+          <a class="sidebar-group-header d-block fw-semibold text-decoration-none{{ if $isActive }} active{{ end }}"
+             href="{{ ($currentPage.Site.GetPage "/docs/repo-readmes").RelPermalink }}#{{ $gk }}"
+             aria-current="{{ if $isActive }}true{{ end }}">
+            {{ .title }}
+          </a>
+          <ul class="list-unstyled list-nested ms-2 mt-1">
+            {{- range $groupPages }}
+              {{- $active := $currentPage.Eq . }}
+              <li{{ if $active }} class="active"{{ end }}>
+                <a href="{{ .RelPermalink }}"{{ if $active }} aria-current="page"{{ end }}>
+                  {{- .LinkTitle | default .Title -}}
+                </a>
+              </li>
+            {{- end }}
+          </ul>
+        </li>
+      {{- end }}
+    {{- end }}
+  </ul>
+</nav>

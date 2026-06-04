@@ -1,0 +1,98 @@
+{{- /* Custom list template for docs/repo-readmes: renders grouped index with anchor IDs and sidebar. */}}
+{{ define "main" }}
+  {{- $groupDefs := slice
+    (dict "key" "csm-apps"    "title" "CSM 应用与示例"        "desc" "基于 CSM 的应用范例、复用模块（csm-modsets）与示例工程。")
+    (dict "key" "csm-core"    "title" "CSM 核心框架与工具"    "desc" "CSM Framework 本体、官方扩展、IDE / 编辑器插件，以及 CSM 相关的资料集合。")
+    (dict "key" "labview-libs" "title" "LabVIEW 库与工具"      "desc" "通用 LabVIEW 库、UI 控件与工具型 VI Package。")
+    (dict "key" "lvcicd"      "title" "lvCICD 与自动化"       "desc" "LabVIEW 持续集成相关的 GitHub Actions / VIPM 工具。")
+    (dict "key" "ai-tools"    "title" "AI 与跨平台工具"       "desc" "与 AI、跨仓库同步、Python / C# 等相关的工具型仓库。")
+    (dict "key" "examples"    "title" "示例与演示"             "desc" "LabVIEW / TestStand 等的独立示例项目。")
+    (dict "key" "other"       "title" "其他"                   "desc" "尚未归类的仓库。")
+  }}
+
+  {{- $grouped := dict }}
+  {{- $usedGroups := slice }}
+  {{- range .Pages }}
+    {{- $g := .Params.repo_group | default "other" }}
+    {{- $existing := index $grouped $g | default slice }}
+    {{- $grouped = merge $grouped (dict $g ($existing | append .)) }}
+    {{- if not (in $usedGroups $g) }}
+      {{- $usedGroups = $usedGroups | append $g }}
+    {{- end }}
+  {{- end }}
+
+  {{- $sortedGrouped := dict }}
+  {{- range $g, $pages := $grouped }}
+    {{- $sortedGrouped = merge $sortedGrouped (dict $g (sort $pages "Params.weight")) }}
+  {{- end }}
+
+  <div class="row flex-xl-nowrap">
+    <div class="col-lg-5 col-xl-4 docs-sidebar{{ if ne site.Params.doks.navbarSticky true }} docs-sidebar-top{{ end }} d-none d-lg-block">
+      {{- $sectionPages := .Pages }}
+      {{ partial "sidebar/repo-readmes-groups.html" (dict "currentPage" . "sectionPages" $sectionPages) }}
+    </div>
+    <main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
+      <h1>{{ .Title }}</h1>
+      {{ with .Content }}
+      <div class="repo-readmes-intro mb-4">{{ . | safeHTML }}</div>
+      {{ end }}
+
+      {{- /* Quick links to other docs pages */}}
+      <div class="row g-3 mb-4">
+        <div class="col-md-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h3 class="h6 card-title">📄 文档首页</h3>
+              <p class="card-text small text-muted">NEVSTOP-LAB 文档入口，汇总 CSM 生态导航、社区资源与站内博客索引。</p>
+              <a class="stretched-link" href="/docs/">进入文档首页 →</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h3 class="h6 card-title">📋 CSM Modsets 列表</h3>
+              <p class="card-text small text-muted">自动同步所有公开的 CSM 复用模块仓库清单，每日更新。</p>
+              <a class="stretched-link" href="/docs/csm-modsets/">查看 Modsets →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{- $repoCount := len .Pages }}
+      {{- if gt $repoCount 0 }}
+      <p class="text-muted">当前共收录 <strong>{{ $repoCount }}</strong> 个仓库，按主题分组如下：</p>
+      {{- end }}
+
+      {{- range $groupDefs }}
+        {{- $gk := .key }}
+        {{- if in $usedGroups $gk }}
+          {{- $groupPages := index $sortedGrouped $gk | default slice }}
+          <section class="repo-group mb-5" id="{{ $gk }}">
+            <h2 class="h3 border-bottom pb-2 mb-3">{{ .title }}</h2>
+            {{- with .desc }}<p class="text-muted mb-3">{{ . }}</p>{{- end }}
+            <div class="list-group list-group-flush">
+              {{- range $groupPages }}
+              <div class="list-group-item px-0 py-3 border-bottom">
+                <div class="d-flex justify-content-between align-items-start">
+                  <div class="flex-grow-1">
+                    <a class="h6 text-decoration-none stretched-link" href="{{ .RelPermalink }}">{{ .LinkTitle | default .Title }}</a>
+                    {{- with .Description }}<p class="text-muted small mb-1 mt-1">{{ . | truncate 160 }}</p>{{- end }}
+                    <div class="d-flex flex-wrap align-items-center gap-2 mt-1">
+                      {{- with .Params.repo_language }}<span class="badge bg-secondary bg-opacity-10 text-secondary">{{ . }}</span>{{- end }}
+                      {{- with .Params.repo_stars }}<span class="text-muted small">⭐ {{ . }}</span>{{- end }}
+                      {{- with .Params.repo_url }}<a class="text-muted small" href="{{ . }}" target="_blank" rel="noopener noreferrer" style="position: relative; z-index: 2;">GitHub →</a>{{- end }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {{- end }}
+            </div>
+          </section>
+        {{- end }}
+      {{- end }}
+    </main>
+  </div>
+{{ end }}
+
+{{ define "sidebar-footer" }}{{ end }}

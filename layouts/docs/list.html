@@ -1,0 +1,39 @@
+{{- /* Custom list template for /docs/: shows docs landing page with sidebar. */}}
+{{ define "main" }}
+  <div class="row flex-xl-nowrap">
+    <div class="col-lg-5 col-xl-4 docs-sidebar{{ if ne site.Params.doks.navbarSticky true }} docs-sidebar-top{{ end }} d-none d-lg-block">
+      {{- $sectionPages := (.Site.GetPage "section" "docs/repo-readmes").Pages }}
+      {{ partial "sidebar/repo-readmes-groups.html" (dict "currentPage" . "sectionPages" $sectionPages) }}
+    </div>
+    <main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
+      <h1>{{ .Title }}</h1>
+      {{ with .Content }}
+      <div class="mb-4">{{ . | safeHTML }}</div>
+      {{ end }}
+
+      {{- /* Quick link cards */}}
+      <div class="row g-3 mt-3">
+        <div class="col-md-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h3 class="h6 card-title">📦 仓库 README</h3>
+              <p class="card-text small text-muted">自动同步组织内 public 仓库的中文 README，按主题分组浏览。</p>
+              <a class="stretched-link" href="/docs/repo-readmes/">浏览仓库 →</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h3 class="h6 card-title">📋 CSM Modsets 列表</h3>
+              <p class="card-text small text-muted">自动同步所有公开的 CSM 复用模块仓库清单，每日更新。</p>
+              <a class="stretched-link" href="/docs/csm-modsets/">查看 Modsets →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+{{ end }}
+
+{{ define "sidebar-footer" }}{{ end }}
