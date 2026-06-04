@@ -37,7 +37,7 @@ const languages = {
     label: 'Français',
   },
   de: {
-    code: 'german',
+    code: 'deutsch',
     documentLanguage: 'de',
     label: 'Deutsch',
   },
@@ -145,7 +145,7 @@ function configureTranslate() {
 
   if (translate.selectLanguageTag) {
     translate.selectLanguageTag.show = false;
-    translate.selectLanguageTag.languages = `${sourceLanguage},english,japanese,korean,french,german,spanish,russian`;
+    translate.selectLanguageTag.languages = `${sourceLanguage},english,japanese,korean,french,deutsch,spanish,russian`;
   }
 
   translate.listener?.start();

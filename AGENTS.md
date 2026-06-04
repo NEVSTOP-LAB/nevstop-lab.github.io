@@ -11,7 +11,7 @@
 
 - 仓库：`NEVSTOP-LAB/nevstop-lab.github.io`，部署到 GitHub Pages（[https://nevstop-lab.github.io/](https://nevstop-lab.github.io/)）。
 - 技术栈：**Hugo Extended** + **Doks 主题**（`@thulite/doks-core`）。
-- 语言：仅启用 `zh-cn`，其它语言在 `hugo.toml` 中通过 `disableLanguages` 关闭。
+- 语言：**Hugo 层面**仅启用 `zh-cn`（内容为中文），其它语言在 `hugo.toml` 中通过 `disableLanguages` 关闭；**前端层面**通过 `translate.js`（`client.edge` 通道）提供客户端机器翻译，支持简体中文 / English / 日本語 / 한국어 / Français / Deutsch / Español / Русский 八种语言切换。`layouts/_partials/header/header.html` 渲染语言下拉菜单，`assets/js/custom.js` 集成 translate.js 切换逻辑，`static/vendor/translate/translate.min.js` 为翻译库本体。
 - 内容来源有三类：
   1. **手写内容**：`content/_index.md`（首页）、`content/about/_index.md`（组织介绍）、`content/docs/_index.md`、`content/blog/`。
   2. **自动同步**：`content/docs/repo-readmes/` —— 由 `.github/workflows/sync-chinese-readmes.yml` 每天 02:00 (UTC) 从 NEVSTOP-LAB 组织内 public 仓库抓取中文 README。
@@ -44,13 +44,19 @@
 8. **CSM Modsets 页面维护**：`content/docs/csm-modsets.md` 是每日自动同步页，内容源是 `https://github.com/NEVSTOP-LAB/.github/blob/main/csm-modsets.md`。不要手工长期维护正文；如需调整展示格式，应改同步 workflow 与该页面模板/前言，而不是在同步后手改正文。
 9. **构建验证**：任何改动后都执行 `npm ci && hugo --gc --minify`。出现 `error building site` 必须修复；若 warning 由站内手写页或同步逻辑直接引入，应优先修正，不要长期依赖“可忽略”放着不管。
 10. **Bootstrap 网格列数**：Doks 把 Bootstrap 配置成 **16 列网格**（不是默认的 12 列）。也就是说 `.col-12 = 75%`、`.col-md-6 = 37.5%`、`.col-lg-4 = 25%`、`.col-16 = 100%`。在 footer / 卡片等自定义布局里写 `col-*` 时，每行宽度必须按 16 累加，否则会出现"右侧留 25% 空白、内容看似不居中"的问题。
+11. **translate.js 语言切换器**：站点在导航栏提供客户端机器翻译下拉菜单（`layouts/_partials/header/header.html`），JS 逻辑集中在 `assets/js/custom.js`，翻译库位于 `static/vendor/translate/translate.min.js`。语言代码映射见 `custom.js` 中 `languages` 对象；翻译服务使用 `client.edge` 通道。若某语种翻译失败，优先检查：① `translate.service.use('client.edge')` 对该语种的支持情况；② `custom.js` 中 `languages` 对象的 `code` 字段是否与 translate.js 所期望的目标语言代码一致；③ 网络 / CORS 问题导致翻译 API 不可达。
 
 ## 常用文件指引
 
 | 路径 | 作用 |
 |------|------|
-| `hugo.toml` | 站点配置、菜单、`params.doks` 开关、关闭多语言 |
+| `hugo.toml` | 站点配置、菜单、`params.doks` 开关、Hugo 层面关闭多语言（前端翻译由 translate.js 实现） |
 | `layouts/home.html` | 自定义首页：标题区 + 站点导航卡片 + CSM 生态速览 + 最新博客；覆盖 Doks 默认的 "Get Started" 模板 |
+| `layouts/_partials/header/header.html` | 自定义导航栏（含 translate.js 语言切换器下拉菜单） |
+| `layouts/list.html` | 自定义列表页模板 |
+| `assets/js/custom.js` | 站点 JS：translate.js 集成（语言切换、翻译状态管理、localStorage 持久化） |
+| `assets/scss/` | 站点自定义样式 |
+| `static/vendor/translate/translate.min.js` | translate.js 翻译库（客户端机器翻译，`client.edge` 通道） |
 | `content/_index.md` | 首页 front matter 与 `lead` 文案 |
 | `content/about/_index.md` | 组织介绍页（镜像 `.github/profile/README.md` 的三段式结构） |
 | `content/docs/_index.md` | 文档入口页 |
@@ -72,4 +78,5 @@
 > 5. `content/docs/csm-modsets.md` 同样由 `.github/workflows/sync-chinese-readmes.yml` 每日从 `NEVSTOP-LAB/.github/csm-modsets.md` 同步；后续维护要持续检查该页面是否仍在同步与可访问。
 > 6. 自动同步生成的 readme 文件：title 用纯仓库名（不加 `README` 后缀）；slug 用纯仓库名（仅冲突时追加 `-{id}`）；front matter 用 `topics:` 而非 `tags:`（避免触发 Doks taxonomy 模板的 `contributors` 检查导致构建失败）；按主题分组生成索引页（CSM 应用 / CSM 核心 / LabVIEW 库与工具 / lvCICD / AI 与跨平台工具 / 示例 / 其他）。
 > 7. 修改后执行 `npm ci && hugo --gc --minify`，确保 `error building site` 不出现。
-> 8. 任何对自动同步逻辑的扩展，都先在 `AGENTS.md` 中追加约定，再实现，避免下一个 Agent 再次走弯路。
+> 8. 导航栏集成了 translate.js 客户端翻译（`client.edge` 通道），语言列表见 `custom.js` 中 `languages` 对象；若添加/移除语种需同步更新 `layouts/_partials/header/header.html` 和 `assets/js/custom.js` 两处。
+> 9. 任何对自动同步逻辑的扩展，都先在 `AGENTS.md` 中追加约定，再实现，避免下一个 Agent 再次走弯路。
