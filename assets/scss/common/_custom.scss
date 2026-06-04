@@ -22,6 +22,13 @@ $site-content-max-width: 1320px;
     margin-inline: auto;
 }
 
+// 窄视口时不要让容器固定宽度超出视口导致横向溢出
+@media (max-width: #{$site-content-max-width}) {
+    .wrap.container-fluid > .content > .container.p-0 {
+        max-width: 100%;
+    }
+}
+
 // list.html / blog list / about 等模板内部都用 .row > .col-* 控制内容列宽，
 // 默认 col-lg-9 / col-lg-10 / col-xl-8 在我们的内容容器里显得太窄。
 // 大屏下把这几种列统一拉到 ~91% / ~83% 宽度，并加上同一个 max-width，
@@ -592,17 +599,18 @@ section.section a.btn-link {
 
 // --- 博客单篇：宽度与 blog list 一致，TOC 悬浮在内容右侧 --------------------
 // .blog-single-wrap 是博客单篇的 flex 外层容器，包含：
-//   - .blog-single-main：Bootstrap row 所在的全宽区域（100% container 宽度）
-//     内部 col-lg-9 命中 _custom.scss 宽度规则 → 1140px，与 blog list 一致。
-//   - .blog-single-toc：粘性 TOC，定位于 .blog-single-main 右侧，
-//     在 xl+ 视口显示。视口较窄时（<1880px）TOC 可能超出容器边界，
-//     但宽屏（1920px）下完美对齐。
+//   - .blog-single-main：flex: 1 自适应剩余空间，
+//     内部 col-lg-9 命中 _custom.scss 宽度规则，与 blog list 一致。
+//   - .blog-single-toc：粘性 TOC，定位在 .blog-single-main 右侧，
+//     在 xl+ 视口显示。TOC 宽度随视口动态缩放：
+//       1200–1399px → 192px  |  1400–1599px → 224px  |  1600px+ → 256px
 // 为防止窄视口出现水平滚动条，给博客单篇页面的 body 加 overflow-x: clip。
 // clip 不会创建新的 scroll container（不同于 hidden），不影响 position:sticky。
 body.blog.single {
     overflow-x: clip;
 }
 
+// xl+（≥1200px）启用 flex 双栏布局（主内容 + 右侧 TOC）
 @include media-breakpoint-up(xl) {
     .blog-single-wrap {
         display: flex;
@@ -611,16 +619,32 @@ body.blog.single {
     }
 
     .blog-single-main {
-        flex: none;
-        width: 100%;
+        flex: 1 1 0%;
         min-width: 0;
     }
 
+    // 基准（≥1600px）：宽敞 TOC
     .blog-single-toc {
         flex: none;
         width: 256px;
         margin-left: 1.5rem;
         align-self: flex-start;
+    }
+}
+
+// 中等视口（1400–1599px）：TOC 适度收缩
+@media (min-width: 1400px) and (max-width: 1599px) {
+    .blog-single-toc {
+        width: 224px;
+        margin-left: 1rem;
+    }
+}
+
+// 紧凑视口（1200–1399px）：TOC 进一步收缩，优先保证内容区宽度
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .blog-single-toc {
+        width: 192px;
+        margin-left: 0.75rem;
     }
 }
 
