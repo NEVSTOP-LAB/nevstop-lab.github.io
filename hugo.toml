@@ -41,11 +41,6 @@ disableLanguages = ["en", "de", "nl", "fr", "es"]
   searchLimit = 99
 
 [[menu.main]]
-  name = "首页"
-  url = "/"
-  weight = 10
-
-[[menu.main]]
   name = "组织介绍"
   url = "/about/"
   weight = 20
@@ -102,6 +97,10 @@ disableLanguages = ["en", "de", "nl", "fr", "es"]
     target = "data"
 
   [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
+
+  [[module.mounts]]
     source = "node_modules/@thulite/doks-core/layouts"
     target = "layouts"
 
@@ -119,10 +118,6 @@ disableLanguages = ["en", "de", "nl", "fr", "es"]
 
   [[module.mounts]]
     source = "node_modules/@thulite/inline-svg/layouts"
-    target = "layouts"
-
-  [[module.mounts]]
-    source = "layouts"
     target = "layouts"
 
   [[module.mounts]]
