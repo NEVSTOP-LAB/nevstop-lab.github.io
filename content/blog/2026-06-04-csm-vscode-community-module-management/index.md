@@ -1,5 +1,5 @@
 ---
-title: "CSM VSCode 插件新增社区模块管理：像「应用商店」一样复用 LabVIEW 模块"
+title: "CSM VSCode 插件新增社区模块管理：像「应用商店」一样复用 CSM 模块"
 description: "CSM VSCode 插件新增模块管理功能：模块发现、公开/私有仓库、一键引入与批量操作，附示例工程说明。"
 date: 2026-06-04T20:00:00+08:00
 draft: false
