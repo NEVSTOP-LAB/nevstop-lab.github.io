@@ -2,17 +2,17 @@
 title: 'csm-community-example'
 linkTitle: 'csm-community-example'
 description: 'csm-community-example 中文 README：使用 csm vscode extension + LabVIEW 创建的范例项目。LabVIEW · CSM 核心框架与工具。'
-weight: 0
+weight: -1
 draft: false
 repo_name: 'NEVSTOP-LAB/csm-community-example'
 repo_url: 'https://github.com/NEVSTOP-LAB/csm-community-example'
 repo_language: 'LabVIEW'
-repo_stars: 0
+repo_stars: 1
 repo_group: 'csm-core'
 topics: ['labview-csm']
 ---
 
-> **NEVSTOP-LAB/csm-community-example** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/csm-community-example) · 语言：`LabVIEW` · ⭐ 0
+> **NEVSTOP-LAB/csm-community-example** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/csm-community-example) · 语言：`LabVIEW` · ⭐ 1
 >
 > 使用 csm vscode extension + LabVIEW 创建的范例项目
 >
