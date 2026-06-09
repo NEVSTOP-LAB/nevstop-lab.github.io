@@ -33,3 +33,7 @@ topics: ['labview-csm']
 - LabVIEW 自动发布 csm/ 目录，所有代码都加载到LabVIEW 中。
 - VSCode 中可以编写模块和配置信息。
 - LabVIEW 编写简单的主程序，调用模块完成任务。
+
+## 📖 详细文档
+
+更多信息请参阅 [使用方法](./_docs/Usage.md) ，包含完整的分步教程、CSM Script 编写指南及常见问题答疑。
