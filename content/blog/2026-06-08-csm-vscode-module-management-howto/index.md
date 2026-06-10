@@ -1,7 +1,7 @@
 ---
 title: "手把手教你使用 CSM VSCode 插件模块管理功能"
 description: "CSM VSCode 插件模块管理实操指南：从浏览社区模块、一键导入本地，到 LabVIEW 项目搭建运行。"
-date: 2026-06-08T18:30:00+08:00
+date: 2026-06-10T08:31:00+08:00
 draft: false
 contributors:
   - "nevstop"
@@ -24,15 +24,36 @@ contributors:
 
 > 为简化演示，数据采集模块暂用模拟数据代替实际硬件采集，后续可根据需要替换为同接口的真实采集模块。
 
-## Step 1：CSM VSCode 插件选择并导入已有模块
+## Step 1：环境配置
 
-### 1.1 准备工作
+### 1.1 安装依赖
+
+在开始之前，请确保已安装以下工具：
+
+- **VSCode**：微软的编辑器，AI 时代最佳编辑器之一。在扩展市场中搜索并安装 **CSM VSCode 插件**。
+- **Git**：版本管理工具，用于模块的 clone 和 submodule 管理。
+- **GitHub 账号**（可选）：注册 GitHub 账号，用于登录 VSCode 和 CSM VSCode 插件，解锁私有仓库访问。
+
+### 1.2 VIPM 安装
+
+通过 VIPM 安装以下 LabVIEW 依赖包：
+
+| 包名 | 说明 |
+|------|------|
+| [CSM Libraries](https://www.vipm.io/?q=CSM+Libraries) | CSM 框架核心库，以 CSM 为关键字搜索即可 |
+| [NEVSTOP-Programming-Palette](https://www.vipm.io/package/nevstop_programming_palette/) | NEVSTOP-LAB 复用 VI 集 |
+| [LAVA UI Tool](https://www.vipm.io/package/lava_lib_ui_tools/) | LAVA 的界面辅助 VI（或安装 [NEVSTOP-3rdParty-Dependencies](https://www.vipm.io/package/nevstop_3rdparty_dependencies/)） |
+| [TagDB](https://www.vipm.io/package/nevstop_tagdb_library/) | 标签数据库 |
+
+## Step 2：CSM VSCode 插件选择并导入已有模块
+
+### 2.1 准备工作
 
 新建一个空文件夹，并使用 VS Code 打开该文件夹。
 
 ![VS Code 打开该文件夹](img-01.jpg)
 
-### 1.2 选择所需模块
+### 2.2 选择所需模块
 
 根据上述需求，选择以下 CSM 模块来对应各功能：
 
@@ -47,13 +68,13 @@ contributors:
 
 ![选择 CSM 模块](img-02.jpg)
 
-### 1.3 将模块导入到本地
+### 2.3 将模块导入到本地
 
 点击「应用到本地」按钮：
 
 ![将选择的 CSM 模块应用到本地](img-03.jpg)
 
-选择 `csm/` 目录作为目标路径。由于当前目录不是 Git 仓库，无法使用 submodule 模式，请选择直接复制到本地的方式导入：
+选择 `csm/` 目录作为目标路径。由于当前目录不是 Git 仓库，无法使用 [submodule 模式](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)，请选择直接复制到本地的方式导入：
 
 > 💠 如果本地文件夹是一个 Git 仓库，你还可以使用 submodule 模式，使用 Git 的 submodule 功能跟踪模块。
 
@@ -71,21 +92,21 @@ contributors:
 >
 > 💠 应用模块到本地，在 GitHub 登录的情况下，会默认 star 对应的 repo，这是对开源作者的鼓励。
 
-## Step 2：在 LabVIEW 中创建项目
+## Step 3：在 LabVIEW 中创建项目
 
-### 2.1 创建项目文件
+### 3.1 创建项目文件
 
 使用 LabVIEW 新建一个项目，命名为 `Example.lvproj`。将 `csm/` 目录添加为项目的自动发布（Auto-populating）目录：
 
 ![创建项目，并加入 csm/ 目录](img-07.jpg)
 
-### 2.2 设计主界面（Main.vi）
+### 3.2 设计主界面（Main.vi）
 
 创建一个 `Main.vi` 作为项目的主 VI。在前面板上放置两个 Subpanel 控件，分别用于嵌入波形显示界面和看板界面：
 
 ![示例前面板](img-08.jpg)
 
-### 2.3 编写程序框图
+### 3.3 编写程序框图
 
 按照以下步骤完成程序框图的搭建：
 
@@ -121,7 +142,7 @@ contributors:
 
 ![示例后面板](img-09.jpg)
 
-### 2.4 运行效果
+### 3.4 运行效果
 
 程序运行后，界面如下所示：
 
