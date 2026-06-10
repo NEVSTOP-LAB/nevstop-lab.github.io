@@ -5,7 +5,7 @@ draft: false
 ---
 
 自动同步自 [NEVSTOP-LAB 组织](https://github.com/NEVSTOP-LAB) 内 public 仓库的中文 README，
-当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **23** 个仓库，按主题分组如下：
+当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **26** 个仓库，按主题分组如下：
 
 ## CSM 应用与示例
 
@@ -13,8 +13,14 @@ draft: false
 
 - [**CSMScript-Lite**](/docs/repo-readmes/csmscript-lite/) — CSMScript-Lite 中文 README：CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本。LabVIEW · CSM 应用与...
   `LabVIEW` · ⭐ 22 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
+- [**CSM-ModSets-SplashWindow**](/docs/repo-readmes/csm-modsets-splashwindow/) — CSM-ModSets-SplashWindow 中文 README：CSM Module: Splash Window。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
+  `LabVIEW` · ⭐ 5 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-SplashWindow)
 - [**CSM-ModSets-FileSync**](/docs/repo-readmes/csm-modsets-filesync/) — CSM-ModSets-FileSync 中文 README：基于 CSM 的文件同步模块。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
   `LabVIEW` · ⭐ 4 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync)
+- [**CSM-Modsets-WaveformDisplay**](/docs/repo-readmes/csm-modsets-waveformdisplay/) — CSM-Modsets-WaveformDisplay 中文 README：CSM 模块: 显示 Waveform。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
+  `LabVIEW` · ⭐ 4 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Modsets-WaveformDisplay)
+- [**CSM-ModSets-TagRouter**](/docs/repo-readmes/csm-modsets-tagrouter/) — CSM-ModSets-TagRouter 中文 README：CSM Module: Waveform 转 TagDB 模块。LabVIEW · CSM 应用与示例。
+  `LabVIEW` · ⭐ 3 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-TagRouter)
 - [**CSM-Module-Repo-Template**](/docs/repo-readmes/csm-module-repo-template/) — CSM-Module-Repo-Template 中文 README：基于 CSM（可通信状态机） 框架的模块仓库模板。CSM 应用与示例。
   ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Module-Repo-Template)
 
