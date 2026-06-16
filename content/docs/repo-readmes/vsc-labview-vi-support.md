@@ -2,17 +2,17 @@
 title: 'vsc-labview-vi-support'
 linkTitle: 'vsc-labview-vi-support'
 description: 'vsc-labview-vi-support 中文 README：LabVIEW VI VSCode Support。TypeScript · AI 与跨平台工具。收录项目简介、使用方式与相关资源。'
-weight: 0
+weight: -1
 draft: false
 repo_name: 'NEVSTOP-LAB/vsc-labview-vi-support'
 repo_url: 'https://github.com/NEVSTOP-LAB/vsc-labview-vi-support'
 repo_language: 'TypeScript'
-repo_stars: 0
+repo_stars: 1
 repo_group: 'ai-tools'
 topics: ['ai', 'labview', 'skills', 'vscode']
 ---
 
-> **NEVSTOP-LAB/vsc-labview-vi-support** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/vsc-labview-vi-support) · 语言：`TypeScript` · ⭐ 0
+> **NEVSTOP-LAB/vsc-labview-vi-support** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/vsc-labview-vi-support) · 语言：`TypeScript` · ⭐ 1
 >
 > LabVIEW VI VSCode Support
 >
