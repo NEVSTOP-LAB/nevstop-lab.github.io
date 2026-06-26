@@ -2,17 +2,17 @@
 title: 'CSM-ModSets-TagDB-UI'
 linkTitle: 'CSM-ModSets-TagDB-UI'
 description: 'CSM-ModSets-TagDB-UI 中文 README：CSM 模块：围绕 TagDB 显示的 UI。LabVIEW · CSM 应用与示例。'
-weight: -3
+weight: -4
 draft: false
 repo_name: 'NEVSTOP-LAB/CSM-ModSets-TagDB-UI'
 repo_url: 'https://github.com/NEVSTOP-LAB/CSM-ModSets-TagDB-UI'
 repo_language: 'LabVIEW'
-repo_stars: 3
+repo_stars: 4
 repo_group: 'csm-apps'
 topics: ['csm-modsets', 'labview-csm']
 ---
 
-> **NEVSTOP-LAB/CSM-ModSets-TagDB-UI** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-TagDB-UI) · 语言：`LabVIEW` · ⭐ 3
+> **NEVSTOP-LAB/CSM-ModSets-TagDB-UI** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-TagDB-UI) · 语言：`LabVIEW` · ⭐ 4
 >
 > CSM 模块：围绕 TagDB 显示的 UI
 >

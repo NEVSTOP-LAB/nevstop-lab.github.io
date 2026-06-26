@@ -2,17 +2,17 @@
 title: 'CSM-ModSets-TagRouter'
 linkTitle: 'CSM-ModSets-TagRouter'
 description: 'CSM-ModSets-TagRouter 中文 README：CSM Module: Waveform 转 TagDB 模块。LabVIEW · CSM 应用与示例。'
-weight: -3
+weight: -4
 draft: false
 repo_name: 'NEVSTOP-LAB/CSM-ModSets-TagRouter'
 repo_url: 'https://github.com/NEVSTOP-LAB/CSM-ModSets-TagRouter'
 repo_language: 'LabVIEW'
-repo_stars: 3
+repo_stars: 4
 repo_group: 'csm-apps'
 topics: ['csm-modsets', 'labview-csm']
 ---
 
-> **NEVSTOP-LAB/CSM-ModSets-TagRouter** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-TagRouter) · 语言：`LabVIEW` · ⭐ 3
+> **NEVSTOP-LAB/CSM-ModSets-TagRouter** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-TagRouter) · 语言：`LabVIEW` · ⭐ 4
 >
 > CSM Module: Waveform 转 TagDB 模块
 >
