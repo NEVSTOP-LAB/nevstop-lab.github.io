@@ -12,7 +12,7 @@ draft: false
 基于 CSM 的应用范例、复用模块（csm-modsets）与示例工程。
 
 - [**CSMScript-Lite**](/docs/repo-readmes/csmscript-lite/) — CSMScript-Lite 中文 README：CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本。LabVIEW · CSM 应用与...
-  `LabVIEW` · ⭐ 25 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
+  `LabVIEW` · ⭐ 26 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
 - [**CSM-Modsets-WaveformDisplay**](/docs/repo-readmes/csm-modsets-waveformdisplay/) — CSM-Modsets-WaveformDisplay 中文 README：CSM 模块: 显示 Waveform。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
   `LabVIEW` · ⭐ 7 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Modsets-WaveformDisplay)
 - [**CSM-ModSets-SplashWindow**](/docs/repo-readmes/csm-modsets-splashwindow/) — CSM-ModSets-SplashWindow 中文 README：CSM Module: Splash Window。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。

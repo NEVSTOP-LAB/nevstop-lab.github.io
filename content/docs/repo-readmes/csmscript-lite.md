@@ -2,17 +2,17 @@
 title: 'CSMScript-Lite'
 linkTitle: 'CSMScript-Lite'
 description: 'CSMScript-Lite 中文 README：CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本。LabVIEW · CSM 应用与...'
-weight: -25
+weight: -26
 draft: false
 repo_name: 'NEVSTOP-LAB/CSMScript-Lite'
 repo_url: 'https://github.com/NEVSTOP-LAB/CSMScript-Lite'
 repo_language: 'LabVIEW'
-repo_stars: 25
+repo_stars: 26
 repo_group: 'csm-apps'
 topics: ['csm-modsets', 'labview', 'labview-csm', 'lv-csm-app']
 ---
 
-> **NEVSTOP-LAB/CSMScript-Lite** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite) · 语言：`LabVIEW` · ⭐ 25
+> **NEVSTOP-LAB/CSMScript-Lite** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite) · 语言：`LabVIEW` · ⭐ 26
 >
 > CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本
 >
