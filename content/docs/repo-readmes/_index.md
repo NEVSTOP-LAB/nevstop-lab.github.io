@@ -15,10 +15,10 @@ draft: false
   `LabVIEW` · ⭐ 26 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
 - [**CSM-Modsets-WaveformDisplay**](/docs/repo-readmes/csm-modsets-waveformdisplay/) — CSM-Modsets-WaveformDisplay 中文 README：CSM 模块: 显示 Waveform。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
   `LabVIEW` · ⭐ 7 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Modsets-WaveformDisplay)
+- [**CSM-ModSets-FileSync**](/docs/repo-readmes/csm-modsets-filesync/) — CSM-ModSets-FileSync 中文 README：基于 CSM 的文件同步模块。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
+  `LabVIEW` · ⭐ 6 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync)
 - [**CSM-ModSets-SplashWindow**](/docs/repo-readmes/csm-modsets-splashwindow/) — CSM-ModSets-SplashWindow 中文 README：CSM Module: Splash Window。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
   `LabVIEW` · ⭐ 6 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-SplashWindow)
-- [**CSM-ModSets-FileSync**](/docs/repo-readmes/csm-modsets-filesync/) — CSM-ModSets-FileSync 中文 README：基于 CSM 的文件同步模块。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
-  `LabVIEW` · ⭐ 5 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync)
 - [**CSM-ModSets-TagRouter**](/docs/repo-readmes/csm-modsets-tagrouter/) — CSM-ModSets-TagRouter 中文 README：CSM Module: Waveform 转 TagDB 模块。LabVIEW · CSM 应用与示例。
   `LabVIEW` · ⭐ 5 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-TagRouter)
 - [**CSM-ModSets-TagDB-UI**](/docs/repo-readmes/csm-modsets-tagdb-ui/) — CSM-ModSets-TagDB-UI 中文 README：CSM 模块：围绕 TagDB 显示的 UI。LabVIEW · CSM 应用与示例。
