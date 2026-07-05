@@ -2,17 +2,17 @@
 title: 'LabVIEW-UI-XCtl'
 linkTitle: 'LabVIEW-UI-XCtl'
 description: 'LabVIEW-UI-XCtl 中文 README：LabVIEW XControls for UI。LabVIEW · LabVIEW 库与工具。收录项目简介、使用方式与相关资源。'
-weight: -39
+weight: -40
 draft: false
 repo_name: 'NEVSTOP-LAB/LabVIEW-UI-XCtl'
 repo_url: 'https://github.com/NEVSTOP-LAB/LabVIEW-UI-XCtl'
 repo_language: 'LabVIEW'
-repo_stars: 39
+repo_stars: 40
 repo_group: 'labview-libs'
 topics: ['labview', 'labview-xcontrol', 'ui']
 ---
 
-> **NEVSTOP-LAB/LabVIEW-UI-XCtl** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-UI-XCtl) · 语言：`LabVIEW` · ⭐ 39
+> **NEVSTOP-LAB/LabVIEW-UI-XCtl** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-UI-XCtl) · 语言：`LabVIEW` · ⭐ 40
 >
 > LabVIEW XControls for UI
 >
