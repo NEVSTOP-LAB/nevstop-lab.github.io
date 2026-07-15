@@ -14,8 +14,8 @@
 - 语言：**Hugo 层面**仅启用 `zh-cn`（内容为中文），其它语言在 `hugo.toml` 中通过 `disableLanguages` 关闭；**前端层面**通过 `translate.js`（`client.edge` 通道）提供客户端机器翻译，支持简体中文 / English / 日本語 / 한국어 / Français / Deutsch / Español / Русский 八种语言切换。`layouts/_partials/header/header.html` 渲染语言下拉菜单，`assets/js/custom.js` 集成 translate.js 切换逻辑，`static/vendor/translate/translate.min.js` 为翻译库本体。
 - 内容来源有三类：
   1. **手写内容**：`content/_index.md`（首页）、`content/about/_index.md`（组织介绍）、`content/docs/_index.md`、`content/blog/`。
-  2. **自动同步**：`content/docs/repo-readmes/` —— 由 `.github/workflows/sync-chinese-readmes.yml` 每天 02:00 (UTC) 从 NEVSTOP-LAB 组织内 public 仓库抓取中文 README。
-  3. **自动同步**：`content/docs/csm-modsets.md` —— 由 `.github/workflows/sync-chinese-readmes.yml` 每天 02:00 (UTC) 从 `NEVSTOP-LAB/.github` 的 `csm-modsets.md` 抓取。
+  2. **自动同步**：`content/docs/repo-readmes/` —— 由 `.github/workflows/sync-chinese-readmes.yml` 每周一 02:00 (UTC) 从 NEVSTOP-LAB 组织内 public 仓库抓取中文 README。
+  3. **自动同步**：`content/docs/csm-modsets.md` —— 由 `.github/workflows/sync-chinese-readmes.yml` 每周一 02:00 (UTC) 从 `NEVSTOP-LAB/.github` 的 `csm-modsets.md` 抓取。
 
 ## 设计原则（请始终遵守）
 
