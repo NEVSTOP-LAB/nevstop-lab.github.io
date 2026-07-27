@@ -12,11 +12,11 @@ draft: false
 基于 CSM 的应用范例、复用模块（csm-modsets）与示例工程。
 
 - [**CSMScript-Lite**](/docs/repo-readmes/csmscript-lite/) — CSMScript-Lite 中文 README：CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本。LabVIEW · CSM 应用与...
-  `LabVIEW` · ⭐ 27 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
+  `LabVIEW` · ⭐ 28 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
+- [**CSM-ModSets-FileSync**](/docs/repo-readmes/csm-modsets-filesync/) — CSM-ModSets-FileSync 中文 README：基于 CSM 的文件同步模块。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
+  `LabVIEW` · ⭐ 7 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync)
 - [**CSM-Modsets-WaveformDisplay**](/docs/repo-readmes/csm-modsets-waveformdisplay/) — CSM-Modsets-WaveformDisplay 中文 README：CSM 模块: 显示 Waveform。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
   `LabVIEW` · ⭐ 7 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Modsets-WaveformDisplay)
-- [**CSM-ModSets-FileSync**](/docs/repo-readmes/csm-modsets-filesync/) — CSM-ModSets-FileSync 中文 README：基于 CSM 的文件同步模块。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
-  `LabVIEW` · ⭐ 6 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync)
 - [**CSM-ModSets-SplashWindow**](/docs/repo-readmes/csm-modsets-splashwindow/) — CSM-ModSets-SplashWindow 中文 README：CSM Module: Splash Window。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
   `LabVIEW` · ⭐ 6 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-SplashWindow)
 - [**CSM-ModSets-TagRouter**](/docs/repo-readmes/csm-modsets-tagrouter/) — CSM-ModSets-TagRouter 中文 README：CSM Module: Waveform 转 TagDB 模块。LabVIEW · CSM 应用与示例。
@@ -24,7 +24,7 @@ draft: false
 - [**CSM-ModSets-TagDB-UI**](/docs/repo-readmes/csm-modsets-tagdb-ui/) — CSM-ModSets-TagDB-UI 中文 README：CSM 模块：围绕 TagDB 显示的 UI。LabVIEW · CSM 应用与示例。
   `LabVIEW` · ⭐ 4 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-TagDB-UI)
 - [**CSM-Module-Repo-Template**](/docs/repo-readmes/csm-module-repo-template/) — CSM-Module-Repo-Template 中文 README：基于 CSM（可通信状态机） 框架的模块仓库模板。CSM 应用与示例。
-  ⭐ 2 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Module-Repo-Template)
+  ⭐ 3 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Module-Repo-Template)
 
 ## CSM 核心框架与工具
 
@@ -50,7 +50,7 @@ CSM Framework 本体、官方扩展、IDE / 编辑器插件，以及 CSM 相关�
 - [**LabVIEW-UI-XCtl**](/docs/repo-readmes/labview-ui-xctl/) — LabVIEW-UI-XCtl 中文 README：LabVIEW XControls for UI。LabVIEW · LabVIEW 库与工具。收录项目简介、使用方式与相关资源。
   `LabVIEW` · ⭐ 40 · [GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-UI-XCtl)
 - [**LabVIEW-GlobalStop-Library**](/docs/repo-readmes/labview-globalstop-library/) — LabVIEW-GlobalStop-Library 中文 README：Simple stop mechanism for parallel loops in LabVIEW。LabVIEW · LabVIEW 库与工具。
-  `LabVIEW` · ⭐ 14 · [GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-GlobalStop-Library)
+  `LabVIEW` · ⭐ 15 · [GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-GlobalStop-Library)
 - [**LabVIEW-OPCUA-XML-Library**](/docs/repo-readmes/labview-opcua-xml-library/) — LabVIEW-OPCUA-XML-Library 中文 README：Use a XML configuration file to create the NI OPCUA Server。LabVIEW · LabVIEW 库与工具。
   `LabVIEW` · ⭐ 10 · [GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-OPCUA-XML-Library)
 - [**LabVIEW-MassData-Smart-Ptr**](/docs/repo-readmes/labview-massdata-smart-ptr/) — LabVIEW-MassData-Smart-Ptr 中文 README：LabVIEW MassData Smart Pointer Library for Large Memory Requirement/High Speed DAQ Scenario。LabVIEW · LabVIEW...
