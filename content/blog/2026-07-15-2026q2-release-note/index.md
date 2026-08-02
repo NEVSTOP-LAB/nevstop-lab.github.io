@@ -1,5 +1,5 @@
 ---
-title: "2026Q2 Release: BUG修复, 接口、文档维护, 测试用例/流水线改进"
+title: "2026Q2 Release: Linux支持、BUG修复、文档维护, 测试用例/流水线改进"
 description: "CSM 2026Q2 版本更新说明，涵盖 CSM Core、CSM-MassData-Parameter-Support、CSM DAQ Example、CSM TCP Router 等仓库的主要变更。"
 date: 2026-07-15T12:00:00+08:00
 draft: false
@@ -9,7 +9,9 @@ contributors:
 
 > 【2026Q2 精简公告】CSM 2026Q2 已发布并推送至 VIPM。本期重点包括：完成 Linux兼容性测试、Core 框架接口与文档维护、MassData 文档与 CI 路径修复、DAQ Example 的 Bug 修复、TCP Router 结构梳理，以及 CI 流水线统一。建议从 v2026.Q1 升级并重点回归脚本解析与看门狗配置。
 
-2026 年 7 月的 CSM 2026Q2 更新已经推送到 VIPM。如果你觉得 CSM 对你有帮助，请在 GitHub / Gitee 上 star 对应的仓库！也欢迎有经验的 LabVIEW 高手参与到 CSM 的开发中来。
+2026 年 7 月的 CSM 2026Q2 更新已经推送到 VIPM。如果你觉得 CSM 对你有帮助，请在 GitHub / Gitee 上 star 对应的仓库！也欢迎有经验的 LabVIEW 高手参与到 CSM 的开发中来，NEVSTOP-LAB 开放申请，详情参考 github 组织主页描述。
+
+![NEVSTOP-LAB 开放申请，详情参考 github 组织主页描述](img-01.jpg)
 
 - GitHub: https://github.com/NEVSTOP-LAB
 - Gitee: https://gitee.com/NEVSTOP-LAB
@@ -23,6 +25,10 @@ contributors:
 - DAQ Example 修复了两个用户反馈的界面交互 Bug。
 - TCP Router 完成了示例名称规范、文档补全与内部结构梳理。
 - KivenJia (Kevin) 收录了北京 LV 爱好者聚会的 CSM 落地实践讲演资料。
+
+![麒麟系统下实测VIPM安装CSM，LabVIEW2016Q1](img-02.jpg)
+
+![麒麟系统下 CSM 数采案例正常运行](img-03.jpg)
 
 ## 按仓库变更
 
