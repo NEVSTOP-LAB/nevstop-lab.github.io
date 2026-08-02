@@ -7,7 +7,7 @@ contributors:
   - "nevstop"
 ---
 
-> 【2026Q2 精简公告】CSM 2026Q2 已发布并推送至 VIPM。本期重点包括：Core 框架接口与文档维护、MassData 文档与 CI 路径修复、DAQ Example 的 Bug 修复、TCP Router 结构梳理，以及 CI 流水线统一。建议从 v2026.Q1 升级并重点回归脚本解析与看门狗配置。
+> 【2026Q2 精简公告】CSM 2026Q2 已发布并推送至 VIPM。本期重点包括：完成 Linux兼容性测试、Core 框架接口与文档维护、MassData 文档与 CI 路径修复、DAQ Example 的 Bug 修复、TCP Router 结构梳理，以及 CI 流水线统一。建议从 v2026.Q1 升级并重点回归脚本解析与看门狗配置。
 
 2026 年 7 月的 CSM 2026Q2 更新已经推送到 VIPM。如果你觉得 CSM 对你有帮助，请在 GitHub / Gitee 上 star 对应的仓库！也欢迎有经验的 LabVIEW 高手参与到 CSM 的开发中来。
 
@@ -17,6 +17,7 @@ contributors:
 
 ## 版本亮点
 
+- CSM 完成了Linux系统的兼容性测试，修复了所有相关的issue和测试中发现的问题，测试环境：银河麒麟V10系统。
 - CSM Core 根据用户反馈, 对一些接口添加了可选输入引脚, 并修复了若干已知问题。
 - MassData 补充了完整的中英文文档。
 - DAQ Example 修复了两个用户反馈的界面交互 Bug。
@@ -29,6 +30,7 @@ contributors:
 
 **功能改动（重点）**
 
+- [更新] [#550](https://github.com/NEVSTOP-LAB/Communicable-State-Machine/issues/550) Linux 系统兼容性测试完成，修复所有相关的 issue 和测试中发现的问题
 - [更新] [#606](https://github.com/NEVSTOP-LAB/Communicable-State-Machine/issues/606) 为 `CSM - Run Script.vi` 添加 "Sync Response Only (F)" 可选输入引脚
 - [更新] [#607](https://github.com/NEVSTOP-LAB/Communicable-State-Machine/issues/607) 暴露 CSM 看门狗线程的超时等待时间输入（默认 5000ms）
 - [修复] [#620](https://github.com/NEVSTOP-LAB/Communicable-State-Machine/issues/620) 修复 `CSM - Convert Argument to Error.vi` 在边界条件下的转换错误
@@ -44,6 +46,7 @@ contributors:
 
 **用户收益**
 
+- CSM 在 Linux 系统下的可以正常的使用VIPM安装使用。
 - 看门狗超时时间可配置后，在多模块协同场景下可根据模块响应时间灵活调整，减少误报。
 - Sync Response Only 选项可减少同步调用中不必要的数据传输，提升脚本执行效率。
 - 调试工具的稳定性改善，Interface Browser 加载异常修复后，模块接口查阅不再中断。
