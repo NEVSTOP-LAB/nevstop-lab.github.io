@@ -25,9 +25,12 @@ topics: ['labview-csm']
 配合 [CSM VSCode](https://github.com/NEVSTOP-LAB/csm-vsc-extension) 插件的模块管理功能，完成一个利用社区模块完成复杂任务的示例。
 
 > [!NOTE]
-> - CSM VSCode 插件在市场中搜索 CSM 即可获取。
+> <!-- > - CSM VSCode 插件在市场中搜索 CSM 即可获取。 -->
 > - [github-release](https://github.com/NEVSTOP-LAB/csm-vsc-extension/releases) 下载 visx, vscode 中使用命令安装
 > - [github-action](https://github.com/NEVSTOP-LAB/csm-vsc-extension/actions/workflows/ci.yml) 下载未 release 版本visx, vscode 中使用命令安装
+
+> [!WARNING]
+> 由于不还不得知的原因，vscode 插件被微软下架，无法在市场中搜索到。目前最方便的安装方式是通过 [Try-Beta-Version-of-CSMF](https://github.com/NEVSTOP-LAB/Try-Beta-Version-of-CSMF) 工具进行安装。
 
 ![screnshot](https://raw.githubusercontent.com/NEVSTOP-LAB/csm-community-example/main/_docs/Snipaste_2026-06-03_21-21-50.png)
 

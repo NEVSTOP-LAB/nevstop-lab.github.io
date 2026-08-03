@@ -5,24 +5,24 @@ draft: false
 ---
 
 自动同步自 [NEVSTOP-LAB 组织](https://github.com/NEVSTOP-LAB) 内 public 仓库的中文 README，
-当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **27** 个仓库，按主题分组如下：
+当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **28** 个仓库，按主题分组如下：
 
 ## CSM 应用与示例
 
 基于 CSM 的应用范例、复用模块（csm-modsets）与示例工程。
 
 - [**CSMScript-Lite**](/docs/repo-readmes/csmscript-lite/) — CSMScript-Lite 中文 README：CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本。LabVIEW · CSM 应用与...
-  `LabVIEW` · ⭐ 28 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
+  `LabVIEW` · ⭐ 29 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
+- [**CSM-Modsets-WaveformDisplay**](/docs/repo-readmes/csm-modsets-waveformdisplay/) — CSM-Modsets-WaveformDisplay 中文 README：CSM 模块: 显示 Waveform。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
+  `LabVIEW` · ⭐ 8 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Modsets-WaveformDisplay)
 - [**CSM-ModSets-FileSync**](/docs/repo-readmes/csm-modsets-filesync/) — CSM-ModSets-FileSync 中文 README：基于 CSM 的文件同步模块。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
   `LabVIEW` · ⭐ 7 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync)
-- [**CSM-Modsets-WaveformDisplay**](/docs/repo-readmes/csm-modsets-waveformdisplay/) — CSM-Modsets-WaveformDisplay 中文 README：CSM 模块: 显示 Waveform。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
-  `LabVIEW` · ⭐ 7 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Modsets-WaveformDisplay)
 - [**CSM-ModSets-SplashWindow**](/docs/repo-readmes/csm-modsets-splashwindow/) — CSM-ModSets-SplashWindow 中文 README：CSM Module: Splash Window。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
-  `LabVIEW` · ⭐ 6 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-SplashWindow)
+  `LabVIEW` · ⭐ 7 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-SplashWindow)
 - [**CSM-ModSets-TagRouter**](/docs/repo-readmes/csm-modsets-tagrouter/) — CSM-ModSets-TagRouter 中文 README：CSM Module: Waveform 转 TagDB 模块。LabVIEW · CSM 应用与示例。
-  `LabVIEW` · ⭐ 5 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-TagRouter)
+  `LabVIEW` · ⭐ 6 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-TagRouter)
 - [**CSM-ModSets-TagDB-UI**](/docs/repo-readmes/csm-modsets-tagdb-ui/) — CSM-ModSets-TagDB-UI 中文 README：CSM 模块：围绕 TagDB 显示的 UI。LabVIEW · CSM 应用与示例。
-  `LabVIEW` · ⭐ 4 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-TagDB-UI)
+  `LabVIEW` · ⭐ 5 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-TagDB-UI)
 - [**CSM-Module-Repo-Template**](/docs/repo-readmes/csm-module-repo-template/) — CSM-Module-Repo-Template 中文 README：基于 CSM（可通信状态机） 框架的模块仓库模板。CSM 应用与示例。
   ⭐ 3 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Module-Repo-Template)
 
@@ -40,6 +40,8 @@ CSM Framework 本体、官方扩展、IDE / 编辑器插件，以及 CSM 相关�
   `LabVIEW` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/csm-community-example)
 - [**csm-vsc-extension**](/docs/repo-readmes/csm-vsc-extension/) — csm-vsc-extension 中文 README：为 CSM 提供 Visual Studio Code 支持的插件。TypeScript · CSM 核心框架与工具。
   `TypeScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/csm-vsc-extension)
+- [**Try-Beta-Version-of-CSMF**](/docs/repo-readmes/try-beta-version-of-csmf/) — Try-Beta-Version-of-CSMF 中文 README：Add Menu:  Tools >> CSM >> Try Beta Beta Version of CSMF。LabVIEW · CSM 核心框架与工具。
+  `LabVIEW` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/Try-Beta-Version-of-CSMF)
 - [**CSM-LLM-QA**](/docs/repo-readmes/csm-llm-qa/) — CSM-LLM-QA 中文 README：通过 LLM+RAG 实现回复CSM相关问题的基础设施。Python · CSM 核心框架与工具。
   `Python` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-LLM-QA)
 
