@@ -2,17 +2,17 @@
 title: 'csm-vsc-extension'
 linkTitle: 'csm-vsc-extension'
 description: 'csm-vsc-extension 中文 README：为 CSM 提供 Visual Studio Code 支持的插件。TypeScript · CSM 核心框架与工具。'
-weight: -1
+weight: -2
 draft: false
 repo_name: 'NEVSTOP-LAB/csm-vsc-extension'
 repo_url: 'https://github.com/NEVSTOP-LAB/csm-vsc-extension'
 repo_language: 'TypeScript'
-repo_stars: 1
+repo_stars: 2
 repo_group: 'csm-core'
 topics: ['labview-csm', 'typescript', 'vscode']
 ---
 
-> **NEVSTOP-LAB/csm-vsc-extension** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/csm-vsc-extension) · 语言：`TypeScript` · ⭐ 1
+> **NEVSTOP-LAB/csm-vsc-extension** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/csm-vsc-extension) · 语言：`TypeScript` · ⭐ 2
 >
 > 为 CSM 提供 Visual Studio Code 支持的插件
 >
@@ -43,7 +43,9 @@ topics: ['labview-csm', 'typescript', 'vscode']
 - 打开任意 `.csmlog` 或 `.lvcsm` 文件即可自动激活扩展功能
 - `.csmlog` 文件中的重复日志行会自动检测并折叠，可配置阈值与样式
 - 打开侧边栏 **CSM Modules** 视图即可浏览和管理模块
+- 本地与在线模块区域标题栏可点击折叠 / 展开，方便快速收起不关注的一侧
 - 应用模块时可选择直接放到模块根目录，或放入已有/新的嵌套命名空间路径
+- 更新模块时可选择更新到分支最新，或从提交记录 / 标签 / Release / 分支中选择指定版本（含回退到旧版本）
 - 已确认管理的模块目录不会参与后续递归扫描，避免其内部内容被误识别为候选
 - 扩展自动为 `.csmlog` / `.lvcsm` 文件添加 Badge 标记，无需手动设置
 

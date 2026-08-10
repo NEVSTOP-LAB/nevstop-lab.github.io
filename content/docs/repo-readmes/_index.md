@@ -36,10 +36,10 @@ CSM Framework 本体、官方扩展、IDE / 编辑器插件，以及 CSM 相关�
   `LabVIEW` · ⭐ 4 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Mermaid-Plugin)
 - [**csm-keynotes-collection**](/docs/repo-readmes/csm-keynotes-collection/) — csm-keynotes-collection 中文 README：Public CSM Keynotes Collection | 公开的 CSM 讲演资料集合。CSM 核心框架与工具。
   ⭐ 2 · [GitHub](https://github.com/NEVSTOP-LAB/csm-keynotes-collection)
+- [**csm-vsc-extension**](/docs/repo-readmes/csm-vsc-extension/) — csm-vsc-extension 中文 README：为 CSM 提供 Visual Studio Code 支持的插件。TypeScript · CSM 核心框架与工具。
+  `TypeScript` · ⭐ 2 · [GitHub](https://github.com/NEVSTOP-LAB/csm-vsc-extension)
 - [**csm-community-example**](/docs/repo-readmes/csm-community-example/) — csm-community-example 中文 README：使用 csm vscode extension + LabVIEW 创建的范例项目。LabVIEW · CSM 核心框架与工具。
   `LabVIEW` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/csm-community-example)
-- [**csm-vsc-extension**](/docs/repo-readmes/csm-vsc-extension/) — csm-vsc-extension 中文 README：为 CSM 提供 Visual Studio Code 支持的插件。TypeScript · CSM 核心框架与工具。
-  `TypeScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/csm-vsc-extension)
 - [**Try-Beta-Version-of-CSMF**](/docs/repo-readmes/try-beta-version-of-csmf/) — Try-Beta-Version-of-CSMF 中文 README：Add Menu:  Tools >> CSM >> Try Beta Beta Version of CSMF。LabVIEW · CSM 核心框架与工具。
   `LabVIEW` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/Try-Beta-Version-of-CSMF)
 - [**CSM-LLM-QA**](/docs/repo-readmes/csm-llm-qa/) — CSM-LLM-QA 中文 README：通过 LLM+RAG 实现回复CSM相关问题的基础设施。Python · CSM 核心框架与工具。
