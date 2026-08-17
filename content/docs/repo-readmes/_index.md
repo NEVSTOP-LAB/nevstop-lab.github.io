@@ -5,7 +5,7 @@ draft: false
 ---
 
 自动同步自 [NEVSTOP-LAB 组织](https://github.com/NEVSTOP-LAB) 内 public 仓库的中文 README，
-当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **28** 个仓库，按主题分组如下：
+当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **29** 个仓库，按主题分组如下：
 
 ## CSM 应用与示例
 
@@ -13,12 +13,12 @@ draft: false
 
 - [**CSMScript-Lite**](/docs/repo-readmes/csmscript-lite/) — CSMScript-Lite 中文 README：CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本。LabVIEW · CSM 应用与...
   `LabVIEW` · ⭐ 29 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
+- [**CSM-ModSets-FileSync**](/docs/repo-readmes/csm-modsets-filesync/) — CSM-ModSets-FileSync 中文 README：基于 CSM 的文件同步模块。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
+  `LabVIEW` · ⭐ 8 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync)
+- [**CSM-ModSets-SplashWindow**](/docs/repo-readmes/csm-modsets-splashwindow/) — CSM-ModSets-SplashWindow 中文 README：CSM Module: Splash Window。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
+  `LabVIEW` · ⭐ 8 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-SplashWindow)
 - [**CSM-Modsets-WaveformDisplay**](/docs/repo-readmes/csm-modsets-waveformdisplay/) — CSM-Modsets-WaveformDisplay 中文 README：CSM 模块: 显示 Waveform。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
   `LabVIEW` · ⭐ 8 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Modsets-WaveformDisplay)
-- [**CSM-ModSets-FileSync**](/docs/repo-readmes/csm-modsets-filesync/) — CSM-ModSets-FileSync 中文 README：基于 CSM 的文件同步模块。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
-  `LabVIEW` · ⭐ 7 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync)
-- [**CSM-ModSets-SplashWindow**](/docs/repo-readmes/csm-modsets-splashwindow/) — CSM-ModSets-SplashWindow 中文 README：CSM Module: Splash Window。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
-  `LabVIEW` · ⭐ 7 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-SplashWindow)
 - [**CSM-ModSets-TagRouter**](/docs/repo-readmes/csm-modsets-tagrouter/) — CSM-ModSets-TagRouter 中文 README：CSM Module: Waveform 转 TagDB 模块。LabVIEW · CSM 应用与示例。
   `LabVIEW` · ⭐ 6 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-TagRouter)
 - [**CSM-ModSets-TagDB-UI**](/docs/repo-readmes/csm-modsets-tagdb-ui/) — CSM-ModSets-TagDB-UI 中文 README：CSM 模块：围绕 TagDB 显示的 UI。LabVIEW · CSM 应用与示例。
@@ -35,7 +35,7 @@ CSM Framework 本体、官方扩展、IDE / 编辑器插件，以及 CSM 相关�
 - [**CSM-Mermaid-Plugin**](/docs/repo-readmes/csm-mermaid-plugin/) — CSM-Mermaid-Plugin 中文 README：Mermaid Tool Plugin for CSM。LabVIEW · CSM 核心框架与工具。收录项目简介、使用方式与相关资源。
   `LabVIEW` · ⭐ 4 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Mermaid-Plugin)
 - [**csm-keynotes-collection**](/docs/repo-readmes/csm-keynotes-collection/) — csm-keynotes-collection 中文 README：Public CSM Keynotes Collection | 公开的 CSM 讲演资料集合。CSM 核心框架与工具。
-  ⭐ 2 · [GitHub](https://github.com/NEVSTOP-LAB/csm-keynotes-collection)
+  ⭐ 3 · [GitHub](https://github.com/NEVSTOP-LAB/csm-keynotes-collection)
 - [**csm-vsc-extension**](/docs/repo-readmes/csm-vsc-extension/) — csm-vsc-extension 中文 README：为 CSM 提供 Visual Studio Code 支持的插件。TypeScript · CSM 核心框架与工具。
   `TypeScript` · ⭐ 2 · [GitHub](https://github.com/NEVSTOP-LAB/csm-vsc-extension)
 - [**csm-community-example**](/docs/repo-readmes/csm-community-example/) — csm-community-example 中文 README：使用 csm vscode extension + LabVIEW 创建的范例项目。LabVIEW · CSM 核心框架与工具。
@@ -74,7 +74,7 @@ LabVIEW 持续集成相关的 GitHub Actions / VIPM 工具。
 
 - [**GitHub-Gitee-Sync**](/docs/repo-readmes/github-gitee-sync/) — GitHub-Gitee-Sync 中文 README：Sync All the Repos(public/private) between Github and Gitee。Python · lvCICD 与自动化。
   `Python` · ⭐ 2 · [GitHub](https://github.com/NEVSTOP-LAB/GitHub-Gitee-Sync)
-- [**OrgRepoKanban**](/docs/repo-readmes/orgrepokanban/) — OrgRepoKanban 中文 README：管理组织中仓库权限。TypeScript · lvCICD 与自动化。收录项目简介、使用方式与相关资源。
+- [**OrgRepoKanban**](/docs/repo-readmes/orgrepokanban/) — OrgRepoKanban 中文 README：1. 管理组织中仓库权限; 2. 管理私有仓库的Secrets; 3. action 监控看板。TypeScript · lvCICD 与自动化。
   `TypeScript` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/OrgRepoKanban)
 - [**Push-Files-to-Repo**](/docs/repo-readmes/push-files-to-repo/) — Push-Files-to-Repo 中文 README：一个通过 Pull Request 将文件或文件夹从一个仓库推送到另一个仓库的 GitHub Action。Shell · lvCICD...
   `Shell` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/Push-Files-to-Repo)
@@ -92,4 +92,11 @@ LabVIEW / TestStand 等的独立示例项目。
 
 - [**TestStand-User-Interface-Messages-Demo**](/docs/repo-readmes/teststand-user-interface-messages-demo/) — TestStand-User-Interface-Messages-Demo 中文 README 自动同步页，收录项目简介、使用方式与相关资源。
   `LabVIEW` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo)
+
+## 其他
+
+尚未归类的仓库。
+
+- [**dsh-approval-mode**](/docs/repo-readmes/dsh-approval-mode/) — dsh-approval-mode 中文 README：DSH 审批模式插件，在 DSH 窗口的权限下拉框（Read Only / Workspace Write / Full Access）旁边加一个「...
+  `JavaScript` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode)
 

@@ -2,17 +2,17 @@
 title: 'csm-keynotes-collection'
 linkTitle: 'csm-keynotes-collection'
 description: 'csm-keynotes-collection 中文 README：Public CSM Keynotes Collection | 公开的 CSM 讲演资料集合。CSM 核心框架与工具。'
-weight: -2
+weight: -3
 draft: false
 repo_name: 'NEVSTOP-LAB/csm-keynotes-collection'
 repo_url: 'https://github.com/NEVSTOP-LAB/csm-keynotes-collection'
 repo_language: ''
-repo_stars: 2
+repo_stars: 3
 repo_group: 'csm-core'
 topics: ['labview-csm', 'pdf', 'slides']
 ---
 
-> **NEVSTOP-LAB/csm-keynotes-collection** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/csm-keynotes-collection) · ⭐ 2
+> **NEVSTOP-LAB/csm-keynotes-collection** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/csm-keynotes-collection) · ⭐ 3
 >
 > Public CSM Keynotes Collection | 公开的 CSM 讲演资料集合
 >

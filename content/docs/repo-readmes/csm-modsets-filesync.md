@@ -2,17 +2,17 @@
 title: 'CSM-ModSets-FileSync'
 linkTitle: 'CSM-ModSets-FileSync'
 description: 'CSM-ModSets-FileSync 中文 README：基于 CSM 的文件同步模块。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。'
-weight: -7
+weight: -8
 draft: false
 repo_name: 'NEVSTOP-LAB/CSM-ModSets-FileSync'
 repo_url: 'https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync'
 repo_language: 'LabVIEW'
-repo_stars: 7
+repo_stars: 8
 repo_group: 'csm-apps'
 topics: ['csm-modsets', 'labview-csm']
 ---
 
-> **NEVSTOP-LAB/CSM-ModSets-FileSync** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync) · 语言：`LabVIEW` · ⭐ 7
+> **NEVSTOP-LAB/CSM-ModSets-FileSync** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync) · 语言：`LabVIEW` · ⭐ 8
 >
 > 基于 CSM 的文件同步模块
 >
