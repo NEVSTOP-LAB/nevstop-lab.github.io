@@ -2,17 +2,17 @@
 title: 'CSM-Wiki'
 linkTitle: 'CSM-Wiki'
 description: 'CSM-Wiki 中文 README：Wiki website for Communicable State Machine(CSM). Link here。SCSS · CSM 核心框架与工具。'
-weight: -9
+weight: -10
 draft: false
 repo_name: 'NEVSTOP-LAB/CSM-Wiki'
 repo_url: 'https://github.com/NEVSTOP-LAB/CSM-Wiki'
 repo_language: 'SCSS'
-repo_stars: 9
+repo_stars: 10
 repo_group: 'csm-core'
 topics: ['framework', 'html', 'javascript', 'jekyll', 'labview', 'labview-csm', 'scss', 'shell', 'wiki']
 ---
 
-> **NEVSTOP-LAB/CSM-Wiki** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-Wiki) · 语言：`SCSS` · ⭐ 9
+> **NEVSTOP-LAB/CSM-Wiki** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-Wiki) · 语言：`SCSS` · ⭐ 10
 >
 > Wiki website for Communicable State Machine(CSM). Link here:
 >
