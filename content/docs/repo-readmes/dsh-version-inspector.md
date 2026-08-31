@@ -2,17 +2,17 @@
 title: 'dsh-version-inspector'
 linkTitle: 'dsh-version-inspector'
 description: 'dsh-version-inspector 中文 README：DSH 版本信息插件，在 DSH 设置面板新增「版本信息」页，以紧凑多列树展示 DeepSeek Harness...'
-weight: 0
+weight: -1
 draft: false
 repo_name: 'NEVSTOP-LAB/dsh-version-inspector'
 repo_url: 'https://github.com/NEVSTOP-LAB/dsh-version-inspector'
 repo_language: 'JavaScript'
-repo_stars: 0
+repo_stars: 1
 repo_group: 'other'
 topics: ['cordis', 'deepseek-harness', 'dsh', 'dsh-plugin']
 ---
 
-> **NEVSTOP-LAB/dsh-version-inspector** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/dsh-version-inspector) · 语言：`JavaScript` · ⭐ 0
+> **NEVSTOP-LAB/dsh-version-inspector** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/dsh-version-inspector) · 语言：`JavaScript` · ⭐ 1
 >
 > DSH 版本信息插件，在 DSH 设置面板新增「版本信息」页，以紧凑多列树展示 DeepSeek Harness、插件与依赖的版本，支持按包名/版本过滤与 day/dark
 >

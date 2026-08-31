@@ -5,7 +5,7 @@ draft: false
 ---
 
 自动同步自 [NEVSTOP-LAB 组织](https://github.com/NEVSTOP-LAB) 内 public 仓库的中文 README，
-当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **31** 个仓库，按主题分组如下：
+当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **32** 个仓库，按主题分组如下：
 
 ## CSM 应用与示例
 
@@ -13,14 +13,14 @@ draft: false
 
 - [**CSMScript-Lite**](/docs/repo-readmes/csmscript-lite/) — CSMScript-Lite 中文 README：CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本。LabVIEW · CSM 应用与...
   `LabVIEW` · ⭐ 30 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
+- [**CSM-Modsets-WaveformDisplay**](/docs/repo-readmes/csm-modsets-waveformdisplay/) — CSM-Modsets-WaveformDisplay 中文 README：CSM 模块: 显示 Waveform。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
+  `LabVIEW` · ⭐ 10 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Modsets-WaveformDisplay)
 - [**CSM-ModSets-FileSync**](/docs/repo-readmes/csm-modsets-filesync/) — CSM-ModSets-FileSync 中文 README：基于 CSM 的文件同步模块。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
   `LabVIEW` · ⭐ 9 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync)
 - [**CSM-ModSets-SplashWindow**](/docs/repo-readmes/csm-modsets-splashwindow/) — CSM-ModSets-SplashWindow 中文 README：CSM Module: Splash Window。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
   `LabVIEW` · ⭐ 9 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-SplashWindow)
-- [**CSM-Modsets-WaveformDisplay**](/docs/repo-readmes/csm-modsets-waveformdisplay/) — CSM-Modsets-WaveformDisplay 中文 README：CSM 模块: 显示 Waveform。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
-  `LabVIEW` · ⭐ 9 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Modsets-WaveformDisplay)
 - [**CSM-ModSets-TagDB-UI**](/docs/repo-readmes/csm-modsets-tagdb-ui/) — CSM-ModSets-TagDB-UI 中文 README：CSM 模块：围绕 TagDB 显示的 UI。LabVIEW · CSM 应用与示例。
-  `LabVIEW` · ⭐ 6 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-TagDB-UI)
+  `LabVIEW` · ⭐ 7 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-TagDB-UI)
 - [**CSM-ModSets-TagRouter**](/docs/repo-readmes/csm-modsets-tagrouter/) — CSM-ModSets-TagRouter 中文 README：CSM Module: Waveform 转 TagDB 模块。LabVIEW · CSM 应用与示例。
   `LabVIEW` · ⭐ 6 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-TagRouter)
 - [**CSM-Module-Repo-Template**](/docs/repo-readmes/csm-module-repo-template/) — CSM-Module-Repo-Template 中文 README：基于 CSM（可通信状态机） 框架的模块仓库模板。CSM 应用与示例。
@@ -73,7 +73,7 @@ CSM Framework 本体、官方扩展、IDE / 编辑器插件，以及 CSM 相关�
 LabVIEW 持续集成相关的 GitHub Actions / VIPM 工具。
 
 - [**GitHub-Gitee-Sync**](/docs/repo-readmes/github-gitee-sync/) — GitHub-Gitee-Sync 中文 README：Sync All the Repos(public/private) between Github and Gitee。Python · lvCICD 与自动化。
-  `Python` · ⭐ 2 · [GitHub](https://github.com/NEVSTOP-LAB/GitHub-Gitee-Sync)
+  `Python` · ⭐ 3 · [GitHub](https://github.com/NEVSTOP-LAB/GitHub-Gitee-Sync)
 - [**github-runner-trayicon**](/docs/repo-readmes/github-runner-trayicon/) — github-runner-trayicon 中文 README：Github Runner 任务栏托盘程序。PowerShell · lvCICD 与自动化。
   `PowerShell` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/github-runner-trayicon)
 - [**OrgRepoKanban**](/docs/repo-readmes/orgrepokanban/) — OrgRepoKanban 中文 README：1. 管理组织中仓库权限; 2. 管理私有仓库的Secrets; 3. action 监控看板。TypeScript · lvCICD 与自动化。
@@ -100,7 +100,9 @@ LabVIEW / TestStand 等的独立示例项目。
 尚未归类的仓库。
 
 - [**dsh-approval-mode**](/docs/repo-readmes/dsh-approval-mode/) — dsh-approval-mode 中文 README：DSH 审批模式插件，在 DSH 窗口的权限下拉框（Read Only / Workspace Write / Full Access）旁边加一个「...
-  `JavaScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode)
+  `JavaScript` · ⭐ 4 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode)
 - [**dsh-version-inspector**](/docs/repo-readmes/dsh-version-inspector/) — dsh-version-inspector 中文 README：DSH 版本信息插件，在 DSH 设置面板新增「版本信息」页，以紧凑多列树展示 DeepSeek Harness...
-  `JavaScript` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-version-inspector)
+  `JavaScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-version-inspector)
+- [**dsh-deepseek-webchat**](/docs/repo-readmes/dsh-deepseek-webchat/) — Embed DeepSeek web chat (chat.deepseek.com) into DSH. Requirements & design. / 将 DeepSeek 网页版对话嵌入 DSH。需求与设计。
+  `JavaScript` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-deepseek-webchat)
 

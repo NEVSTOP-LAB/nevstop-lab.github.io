@@ -2,17 +2,17 @@
 title: 'GitHub-Gitee-Sync'
 linkTitle: 'GitHub-Gitee-Sync'
 description: 'GitHub-Gitee-Sync 中文 README：Sync All the Repos(public/private) between Github and Gitee。Python · lvCICD 与自动化。'
-weight: -2
+weight: -3
 draft: false
 repo_name: 'NEVSTOP-LAB/GitHub-Gitee-Sync'
 repo_url: 'https://github.com/NEVSTOP-LAB/GitHub-Gitee-Sync'
 repo_language: 'Python'
-repo_stars: 2
+repo_stars: 3
 repo_group: 'lvcicd'
 topics: ['ai', 'docker', 'gitee', 'github-actions', 'python']
 ---
 
-> **NEVSTOP-LAB/GitHub-Gitee-Sync** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/GitHub-Gitee-Sync) · 语言：`Python` · ⭐ 2
+> **NEVSTOP-LAB/GitHub-Gitee-Sync** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/GitHub-Gitee-Sync) · 语言：`Python` · ⭐ 3
 >
 > Sync All the Repos(public/private) between Github and Gitee.
 >
