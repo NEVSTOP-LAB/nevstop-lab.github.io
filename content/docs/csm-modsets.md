@@ -10,7 +10,7 @@ weight: 45
 
 # CSM Modsets Repositories
 
-> 自动生成，最后更新时间：2026-08-30 18:53 UTC
+> 自动生成，最后更新时间：2026-09-06 17:50 UTC
 
 所有公开的、主题（topic）为 [`csm-modsets`](https://github.com/search?q=topic%3Acsm-modsets&type=repositories) 的仓库列表。
 
@@ -18,7 +18,7 @@ weight: 45
 
 | 仓库 | ⭐ | 描述 |
 |------|:---:|------|
-| [CSMScript-Lite](https://github.com/NEVSTOP-LAB/CSMScript-Lite) | 30 | CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本 |
+| [CSMScript-Lite](https://github.com/NEVSTOP-LAB/CSMScript-Lite) | 32 | CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本 |
 | [CSM-TCP-Router-App](https://github.com/NEVSTOP-LAB/CSM-TCP-Router-App) | 12 | Application Example to show how to setup a TCP Server and Client using CSM and JKI TCP Server. |
 | [CSM-Modsets-WaveformDisplay](https://github.com/NEVSTOP-LAB/CSM-Modsets-WaveformDisplay) | 10 | CSM 模块: 显示 Waveform |
 | [CSM-ModSets-SplashWindow](https://github.com/NEVSTOP-LAB/CSM-ModSets-SplashWindow) | 9 | CSM Module: Splash Window |
@@ -39,11 +39,11 @@ weight: 45
 
 | 仓库 | ⭐ | 描述 |
 |------|:---:|------|
-| [CSM-MDI-ViewManager](https://github.com/datadataup/CSM-MDI-ViewManager) | 9 | 基于LabVIEW CSM框架下的MDI模块，运行时对页面进行自定义布局管理 |
+| [CSM-MDI-ViewManager](https://github.com/datadataup/CSM-MDI-ViewManager) | 10 | 基于LabVIEW CSM框架下的MDI模块，运行时对页面进行自定义布局管理 |
 
 ## <a id="LiXinxing77"></a>[LiXinxing77](https://github.com/LiXinxing77) (2)
 
 | 仓库 | ⭐ | 描述 |
 |------|:---:|------|
-| [CSM-Modsets-Curve-Editor](https://github.com/LiXinxing77/CSM-Modsets-Curve-Editor) | 3 | 一个CSM框架的曲线编程器，同时也保留了QHM框架的程序可供对比 |
-| [CSM-Modsets-Grouped-UI](https://github.com/LiXinxing77/CSM-Modsets-Grouped-UI) | 3 | 一种可以分组折叠的导航界面 |
+| [CSM-Modsets-Curve-Editor](https://github.com/LiXinxing77/CSM-Modsets-Curve-Editor) | 4 | 一个CSM框架的曲线编程器，同时也保留了QHM框架的程序可供对比 |
+| [CSM-Modsets-Grouped-UI](https://github.com/LiXinxing77/CSM-Modsets-Grouped-UI) | 4 | 一种可以分组折叠的导航界面 |

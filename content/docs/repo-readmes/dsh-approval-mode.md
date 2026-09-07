@@ -2,17 +2,17 @@
 title: 'dsh-approval-mode'
 linkTitle: 'dsh-approval-mode'
 description: 'dsh-approval-mode 中文 README：DSH 审批模式插件，在 DSH 窗口的权限下拉框（Read Only / Workspace Write / Full Access）旁边加一个「...'
-weight: -4
+weight: -5
 draft: false
 repo_name: 'NEVSTOP-LAB/dsh-approval-mode'
 repo_url: 'https://github.com/NEVSTOP-LAB/dsh-approval-mode'
 repo_language: 'JavaScript'
-repo_stars: 4
+repo_stars: 5
 repo_group: 'other'
 topics: ['cordis', 'deepseek-harness', 'dsh', 'dsh-plugin']
 ---
 
-> **NEVSTOP-LAB/dsh-approval-mode** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode) · 语言：`JavaScript` · ⭐ 4
+> **NEVSTOP-LAB/dsh-approval-mode** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode) · 语言：`JavaScript` · ⭐ 5
 >
 > DSH 审批模式插件，在 DSH 窗口的权限下拉框（Read Only / Workspace Write / Full Access）旁边加一个「审批模式」按钮，在 Workspace Write 模式下工具调用自动放行
 >
