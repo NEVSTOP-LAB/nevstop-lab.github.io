@@ -2,17 +2,17 @@
 title: 'TestStand-User-Interface-Messages-Demo'
 linkTitle: 'TestStand-User-Interface-Messages-Demo'
 description: 'TestStand-User-Interface-Messages-Demo 中文 README 自动同步页，收录项目简介、使用方式与相关资源。'
-weight: -1
+weight: -2
 draft: false
 repo_name: 'NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo'
 repo_url: 'https://github.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo'
 repo_language: 'LabVIEW'
-repo_stars: 1
+repo_stars: 2
 repo_group: 'examples'
 topics: ['example', 'labview', 'teststand']
 ---
 
-> **NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo) · 语言：`LabVIEW` · ⭐ 1
+> **NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo) · 语言：`LabVIEW` · ⭐ 2
 >
 > 主题：`example` · `labview` · `teststand`
 

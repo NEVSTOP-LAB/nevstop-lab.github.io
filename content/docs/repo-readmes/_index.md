@@ -93,14 +93,14 @@ LabVIEW 持续集成相关的 GitHub Actions / VIPM 工具。
 LabVIEW / TestStand 等的独立示例项目。
 
 - [**TestStand-User-Interface-Messages-Demo**](/docs/repo-readmes/teststand-user-interface-messages-demo/) — TestStand-User-Interface-Messages-Demo 中文 README 自动同步页，收录项目简介、使用方式与相关资源。
-  `LabVIEW` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo)
+  `LabVIEW` · ⭐ 2 · [GitHub](https://github.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo)
 
 ## 其他
 
 尚未归类的仓库。
 
 - [**dsh-approval-mode**](/docs/repo-readmes/dsh-approval-mode/) — dsh-approval-mode 中文 README：DSH 审批模式插件，在 DSH 窗口的权限下拉框（Read Only / Workspace Write / Full Access）旁边加一个「...
-  `JavaScript` · ⭐ 5 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode)
+  `JavaScript` · ⭐ 4 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode)
 - [**dsh-version-inspector**](/docs/repo-readmes/dsh-version-inspector/) — dsh-version-inspector 中文 README：DSH 版本信息插件，在 DSH 设置面板新增「版本信息」页，以紧凑多列树展示 DeepSeek Harness...
   `JavaScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-version-inspector)
 - [**dsh-deepseek-webchat**](/docs/repo-readmes/dsh-deepseek-webchat/) — Embed DeepSeek web chat (chat.deepseek.com) into DSH. Requirements & design. / 将 DeepSeek 网页版对话嵌入 DSH。需求与设计。
