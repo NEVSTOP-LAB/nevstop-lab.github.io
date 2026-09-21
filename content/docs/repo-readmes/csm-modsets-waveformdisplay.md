@@ -2,17 +2,17 @@
 title: 'CSM-Modsets-WaveformDisplay'
 linkTitle: 'CSM-Modsets-WaveformDisplay'
 description: 'CSM-Modsets-WaveformDisplay 中文 README：CSM 模块: 显示 Waveform。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。'
-weight: -10
+weight: -11
 draft: false
 repo_name: 'NEVSTOP-LAB/CSM-Modsets-WaveformDisplay'
 repo_url: 'https://github.com/NEVSTOP-LAB/CSM-Modsets-WaveformDisplay'
 repo_language: 'LabVIEW'
-repo_stars: 10
+repo_stars: 11
 repo_group: 'csm-apps'
 topics: ['csm-modsets', 'labview-csm']
 ---
 
-> **NEVSTOP-LAB/CSM-Modsets-WaveformDisplay** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-Modsets-WaveformDisplay) · 语言：`LabVIEW` · ⭐ 10
+> **NEVSTOP-LAB/CSM-Modsets-WaveformDisplay** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/CSM-Modsets-WaveformDisplay) · 语言：`LabVIEW` · ⭐ 11
 >
 > CSM 模块: 显示 Waveform
 >

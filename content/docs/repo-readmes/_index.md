@@ -5,16 +5,16 @@ draft: false
 ---
 
 自动同步自 [NEVSTOP-LAB 组织](https://github.com/NEVSTOP-LAB) 内 public 仓库的中文 README，
-当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **32** 个仓库，按主题分组如下：
+当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **33** 个仓库，按主题分组如下：
 
 ## CSM 应用与示例
 
 基于 CSM 的应用范例、复用模块（csm-modsets）与示例工程。
 
 - [**CSMScript-Lite**](/docs/repo-readmes/csmscript-lite/) — CSMScript-Lite 中文 README：CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本。LabVIEW · CSM 应用与...
-  `LabVIEW` · ⭐ 32 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
+  `LabVIEW` · ⭐ 33 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
 - [**CSM-Modsets-WaveformDisplay**](/docs/repo-readmes/csm-modsets-waveformdisplay/) — CSM-Modsets-WaveformDisplay 中文 README：CSM 模块: 显示 Waveform。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
-  `LabVIEW` · ⭐ 10 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Modsets-WaveformDisplay)
+  `LabVIEW` · ⭐ 11 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Modsets-WaveformDisplay)
 - [**CSM-ModSets-FileSync**](/docs/repo-readmes/csm-modsets-filesync/) — CSM-ModSets-FileSync 中文 README：基于 CSM 的文件同步模块。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
   `LabVIEW` · ⭐ 9 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-ModSets-FileSync)
 - [**CSM-ModSets-SplashWindow**](/docs/repo-readmes/csm-modsets-splashwindow/) — CSM-ModSets-SplashWindow 中文 README：CSM Module: Splash Window。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
@@ -50,7 +50,7 @@ CSM Framework 本体、官方扩展、IDE / 编辑器插件，以及 CSM 相关�
 通用 LabVIEW 库、UI 控件与工具型 VI Package。
 
 - [**LabVIEW-UI-XCtl**](/docs/repo-readmes/labview-ui-xctl/) — LabVIEW-UI-XCtl 中文 README：LabVIEW XControls for UI。LabVIEW · LabVIEW 库与工具。收录项目简介、使用方式与相关资源。
-  `LabVIEW` · ⭐ 40 · [GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-UI-XCtl)
+  `LabVIEW` · ⭐ 41 · [GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-UI-XCtl)
 - [**LabVIEW-GlobalStop-Library**](/docs/repo-readmes/labview-globalstop-library/) — LabVIEW-GlobalStop-Library 中文 README：Simple stop mechanism for parallel loops in LabVIEW。LabVIEW · LabVIEW 库与工具。
   `LabVIEW` · ⭐ 16 · [GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-GlobalStop-Library)
 - [**LabVIEW-OPCUA-XML-Library**](/docs/repo-readmes/labview-opcua-xml-library/) — LabVIEW-OPCUA-XML-Library 中文 README：Use a XML configuration file to create the NI OPCUA Server。LabVIEW · LabVIEW 库与工具。
@@ -101,6 +101,8 @@ LabVIEW / TestStand 等的独立示例项目。
 
 - [**dsh-approval-mode**](/docs/repo-readmes/dsh-approval-mode/) — dsh-approval-mode 中文 README：DSH 审批模式插件，在 DSH 窗口的权限下拉框（Read Only / Workspace Write / Full Access）旁边加一个「...
   `JavaScript` · ⭐ 4 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode)
+- [**dsh-import-copilot-files**](/docs/repo-readmes/dsh-import-copilot-files/) — Load VSCode/Copilot AI configuration (.github/copilot-instructions.md, .github/instructions, .github/skills) into DeepSeek Harness sessions。
+  `JavaScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-import-copilot-files)
 - [**dsh-version-inspector**](/docs/repo-readmes/dsh-version-inspector/) — dsh-version-inspector 中文 README：DSH 版本信息插件，在 DSH 设置面板新增「版本信息」页，以紧凑多列树展示 DeepSeek Harness...
   `JavaScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-version-inspector)
 - [**dsh-deepseek-webchat**](/docs/repo-readmes/dsh-deepseek-webchat/) — Embed DeepSeek web chat (chat.deepseek.com) into DSH. Requirements & design. / 将 DeepSeek 网页版对话嵌入 DSH。需求与设计。
