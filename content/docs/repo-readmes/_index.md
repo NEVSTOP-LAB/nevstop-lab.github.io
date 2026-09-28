@@ -5,7 +5,7 @@ draft: false
 ---
 
 自动同步自 [NEVSTOP-LAB 组织](https://github.com/NEVSTOP-LAB) 内 public 仓库的中文 README，
-当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **33** 个仓库，按主题分组如下：
+当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **32** 个仓库，按主题分组如下：
 
 ## CSM 应用与示例
 
@@ -33,7 +33,7 @@ CSM Framework 本体、官方扩展、IDE / 编辑器插件，以及 CSM 相关�
 - [**CSM-Wiki**](/docs/repo-readmes/csm-wiki/) — CSM-Wiki 中文 README：Wiki website for Communicable State Machine(CSM). Link here。SCSS · CSM 核心框架与工具。
   `SCSS` · ⭐ 10 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Wiki)
 - [**CSM-Mermaid-Plugin**](/docs/repo-readmes/csm-mermaid-plugin/) — CSM-Mermaid-Plugin 中文 README：Mermaid Tool Plugin for CSM。LabVIEW · CSM 核心框架与工具。收录项目简介、使用方式与相关资源。
-  `LabVIEW` · ⭐ 4 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Mermaid-Plugin)
+  `LabVIEW` · ⭐ 5 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Mermaid-Plugin)
 - [**csm-keynotes-collection**](/docs/repo-readmes/csm-keynotes-collection/) — csm-keynotes-collection 中文 README：Public CSM Keynotes Collection | 公开的 CSM 讲演资料集合。CSM 核心框架与工具。
   ⭐ 3 · [GitHub](https://github.com/NEVSTOP-LAB/csm-keynotes-collection)
 - [**csm-vsc-extension**](/docs/repo-readmes/csm-vsc-extension/) — csm-vsc-extension 中文 README：为 CSM 提供 Visual Studio Code 支持的插件。TypeScript · CSM 核心框架与工具。
@@ -55,6 +55,8 @@ CSM Framework 本体、官方扩展、IDE / 编辑器插件，以及 CSM 相关�
   `LabVIEW` · ⭐ 16 · [GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-GlobalStop-Library)
 - [**LabVIEW-OPCUA-XML-Library**](/docs/repo-readmes/labview-opcua-xml-library/) — LabVIEW-OPCUA-XML-Library 中文 README：Use a XML configuration file to create the NI OPCUA Server。LabVIEW · LabVIEW 库与工具。
   `LabVIEW` · ⭐ 10 · [GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-OPCUA-XML-Library)
+- [**NEVSTOP-Programming-Palette**](/docs/repo-readmes/nevstop-programming-palette/) — NEVSTOP-Programming-Palette 中文 README：Collection of the reuse VIs from NEVSTOP-LAB。LabVIEW · LabVIEW 库与工具。
+  `LabVIEW` · ⭐ 8 · [GitHub](https://github.com/NEVSTOP-LAB/NEVSTOP-Programming-Palette)
 - [**LabVIEW-MassData-Smart-Ptr**](/docs/repo-readmes/labview-massdata-smart-ptr/) — LabVIEW-MassData-Smart-Ptr 中文 README：LabVIEW MassData Smart Pointer Library for Large Memory Requirement/High Speed DAQ Scenario。LabVIEW · LabVIEW...
   `LabVIEW` · ⭐ 4 · [GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-MassData-Smart-Ptr)
 - [**LabVIEW-TagDB**](/docs/repo-readmes/labview-tagdb/) — LabVIEW-TagDB 中文 README：Tag Data Container for LabVIEW。LabVIEW · LabVIEW 库与工具。收录项目简介、使用方式与相关资源。
@@ -100,11 +102,7 @@ LabVIEW / TestStand 等的独立示例项目。
 尚未归类的仓库。
 
 - [**dsh-approval-mode**](/docs/repo-readmes/dsh-approval-mode/) — dsh-approval-mode 中文 README：DSH 审批模式插件，在 DSH 窗口的权限下拉框（Read Only / Workspace Write / Full Access）旁边加一个「...
-  `JavaScript` · ⭐ 4 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode)
+  `JavaScript` · ⭐ 6 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode)
 - [**dsh-import-copilot-files**](/docs/repo-readmes/dsh-import-copilot-files/) — Load VSCode/Copilot AI configuration (.github/copilot-instructions.md, .github/instructions, .github/skills) into DeepSeek Harness sessions。
   `JavaScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-import-copilot-files)
-- [**dsh-version-inspector**](/docs/repo-readmes/dsh-version-inspector/) — dsh-version-inspector 中文 README：DSH 版本信息插件，在 DSH 设置面板新增「版本信息」页，以紧凑多列树展示 DeepSeek Harness...
-  `JavaScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-version-inspector)
-- [**dsh-deepseek-webchat**](/docs/repo-readmes/dsh-deepseek-webchat/) — Embed DeepSeek web chat (chat.deepseek.com) into DSH. Requirements & design. / 将 DeepSeek 网页版对话嵌入 DSH。需求与设计。
-  `JavaScript` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-deepseek-webchat)
 

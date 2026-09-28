@@ -2,17 +2,17 @@
 title: 'dsh-approval-mode'
 linkTitle: 'dsh-approval-mode'
 description: 'dsh-approval-mode 中文 README：DSH 审批模式插件，在 DSH 窗口的权限下拉框（Read Only / Workspace Write / Full Access）旁边加一个「...'
-weight: -4
+weight: -6
 draft: false
 repo_name: 'NEVSTOP-LAB/dsh-approval-mode'
 repo_url: 'https://github.com/NEVSTOP-LAB/dsh-approval-mode'
 repo_language: 'JavaScript'
-repo_stars: 4
+repo_stars: 6
 repo_group: 'other'
 topics: ['cordis', 'deepseek-harness', 'dsh', 'dsh-plugin']
 ---
 
-> **NEVSTOP-LAB/dsh-approval-mode** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode) · 语言：`JavaScript` · ⭐ 4
+> **NEVSTOP-LAB/dsh-approval-mode** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode) · 语言：`JavaScript` · ⭐ 6
 >
 > DSH 审批模式插件，在 DSH 窗口的权限下拉框（Read Only / Workspace Write / Full Access）旁边加一个「审批模式」按钮，在 Workspace Write 模式下工具调用自动放行
 >
@@ -22,10 +22,13 @@ topics: ['cordis', 'deepseek-harness', 'dsh', 'dsh-plugin']
 
 # DSH-Approval-Mode
 
-DSH 审批模式插件。在 DSH 窗口的权限下拉框（Read Only / Workspace Write / Full Access）旁边加一个「审批模式」按钮，权限可以保持 **Workspace Write**，审批模式选「绕过审批」——工具调用自动放行，但文件操作仍被沙箱限制在工作区内，比切到 Full Access 更安全、更方便。
+DSH 审批模式插件。在 DSH 窗口的权限下拉框（Read Only / Workspace Write / Full Access）旁边加一个「审批模式」按钮，权限可以保持 **Workspace Write**，审批模式选「绕过审批（提权除外）」——工具调用自动放行，但文件操作仍被沙箱限制在工作区内，比切到 Full Access 更安全、更方便。
 
 > [!IMPORTANT]
-> 「绕过审批」会**自动批准所有工具调用**，包括文件修改、外部命令等敏感操作，全程没有确认提示。
+> 两种「绕过审批」都会**自动批准工具调用**，普通操作全程没有确认提示。
+> - **绕过审批（提权除外）**：普通工具调用自动放行；**工作区外的写文件、命令提权仍会弹窗**，由你决定是否放行这一次。
+> - **绕过审批**：连提权也自动批准，沙箱边界一起放开（高风险）。
+>
 > 只在完全信任当前任务时使用，用完记得切回「默认审批」。
 > 当会话权限为 Full Access 时，DSH 本身不会发起审批请求，此模式不生效。
 
@@ -35,21 +38,35 @@ DSH 审批模式插件。在 DSH 窗口的权限下拉框（Read Only / Workspac
 
 - 按钮在输入框工具栏、权限选择旁边，样式和权限控件一致
 - **默认审批**：和 DSH 原有行为一样，工具调用需要点击批准
-- **绕过审批**：所有工具调用自动批准，不用点击
-- 切换立即生效，重启后保持
-- 绕过审批时按钮显示为橙色
+- **绕过审批（提权除外）**：工具调用自动批准；工作区外写文件、执行命令所需的提权仍会弹窗，由你决定
+- **绕过审批**：所有工具调用自动批准，含提权，不弹任何提示（高风险）
+- 切换立即生效，并按会话持久保存
+- 绕过模式下按钮显示为橙色；提权除外用空心盾牌，全部绕过用闪电
 - 权限为 Full Access 时，按钮置灰并显示「绕过审批」：DSH 不再发起审批请求，模式不可切换
-- 切换模式会通知当前会话的代理
-- 设置 → 插件 → **插件配置**中有本插件的配置卡片，可设置打开会话时使用的默认审批模式
+- 切换模式会通知该会话的代理
+- 「设置 → 插件」中有本插件的**默认审批模式**配置项（DSH 0.1.7+ 由宿主按插件 Config
+  自动渲染；更早版本是「插件配置」里的独立卡片），可设置打开会话时使用的默认审批模式
 
 ## 配置
 
-审批模式有**两个**入口，改的是同一个设置（全局、立即生效、写入 `settings.yaml` 持久保存）：
+审批模式分**两个值**，各有一个入口：
 
-| 入口 | 位置 | 用途 |
+| 入口 | 位置 | 作用范围 |
 | --- | --- | --- |
-| 审批模式按钮 | 输入框工具栏，权限下拉框旁边 | 随手切换当前会话 |
-| 配置卡片 | 设置 → 插件 → 插件配置 | 设置打开会话时使用的默认模式 |
+| 审批模式按钮 | 输入框工具栏，权限下拉框旁边 | **当前会话**：只改这个会话，其他会话不受影响 |
+| 默认审批模式 | 设置 → 插件（0.1.7+）／ 插件配置卡片（0.1.6 及更早） | **默认值**：没有自己模式的会话（含正在运行的）立即跟随；已用按钮单独设过模式的会话不受影响 |
+
+工具栏按钮不会改写默认值；默认值只对没有自己模式的会话生效。想改默认就动设置，想单独放行某个会话就动按钮。
+
+存储位置：**默认模式**是本插件的配置项（DSH 0.1.7+ 由宿主写在 profile patch 里）；
+**按会话的模式**写在 `$DSH_HOME/approval-mode/sessions.json`（插件自有目录，原子写入）。
+两者都立即生效并持久保存。
+
+> [!IMPORTANT]
+> **从 DSH 0.1.6 及更早升级到 0.1.7+ 时**：0.1.7 换掉了旧的 settings 存储通道
+> （`settings.yaml` 会被改名成 `settings.yaml.imported`），旧版本写入的**默认模式**在新宿主上
+> 读不到了，请在「设置 → 插件 → dsh-approval-mode」里重新选一次。按会话的模式由插件首次
+> 启动时自动迁移，无需手动处理。
 
 ## 安装
 
@@ -66,8 +83,10 @@ dsh plugin --profile web add github:NEVSTOP-LAB/dsh-approval-mode
 
 > [!NOTE]
 > **版本要求**：需要 DSH `0.1.1-rc.2` 及以上（0.1.x 线，无上界）；已在 DSH `0.1.5-rc.2`
-> （DSH Desktop 2.0.11）上验证。低于 `0.1.1-rc.2` 的宿主会被 dsh-market 标记为
-> 「低于声明下界」，请先升级 DSH。
+> （DSH Desktop 2.0.11）与 `0.1.7-rc.1`（DSH Desktop 2.0.14）上验证。低于 `0.1.1-rc.2`
+> 的宿主会被 dsh-market 标记为「低于声明下界」，请先升级 DSH。
+> 0.1.7 更换了 settings 服务的契约（插件 Config 取代命名空间），本插件两代都支持；
+> 升级后默认模式需要重设一次，见上文「配置」。
 > 开发、版本声明的判定依据与兼容性校验方法见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
 
 建议锁定提交，避免后续更新改变实际内容：
@@ -79,7 +98,7 @@ dsh plugin --profile web add github:NEVSTOP-LAB/dsh-approval-mode#<commit-sha>
 也可以从 [Releases](https://github.com/NEVSTOP-LAB/dsh-approval-mode/releases) 下载 tarball 安装：
 
 ```sh
-dsh plugin --profile web add ./dsh-approval-mode-0.1.2.tgz
+dsh plugin --profile web add ./dsh-approval-mode-0.1.5.tgz
 ```
 
 安装后确认组合层里出现该插件：
