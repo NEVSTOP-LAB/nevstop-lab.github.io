@@ -5,7 +5,7 @@ draft: false
 ---
 
 自动同步自 [NEVSTOP-LAB 组织](https://github.com/NEVSTOP-LAB) 内 public 仓库的中文 README，
-当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **32** 个仓库，按主题分组如下：
+当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **33** 个仓库，按主题分组如下：
 
 ## CSM 应用与示例
 
@@ -53,6 +53,8 @@ CSM Framework 本体、官方扩展、IDE / 编辑器插件，以及 CSM 相关�
   `LabVIEW` · ⭐ 41 · [GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-UI-XCtl)
 - [**LabVIEW-GlobalStop-Library**](/docs/repo-readmes/labview-globalstop-library/) — LabVIEW-GlobalStop-Library 中文 README：Simple stop mechanism for parallel loops in LabVIEW。LabVIEW · LabVIEW 库与工具。
   `LabVIEW` · ⭐ 16 · [GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-GlobalStop-Library)
+- [**LabVIEW-QuickDrops-Manager**](/docs/repo-readmes/labview-quickdrops-manager/) — LabVIEW-QuickDrops-Manager 中文 README：LabVIEW QuickDrops Manager, which is also a quickdrop itself, assists in managing your quickdrops. With this tool...
+  `LabVIEW` · ⭐ 13 · [GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-QuickDrops-Manager)
 - [**LabVIEW-OPCUA-XML-Library**](/docs/repo-readmes/labview-opcua-xml-library/) — LabVIEW-OPCUA-XML-Library 中文 README：Use a XML configuration file to create the NI OPCUA Server。LabVIEW · LabVIEW 库与工具。
   `LabVIEW` · ⭐ 10 · [GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-OPCUA-XML-Library)
 - [**NEVSTOP-Programming-Palette**](/docs/repo-readmes/nevstop-programming-palette/) — NEVSTOP-Programming-Palette 中文 README：Collection of the reuse VIs from NEVSTOP-LAB。LabVIEW · LabVIEW 库与工具。
@@ -102,7 +104,7 @@ LabVIEW / TestStand 等的独立示例项目。
 尚未归类的仓库。
 
 - [**dsh-approval-mode**](/docs/repo-readmes/dsh-approval-mode/) — dsh-approval-mode 中文 README：DSH 审批模式插件，在 DSH 窗口的权限下拉框（Read Only / Workspace Write / Full Access）旁边加一个「...
-  `JavaScript` · ⭐ 6 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode)
+  `JavaScript` · ⭐ 7 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode)
 - [**dsh-import-copilot-files**](/docs/repo-readmes/dsh-import-copilot-files/) — Load VSCode/Copilot AI configuration (.github/copilot-instructions.md, .github/instructions, .github/skills) into DeepSeek Harness sessions。
   `JavaScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-import-copilot-files)
 

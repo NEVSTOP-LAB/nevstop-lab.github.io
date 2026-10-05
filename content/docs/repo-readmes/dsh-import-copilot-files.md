@@ -94,7 +94,7 @@ DSH 插件：把一个工作区自带的 **VSCode / Copilot 风格 AI 配置**�
 ```sh
 dsh plugin --profile desktop add github:NEVSTOP-LAB/dsh-import-copilot-files
 dsh plugin --profile desktop add github:NEVSTOP-LAB/dsh-import-copilot-files#<commit-sha>  # 锁定提交
-dsh plugin --profile desktop add ./dsh-import-copilot-files-0.2.1.tgz   # 或 Release 附件里的 tarball
+dsh plugin --profile desktop add ./dsh-import-copilot-files-0.3.0.tgz   # 或 Release 附件里的 tarball
 dsh --profile desktop --dump-config                                     # 确认组合层里出现这一行
 dsh plugin --profile desktop remove dsh-import-copilot-files            # 卸载
 ```
@@ -104,7 +104,7 @@ dsh plugin --profile desktop remove dsh-import-copilot-files            # 卸载
 > 条目下的文件都**即时生效**（每个模型步骤重新读盘），只有改插件自身源码才需要再重启。
 
 > [!WARNING]
-> 需要 **DSH ≥ 0.1.7**（实测 Desktop 2.0.14 / dsh `0.1.7-rc.1`）。该版本重做了设置这条链
+> 需要 **DSH ≥ 0.1.7**（实测 Desktop 2.0.16 / dsh `0.2.0-rc.1`）。该版本重做了设置这条链
 > （设置文档改为由插件自己的 `Config` schema 派生、按 Loader 条目 id 寻址），本版本按新形态
 > 实现，**不再兼容 0.1.5 / 0.1.6**（旧版本请用上一版 tag）。如果你在旧版本上装过并保存过
 > `paths`，那份值停在 `~/.dsh/settings.yaml.imported` 里、不会被自动迁移 —— 手工写回
