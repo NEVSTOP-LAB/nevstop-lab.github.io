@@ -12,7 +12,7 @@ draft: false
 基于 CSM 的应用范例、复用模块（csm-modsets）与示例工程。
 
 - [**CSMScript-Lite**](/docs/repo-readmes/csmscript-lite/) — CSMScript-Lite 中文 README：CSMScript Lite版本，一款轻量级脚本执行引擎，用于执行灵活的 CSM 测试脚本。LabVIEW · CSM 应用与...
-  `LabVIEW` · ⭐ 33 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
+  `LabVIEW` · ⭐ 34 · [GitHub](https://github.com/NEVSTOP-LAB/CSMScript-Lite)
 - [**CSM-Modsets-WaveformDisplay**](/docs/repo-readmes/csm-modsets-waveformdisplay/) — CSM-Modsets-WaveformDisplay 中文 README：CSM 模块: 显示 Waveform。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
   `LabVIEW` · ⭐ 11 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Modsets-WaveformDisplay)
 - [**CSM-ModSets-FileSync**](/docs/repo-readmes/csm-modsets-filesync/) — CSM-ModSets-FileSync 中文 README：基于 CSM 的文件同步模块。LabVIEW · CSM 应用与示例。收录项目简介、使用方式与相关资源。
@@ -33,9 +33,9 @@ CSM Framework 本体、官方扩展、IDE / 编辑器插件，以及 CSM 相关�
 - [**CSM-Wiki**](/docs/repo-readmes/csm-wiki/) — CSM-Wiki 中文 README：Wiki website for Communicable State Machine(CSM). Link here。SCSS · CSM 核心框架与工具。
   `SCSS` · ⭐ 10 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Wiki)
 - [**CSM-Mermaid-Plugin**](/docs/repo-readmes/csm-mermaid-plugin/) — CSM-Mermaid-Plugin 中文 README：Mermaid Tool Plugin for CSM。LabVIEW · CSM 核心框架与工具。收录项目简介、使用方式与相关资源。
-  `LabVIEW` · ⭐ 5 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Mermaid-Plugin)
+  `LabVIEW` · ⭐ 6 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Mermaid-Plugin)
 - [**csm-keynotes-collection**](/docs/repo-readmes/csm-keynotes-collection/) — csm-keynotes-collection 中文 README：Public CSM Keynotes Collection | 公开的 CSM 讲演资料集合。CSM 核心框架与工具。
-  ⭐ 3 · [GitHub](https://github.com/NEVSTOP-LAB/csm-keynotes-collection)
+  ⭐ 4 · [GitHub](https://github.com/NEVSTOP-LAB/csm-keynotes-collection)
 - [**csm-vsc-extension**](/docs/repo-readmes/csm-vsc-extension/) — csm-vsc-extension 中文 README：为 CSM 提供 Visual Studio Code 支持的插件。TypeScript · CSM 核心框架与工具。
   `TypeScript` · ⭐ 2 · [GitHub](https://github.com/NEVSTOP-LAB/csm-vsc-extension)
 - [**csm-community-example**](/docs/repo-readmes/csm-community-example/) — csm-community-example 中文 README：使用 csm vscode extension + LabVIEW 创建的范例项目。LabVIEW · CSM 核心框架与工具。
