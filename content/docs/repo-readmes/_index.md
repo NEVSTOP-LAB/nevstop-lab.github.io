@@ -104,7 +104,7 @@ LabVIEW / TestStand 等的独立示例项目。
 尚未归类的仓库。
 
 - [**dsh-approval-mode**](/docs/repo-readmes/dsh-approval-mode/) — dsh-approval-mode 中文 README：DSH 审批模式插件，在 DSH 窗口的权限下拉框（Read Only / Workspace Write / Full Access）旁边加一个「...
-  `JavaScript` · ⭐ 7 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode)
+  `JavaScript` · ⭐ 8 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode)
 - [**dsh-import-copilot-files**](/docs/repo-readmes/dsh-import-copilot-files/) — Load VSCode/Copilot AI configuration (.github/copilot-instructions.md, .github/instructions, .github/skills) into DeepSeek Harness sessions。
   `JavaScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-import-copilot-files)
 
