@@ -5,7 +5,7 @@ draft: false
 ---
 
 自动同步自 [NEVSTOP-LAB 组织](https://github.com/NEVSTOP-LAB) 内 public 仓库的中文 README，
-当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **33** 个仓库，按主题分组如下：
+当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **35** 个仓库，按主题分组如下：
 
 ## CSM 应用与示例
 
@@ -104,7 +104,11 @@ LabVIEW / TestStand 等的独立示例项目。
 尚未归类的仓库。
 
 - [**dsh-approval-mode**](/docs/repo-readmes/dsh-approval-mode/) — dsh-approval-mode 中文 README：DSH 审批模式插件，在 DSH 窗口的权限下拉框（Read Only / Workspace Write / Full Access）旁边加一个「...
-  `JavaScript` · ⭐ 8 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode)
+  `JavaScript` · ⭐ 9 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode)
+- [**dsh-gfm-alerts**](/docs/repo-readmes/dsh-gfm-alerts/) — DSH GitHub 提示块插件：把回复里的 > \[!NOTE\] / \[!TIP\] / \[!IMPORTANT\] / \[!WARNING\] / \[!CAUTION\] 渲染成 GitHub 风格。
+  `JavaScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-gfm-alerts)
 - [**dsh-import-copilot-files**](/docs/repo-readmes/dsh-import-copilot-files/) — Load VSCode/Copilot AI configuration (.github/copilot-instructions.md, .github/instructions, .github/skills) into DeepSeek Harness sessions。
   `JavaScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-import-copilot-files)
+- [**awesome-dsh-plugin**](/docs/repo-readmes/awesome-dsh-plugin/) — awesome-dsh-plugin 中文 README：A curated list of plugins for DeepSeek Harness (dsh) · DeepSeek Harness 插件精选列表。JavaScript · 其他。
+  `JavaScript` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/awesome-dsh-plugin)
 
