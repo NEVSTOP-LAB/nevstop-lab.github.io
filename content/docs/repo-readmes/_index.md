@@ -5,7 +5,7 @@ draft: false
 ---
 
 自动同步自 [NEVSTOP-LAB 组织](https://github.com/NEVSTOP-LAB) 内 public 仓库的中文 README，
-当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **35** 个仓库，按主题分组如下：
+当 README 中包含不少于 50 个中文字符时被收录。当前共收录 **40** 个仓库，按主题分组如下：
 
 ## CSM 应用与示例
 
@@ -33,7 +33,7 @@ CSM Framework 本体、官方扩展、IDE / 编辑器插件，以及 CSM 相关�
 - [**CSM-Wiki**](/docs/repo-readmes/csm-wiki/) — CSM-Wiki 中文 README：Wiki website for Communicable State Machine(CSM). Link here。SCSS · CSM 核心框架与工具。
   `SCSS` · ⭐ 10 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Wiki)
 - [**CSM-Mermaid-Plugin**](/docs/repo-readmes/csm-mermaid-plugin/) — CSM-Mermaid-Plugin 中文 README：Mermaid Tool Plugin for CSM。LabVIEW · CSM 核心框架与工具。收录项目简介、使用方式与相关资源。
-  `LabVIEW` · ⭐ 6 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Mermaid-Plugin)
+  `LabVIEW` · ⭐ 7 · [GitHub](https://github.com/NEVSTOP-LAB/CSM-Mermaid-Plugin)
 - [**csm-keynotes-collection**](/docs/repo-readmes/csm-keynotes-collection/) — csm-keynotes-collection 中文 README：Public CSM Keynotes Collection | 公开的 CSM 讲演资料集合。CSM 核心框架与工具。
   ⭐ 4 · [GitHub](https://github.com/NEVSTOP-LAB/csm-keynotes-collection)
 - [**csm-vsc-extension**](/docs/repo-readmes/csm-vsc-extension/) — csm-vsc-extension 中文 README：为 CSM 提供 Visual Studio Code 支持的插件。TypeScript · CSM 核心框架与工具。
@@ -69,7 +69,7 @@ CSM Framework 本体、官方扩展、IDE / 编辑器插件，以及 CSM 相关�
   `LabVIEW` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-Program-run-on-startup)
 - [**labview-vi-props-skill**](/docs/repo-readmes/labview-vi-props-skill/) — labview-vi-props-skill 中文 README：读取 LabVIEW VI 属性的 Skill。Python · LabVIEW 库与工具。收录项目简介、使用方式与相关资源。
   `Python` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/labview-vi-props-skill)
-- [**QuickDropShortcuts-For-Non-English-LabVIEW**](/docs/repo-readmes/quickdropshortcuts-for-non-english-labview/) — QuickDropShortcuts-For-Non-English-LabVIEW 中文 README 自动同步页，收录项目简介、使用方式与相关资源。
+- [**QuickDropShortcuts-For-Non-English-LabVIEW**](/docs/repo-readmes/quickdropshortcuts-for-non-english-labview/) — 让中文版 LabVIEW 的 Quick Drop 支持英文搜索原生函数节点：替换 INI 中的 QuickDropDiagramShortcuts 配置。
   ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/QuickDropShortcuts-For-Non-English-LabVIEW)
 
 ## lvCICD 与自动化
@@ -96,7 +96,7 @@ LabVIEW 持续集成相关的 GitHub Actions / VIPM 工具。
 
 LabVIEW / TestStand 等的独立示例项目。
 
-- [**TestStand-User-Interface-Messages-Demo**](/docs/repo-readmes/teststand-user-interface-messages-demo/) — TestStand-User-Interface-Messages-Demo 中文 README 自动同步页，收录项目简介、使用方式与相关资源。
+- [**TestStand-User-Interface-Messages-Demo**](/docs/repo-readmes/teststand-user-interface-messages-demo/) — TestStand 与 LabVIEW UI 通过 UIMessage 通讯的示例：约定 SEQ-OI 数据传输协议，界面按协议而非内容设计。
   `LabVIEW` · ⭐ 2 · [GitHub](https://github.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo)
 
 ## 其他
@@ -104,11 +104,21 @@ LabVIEW / TestStand 等的独立示例项目。
 尚未归类的仓库。
 
 - [**dsh-approval-mode**](/docs/repo-readmes/dsh-approval-mode/) — dsh-approval-mode 中文 README：DSH 审批模式插件，在 DSH 窗口的权限下拉框（Read Only / Workspace Write / Full Access）旁边加一个「...
-  `JavaScript` · ⭐ 9 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode)
+  `JavaScript` · ⭐ 10 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode)
+- [**NEVSTOP-LoginWindow**](/docs/repo-readmes/nevstop-loginwindow/) — NEVSTOP-LoginWindow 中文 README：通用登录界面。LabVIEW · 其他。收录项目简介、使用方式与相关资源。
+  `LabVIEW` · ⭐ 10 · [GitHub](https://github.com/NEVSTOP-LAB/NEVSTOP-LoginWindow)
+- [**dsh-net-opt**](/docs/repo-readmes/dsh-net-opt/) — dsh-net-opt 中文 README：解决 provider 请求「连接经常失败」的问题。JavaScript · 其他。收录项目简介、使用方式与相关资源。
+  `JavaScript` · ⭐ 2 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-net-opt)
+- [**dsh-bridge-tunnel-hub**](/docs/repo-readmes/dsh-bridge-tunnel-hub/) — dsh-bridge-tunnel-hub 中文 README：dsh-bridge 公网隧道地址登记：把每台机器的隧道地址汇总到一个 Gist，随时查得到。JavaScript...
+  `JavaScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-bridge-tunnel-hub)
 - [**dsh-gfm-alerts**](/docs/repo-readmes/dsh-gfm-alerts/) — DSH GitHub 提示块插件：把回复里的 > \[!NOTE\] / \[!TIP\] / \[!IMPORTANT\] / \[!WARNING\] / \[!CAUTION\] 渲染成 GitHub 风格。
   `JavaScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-gfm-alerts)
 - [**dsh-import-copilot-files**](/docs/repo-readmes/dsh-import-copilot-files/) — Load VSCode/Copilot AI configuration (.github/copilot-instructions.md, .github/instructions, .github/skills) into DeepSeek Harness sessions。
   `JavaScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-import-copilot-files)
+- [**dsh-nevstop-lab-flavor**](/docs/repo-readmes/dsh-nevstop-lab-flavor/) — dsh-nevstop-lab-flavor 中文 README：让 DSH 更贴合 NEVSTOP-LAB 使用习惯的本地化定制插件。JavaScript · 其他。
+  `JavaScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-nevstop-lab-flavor)
 - [**awesome-dsh-plugin**](/docs/repo-readmes/awesome-dsh-plugin/) — awesome-dsh-plugin 中文 README：A curated list of plugins for DeepSeek Harness (dsh) · DeepSeek Harness 插件精选列表。JavaScript · 其他。
   `JavaScript` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/awesome-dsh-plugin)
+- [**dsh-balance-chip**](/docs/repo-readmes/dsh-balance-chip/) — dsh-balance-chip 中文 README：DeepSeek Harness 多供应商余额圆环：悬停看余额，点击看详情，跟随模型自动刷新。其他。
+  ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-balance-chip)
 

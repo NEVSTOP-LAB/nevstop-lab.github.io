@@ -2,17 +2,17 @@
 title: 'dsh-approval-mode'
 linkTitle: 'dsh-approval-mode'
 description: 'dsh-approval-mode 中文 README：DSH 审批模式插件，在 DSH 窗口的权限下拉框（Read Only / Workspace Write / Full Access）旁边加一个「...'
-weight: -9
+weight: -10
 draft: false
 repo_name: 'NEVSTOP-LAB/dsh-approval-mode'
 repo_url: 'https://github.com/NEVSTOP-LAB/dsh-approval-mode'
 repo_language: 'JavaScript'
-repo_stars: 9
+repo_stars: 10
 repo_group: 'other'
 topics: ['cordis', 'deepseek-harness', 'dsh', 'dsh-plugin']
 ---
 
-> **NEVSTOP-LAB/dsh-approval-mode** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode) · 语言：`JavaScript` · ⭐ 9
+> **NEVSTOP-LAB/dsh-approval-mode** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/dsh-approval-mode) · 语言：`JavaScript` · ⭐ 10
 >
 > DSH 审批模式插件，在 DSH 窗口的权限下拉框（Read Only / Workspace Write / Full Access）旁边加一个「审批模式」按钮，在 Workspace Write 模式下工具调用自动放行
 >
@@ -101,7 +101,7 @@ dsh plugin --profile web add github:NEVSTOP-LAB/dsh-approval-mode#<commit-sha>
 也可以从 [Releases](https://github.com/NEVSTOP-LAB/dsh-approval-mode/releases) 下载 tarball 安装：
 
 ```sh
-dsh plugin --profile web add ./dsh-approval-mode-0.2.0.tgz
+dsh plugin --profile web add ./dsh-approval-mode-0.2.1.tgz
 ```
 
 安装后确认组合层里出现该插件：

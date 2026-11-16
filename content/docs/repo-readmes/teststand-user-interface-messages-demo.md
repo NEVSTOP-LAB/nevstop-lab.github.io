@@ -1,7 +1,7 @@
 ---
 title: 'TestStand-User-Interface-Messages-Demo'
 linkTitle: 'TestStand-User-Interface-Messages-Demo'
-description: 'TestStand-User-Interface-Messages-Demo 中文 README 自动同步页，收录项目简介、使用方式与相关资源。'
+description: 'TestStand 与 LabVIEW UI 通过 UIMessage 通讯的示例：约定 SEQ-OI 数据传输协议，界面按协议而非内容设计。'
 weight: -2
 draft: false
 repo_name: 'NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo'
@@ -13,6 +13,8 @@ topics: ['example', 'labview', 'teststand']
 ---
 
 > **NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/TestStand-User-Interface-Messages-Demo) · 语言：`LabVIEW` · ⭐ 2
+>
+> TestStand 与 LabVIEW UI 通过 UIMessage 通讯的示例：约定 SEQ-OI 数据传输协议，界面按协议而非内容设计
 >
 > 主题：`example` · `labview` · `teststand`
 

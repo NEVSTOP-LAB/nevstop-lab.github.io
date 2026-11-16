@@ -1,7 +1,7 @@
 ---
 title: 'QuickDropShortcuts-For-Non-English-LabVIEW'
 linkTitle: 'QuickDropShortcuts-For-Non-English-LabVIEW'
-description: 'QuickDropShortcuts-For-Non-English-LabVIEW 中文 README 自动同步页，收录项目简介、使用方式与相关资源。'
+description: '让中文版 LabVIEW 的 Quick Drop 支持英文搜索原生函数节点：替换 INI 中的 QuickDropDiagramShortcuts 配置。'
 weight: 0
 draft: false
 repo_name: 'NEVSTOP-LAB/QuickDropShortcuts-For-Non-English-LabVIEW'
@@ -13,6 +13,8 @@ topics: ['application', 'labview', 'quickdrop']
 ---
 
 > **NEVSTOP-LAB/QuickDropShortcuts-For-Non-English-LabVIEW** · 来源：[GitHub](https://github.com/NEVSTOP-LAB/QuickDropShortcuts-For-Non-English-LabVIEW) · ⭐ 0
+>
+> 让中文版 LabVIEW 的 Quick Drop 支持英文搜索原生函数节点：替换 INI 中的 QuickDropDiagramShortcuts 配置
 >
 > 主题：`application` · `labview` · `quickdrop`
 
