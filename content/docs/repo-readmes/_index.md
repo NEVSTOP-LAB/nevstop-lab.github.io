@@ -67,6 +67,8 @@ CSM Framework 本体、官方扩展、IDE / 编辑器插件，以及 CSM 相关�
   `LabVIEW` · ⭐ 3 · [GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-TimerEngine)
 - [**LabVIEW-Program-run-on-startup**](/docs/repo-readmes/labview-program-run-on-startup/) — LabVIEW-Program-run-on-startup 中文 README：LabVIEW范例：如何让程序在系统启动时自启动。LabVIEW · LabVIEW 库与工具。
   `LabVIEW` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/LabVIEW-Program-run-on-startup)
+- [**labview-internal-dialog-watchdog**](/docs/repo-readmes/labview-internal-dialog-watchdog/) — Windows tray watchdog that dismisses blocking LabVIEW Internal Warning/Error dialogs so labview-mcp calls can continue。
+  `C#` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/labview-internal-dialog-watchdog)
 - [**labview-vi-props-skill**](/docs/repo-readmes/labview-vi-props-skill/) — labview-vi-props-skill 中文 README：读取 LabVIEW VI 属性的 Skill。Python · LabVIEW 库与工具。收录项目简介、使用方式与相关资源。
   `Python` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/labview-vi-props-skill)
 - [**QuickDropShortcuts-For-Non-English-LabVIEW**](/docs/repo-readmes/quickdropshortcuts-for-non-english-labview/) — 让中文版 LabVIEW 的 Quick Drop 支持英文搜索原生函数节点：替换 INI 中的 QuickDropDiagramShortcuts 配置。
@@ -119,6 +121,4 @@ LabVIEW / TestStand 等的独立示例项目。
   `JavaScript` · ⭐ 1 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-nevstop-lab-flavor)
 - [**awesome-dsh-plugin**](/docs/repo-readmes/awesome-dsh-plugin/) — awesome-dsh-plugin 中文 README：A curated list of plugins for DeepSeek Harness (dsh) · DeepSeek Harness 插件精选列表。JavaScript · 其他。
   `JavaScript` · ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/awesome-dsh-plugin)
-- [**dsh-balance-chip**](/docs/repo-readmes/dsh-balance-chip/) — dsh-balance-chip 中文 README：DeepSeek Harness 多供应商余额圆环：悬停看余额，点击看详情，跟随模型自动刷新。其他。
-  ⭐ 0 · [GitHub](https://github.com/NEVSTOP-LAB/dsh-balance-chip)
 

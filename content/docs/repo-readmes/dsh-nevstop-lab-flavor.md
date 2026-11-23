@@ -22,7 +22,7 @@ topics: ['deepseek-harness', 'dsh', 'dsh-plugin', 'nevstop-lab']
 
 # dsh-nevstop-lab-flavor
 
-![dsh-nevstop-lab-flavor 头图：DSH 界面中央打开 NEVSTOP-LAB 设置页，七项改动以带图标的 spotlight 标出](https://raw.githubusercontent.com/NEVSTOP-LAB/dsh-nevstop-lab-flavor/main/assets/hero.png)
+![dsh-nevstop-lab-flavor 头图：DSH 界面中央打开 NEVSTOP-LAB 设置页，八项改动以带图标的 spotlight 标出](https://raw.githubusercontent.com/NEVSTOP-LAB/dsh-nevstop-lab-flavor/main/assets/hero.png)
 
 让 DSH 更贴合 NEVSTOP-LAB 使用习惯的本地化定制插件。功能逐项开关，关掉即恢复 DSH 原生行为。
 
@@ -33,10 +33,11 @@ topics: ['deepseek-harness', 'dsh', 'dsh-plugin', 'nevstop-lab']
 | <img src="assets/icons/provider.svg" width="20" height="20" alt=""> | [模型供应商前缀](docs/features/provider-label.md) | 开 | 在模型名旁标出供应商，同名模型一眼可辨，不会选错来源。 |
 | <img src="assets/icons/keys.svg" width="20" height="20" alt=""> | [编写器键位](docs/features/composer-keys.md) | 开 | 自定义每个键是换行、排队还是插话，让发送手感贴合个人习惯。 |
 | <img src="assets/icons/sidebar.svg" width="20" height="20" alt=""> | [侧边栏面板图标](docs/features/sidebar-panels.md) | 开 | 侧栏顶部只留一排图标，把纵向空间让给会话列表；末尾按钮可切回官方列表。 |
-| <img src="assets/icons/sessions.svg" width="20" height="20" alt=""> | [活跃会话区](docs/features/active-sessions.md) | 开 | 在「工作区」上方列出最近活跃的会话，随时切回正在处理的工作。 |
+| <img src="assets/icons/sessions.svg" width="20" height="20" alt=""> | [活跃会话区](docs/features/active-sessions.md) | 开 | 在「工作区」上方列出最近活跃的会话；标题旁的 Dashboard 按钮打开多会话同屏预览，下方保留输入框与会话统计，点击格子即可切到对应会话并继续输入；格子内容默认 90% 缩放；侧栏收成图标态时换成图标与标题首字。 |
 | <img src="assets/icons/model.svg" width="20" height="20" alt=""> | [新会话默认模型](docs/features/default-model.md) | 开 | 新会话固定使用指定模型，避免沿用上个会话的选择多花冤枉钱。 |
 | <img src="assets/icons/balance.svg" width="20" height="20" alt=""> | [余额圆环](docs/features/balance-ring.md) | 开 | 在输入框右侧显示余额或用量，随时知道还能用多少。 |
 | <img src="assets/icons/machine.svg" width="20" height="20" alt=""> | [本机标识](docs/features/machine-badge.md) | 开 | 侧栏底部长显本机名称、标签页标题带同一前缀，远程时一眼分辨是哪台机器。 |
+| <img src="assets/icons/queue.svg" width="20" height="20" alt=""> | [排队消息默认展开](docs/features/queue-dock.md) | 开 | 排队发送的消息面板默认展开列出，之后手动展开/收起照旧；关掉即回原生折叠。 |
 
 设置入口：**设置 → NEVSTOP-LAB**。发送按钮的外观与快捷键提示跟随「编写器键位」开关，不单独占开关。
 
